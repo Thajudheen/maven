@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Responsibilities" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="ea15733c-b63d-4a7f-80a2-845e9c95a5e2">
+		<parameter name="CMIS" class="java.lang.String"/>
+		<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<subDataset name="Table Dataset 2" uuid="7e4d6992-089d-4de0-b116-dab93bf90c6f">
+		<parameter name="CMIS" class="java.lang.String"/>
+		<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="31" y="22" width="498" height="18" forecolor="#00457C" backcolor="#BDB8B3" uuid="a854bd7f-f8fd-487d-befa-8a45e25d6f1f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{quote.responsibilities.heading}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RealSize" vAlign="Bottom">
+				<reportElement x="32" y="-20" width="489" height="74" uuid="9fea721e-10eb-42e3-99b5-0db74f16e679"/>
+				<imageExpression><![CDATA[$P{REPORT_LOCALE}.toString().startsWith("en")?$P{CMIS} +"/logos/HeaderResponsibility.PNG":$P{CMIS} + "/logos/HeaderResponsibility_tr.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="696" splitType="Stretch">
+			<componentElement>
+				<reportElement key="tableX" positionType="Float" mode="Opaque" x="32" y="9" width="490" height="681" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="dcc13b81-08d2-4e94-9aba-6aeac97ae77e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Table Dataset 2" uuid="950b55c4-554f-4705-81aa-fbeb8ec41b4b">
+						<datasetParameter name="CMIS">
+							<datasetParameterExpression><![CDATA[$P{CMIS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Quote">
+							<datasetParameterExpression><![CDATA[$P{Quote}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="370" uuid="a4a0c171-8ebd-438b-a1c3-2b79e194a4a3">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="370" height="20" forecolor="#FFFFFF" backcolor="#00457C" uuid="72063590-6de3-49e1-8a85-1eeda0846b47"/>
+								<textElement verticalAlignment="Middle">
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.description}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:columnHeader height="650" rowSpan="1">
+							<frame>
+								<reportElement x="0" y="0" width="370" height="29" uuid="6a576430-a3a6-4d45-8559-1a56f7fcc96b"/>
+								<textField>
+									<reportElement positionType="Float" mode="Opaque" x="44" y="2" width="323" height="25" backcolor="#FFFFFF" uuid="2c01d7e0-71a9-484b-b14e-8f373877534a"/>
+									<textElement verticalAlignment="Middle">
+										<font fontName="Arial" pdfEncoding="Identity-H"/>
+										<paragraph leftIndent="14"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$R{quote.responsibilities.explain} + " "]]></textFieldExpression>
+								</textField>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="8" y="7" width="36" height="14" isRemoveLineWhenBlank="true" uuid="bcb2a305-1a10-4d7d-bc5a-3eafce1337d4">
+										<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="29" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="52dd0b31-c01d-4363-8f12-484a0858e717">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.1}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="52" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="9e7c8162-e946-4ea6-a1c4-95a2fca3126b">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.2}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="75" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="a1db7607-347e-44b2-bf19-e9c8fa51ee5c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.3}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="98" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="6c18a5a3-165b-4f1a-adf7-b9193766c3df">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.4}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="121" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="e86dacd3-7883-458d-baf4-690cae216077">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.5}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="144" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="c3a5699f-f907-417a-9562-5bf8f468cfbc">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.6}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="167" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="0f01774b-a34a-4f77-ba05-16b6de2b32a7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.7}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="190" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="dd020438-b859-47aa-b3ad-cf0808e2be30">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.8}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="213" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="39f0df18-3836-4b3b-900a-9b9f856a678a">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.9}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="236" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="999e09c0-be6d-4eda-a13b-14ac2d324be3">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.10}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="259" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="308fbc29-59dd-4ad0-9e2d-8e31c1eefe8c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.11}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="282" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="f7833347-a5a4-4fa0-8556-a55a9d1caa65">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.12}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="305" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="5a4e179a-8b51-4886-97f6-61c64966fc85">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.13}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="328" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="bb32f56b-672e-453e-8966-cb5da5c9f2a2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.14}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="351" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="cf85bce8-e41e-4c8d-981a-9febb534581b">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.15}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="374" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="aeab8207-e737-42b3-b502-7879dac017c8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.16}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="397" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="749cabde-47f2-422e-b893-07e88c2d29de">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.17}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="420" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="d7ed998a-4176-4fdd-ade8-22c0f4135a2c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.18}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="443" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="21dcfa5a-718d-4e6a-b3b6-1d17cfdbc454">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.19}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="466" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="965ba21b-3b12-4e19-9532-9418827e523b">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.20}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="489" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="bce4f509-3979-4db4-be9e-fd705ef12396">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.21}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="512" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="f354ffff-387b-407d-9cd0-5037fa28503d">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.22}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="535" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="33b79576-73e4-4b09-90b3-d32c4097570f">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.23}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="558" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="b93377cd-cde8-422e-b6c7-bff7b3256e96">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.24}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="581" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="00e9a58e-c12b-4577-9dbf-265b75f2e37e">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.25}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="604" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="2a23d55f-5ba8-4382-8562-5b4f7c172338">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.26}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" mode="Opaque" x="0" y="627" width="370" height="23" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="0c748fe1-921b-4fd6-8909-f1186dfc8787">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" pdfEncoding="Identity-H"/>
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.27}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="0">
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+							<box>
+								<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+							</box>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="33d6488c-b5ef-45fa-b5b0-2ab5b6535805">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="60" height="20" forecolor="#FFFFFF" backcolor="#00457C" uuid="7d3110fd-e1fe-4d79-9a76-e38a721755a4"/>
+								<textElement verticalAlignment="Middle">
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.seller}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:columnHeader height="650" rowSpan="1">
+							<rectangle>
+								<reportElement positionType="Float" x="0" y="0" width="60" height="29" uuid="d0b3a429-a54f-4f7a-a50e-da39826ab2e2"/>
+								<graphicElement>
+									<pen lineWidth="0.0" lineStyle="Solid" lineColor="rgba(176, 171, 171, 0.0)"/>
+								</graphicElement>
+							</rectangle>
+							<frame>
+								<reportElement positionType="Float" x="0" y="29" width="60" height="23" isRemoveLineWhenBlank="true" uuid="e6d3ccca-276f-43e9-ac6b-21e8131835f8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="fd6477a3-daf6-47d2-bc14-dceea10f7b4e">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									</reportElement>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="235f0865-d764-46c2-8f9e-c1b6aa8619d6">
+										<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="52" width="60" height="23" isRemoveLineWhenBlank="true" uuid="b018d310-b060-4a10-b939-f42cc49196ca">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="2839b570-07eb-4517-9377-5c4fb0a31a64"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="558bb29a-eea8-4212-a0b0-5c11ab15d0f2">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="75" width="60" height="23" isRemoveLineWhenBlank="true" uuid="af439f6a-d99c-416f-914e-5f9d97330a68">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="fb015bec-1cd1-450f-88a8-740f72482a19"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="75c875f2-3e45-42c9-a39b-d958bde81d08">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="98" width="60" height="23" isRemoveLineWhenBlank="true" uuid="759c68f1-f1b2-4152-bfaa-146050842306">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="f4576371-50d3-4269-8258-363b1e59b934"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="8c995c2e-d701-4934-bf37-1b8d3a68679d">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="121" width="60" height="23" isRemoveLineWhenBlank="true" uuid="b1fdbabb-9814-4ec8-99c5-4e2bf99496b7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="f0db6cbc-0689-4ebf-bd9d-8e839c97aadc"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="eee8cbcb-b5ed-4a3f-8328-88412c00f045">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="144" width="60" height="23" isRemoveLineWhenBlank="true" uuid="cbd54d73-6f27-4a56-9af0-844fe6f27d48">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="13dc48a6-27c6-4375-9ddf-d094025d5f5a"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="002d0f61-3c7b-4b30-8765-9f7240709913">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="167" width="60" height="23" isRemoveLineWhenBlank="true" uuid="40ae39c1-cc3b-4fa3-a55d-72a98c246105">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7078ac04-7ab1-4a4f-8ba7-82aa51870e53"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="5c0bde75-f6df-47f2-afbc-c68d282c1a26">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="190" width="60" height="23" isRemoveLineWhenBlank="true" uuid="64b6c1c1-ef3e-4705-ac08-5d4160511340">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="15ea2275-39cd-48b0-8db3-8ce850e52c22"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="a08ad855-4922-4f05-96b9-cc778ffc2a2f">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="213" width="60" height="23" isRemoveLineWhenBlank="true" uuid="909a2bd1-96c8-41cf-9a8c-00d136d83158">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="fe8f7230-f398-47b2-96cd-0144d12a749c"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="90e75364-8f1c-4e9e-a189-a67f6a81ac36">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="236" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7b7b10be-688a-4f6e-9bb9-720beccee0c5">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="529fb38f-75ce-474e-9453-7aa0965beeeb"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="3d299612-9f8b-430b-801b-e6f535cbc25f">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="259" width="60" height="23" isRemoveLineWhenBlank="true" uuid="244aa04f-2df3-4033-b0ab-652704652dd8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="c4d3a8c0-78b0-4090-8978-d2cb8191ae17"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="9468bf68-0450-4912-857f-ffd73d8a128d">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="282" width="60" height="23" isRemoveLineWhenBlank="true" uuid="92c2056c-ce4a-4aaa-acad-aa6e5f2a9e69">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="a65e663c-aecb-4209-a7e2-6e683ac7a708"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="1624c6d8-84d6-47d7-ba76-37038fa53c25">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="305" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7d1509d3-95a1-4013-b425-cf2467f877fa">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ca4d9bbd-fa72-4c12-9919-a0c46c774292"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="823f7fac-a2c9-4da4-9a00-9161dbcaa451">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement key="" positionType="Float" x="0" y="328" width="60" height="23" isRemoveLineWhenBlank="true" uuid="f60dfd80-7448-45c5-a224-3383a3b7ca76">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="dab1b080-c5f2-41a3-85f1-e5231490698d"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="ae2c1b5e-967a-4c80-9fd1-b12aba109a73">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement key="" positionType="Float" x="0" y="351" width="60" height="23" isRemoveLineWhenBlank="true" uuid="8c41fd19-91f0-4c9c-98d6-e96053c6e66b">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7ab9ca9c-cb7e-46ce-b77b-b697e7797d0d"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="184db477-f6ad-4cb3-b8b6-bc6ac37fd958">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="374" width="60" height="23" isRemoveLineWhenBlank="true" uuid="41d45430-30b6-45c8-a1d0-edc110a515f9">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7e9271f4-d432-468d-af69-5c7c157f7512"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="e7a20612-e40c-430f-88cd-2425d433b1b8">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="397" width="60" height="23" isRemoveLineWhenBlank="true" uuid="fd98eec5-cfe3-4c28-9ff2-eb76d1c010d8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="6b42fffe-8bd2-4a4c-96ae-25855082b254"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="fe5ecd9f-b9c5-4eb8-8583-1faf3d029779">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="420" width="60" height="23" isRemoveLineWhenBlank="true" uuid="1354f919-98e8-4502-b0c7-81819c5f0a16">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="02085aa5-4aeb-4df4-90c1-fb3ac52494b0"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="6de32448-bfb8-4d2a-b803-9c174e48f113">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="443" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ed13d3b8-75cf-494c-8de3-0e90ee46bc49">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="c4fe688f-2500-4dea-9f8d-9e03f8bebf0f"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="b7166565-f2c1-4e7c-be5d-1cd93b4ad24f">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="466" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ca613dfc-1ba1-4b73-b788-fddbf7651032">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="32638fd2-408b-4ee5-a774-2780b5841281"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="35e895e8-b713-4c12-bc39-7d24fe8d1c29">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement key="" positionType="Float" x="0" y="489" width="60" height="23" isRemoveLineWhenBlank="true" uuid="93fe5d2f-f4a4-44ee-a4f9-f01abb757716">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="5768ba14-49ce-4cc0-bcae-3d53031f94ec"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="f976c31d-163a-4f60-b8f4-45838c5afdad">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="512" width="60" height="23" isRemoveLineWhenBlank="true" uuid="6317e5eb-b196-4195-ada1-5be10c3c2a37">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ed8356ed-400c-40c5-bbd1-056af32e597f"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="d92047a3-9a51-445e-9265-ba09cf89bad4">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="535" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7f83441b-b715-43dc-9bef-947e398dcf4a">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="61b7afc0-91bb-47a4-b4b5-1a18a120cf5f"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="71c516b3-5bab-4501-b034-702cd4a4a831">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="558" width="60" height="23" isRemoveLineWhenBlank="true" uuid="97722359-6106-41bd-974f-573159378510">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="dfced22a-fb99-40c3-b8ed-bef9d996775d"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="6b8c0cb6-c8e5-4a1a-b2e0-0f28e4918d71">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="581" width="60" height="23" isRemoveLineWhenBlank="true" uuid="b2cf9672-c342-4bc8-9e33-ec14751ce80a">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="bfdea1e6-4640-4b8c-8000-fcc33ce23f22"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="3d5575fb-aca2-4202-aa90-b3aad3518ce3">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="604" width="60" height="23" isRemoveLineWhenBlank="true" uuid="d12a90d1-e6af-49c5-8ed4-996f25f78738">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="b3637767-3f73-4f09-9b45-b561a42b8efd"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="fee4c3b9-6366-4074-9251-bbf54f7842ce">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="627" width="60" height="23" isRemoveLineWhenBlank="true" uuid="c9274c5f-2f58-4397-b9a4-d3bca8a4a24c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="fba3f5d1-9e6f-4e2c-a7d0-7f984f785256"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="2ea01d4e-b266-4e6e-9c27-f772ffa1f805">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()=="Seller"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="0">
+							<box>
+								<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+							</box>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="dc096548-7605-4fdc-b8a1-399cc70db00e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="60" height="20" forecolor="#FFFFFF" backcolor="#00457C" uuid="d4e987e8-a9ed-422c-bd4d-d05b538eb1bc"/>
+								<textElement verticalAlignment="Middle">
+									<paragraph leftIndent="14"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.buyer}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:columnHeader height="650" rowSpan="1">
+							<rectangle>
+								<reportElement positionType="Float" mode="Transparent" x="0" y="0" width="60" height="29" uuid="c50cc5b9-6720-4c92-95d5-a28f75867057"/>
+								<graphicElement>
+									<pen lineWidth="0.0" lineStyle="Solid" lineColor="rgba(176, 171, 171, 0.0)"/>
+								</graphicElement>
+							</rectangle>
+							<frame>
+								<reportElement positionType="Float" x="0" y="29" width="60" height="23" isRemoveLineWhenBlank="true" uuid="0cefb907-a801-4576-bedd-45f5f25075a5">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="1bda177d-f40f-4f03-9a72-989aeba41939"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="5f1c5197-ae43-4424-9ac4-5b35a322eba3">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="52" width="60" height="23" isRemoveLineWhenBlank="true" uuid="abb61390-0bf1-42bf-8674-dbd8bbb044f8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="2eb91016-2319-4bd9-ac0c-0f3d0c18da71"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="b5607e19-23a2-4b31-9f85-a39c8f63eb41">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="75" width="60" height="23" isRemoveLineWhenBlank="true" uuid="6401a449-a81d-484d-a541-52e504327543">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="5d9bbb84-4b43-4589-aee0-1eeacce2b3f1"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="c005469e-836a-4877-a0fa-35c824e7045d">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="98" width="60" height="23" isRemoveLineWhenBlank="true" uuid="a1acd01b-ebca-4eff-9f18-dca999dcd2b5">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="2d2aed89-75fe-4b2c-9410-9b8716ad8df4"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="78f7d0b0-2440-4149-9753-e8db06fa6a6f">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="121" width="60" height="23" isRemoveLineWhenBlank="true" uuid="24926d10-9b3e-4bdb-9e67-057d999e586c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ac69425d-a79f-490f-a4b1-bbe0c70fbee5"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="070efcdf-7c65-4d3c-9177-218347c630b2">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="144" width="60" height="23" isRemoveLineWhenBlank="true" uuid="c256eff6-e4b5-48e2-9107-9820efea9c72">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="7c2cf415-aaf2-4318-81fd-2de467636ca5"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="f83d4a05-ab3b-456d-b113-ed99918ca033">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="167" width="60" height="23" isRemoveLineWhenBlank="true" uuid="a5258f5b-ee1d-45b5-8126-1acb952b0a2f">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="1287def7-5532-49ca-9918-80bfe59bb68e"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="d0da21f8-b55f-450d-8396-95bd0034dcaf">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="190" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ebc5911e-bae1-4015-9228-86a1f1730b70">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="ac445f4f-4001-4936-b729-74aace45cf2a"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="490014ec-6f24-45c7-9699-68c8a1496507">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="213" width="60" height="23" isRemoveLineWhenBlank="true" uuid="581278c4-ee4e-4640-9ae2-dc3c38efe1f7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="0c23af78-6477-4c15-9e6a-26a255ffe40d"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="c45ea0fd-dfe3-4a88-a916-e73db20a80d7">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="236" width="60" height="23" isRemoveLineWhenBlank="true" uuid="8057caa6-5400-4f38-8a26-6ecaca351de3">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="46927dc5-ef2b-42f3-a12d-0df9df755c61"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="6ac855e7-3123-4e7a-9317-51bf06d3e0b5">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="259" width="60" height="23" isRemoveLineWhenBlank="true" uuid="b1613a69-098e-45bb-b418-1c2cc29ff0d2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="3216a7a5-5778-4751-baaf-9ffeb0591429"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="bd2b2f8e-2407-4eda-ab26-41173daa251b">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="282" width="60" height="23" isRemoveLineWhenBlank="true" uuid="2865dd3b-621e-4b4b-8dd9-8b18213de326">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="5eff3af5-3bcb-45ef-b44c-65bd56239a06"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="4e5b37e8-9f7d-463e-ad10-107b6525d6df">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="305" width="60" height="23" isRemoveLineWhenBlank="true" uuid="4b4d23d1-b219-47ae-8298-90ac70e19d42">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="5818853f-e948-45af-b184-271a5161a5b7"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="50811c8b-9e64-4ad5-af5b-f6ae06fdbc82">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="328" width="60" height="23" isRemoveLineWhenBlank="true" uuid="76fad7bd-d981-496c-864f-97e501850153">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="220377d1-7ad8-4196-a641-01b5b256e7d6"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="575a711b-8e90-464c-bdcf-41fdfa04c4c5">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="351" width="60" height="23" isRemoveLineWhenBlank="true" uuid="036b7adf-f0ae-497b-a306-e9345a2fde1d">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="9aa54b6d-9851-483d-92d1-cba6473e2fc6">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									</reportElement>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="6e8feeaf-7481-40e3-ab29-7947a56ae82d">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="374" width="60" height="23" isRemoveLineWhenBlank="true" uuid="4c136658-e9cf-4ede-b83b-84a98edc7de6">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="30ac5aaa-5977-4a76-a1d6-188c0b05b393">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									</reportElement>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="77ef6833-108b-4e15-9627-a8919ab9b528">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="397" width="60" height="23" isRemoveLineWhenBlank="true" uuid="63ea761f-a8bb-40a3-b502-56b3228c8c37">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="c587a110-0ef5-4468-82c7-5ff8225555dd">
+										<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									</reportElement>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="8639a585-22a1-4178-adc7-d645b39ad2d8">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="420" width="60" height="23" isRemoveLineWhenBlank="true" uuid="6b1ec169-8cf7-421b-a2c6-ca2957980591">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="9aaa8ca8-2f42-4716-adb2-3e57dffb5ee1"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="6c4069c2-3e83-45c9-a895-43ce71971223">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="443" width="60" height="23" isRemoveLineWhenBlank="true" uuid="1caa619f-b29a-476c-8a9f-9e90f79f75f6">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="3739fbd5-8957-4648-b9a2-bfd30a5f677f"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="844c5ba3-68a4-4e81-8397-aa9a71cc937b">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="466" width="60" height="23" isRemoveLineWhenBlank="true" uuid="63f99950-1aa2-4d10-8dec-1b0973cea0c8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="1c2b20f3-8408-4403-abf7-7397763871e2"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="a97edfab-b950-4461-b918-6e3c991fdba9">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="489" width="60" height="23" isRemoveLineWhenBlank="true" uuid="e248f0dd-4b8d-4f3c-a1b8-e774e6510192">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="6f03cc79-3c41-483b-a156-a3e7a356c063"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="1" width="36" height="14" isRemoveLineWhenBlank="true" uuid="14818624-f2e4-43c0-ba38-953fcb002576">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="512" width="60" height="23" isRemoveLineWhenBlank="true" uuid="6f55c956-be93-45d3-94b4-f9008b76074d">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="d6c378b2-da33-40aa-be51-33ccb15b31e6"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="1" width="36" height="14" isRemoveLineWhenBlank="true" uuid="1d870bf1-982f-46fd-9f96-1110da11a8f2">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="535" width="60" height="23" isRemoveLineWhenBlank="true" uuid="a3075a63-4e34-4c5d-a4cf-97fad16945b6">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="e8f87c6f-5557-41d1-a379-37cdafd188b6"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="1" width="36" height="14" isRemoveLineWhenBlank="true" uuid="ec0ab782-299a-4ef1-93eb-f3675051f0e5">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="558" width="60" height="23" isRemoveLineWhenBlank="true" uuid="e61344d7-3a30-43a1-938b-790723ff6e41">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="9635b2e4-34d3-4545-bdde-698431269e93"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="3" width="36" height="14" isRemoveLineWhenBlank="true" uuid="e9b70c2c-5c81-431b-a728-b34441d8d7e1">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="581" width="60" height="23" isRemoveLineWhenBlank="true" uuid="564e39de-8b69-48a2-a96a-a665107bc008">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="15fb3561-b739-4352-b581-bd9c5f92463f"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="dda4d064-f5b1-4c49-bbc9-08414bb2a2da">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="604" width="60" height="23" isRemoveLineWhenBlank="true" uuid="64616b9f-c694-4ebc-9dde-4768fb43466c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="4d1527c1-4680-4fce-920f-88ad7c444532"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="9715d5c1-0071-47a0-97fe-2a1a6694de0a">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement positionType="Float" x="0" y="627" width="60" height="23" isRemoveLineWhenBlank="true" uuid="3066f8a0-3405-4043-9da6-3922365286a2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<rectangle>
+									<reportElement positionType="Float" x="0" y="0" width="60" height="23" isRemoveLineWhenBlank="true" uuid="8b495af1-5e1e-4a86-9dc9-6fd8f3c6f394"/>
+									<graphicElement>
+										<pen lineStyle="Solid" lineColor="#B0ABAB"/>
+									</graphicElement>
+								</rectangle>
+								<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+									<reportElement positionType="Float" x="11" y="2" width="36" height="14" isRemoveLineWhenBlank="true" uuid="d58c8a78-3458-4b13-9706-e78b3291268a">
+										<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()=="Buyer"]]></printWhenExpression>
+									</reportElement>
+									<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+								</image>
+							</frame>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="0">
+							<box>
+								<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+							</box>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="50">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textFieldCurrentPage" x="0" y="6" width="114" height="13" isRemoveLineWhenBlank="true" forecolor="#848A8F" backcolor="#FFFFFF" uuid="6d78baad-5d3f-4b8b-8782-2131e0ff6c5a"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" pdfEncoding="Identity-H" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page.page}+" "+$V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="0" width="400" height="1" forecolor="#000000" uuid="18540a5f-d431-485f-a4e1-404e4ba1245a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<image hAlign="Right">
+				<reportElement x="390" y="1" width="166" height="33" uuid="79d7d6e4-61e2-44f5-b5c1-d9a0666149e0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/logo_pdf.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

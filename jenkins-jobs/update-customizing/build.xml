@@ -1,0 +1,234 @@
+<project default="main" xmlns:ac="antlib:net.sf.antcontrib">
+
+  <target name="main">
+
+    <!-- install to target repository -->
+    <property environment="env" />
+    <path id="classpath">
+      <fileset dir="${maven.home}/boot">
+        <include name="plexus-classworlds-*.jar" />
+      </fileset>
+    </path>
+
+    <condition property="neo.version" value="1.113.10">
+      <not>
+        <isset property="neo.version" />
+      </not>
+    </condition>
+
+    <property name="mvn.mainclass" value="org.codehaus.plexus.classworlds.launcher.Launcher" />
+
+    <!-- use fail statement to check whether the required properties are set -->
+    <!-- properties required to open database tunnel in step No.1 -->
+    <!-- host, user, account, password, id -->
+    <fail message="HCPaccount property is not set!">
+      <condition>
+        <not>
+          <isset property="HCPaccount" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="HCPpassword property is not set!">
+      <condition>
+        <not>
+          <isset property="HCPpassword" />
+        </not>
+      </condition>
+    </fail>
+
+
+    <fail message="databaseID property is not set!">
+      <condition>
+        <not>
+          <isset property="databaseID" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="HCPuser property is not set!">
+      <condition>
+        <not>
+          <isset property="HCPuser" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="HCPhost property is not set!">
+      <condition>
+        <not>
+          <isset property="HCPhost" />
+        </not>
+      </condition>
+    </fail>
+
+
+    <!-- properties required to run DbInit jar file in step No.2 -->
+    <!-- user, password, url, cmisRoot -->
+    <fail message="usernameDbApp property is not set!">
+      <condition>
+        <not>
+          <isset property="usernameDbApp" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="passwordDbApp property is not set!">
+      <condition>
+        <not>
+          <isset property="passwordDbApp" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="urlDbApp property is not set!">
+      <condition>
+        <not>
+          <isset property="urlDbApp" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="cmisRootDbApp property is not set!">
+      <condition>
+        <not>
+          <isset property="cmisRootDbApp" />
+        </not>
+      </condition>
+    </fail>
+
+
+    <!-- properties rquired to run CmisUpload jar file in step No.4 -->
+    <!-- user, password, url, cmisRoot -->
+    <fail message="usernameCmisUpload property is not set!">
+      <condition>
+        <not>
+          <isset property="usernameCmisUpload" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="passwordCmisUpload property is not set!">
+      <condition>
+        <not>
+          <isset property="passwordCmisUpload" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="urlCmisUpload property is not set!">
+      <condition>
+        <not>
+          <isset property="urlCmisUpload" />
+        </not>
+      </condition>
+    </fail>
+
+    <fail message="cmisRootCmisUpload property is not set!">
+      <condition>
+        <not>
+          <isset property="cmisRootCmisUpload" />
+        </not>
+      </condition>
+    </fail>
+
+    <condition property="cmisUploadIgnore" value="userdata">
+      <not>
+        <isset property="cmisUploadIgnore" />
+      </not>
+    </condition>
+
+    <!-- step no. 0 before open-db-tunnel process, need to initialize sdk -->
+    <java classname="${mvn.mainclass}" classpathref="classpath" fork="true" failonerror="true">
+      <sysproperty key="classworlds.conf" value="${maven.home}/bin/m2.conf" />
+      <jvmarg value="-DsdkInstallPath=${project.build.directory}/sdk" />
+      <jvmarg value="-Dmaven.multiModuleProjectDirectory=${maven.home}" />
+      <arg value="com.sap.cloud:neo-java-web-maven-plugin:${neo.version}:install-sdk" />
+    </java>
+
+
+    <!-- step no. 1 open db tunnel -->
+    <java classname="${mvn.mainclass}" classpathref="classpath" fork="true" failonerror="true" outputproperty="tunnelOutput">
+      <!-- <sysproperty key="classworlds.conf" value="${maven.home}/bin/m2.conf" /> This line of code can be replaced by
+        the next line of code -->
+      <jvmarg value="-Dclassworlds.conf=${maven.home}/bin/m2.conf" />
+      <jvmarg value="-DsdkInstallPath=${project.build.directory}/sdk" />
+      <jvmarg value="-Dmaven.multiModuleProjectDirectory=${maven.home}" />
+      <jvmarg
+        value="-DconsoleArguments=--password ${HCPpassword} --account ${HCPaccount} --id ${databaseID} --user ${HCPuser} --host ${HCPhost} --background --output json" />
+      <arg value="com.sap.cloud:neo-java-web-maven-plugin:${neo.version}:open-db-tunnel" />
+    </java>
+
+
+    <!-- string conversion of regexp representation can be obtained from http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=utf_8 -->
+    <!-- retrieve sessionId from step 1 result. The input is tunnelOutput, which is the output property in step 1 -->
+    <ac:propertyregex property="sessionId" input="${tunnelOutput}" regexp=".*&quot;sessionId&quot;:&quot;([^&quot;]+).*"
+      select="\1" casesensitive="false" />
+
+    <!-- retrieve DbApp url from step 1 result. The input is tunnelOutput, which is the output property in step 1 -->
+    <ac:propertyregex property="urlDbApp" input="${tunnelOutput}" regexp=".*&quot;jdbcUrl&quot;:&quot;([^&quot;]+).*"
+      select="\1" casesensitive="false" />
+
+    <!-- print the sessionId and DbApp url -->
+    <echo message="sessionId : ${sessionId}" />
+    <echo message="urlDbApp : ${urlDbApp}" />
+
+    <!-- step no. 2 db init - run jar file of DbApp application, property "failonerror" should be false so that step 3 can
+      be executed even though step 2 fails -->
+    <java jar="${project.build.directory}/../../../platform/tools-db-app/target/tools-db-app-capsule-fat.jar" fork="true"
+      failonerror="false" resultproperty="dbInitResult">
+      <arg value="-dbInitApp" />
+      <arg value="-user" />
+      <arg value="${usernameDbApp}" />
+      <arg value="-password" />
+      <arg value="${passwordDbApp}" />
+      <arg value="-url" />
+      <arg value="${urlDbApp}" />
+      <arg value="-cmisRoot" />
+      <arg value="${project.build.directory}/../../../${cmisRootDbApp}" />
+      <arg value="-deleteGA2" />
+      <arg value="-ontology" />
+      <arg value="-jenkinsJob" />
+    </java>
+
+
+    <!-- step no. 3 close db tunnel -->
+    <java classname="${mvn.mainclass}" classpathref="classpath" fork="true" failonerror="true">
+      <sysproperty key="classworlds.conf" value="${maven.home}/bin/m2.conf" />
+      <jvmarg value="-Dmaven.multiModuleProjectDirectory=${maven.home}" />
+      <jvmarg value="-DsdkInstallPath=${project.build.directory}/sdk" />
+      <jvmarg value="-DconsoleArguments=--session-id ${sessionId}" />
+      <arg value="com.sap.cloud:neo-java-web-maven-plugin:${neo.version}:close-db-tunnel" />
+    </java>
+
+    <!-- if step 2 fails, dbInitResult will be 1, otherwise the value will be 0 -->
+    <echo message="db Init Result : ${dbInitResult}" />
+
+    <!-- if step 2 fails, show this message. Ref: https://ant.apache.org/manual/Tasks/fail.html -->
+    <fail message="database initialization failed!">
+      <condition>
+        <not>
+          <equals arg1="0" arg2="${dbInitResult}" />
+        </not>
+      </condition>
+    </fail>
+
+    <!-- step no. 4 cmis upload -->
+    <java jar="${project.build.directory}/../../../tools/tools-cmis/target/tools-cmis-capsule-fat.jar" fork="true"
+      failonerror="true">
+      <arg value="-jenkinsJob" />
+      <arg value="-user" />
+      <arg value="${usernameCmisUpload}" />
+      <arg value="-password" />
+      <arg value="${passwordCmisUpload}" />
+      <arg value="-url" />
+      <arg value="${urlCmisUpload}" />
+      <arg value="-cmisRoot" />
+      <arg value="${project.build.directory}/../../../${cmisRootDbApp}" />
+      <arg value="-ignore" />
+      <arg line="${cmisUploadIgnore}" />
+    </java>
+
+  </target>
+
+</project>

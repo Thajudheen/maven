@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-03-07T14:40:35 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.datamodel.BusinessObject"/>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.imc.datamodel.transferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.imc.datamodel.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactPosition" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personPosition")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="genderExternalId" class="java.lang.String">
+		<variableExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></initialValueExpression>
+	</variable>
+	<variable name="contactTitleKeyword" class="java.lang.String">
+		<variableExpression><![CDATA[$P{REPORT_LOCALE}.toString().startsWith("de") ? (($V{genderExternalId} == "MALE")? "geehrter ": (($V{genderExternalId} == "FEMALE")? "geehrte " : "geehrte/r ")) : ""]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcloud.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="180" y="0" width="199" height="100" uuid="1c5bc8bd-f156-4407-bd01-18052dd5321a"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/reportlogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="632">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="463" width="540" height="20" forecolor="#000000" uuid="1e114f12-d0d2-4921-bc81-33e5440fecab"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.888}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="147" width="530" height="20" forecolor="#000000" uuid="bdbe92cb-3508-43ca-bdc7-2aa2ca355cc9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.666666}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="544" width="540" height="20" forecolor="#000000" uuid="125af3fc-d778-4c66-9fd7-fc628a6832ed"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.888888}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="127" width="530" height="20" forecolor="#000000" uuid="17e2c5e0-e383-4358-bd93-514a57697db5"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.66666}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="484" width="540" height="20" forecolor="#000000" uuid="aa6133e3-d4c2-4a76-ab5a-dad5a112d8eb"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.8888}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="243" width="239" height="28" forecolor="#000000" uuid="eca5bebd-aaef-47be-bd28-daf0e22192b2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="167" width="530" height="20" forecolor="#000000" uuid="78dae175-7377-4f92-9eb9-c83cbd04edbe"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.6666666}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="271" width="570" height="52" forecolor="#000000" uuid="2c786703-1caf-479c-9f4a-87dfc8ef5e20"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.77}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="524" width="540" height="20" forecolor="#000000" uuid="73961082-76eb-4d25-be0d-82725582ae6f"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.88888888}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="106" width="530" height="20" forecolor="#000000" uuid="4d608068-8fe3-4b02-903c-979ae87e9880"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.6666}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="187" width="530" height="20" forecolor="#000000" uuid="ac716ce7-3b29-4bbe-b638-31fac39b47bd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.66666666}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="504" width="540" height="20" forecolor="#000000" uuid="541e0f67-82ea-4f7a-8559-4718fe92db5c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.88888}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="400" width="570" height="60" forecolor="#000000" uuid="8614d7b7-86c8-4ea1-a266-a754db2e8b27"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.88}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="372" width="239" height="28" forecolor="#000000" uuid="94c66c11-440b-48f1-b7b3-4bf497080149"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.8}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="564" width="540" height="20" forecolor="#000000" uuid="6872ba21-4f32-41b9-94ac-0ddd30ea2e94"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.8888888}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="22" width="239" height="30" forecolor="#000000" uuid="db864cc1-dd07-4d42-b08e-78a9398e176f"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="85" width="530" height="20" forecolor="#000000" uuid="e05c350d-1eef-4053-a48e-eb3ade636725"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.666}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="52" width="570" height="32" forecolor="#000000" uuid="dbbaecfe-2be3-4f2c-8e33-f9eaa929f117"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.66}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="315">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="281" width="570" height="34" forecolor="#000000" uuid="2af31726-72b7-4766-b190-5c2a2a200761"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.0111}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="250" width="239" height="28" forecolor="#000000" uuid="b8614e5d-3f1d-4a36-b40c-8328b361ddcd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.011}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="171" width="570" height="34" forecolor="#000000" uuid="76dc545c-6b3e-4d80-bebc-9b3a354dc4aa"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.100}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="143" width="239" height="28" forecolor="#000000" uuid="b99e3b2f-123d-4c9b-a49f-9eb3ab8f8c40"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.10}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="85" width="540" height="20" forecolor="#000000" uuid="1e667dee-78e6-4aa6-8d44-96652c3f05a5"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.9999}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="65" width="540" height="20" forecolor="#000000" uuid="edf51044-e150-4f2c-bda7-ed201623d1db"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.999}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="45" width="540" height="20" forecolor="#000000" uuid="3700329d-1979-4426-af4f-53c8e6c1ca6c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.99}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="17" width="239" height="28" forecolor="#000000" uuid="9a5fdb8d-590d-4acf-8547-25587dd67f4b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12"/>
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{terms.text.9}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

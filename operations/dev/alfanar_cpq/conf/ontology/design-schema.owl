@@ -1,0 +1,4148 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY dss "http://www.inmindcomputing.com/application/design/design-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY dsi "http://www.inmindcomputing.com/application/design/design-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:dss="http://www.inmindcomputing.com/application/design/design-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:dsi="http://www.inmindcomputing.com/application/design/design-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/design/design-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Computing AG. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/design/design-generated-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityCrossSectionNConductor -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityCrossSectionNConductor">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityCrossSectionPEConductor -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityCrossSectionPEConductor">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityCrossSectionPhaseConductor -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityCrossSectionPhaseConductor">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityR0ph_n -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityR0ph_n">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityR0ph_pe_n -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityR0ph_pe_n">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityX0ph_n -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityX0ph_n">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVAllowedLoadCapacityX0ph_pe_n -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVAllowedLoadCapacityX0ph_pe_n">
+        <rdfs:domain rdf:resource="&dss;CableLVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVR0_max -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVR0_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0_max
+WHERE {
+   {
+      ?subject dss:cableLVR0ph_n_max ?cableLVR0_max .
+   } UNION {
+      ?subject dss:cableLVR0ph_pe_n_max ?cableLVR0_max .
+    }
+} ORDER BY ASC(?cableLVR0_max) LIMIT 1
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;CableLV"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVR4_1 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVR4_1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR4_1
+WHERE{
+   ?subject dss:cableLVR1max ?r1maxLVCable.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuit.
+      ?circuit as:designElementIncludedBy ?doc .
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentR1maxMV ?r1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?trafoElement.
+      ?trafoElement as:includesConfigItem ?trafoConfig.
+      ?trafoConfig dss:transformerR1max ?r1maxTrafo.
+      ?trafoElement as:isDesignStencil dsi:Transformer.
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?mVCableElement.
+      ?mVCableElement as:includesConfigItem ?mVCableConfig.
+      ?mVCableConfig dss:cableMVR1max ?r1maxMVCable.
+      ?mVCableElement as:isDesignStencil dsi:CableMV.
+   }
+
+   BIND(xsd:decimal(
+         ?r1maxMV+?r1maxMVCable+(?r1maxTrafo*?r1maxLVCable*(ps:square(?unMV/?unLV)))) AS ?cableLVR4_1)
+}
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;CableLV"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVR4_2 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVR4_2">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR4_2
+WHERE{
+   ?subject dss:cableLVR1max ?r1maxLVCable.
+   ?subject dss:cableLVR0_max ?r0maxLVCable.   
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuit.
+      ?circuit as:designElementIncludedBy ?doc .
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentR1maxMV ?r1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?trafoElement.
+      ?trafoElement as:includesConfigItem ?trafoConfig.
+      ?trafoConfig dss:transformerR1max ?r1maxTrafo.
+      ?trafoConfig dss:transformerR0max ?r0maxTrafo.
+      ?trafoElement as:isDesignStencil dsi:Transformer.
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?mVCableElement.
+      ?mVCableElement as:includesConfigItem ?mVCableConfig.
+      ?mVCableConfig dss:cableMVR1max ?r1maxMVCable.
+      ?mVCableConfig dss:cableMVR0max ?r0maxMVCable.
+      ?mVCableElement as:isDesignStencil dsi:CableMV.
+   }
+
+   BIND(xsd:decimal(2*(?r1maxMV+?r1maxMVCable+((?r1maxTrafo+?r1maxLVCable)*(ps:square(?unMV/?unLV)))) 
+         + (?r0maxTrafo+?r0maxLVCable)*(ps:square(?unMV/?unLV)))
+      AS ?cableLVR4_2)
+}
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;CableLV"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVX0_max -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVX0_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0_max
+WHERE {
+   {
+      ?subject dss:cableLVX0ph_n_max ?cableLVX0_max .
+   } UNION {
+      ?subject dss:cableLVX0ph_pe_n_max ?cableLVX0_max .
+    }
+} ORDER BY ASC(?cableLVX0_max) LIMIT 1</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;CableLV"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVX4_1 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVX4_1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX4_1
+WHERE{
+   ?subject dss:cableLVX1max ?x1maxLVCable.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuit.
+      ?circuit as:designElementIncludedBy ?doc .
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentX1maxMV ?x1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?trafoElement.
+      ?trafoElement as:includesConfigItem ?trafoConfig.
+      ?trafoConfig dss:transformerX1max ?x1maxTrafo.
+      ?trafoElement as:isDesignStencil dsi:Transformer.
+
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?mVCableElement.
+      ?mVCableElement as:includesConfigItem ?mVCableConfig.
+      ?mVCableConfig dss:cableMVX1max ?x1maxMVCable.
+      ?mVCableElement as:isDesignStencil dsi:CableMV.
+   }
+
+   BIND(xsd:decimal(
+         ?x1maxMV+?x1maxMVCable+(?x1maxTrafo*?x1maxLVCable*(ps:square(?unMV/?unLV)))) AS ?cableLVX4_1)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;CableLV"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableLVX4_2 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableLVX4_2">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX4_2
+WHERE{
+   ?subject dss:cableLVX1max ?x1maxLVCable.
+   ?subject dss:cableLVX0_max ?x0maxLVCable.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuit.
+      ?circuit as:designElementIncludedBy ?doc .
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentX1maxMV ?x1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?trafoElement.
+      ?trafoElement as:includesConfigItem ?trafoConfig.
+      ?trafoConfig dss:transformerX1max ?x1maxTrafo.
+      ?trafoConfig dss:transformerX0max ?x0maxTrafo.
+      ?trafoElement as:isDesignStencil dsi:Transformer.
+   }
+   optional{
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?mVCableElement.
+      ?mVCableElement as:includesConfigItem ?mVCableConfig.
+      ?mVCableConfig dss:cableMVX1max ?x1maxMVCable.
+      ?mVCableConfig dss:cableMVX0max ?x0maxMVCable.
+      ?mVCableElement as:isDesignStencil dsi:CableMV.
+   }
+   
+   BIND(xsd:decimal(2*(?x1maxMV+?x1maxMVCable+((?x1maxTrafo+?x1maxLVCable)*(ps:square(?unMV/?unLV))))
+         + (?x0maxTrafo+?x0maxLVCable)*(ps:square(?unMV/?unLV)))
+      AS ?cableLVX4_2)
+}
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;CableLV"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength">
+        <rdfs:domain rdf:resource="&dss;CableMVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr">
+        <rdfs:domain rdf:resource="&dss;CableMVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableMVAllowedLoadCapacityCrossSectionPhaseConductor -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableMVAllowedLoadCapacityCrossSectionPhaseConductor">
+        <rdfs:domain rdf:resource="&dss;CableMVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableMVAllowedLoadCapacityR0 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableMVAllowedLoadCapacityR0">
+        <rdfs:domain rdf:resource="&dss;CableMVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#cableMVAllowedLoadCapacityX0 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;cableMVAllowedLoadCapacityX0">
+        <rdfs:domain rdf:resource="&dss;CableMVAllowedLoadCapacity"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0max -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0max">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0max
+WHERE {
+   {
+      ?subject dss:circuitR0ph_n_max ?circuitR0max .
+   } UNION {
+      ?subject dss:circuitR0ph_pen_max ?circuitR0max .
+    }
+} ORDER BY ASC(?circuitR0max) LIMIT 1</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0maxTransformer -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0maxTransformer">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0maxTransformer
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:includesDesignElement ?transformer .
+   ?transformer as:includesConfigItem ?configTransformer .
+   ?configTransformer dss:transformerR0max ?circuitR0maxTransformer .
+} </ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0min -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0min">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0min
+WHERE {
+   {
+      ?subject dss:circuitR0ph_n_min ?circuitR0min .
+   } UNION {
+      ?subject dss:circuitR0ph_pen_min ?circuitR0min .
+    }
+} ORDER BY ASC(?circuitR0min) LIMIT 1</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_n_maxCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_n_maxCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableR0max) AS ?circuitR0ph_n_maxCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVR0ph_n_max  ?cableR0max.
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_n_maxParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_n_maxParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?r0max) AS ?circuitR0ph_n_maxParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR0ph_n_max ?r0max .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_n_minCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_n_minCableLV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableR0min) AS ?circuitR0ph_n_minCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVR0ph_n_min  ?cableR0min.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_n_minParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_n_minParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?r0min) AS ?circuitR0ph_n_minParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR0ph_n_min ?r0min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_pen_maxCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_pen_maxCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableR0max) AS ?circuitR0ph_pen_maxCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVR0ph_pe_n_max  ?cableR0max.
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_pen_maxParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_pen_maxParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?r0max) AS ?circuitR0ph_pen_maxParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR0ph_pen_max ?r0max .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_pen_minCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_pen_minCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableR0min) AS ?circuitR0ph_pen_minCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVR0ph_pe_n_min  ?cableR0min.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR0ph_pen_minParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR0ph_pen_minParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?r0min) AS ?circuitR0ph_pen_minParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR0ph_pen_min ?r0min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1maxCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1maxCableLV">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableLvR1max) AS ?circuitR1maxCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVR1max  ?cableLvR1max.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1maxParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1maxParentCircuit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?r1max) AS ?circuitR1maxParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR1max ?r1max .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1maxTransformer -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1maxTransformer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT  ?subject ?circuitR1maxTransformer
+WHERE {
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementIncludedBy ?document .
+      ?document as:includesConfigItem ?config .
+      ?config dss:electricalDesignDocumentR1maxMV ?r1maxMV .
+      ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV .
+      ?config dss:electricalDesignDocumentNominalVoltageMV ?unMV .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:includesConfigItem ?configTransformer .
+      ?configTransformer dss:transformerR1max ?transR1max .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:designElementLinkedBy+ ?cable .
+      ?cable as:includesConfigItem ?configCable .
+      ?configCable dss:cableMVR1max ?cableR1max .
+      ?transformer as:isDesignStencil dsi:Transformer .
+   }
+   BIND(IF(BOUND(?cable),
+         ?cableR1max/(ps:square(?unMV/?unLV)),
+         xsd:decimal(0)) AS ?cableMVVal)
+
+   BIND(IF(BOUND(?transformer),
+         (?r1maxMV/(ps:square(?unMV/?unLV)))+?cableMVVal+?transR1max,
+         xsd:decimal(0)) AS ?circuitR1maxTransformer)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minCableLV">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableLvR1min) AS ?circuitR1minCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVR1min  ?cableLvR1min.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minChildCircuitValue -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minChildCircuitValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR1minChildCircuitValue
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?motor .
+      ?motor as:includesConfigItem ?config .
+      ?config dss:motorR1 ?motorValue .
+   }
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:linksDesignElement ?childCircuit .
+      ?subject dss:circuitR1minChildCircuits ?childValue .
+   }
+
+   OPTIONAL {
+      ?subject dss:circuitR1minCableLV ?cable .
+   }
+
+   BIND(IF(BOUND(?cable), ?cable, xsd:decimal(0)) AS ?cableValue)
+
+   BIND(
+      IF(BOUND(?childCircuit) &amp;&amp; ?childValue != 0, ?childValue+?cableValue,
+         IF(BOUND(?motor), ?motorValue+?cableValue, xsd:decimal(0)))
+      AS ?circuitR1minChildCircuitValue)
+} </ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minChildCircuits -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minChildCircuits">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (ps:inv(SUM(1/?r1min)) AS ?circuitR1minChildCircuits)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:linksDesignElement ?childCircuit .
+   ?childCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR1minChildCircuitValue ?r1min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minParentCircuitValue -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minParentCircuitValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR1minParentCircuitValue
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:isDesignStencil dsi:Transformer .
+      ?subject dss:circuitR1minTransformer ?transformerValue .
+   }
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementLinkedBy ?parentCircuit .
+      ?subject dss:circuitR1minParentCircuits ?parentValue .
+   }
+
+   OPTIONAL {
+      ?subject dss:circuitR1minCableLV ?cable .
+   }
+
+   BIND(IF(BOUND(?cable), ?cable, xsd:decimal(0)) AS ?cableValue)
+
+   BIND(
+      IF(BOUND(?transformer), ?transformerValue+?cableValue,
+         IF(BOUND(?parentCircuit), ?parentValue+?cableValue,
+            xsd:decimal(0)))
+      AS ?circuitR1minParentCircuitValue)
+} </ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minParentCircuits -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minParentCircuits">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (ps:inv(SUM(1/?r1min)) AS ?circuitR1minParentCircuits)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR1minParentCircuitValue ?r1min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minSiblingCircuits -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minSiblingCircuits">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (ps:inv(SUM(1/?r1min)) AS ?circuitR1minSiblingCircuits)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:linksDesignElement ?siblingCircuit .
+   ?siblingCircuit as:includesConfigItem ?config .
+   ?config dss:circuitR1minChildCircuitValue ?r1min .
+   FILTER (?circuit != ?siblingCircuit)
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitR1minTransformer -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitR1minTransformer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT  ?subject ?circuitR1minTransformer
+WHERE {
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementIncludedBy ?document .
+      ?document as:includesConfigItem ?config .
+      ?config dss:electricalDesignDocumentR1minMV ?R1minMV .
+      ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV .
+      ?config dss:electricalDesignDocumentNominalVoltageMV ?unMV .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:includesConfigItem ?configTransformer .
+      ?configTransformer dss:transformerR1max ?transR1min .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:designElementLinkedBy+ ?cable .
+      ?cable as:includesConfigItem ?configCable .
+      ?configCable dss:cableMVR1min ?cableR1min .
+      ?transformer as:isDesignStencil dsi:Transformer .
+   }
+   BIND(IF(BOUND(?cable),
+         ?cableR1min/(ps:square(?unMV/?unLV)),
+         xsd:decimal(0)) AS ?cableMVVal)
+
+   BIND(IF(BOUND(?transformer),
+         (?R1minMV/(ps:square(?unMV/?unLV)))+?cableMVVal+?transR1min,
+         xsd:decimal(0)) AS ?circuitR1minTransformer)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0max -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0max">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0max
+WHERE {
+   {
+      ?subject dss:circuitX0ph_n_max ?circuitX0max .
+   } UNION {
+      ?subject dss:circuitX0ph_pen_max ?circuitX0max .
+   }
+} ORDER BY ASC(?circuitX0max) LIMIT 1</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0maxTransformer -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0maxTransformer">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0maxTransformer
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:includesDesignElement ?transformer .
+   ?transformer as:includesConfigItem ?configTransformer .
+   ?configTransformer dss:transformerX0max ?circuitX0maxTransformer .
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0min -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0min">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0min
+WHERE {
+   {
+      ?subject dss:circuitX0ph_n_min ?circuitX0min .
+   } UNION {
+      ?subject dss:circuitX0ph_pen_min ?circuitX0min .
+    }
+} ORDER BY ASC(?circuitX0min) LIMIT 1</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_n_maxCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_n_maxCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject  (SUM(?cableX0max) AS ?circuitX0ph_n_maxCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVX0ph_n_max  ?cableX0max.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_n_maxParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_n_maxParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?x0max) AS ?circuitX0ph_n_maxParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX0ph_n_max ?x0max .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_n_minCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_n_minCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableX0min) AS ?circuitX0ph_n_minCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVX0ph_n_min  ?cableX0min.
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_n_minParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_n_minParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?x0min) AS ?circuitX0ph_n_minParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX0ph_n_min ?x0min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_pen_maxCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_pen_maxCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableX0max) AS ?circuitX0ph_pen_maxCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVX0ph_pe_n_max  ?cableX0max.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_pen_maxParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_pen_maxParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?x0max) AS ?circuitX0ph_pen_maxParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX0ph_pen_max ?x0max .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_pen_minCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_pen_minCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableX0min) AS ?circuitX0ph_pen_minCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVX0ph_pe_n_min  ?cableX0min.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX0ph_pen_minParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX0ph_pen_minParentCircuit">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?x0min) AS ?circuitX0ph_pen_minParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX0ph_pen_min ?x0min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1maxCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1maxCableLV">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableLvX1max) AS ?circuitX1maxCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVX1max  ?cableLvX1max.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1maxParentCircuit -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1maxParentCircuit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?x1max) AS ?circuitX1maxParentCircuit)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX1max ?x1max .
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1maxTransformer -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1maxTransformer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT  ?subject ?circuitX1maxTransformer
+WHERE {
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementIncludedBy ?document .
+      ?document as:includesConfigItem ?config .
+      ?config dss:electricalDesignDocumentX1maxMV ?x1maxMV .
+      ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV .
+      ?config dss:electricalDesignDocumentNominalVoltageMV ?unMV .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:includesConfigItem ?configTransformer .
+      ?configTransformer dss:transformerX1max ?transX1max .
+   }
+   {
+      SELECT ?subject (SUM(?cableMvX1max) AS ?cableMVValRaw)
+      WHERE {
+         ?subject as:configItemIncludedBy ?circuit .
+         ?circuit as:includesDesignElement ?cable .
+         ?cable as:includesConfigItem ?configCable .
+         ?configCable dss:cableMXR1max ?cableX1max .
+      } GROUP BY ?subject
+   }
+   BIND(IF(BOUND(?cable),
+         ?cableMVValRaw/(ps:square(?unMV/?unLV)),
+         xsd:decimal(0)) AS ?cableMVVal)
+
+   BIND(IF(BOUND(?transformer),
+         (?x1maxMV/(ps:square(?unMV/?unLV)))+?cableMVVal+?transX1max,
+         xsd:decimal(0)) AS ?circuitX1maxTransformer)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minCableLV -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minCableLV">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?cableLvX1min) AS ?circuitX1minCableLV)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:includesDesignElement ?element.
+   ?element as:includesConfigItem ?config.
+   ?config dss:cableLVX1min  ?cableLvX1min.
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minChildCircuitValue -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minChildCircuitValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX1minChildCircuitValue
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?motor .
+      ?motor as:includesConfigItem ?config .
+      ?config dss:motorR1 ?motorValue .
+   }
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:linksDesignElement ?childCircuit .
+      ?subject dss:circuitX1minChildCircuits ?childValue .
+   }
+
+   OPTIONAL {
+      ?subject dss:circuitX1minCableLV ?cable .
+   }
+
+   BIND(IF(BOUND(?cable), ?cable, xsd:decimal(0)) AS ?cableValue)
+
+   BIND(
+      IF(BOUND(?childCircuit) &amp;&amp; ?childValue != 0, ?childValue+?cableValue,
+         IF(BOUND(?motor), ?motorValue+?cableValue, xsd:decimal(0)))
+      AS ?circuitX1minChildCircuitValue)
+} </ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minChildCircuits -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minChildCircuits">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (ps:inv(SUM(1/?x1min)) AS ?circuitX1minChildCircuits)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:linksDesignElement ?childCircuit .
+   ?childCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX1minChildCircuitValue ?x1min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minParentCircuitValue -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minParentCircuitValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX1minParentCircuitValue
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:isDesignStencil dsi:Transformer .
+      ?subject dss:circuitX1minTransformer ?transformerValue .
+   }
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementLinkedBy ?parentCircuit .
+      ?subject dss:circuitX1minParentCircuits ?parentValue .
+   }
+
+   OPTIONAL {
+      ?subject dss:circuitX1minCableLV ?cable .
+   }
+
+   BIND(IF(BOUND(?cable), ?cable, xsd:decimal(0)) AS ?cableValue)
+
+   BIND(
+      IF(BOUND(?transformer), ?transformerValue+?cableValue,
+         IF(BOUND(?parentCircuit), ?parentValue+?cableValue,
+            xsd:decimal(0)))
+      AS ?circuitX1minParentCircuitValue)
+} </ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minParentCircuits -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minParentCircuits">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (ps:inv(SUM(1/?x1min)) AS ?circuitX1minParentCircuits)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX1minParentCircuitValue ?x1min .
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minSiblingCircuits -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minSiblingCircuits">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (ps:inv(SUM(1/?x1min)) AS ?circuitX1minSiblingCircuits)
+WHERE {
+   ?subject as:configItemIncludedBy ?circuit .
+   ?circuit as:designElementLinkedBy ?parentCircuit .
+   ?parentCircuit as:linksDesignElement ?siblingCircuit .
+   ?siblingCircuit as:includesConfigItem ?config .
+   ?config dss:circuitX1minChildCircuitValue ?x1min .
+   FILTER (?circuit != ?siblingCircuit)
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#circuitX1minTransformer -->
+
+    <owl:DatatypeProperty rdf:about="&dss;circuitX1minTransformer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT  ?subject ?circuitX1minTransformer
+WHERE {
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementIncludedBy ?document .
+      ?document as:includesConfigItem ?config .
+      ?config dss:electricalDesignDocumentX1minMV ?x1minMV .
+      ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV .
+      ?config dss:electricalDesignDocumentNominalVoltageMV ?unMV .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:includesConfigItem ?configTransformer .
+      ?configTransformer dss:transformerX1max ?transX1max .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:designElementLinkedBy+ ?cable .
+      ?cable as:includesConfigItem ?configCable .
+      ?configCable dss:cableMVX1min ?cableX1min .
+      ?transformer as:isDesignStencil dsi:Transformer .
+   }
+   BIND(IF(BOUND(?cable),
+         ?cableX1min/(ps:square(?unMV/?unLV)),
+         xsd:decimal(0)) AS ?cableMVVal)
+
+   BIND(IF(BOUND(?transformer),
+         (?x1minMV/(ps:square(?unMV/?unLV)))+?cableMVVal+?transX1max,
+         xsd:decimal(0)) AS ?circuitX1minTransformer)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Circuit"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerNominalApparentPowerNoLoadLosses -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerNominalApparentPowerNoLoadLosses">
+        <rdfs:domain rdf:resource="&dss;TransformerNominalApparentPower"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerNominalApparentPowerRatedShortCircuitVoltage -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerNominalApparentPowerRatedShortCircuitVoltage">
+        <rdfs:domain rdf:resource="&dss;TransformerNominalApparentPower"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerNominalApparentPowerShortCircuitLosses -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerNominalApparentPowerShortCircuitLosses">
+        <rdfs:domain rdf:resource="&dss;TransformerNominalApparentPower"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerRF3_1 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerRF3_1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerRF3_1
+WHERE{
+   ?subject dss:transformerR1max ?r1minTrafo.
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?configDoc.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   ?configDoc dss:electricalDesignDocumentR1minMV ?r1minMV.
+   ?doc as:hasDesignDocumentType ?type .
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?parentElement.
+      ?parentElement as:includesConfigItem ?parentConfig.
+      ?parentConfig dss:cableMVR1min ?r1minMVCable.
+      ?parentElement as:isDesignStencil dsi:CableMV.
+   }
+   
+   BIND(xsd:decimal(?r1minMV+?r1minMVCable+(?r1minTrafo*ps:square(?unMV/?unLV)))
+      AS ?transformerRF3_1)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Transformer"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerRF3_3 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerRF3_3">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerRF3_3
+WHERE{
+   ?subject dss:transformerR1max ?r1maxTrafo.
+   ?subject dss:transformerR0max ?r0maxTrafo.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentR1maxMV ?r1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?parentElement.
+      ?parentElement as:includesConfigItem ?parentConfig.
+      ?parentConfig dss:cableMVR1max ?r1maxMVCable.
+      ?parentElement as:isDesignStencil dsi:CableMV.
+   }
+   
+   BIND(xsd:decimal((2*(?r1maxMV+?r1maxMVCable+?r1maxTrafo*ps:square(?unMV/?unLV)))+(?r0maxTrafo*ps:square(?unMV/?unLV)))
+      AS ?transformerRF3_3)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Transformer"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerXF3_1 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerXF3_1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerXF3_1
+WHERE{
+   ?subject dss:transformerX1max ?x1minTrafo.
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?configDoc.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   ?configDoc dss:electricalDesignDocumentX1minMV ?x1minMV.
+   ?doc as:hasDesignDocumentType ?type .
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?parentElement.
+      ?parentElement as:includesConfigItem ?parentConfig.
+      ?parentConfig dss:cableMVX1min ?x1minMVCable.
+      ?parentElement as:isDesignStencil dsi:CableMV.
+   }
+
+   BIND(xsd:decimal(?x1minMV+?x1minMVCable+(?x1minTrafo*ps:square(?unMV/?unLV)))
+      AS ?transformerXF3_1)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Transformer"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-schema.owl#transformerXF3_3 -->
+
+    <owl:DatatypeProperty rdf:about="&dss;transformerXF3_3">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerXF3_3
+WHERE{
+   ?subject dss:transformerX1max ?x1maxTrafo.
+   ?subject dss:transformerX0max ?x0maxTrafo.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentX1maxMV ?x1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?parentElement.
+      ?parentElement as:includesConfigItem ?parentConfig.
+      ?parentConfig dss:cableMVX1max ?x1maxMVCable.
+      ?parentElement as:isDesignStencil dsi:CableMV.
+   }
+
+   BIND(xsd:decimal((2*(?x1maxMV+?x1maxMVCable+?x1maxTrafo*ps:square(?unMV/?unLV)))+(?x0maxTrafo*ps:square(?unMV/?unLV)))
+   AS ?transformerXF3_3)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&dss;Transformer"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&dss;motorIk1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorIk1
+WHERE {
+   ?subject dss:motorX1 ?x1 .
+   ?subject dss:motorR1 ?r1 .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmax*?unlv)/(afn:sqrt(3)*ps:abs(?r1,?x1)))
+      AS ?motorIk1) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerRatedShortCircuitVoltage">
+        <ps:sparql>SELECT ?subject ?transformerRatedShortCircuitVoltage
+WHERE{
+   ?subject dss:hasTransformerNominalApparentPower ?power .
+   ?power dss:transformerNominalApparentPowerRatedShortCircuitVoltage ?transformerRatedShortCircuitVoltage.
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_nDeltaU">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_nDeltaU
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCable ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableLVR0ph_n_min ?r0 .
+    BIND(xsd:decimal(?r0 * (1 + ?alpha *(?temp - 20)))
+        AS ?cableLVR0ph_nDeltaU) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedCondTempLVCableDiscon">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedCondTempLVCableDiscon
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableDiscon ?mVInfeedCondTempLVCableDiscon .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR1DeltaU">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR1DeltaU
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCable ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableLVR1min ?r1 .
+    BIND(xsd:decimal(?r1 * (1 + ?alpha *(?temp - 20)))
+        AS ?cableLVR1DeltaU) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedNominalVoltageMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedNominalVoltageMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentNominalVoltageMV ?mVInfeedNominalVoltageMV .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorX1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorX1
+WHERE {
+   ?subject dss:motorNominalVoltage ?voltage .
+   ?subject dss:motorEfficiency ?efficiency .
+   ?subject dss:consumerCosPhi ?cosPhi .
+   ?subject dss:motorPmech ?p_mech .
+   ?subject dss:motorStartingCurrentRatio ?ia_in .
+   ?subject dss:motorRX_ratio ?r_x .
+   BIND(xsd:decimal(((ps:square(?voltage)*?efficiency*?cosPhi)/(?p_mech*?ia_in))/
+         afn:sqrt(1+ps:square(?r_x))) AS ?motorX1) .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedMinShortCircuitPower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedMinShortCircuitPower
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentMinShortCircuitPower ?mVInfeedMinShortCircuitPower .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk3min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk3min
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointX1max ?x1max .
+   BIND(xsd:decimal(ps:arg(?r1max, ?x1max)*(-1))
+      AS ?dataPointPhaseAngleIk3min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedX0minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedX0minMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentX0minMV ?mVInfeedX0minMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointR0ph_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointR0ph_n_min
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitR0ph_n_min ?r0min .
+   }
+   {
+      SELECT ?subject (SUM(?r0minChild) as ?r0minChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVR0ph_n_min ?lvr0min .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVR0min ?mvr0min .
+         }
+         ?element2 as:designElementIncludedBy ?circuit2 .
+         ?children1 as:designElementIncludedBy ?circuit3 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit2 .
+            })
+         BIND(IF (BOUND (?lvr0min), ?lvr0min, IF(BOUND( ?mvr0min),
+                  ?mvr0min, xsd:decimal(0))) AS ?r0minChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?r0min - ?r0minChildren) AS ?dataPointR0ph_n_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedRelationZ0_Z1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedRelationZ0_Z1min
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentRelationZ0_Z1min ?mVInfeedRelationZ0_Z1min .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk2min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk2min
+WHERE {
+   ?subject dss:dataPointPhaseAngleIk3min ?dataPointPhaseAngleIk2min .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointR0ph_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointR0ph_n_max
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitR0ph_n_max ?r0max .
+   }
+   {
+      SELECT ?subject (SUM(?r0maxChild) as ?r0maxChildren)
+      WHERE {
+          OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVR0ph_n_max ?lvr0max .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVR0max ?mvr0max .
+         }
+         ?element2 as:designElementIncludedBy ?circuit1 .
+         ?children1 as:designElementIncludedBy ?circuit2 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit1 .
+            })
+         BIND(IF(BOUND (?lvr0max), ?lvr0max, IF(BOUND(?mvr0max),
+                  ?mvr0max, xsd:decimal(0))) AS ?r0maxChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?r0max - ?r0maxChildren) AS ?dataPointR0ph_n_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;generalLoadNominalVoltageLoad">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?generalLoadNominalVoltageLoad
+WHERE {
+?subject as:configItemIncludedBy ?element.
+?element as:designElementIncludedBy ?circuit.
+?circuit as:designElementIncludedBy ?doc.
+?doc as:includesConfigItem ?config.
+?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+?subject dss:hasGeneralLoadNumberPoles ?poles.
+?poles as:attributionFactor ?numberPoles.
+   BIND(xsd:decimal((?unLV/afn:sqrt(3))*?numberPoles)
+        AS ?generalLoadNominalVoltageLoad)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitAbsVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?voltageDrop) AS ?circuitAbsVoltageDrop)
+WHERE {
+   {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?component1 .
+      ?component1 as:includesConfigItem ?config1 .
+      ?config1 dss:cableLVAbsVoltageDrop ?voltageDrop .
+   } UNION {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?component2 .
+      ?component2 as:includesConfigItem ?config2 .
+      ?config2 dss:transformerAbsVoltageDrop ?voltageDrop .
+   } UNION {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?component3 .
+      ?component3 as:includesConfigItem ?config3 .
+      ?config3 dss:motorAbsVoltageDrop ?voltageDrop .
+   }
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitActiveLoadCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?activeCurrent) AS ?circuitActiveLoadCurrent)
+WHERE {
+  ?subject dss:circuitSimultaneityFactor ?sfactor.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:includesDesignElement ?minorElement.
+      ?minorElement as:includesConfigItem ?config.
+      ?config dss:consumerActiveLoadCurrent ?consumerActiveCurrent.
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:linksDesignElement ?childCircuit .
+      ?childCircuit as:includesConfigItem ?config.
+      ?config dss:circuitActiveLoadCurrent ?circuitActiveCurrent .
+      ?config dss:circuitQuantity ?quantity .
+   }
+   BIND(IF(BOUND(?consumerActiveCurrent), xsd:decimal(?consumerActiveCurrent*?sfactor), xsd:decimal(?circuitActiveCurrent*?sfactor))
+      AS ?activeCurrent)
+
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;breakerMVIk1max_F1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?breakerMVIk1max_F1
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unmv .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+   ?configDoc dss:electricalDesignDocumentR1minMV ?r1min .
+   ?configDoc dss:electricalDesignDocumentR0minMV ?r0min .
+   ?configDoc dss:electricalDesignDocumentX1minMV ?x1min .
+   ?configDoc dss:electricalDesignDocumentX0minMV ?x0min .
+   BIND(xsd:decimal((?cmax*?unmv)/ps:abs(2*?r1min+?r0min, 2*?x1min+?x0min))
+      AS ?breakerMVIk1max_F1) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk3max_F1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk3max_F1
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unmv .
+   ?configDoc dss:electricalDesignDocumentMaxShortCircuitPower ?skq .
+   BIND(xsd:decimal(?skq/(afn:sqrt(3)*?unmv))
+            AS ?dataPointIk3max_F1)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitX0ph_pen_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0ph_pen_max
+WHERE {
+   ?subject dss:circuitX0ph_pen_maxCableLV ?cable .
+   ?subject dss:circuitX0maxTransformer ?transformer .
+   ?subject dss:circuitX0ph_pen_maxParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitX0ph_pen_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk1maxph_pe">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk1maxph_pe
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointX1min ?x1min .
+   ?subject dss:dataPointR0ph_pen_min ?r0min .
+   ?subject dss:dataPointX0ph_pen_min ?x0min .
+   BIND(xsd:decimal(ps:arg(2*?r1min+?r0min, 2*?x1min+?x0min)*(-1))
+      AS ?dataPointPhaseAngleIk1maxph_pe)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentZ1minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentZ1minMV
+WHERE {
+    ?subject dss:electricalDesignDocumentNominalVoltageMV ?unMV .
+    ?subject dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+    ?subject dss:electricalDesignDocumentMaxShortCircuitPower ?skQmin .
+   BIND(xsd:decimal((?cmax*ps:square(?unMV))/(?skQmin*1000))
+      AS ?electricalDesignDocumentZ1minMV) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointX0ph_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointX0ph_n_min
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitX0ph_n_min ?x0min .
+   }
+   {
+      SELECT ?subject (SUM(?x0minChild) as ?x0minChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren2 .
+            ?configChildren2 dss:cableLVX0ph_n_min ?lvx0min .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVX0min ?mvx0min .
+         }
+         ?element2 as:designElementIncludedBy ?circuit1 .
+         ?children1 as:designElementIncludedBy ?circuit2 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit1 .
+            })
+         BIND(IF (BOUND (?lvx0min), ?lvx0min, IF(BOUND(?mvx0min),
+                  ?mvx0min, xsd:decimal(0))) AS ?x0minChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?x0min - ?x0minChildren) AS ?dataPointX0ph_n_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorAbsVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorAbsVoltageDrop
+WHERE {
+   ?subject dss:motorIn  ?i_n .
+   ?subject dss:consumerCosPhi ?cosPhi .
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?motor .
+      ?motor as:designElementIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?cable .
+      ?cable as:includesConfigItem ?config .
+      ?config dss:cableLVR1DeltaU ?r1 .
+      ?config dss:cableLVX1DeltaU ?x1 .
+   }
+   BIND(xsd:decimal(afn:sqrt(3)*?i_n*((?r1*?cosPhi+?x1*ps:cosToSin(?cosPhi))/1000))
+      AS ?motorAbsVoltageDrop)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointR0ph_pen_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointR0ph_pen_max
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element .
+      ?element as:designElementIncludedBy ?circuit .
+      ?circuit as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitR0ph_pen_max ?r0max .
+   }
+   {
+      SELECT ?subject (SUM(?r0maxChild) as ?r0maxChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element .
+            ?element as:linksDesignElement+ ?children .
+            ?children as:includesConfigItem ?configChildren .
+            ?configChildren dss:cableLVR0ph_pe_n_max ?lvr0max .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element .
+            ?element as:linksDesignElement+ ?children .
+            ?children as:includesConfigItem ?configChildren .
+            ?configChildren dss:cableMVR0max ?mvr0max .
+         }
+         ?element as:designElementIncludedBy ?circuit .
+         ?children as:designElementIncludedBy ?otherCircuit .
+         FILTER (EXISTS {
+               ?children as:designElementIncludedBy ?circuit .
+            })
+         BIND(IF(BOUND (?lvr0max), ?lvr0max, IF(BOUND(?mvr0max),
+                  ?mvr0max, xsd:decimal(0))) AS ?r0maxChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?r0max - ?r0maxChildren) AS ?dataPointR0ph_pen_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerRatedEffectivePower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerRatedEffectivePower
+WHERE {
+   ?subject dss:consumerTotalActiveCurrent ?igwStaticLoad.
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   {
+      ?subject dss:hasGeneralLoadNumberPoles ?poles.
+      ?poles as:attributionFactor ?numberPoles.
+   } UNION {
+      ?subject dss:motorNumberPoles ?numberPoles.
+   }
+
+   BIND(xsd:decimal(((?igwStaticLoad*?unLV)/(afn:sqrt(3)*1000))*ps:square(?numberPoles))
+      AS ?consumerRatedEffectivePower)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitX1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX1max
+WHERE {
+   ?subject dss:circuitX1maxCableLV ?cable .
+   ?subject dss:circuitX1maxTransformer ?transformer .
+   ?subject dss:circuitX1maxParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitX1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;CircuitR1minCableLV">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVR0max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVR0max
+WHERE {
+    ?subject as:configItemIncludedBy ?element.
+ ?element  as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableDiscon ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableMVR0min ?r1min .
+    BIND(xsd:decimal(?r1min * (1 + ?alpha *(?temp - 20)))
+        AS ?cableMVR0max) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedZ0maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedZ0maxMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentZ0maxMV ?mVInfeedZ0maxMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedX1minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedX1minMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentX1minMV ?mVInfeedX1minMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_nmin">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_nmin
+WHERE {
+    ?subject dss:cableLVX0ph_n ?x0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:connectionNumberRuns ?runs .
+    BIND(xsd:decimal((?x0 * ?length) / ?runs)
+        AS ?cableLVX0ph_nmin)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitZ1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitZ1min
+WHERE {
+?subject dss:circuitR1min ?r1min.
+?subject dss:circuitX1min ?x1min.
+   BIND(xsd:decimal(ps:abs(?r1min,?x1min))
+        AS ?circuitZ1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedNominalVoltageLV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedNominalVoltageLV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentNominalVoltageLV ?mVInfeedNominalVoltageLV .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVX0min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVX0min
+WHERE {
+    ?subject dss:cableMVX0 ?x0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableMVNumberRuns ?runs .
+    BIND(xsd:decimal((?x0 * ?length) / ?runs)
+        AS ?cableMVX0min)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedX0maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedX0maxMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentX0maxMV ?mVInfeedX0maxMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerIk3max_F3">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerIk3max_F3
+WHERE{
+   ?subject dss:transformerRF3_1 ?rf3_1.
+   ?subject dss:transformerXF3_1 ?xf3_1.
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?configDoc.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmaxLV.
+   ?doc as:hasDesignDocumentType ?type .
+   
+   BIND(xsd:decimal((?cmaxLV*?unMV)/
+         (afn:sqrt(3)*ps:abs(?rf3_1,?xf3_1)))
+      AS ?transformerIk3max_F3)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIkmin">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIkmin
+WHERE {
+   {
+      ?subject dss:dataPointIk3min ?dataPointIkmin .
+   } UNION {
+      ?subject dss:dataPointIk2min ?dataPointIkmin .
+   } UNION {
+      ?subject dss:dataPointIk1minph_n ?dataPointIkmin .
+   } UNION {
+      ?subject dss:dataPointIk1minph_pe ?dataPointIkmin .
+   }
+} ORDER BY ASC(?dataPointIkmin) LIMIT 1</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;switchIcm">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?switchIcm
+WHERE{
+ ?subject dss:dataPointMaxAsymShortCircuitCurrent ?switchIcm.
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk1minph_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk1minph_n
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointX1max ?x1max .
+   ?subject dss:dataPointR0ph_n_max ?r0max .
+   ?subject dss:dataPointX0ph_n_max ?x0max .
+   BIND(xsd:decimal(ps:arg(2*?r1max+?r0max, 2*?x1max+?x0max)*(-1))
+      AS ?dataPointPhaseAngleIk1minph_n)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentX1maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentX1maxMV
+WHERE {
+    ?subject dss:electricalDesignDocumentZ1maxMV ?z1maxMV .
+    ?subject dss:electricalDesignDocumentRelationR1_X1min ?r1_x1 .
+    BIND(xsd:decimal(?z1maxMV / afn:sqrt(1 + ps:square(?r1_x1)))
+        AS ?electricalDesignDocumentX1maxMV) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerTotalApparantCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">
+SELECT ?subject ?consumerTotalApparantCurrent
+WHERE {
+  ?subject dss:impedanceLoadCurrent ?consumerTotalApparantCurrent.
+
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk1maxph_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk1maxph_n
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointR0ph_n_min ?r0min .
+   ?subject dss:dataPointX1min ?x1min .
+   ?subject dss:dataPointX0ph_n_min ?x0min .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmax*afn:sqrt(3)*?unlv)/ps:abs(2*?r1min+?r0min, 2*?x1min+?x0min))
+      AS ?dataPointIk1maxph_n) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVIbemInfeed">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVIbemInfeed
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementLinkedBy+ ?infeed .
+   ?infeed as:includesConfigItem ?config .
+   ?config dss:infeedIbem ?cableLVIbemInfeed .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;switchIcu">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?switchIcu
+WHERE{
+   {
+      ?subject dss:dataPointIk3max ?switchIcu.
+   }
+   UNION
+   {
+      ?subject dss:switchIcm ?icm.
+      ?subject dss:breakerLVFcm ?fcm.
+      BIND ((?icm/?fcm) AS ?switchIcu)
+   }
+}
+ORDER BY DESC(?switchIcu) LIMIT 1</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerX1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerX1max
+WHERE {
+   ?subject as:configItemIncludedBy ?trans.
+   ?trans as:designElementIncludedBy ?circuit.
+   ?circuit as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentNominalVoltageLV ?nLV.
+   ?config dss:electricalDesignDocumentVoltageFactorCMax ?cmax.
+   ?subject dss:transformerShortCircuitLosses ?pk.
+   ?subject dss:transformerRatedShortCircuitVoltage ?ukr.
+   ?subject dss:infeedNominalApparentPower ?sn.
+   BIND(xsd:decimal(afn:sqrt(ps:square((?ukr/100)*(ps:square(?nLV)/?sn))-(ps:square((?pk*ps:square(?nLV))/ps:square(?sn))))
+         *0.95*(?cmax/(1+(0.6*((afn:sqrt(ps:square(?ukr/100)-(ps:square(?pk/?sn)))))))))
+      AS ?transformerX1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitX0ph_pen_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0ph_pen_min
+WHERE {
+   ?subject dss:circuitX0ph_pen_minCableLV ?cable .
+   ?subject dss:circuitX0maxTransformer ?transformer .
+   ?subject dss:circuitX0ph_pen_minParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitX0ph_pen_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_n_min
+WHERE {
+    ?subject dss:cableLVR0ph_n ?r0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableLVNumberRuns ?runs .
+    BIND(xsd:decimal((?r0 * ?length) / ?runs)
+        AS ?cableLVR0ph_n_min)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR1max
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableDiscon ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableLVR1min ?r1 .
+    BIND(xsd:decimal(?r1 * (1 + ?alpha *(?temp - 20)))
+        AS ?cableLVR1max) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR1min
+WHERE {
+    ?subject dss:connectionConResPhaseCondPerUnitLength20Degr ?r1 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableLVNumberRuns ?runs .
+    BIND(xsd:decimal((?r1 * ?length) / ?runs)
+        AS ?cableLVR1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitTotalActiveCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?activeCurrent) AS ?circuitTotalActiveCurrent)
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:includesDesignElement ?minorElement.
+      ?minorElement as:includesConfigItem ?config.
+      ?config dss:consumerTotalActiveCurrent ?consumerActiveCurrent.
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:linksDesignElement ?childCircuit.
+      ?childCircuit as:includesConfigItem ?config.
+      ?config dss:circuitTotalActiveCurrent ?circuitActiveCurrent .
+      ?config dss:circuitQuantity ?quantity .
+   }
+   BIND(IF(BOUND(?consumerActiveCurrent), ?consumerActiveCurrent, (?circuitActiveCurrent*?quantity))
+      AS ?activeCurrent)
+
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVR0min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVR0min
+WHERE {
+    ?subject dss:cableMVR0 ?r0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableMVNumberRuns ?runs .
+    BIND(xsd:decimal((?r0 * ?length) / ?runs)
+        AS ?cableMVR0min)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk1minph_pe">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk1minph_pe
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointX1max ?x1max .
+   ?subject dss:dataPointR0ph_pen_max ?r0max .
+   ?subject dss:dataPointX0ph_pen_max ?x0max .
+   BIND(xsd:decimal(ps:arg(2*?r1max+?r0max, 2*?x1max+?x0max)*(-1))
+      AS ?dataPointPhaseAngleIk1minph_pe)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk2min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk2min
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointX1max ?x1max .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cmin .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmin*?unlv)/(xsd:decimal(2)*ps:abs(?r1max, ?x1max))) AS ?dataPointIk2min) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX1max
+WHERE {
+    ?subject dss:cableLVX1min ?cableLVX1max .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;connectionConReactPhaseCondPerUnitLength">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?connectionConReactPhaseCondPerUnitLength
+WHERE {
+   {
+      ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+      ?capacity dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength ?connectionConReactPhaseCondPerUnitLength
+   } UNION {
+      ?subject dss:hasCableMVAllowedLoadCapacity ?capacity .
+      ?capacity dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength ?connectionConReactPhaseCondPerUnitLength
+   }
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk1minph_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk1minph_n
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointR0ph_n_max ?r0max .
+   ?subject dss:dataPointX1max ?x1max .
+   ?subject dss:dataPointX0ph_n_max ?x0max .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cmin .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmin*afn:sqrt(3)*?unlv)/ps:abs(2*?r1max+?r0max, 2*?x1max+?x0max))
+      AS ?dataPointIk1minph_n) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedRelationR0_X0min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedRelationR0_X0min
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentRelationR0_X0min ?mVInfeedRelationR0_X0min .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointR0ph_pen_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointR0ph_pen_min
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitR0ph_pen_min ?r0min .
+   }
+   {
+      SELECT ?subject (SUM(?r0minChild) as ?r0minChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVR0ph_pe_n_min ?lvr0min .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVR0min ?mvr0min .
+         }
+         ?element2 as:designElementIncludedBy ?circuit2 .
+         ?children1 as:designElementIncludedBy ?circuit3 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit2 .
+            })
+         BIND(IF (BOUND (?lvr0min), ?lvr0min, IF(BOUND( ?mvr0min),
+                  ?mvr0min, xsd:decimal(0))) AS ?r0minChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?r0min - ?r0minChildren) AS ?dataPointR0ph_pen_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorAbsDynVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorAbsDynVoltageDrop
+WHERE {
+   ?subject dss:motorIn ?i_n .
+   ?subject dss:motorStartingCurrentRatio ?ia_in .
+   ?subject dss:motorPhi_dyn ?phi .
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?motor .
+      ?motor as:designElementIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?cable .
+      ?cable as:includesConfigItem ?config .
+      ?config dss:cableLVR1DeltaU ?r1 .
+      ?config dss:cableLVX1DeltaU ?x1 .
+   }
+   BIND(xsd:decimal(afn:sqrt(3)*?i_n*?ia_in*((?r1*ps:cos(?phi)+?x1*ps:sin(?phi))/1000))
+      AS ?motorAbsDynVoltageDrop)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitLoadTypeFactor">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitLoadTypeFactor
+WHERE {
+   ?subject dss:circuitReactiveLoadCurrent ?loadCurrent .
+   BIND( IF (?loadCurrent &gt; 0, xsd:decimal(1), xsd:decimal(-1))
+      AS ?circuitLoadTypeFactor)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentR1maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentR1maxMV
+WHERE {
+    ?subject dss:electricalDesignDocumentZ1maxMV ?z1maxMV .
+    ?subject dss:electricalDesignDocumentX1maxMV ?x1maxMV .
+    BIND(xsd:decimal(afn:sqrt(ps:square(?z1maxMV)-ps:square(?x1maxMV)))
+        AS ?electricalDesignDocumentR1maxMV) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitX1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX1min
+WHERE {
+   ?subject dss:circuitX1minParentCircuits ?parents .
+   ?subject dss:circuitX1minSiblingCircuits ?siblings .
+
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?motor .
+      ?motor as:includesConfigItem ?motorConfig .
+      ?motorConfig dss:motorR1 ?motorValue .
+   }
+
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:isDesignStencil dsi:Transformer .
+      ?subject dss:circuitX1minTransformer ?transformerValue .
+   }
+
+   OPTIONAL {
+      ?subject dss:circuitX1minCableLV ?cable .
+   }
+
+   BIND(IF(BOUND(?cable), ?cable, xsd:decimal(0)) AS ?cableValue)
+
+   BIND(ps:inv(ps:inv(?parents)+ps:inv(?siblings)) AS ?influence)
+
+   BIND(IF(BOUND(?transformer) &amp;&amp; ?influence != 0,
+         xsd:decimal(?cableValue + ps:inv((1/(?transformerValue))+(1/?influence))),
+         IF(BOUND(?transformer),
+            xsd:decimal(?cableValue + ps:inv((1/(?transformerValue)))),
+            IF(BOUND(?motor)&amp;&amp; ?influence != 0,
+               xsd:decimal(?cableValue + ps:inv((1/(?motorValue))+(1/?influence))),
+               IF(BOUND(?motor),
+                  xsd:decimal(?cableValue + ?motorValue),
+                  xsd:decimal(?cableValue + ?influence)))))
+      AS ?circuitX1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVIbem">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVIbem
+WHERE {
+    ?subject dss:impedanceOperatingCurrent ?cableLVIbem .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVX1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVX1min
+WHERE {
+   ?subject dss:connectionConReactPhaseCondPerUnitLength ?x1.
+   ?subject dss:connectionLength ?length .
+   ?subject dss:cableMVNumberRuns ?runs .
+   BIND(xsd:decimal((?x1 * ?length) / ?runs)
+      AS ?cableMVX1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVX1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVX1max
+WHERE {
+    ?subject dss:cableMVX1min ?cableMVX1max .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX1DeltaU">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX1DeltaU
+WHERE {
+    ?subject dss:cableLVX1min ?cableLVX1DeltaU .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedRelationR1_X1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedRelationR1_X1min
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentRelationR1_X1min ?mVInfeedRelationR1_X1min .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitSumAbsVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitSumAbsVoltageDrop
+WHERE {
+   ?subject dss:circuitAbsVoltageDrop ?voltageDrop .
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:designElementLinkedBy ?parentCircuit .
+      ?parentCircuit as:includesConfigItem ?config .
+      ?config dss:circuitSumAbsVoltageDrop ?parentVoltageDrop .
+   }
+   BIND (IF (BOUND(?parentVoltageDrop), xsd:decimal(?voltageDrop + ?parentVoltageDrop),
+         ?voltageDrop) AS ?circuitSumAbsVoltageDrop)
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedR1maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedR1maxMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentR1maxMV ?mVInfeedR1maxMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;generalLoadActivePower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?generalLoadActivePower
+WHERE {
+   ?subject dss:generalLoadInStaticLoad ?inStaticLoad.
+   ?subject dss:generalLoadNominalVoltageLoad ?staticLoadNominalVoltageLoad.
+   ?subject dss:consumerCosPhi ?cosPhi .
+   BIND(xsd:decimal((?inStaticLoad*?staticLoadNominalVoltageLoad*afn:sqrt(3)* ?cosPhi)/1000)
+        AS ?generalLoadActivePower)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVIk2min_F2">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVIk2min_F2
+WHERE {
+   ?subject dss:cableMVR1max ?r1maxMVCable.
+   ?subject dss:cableMVX1max ?x1maxMVCable.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?cablMVElement.
+      ?cablMVElement as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentVoltageFactorCMinMV ?cminMV.
+      ?configDoc dss:electricalDesignDocumentR1maxMV ?r1maxMV.
+      ?configDoc dss:electricalDesignDocumentX1maxMV ?x1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   BIND(xsd:decimal((?cminMV*?unMV)/
+   (2*ps:abs(?r1maxMV+?r1maxMVCable,?x1maxMV+?x1maxMVCable)))
+      AS ?cableMVIk2min_F2)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_n_max
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableDiscon ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableLVR0ph_n_min ?r0 .
+    BIND(xsd:decimal(?r0 * (1 + ?alpha *(?temp - 20)))
+        AS ?cableLVR0ph_n_max) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX1min
+WHERE {
+    ?subject dss:connectionConReactPhaseCondPerUnitLength ?x1 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableLVNumberRuns ?runs .
+    BIND(xsd:decimal((?x1 * ?length) / ?runs)
+        AS ?cableLVX1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitTotalReactiveCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?reActiveCurrent) AS ?circuitTotalReactiveCurrent)
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:includesDesignElement ?minorElement.
+      ?minorElement as:includesConfigItem ?config.
+      ?config dss:consumerTotalReactiveCurrent ?consumerReactiveCurrent.
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:linksDesignElement ?childCircuit.
+      ?childCircuit as:includesConfigItem ?config.
+      ?config dss:circuitTotalReactiveCurrent ?circuitReactiveCurrent .
+      ?config dss:circuitQuantity ?quantity .
+   }
+   BIND(IF(BOUND(?consumerReactiveCurrent), ?consumerReactiveCurrent, (?circuitReactiveCurrent*?quantity))
+      AS ?reActiveCurrent)
+
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerPhaseAngleIn">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerPhaseAngleIn
+WHERE {
+    ?subject dss:consumerCosPhi ?cosPhi .
+   {
+      ?subject dss:hasGeneralLoadLoadType ?loadType .
+   } UNION {
+      ?subject dss:hasMotorLoadType ?loadType .
+   }
+    ?loadType as:attributionFactor ?factor .
+    BIND(xsd:decimal(?factor * ps:acos(?cosPhi))
+        AS ?consumerPhaseAngleIn) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedMaxShortCircuitPower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedMaxShortCircuitPower
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentMaxShortCircuitPower ?mVInfeedMaxShortCircuitPower .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitZ1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitZ1max
+WHERE {
+?subject dss:circuitR1max ?r1max.
+?subject dss:circuitX1max ?x1max.
+   BIND(xsd:decimal(ps:abs(?r1max,?x1max))
+        AS ?circuitZ1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;impedanceRatedEffectivePower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?impedanceRatedEffectivePower
+WHERE {
+   OPTIONAL {
+      ?subject dss:consumerRatedEffectivePower ?consumerPower .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:includesConfigItem ?circuit.
+      ?circuit dss:circuitActiveLoadCurrent ?ibw.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?config.
+      ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   }
+   BIND(IF(BOUND(?ibw),xsd:decimal((?ibw*?unLV*afn:sqrt(3))/1000),xsd:decimal(0))
+      AS ?val)
+
+   BIND(IF(BOUND(?consumerPower),?consumerPower, ?val)
+      AS ?impedanceRatedEffectivePower)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk3max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk3max
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointX1min ?x1min .
+   BIND(xsd:decimal(ps:arg(?r1min, ?x1min)*(-1))
+      AS ?dataPointPhaseAngleIk3max)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_n
+WHERE {
+   ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableLVAllowedLoadCapacityR0ph_n ?cableLVR0ph_n
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVX0max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVX0max
+WHERE {
+    ?subject dss:cableMVX0min ?cableMVX0max .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentX0maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentX0maxMV
+WHERE{
+  ?subject dss:electricalDesignDocumentZ0maxMV ?z0maxMV.
+  ?subject dss:electricalDesignDocumentR0maxMV ?r0maxMV.
+    BIND(xsd:decimal(afn:sqrt(ps:square(?z0maxMV)-ps:square(?r0maxMV)))
+      AS ?electricalDesignDocumentX0maxMV)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerIk2min_F3">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerIk2min_F3
+WHERE{
+   ?subject dss:transformerR1max ?r1maxTrafo.
+   ?subject dss:transformerX1max ?x1maxTrafo.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cminLV.
+      ?configDoc dss:electricalDesignDocumentR1maxMV ?r1maxMV.
+      ?configDoc dss:electricalDesignDocumentX1maxMV ?x1maxMV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementLinkedBy+ ?parentElement.
+      ?parentElement as:includesConfigItem ?parentConfig.
+      ?parentConfig dss:cableMVR1max ?r1maxMVCable.
+      ?parentConfig dss:cableMVX1max ?x1maxMVCable.
+      ?parentElement as:isDesignStencil dsi:CableMV.
+   }
+   
+   BIND(xsd:decimal((?cminLV*?unMV)/
+         (2*ps:abs(
+               ?r1maxMV+?r1maxMVCable+(?r1maxTrafo*ps:square(?unMV/?unLV)),
+               ?x1maxMV+?x1maxMVCable+(?x1maxTrafo*ps:square(?unMV/?unLV)))))
+      AS ?transformerIk2min_F3)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIkmax">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIkmax
+WHERE {
+   {
+      ?subject dss:dataPointIk3max ?dataPointIkmax .
+   } UNION {
+      ?subject dss:dataPointIk1maxph_n ?dataPointIkmax .
+   } UNION {
+      ?subject dss:dataPointIk1maxph_pe ?dataPointIkmax .
+   }
+} ORDER BY DESC(?dataPointIkmax) LIMIT 1</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorR1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorR1
+WHERE {
+   ?subject dss:motorX1 ?x1 .
+   ?subject dss:motorRX_ratio ?r_x .
+   BIND(xsd:decimal(?x1*?r_x) AS ?motorR1) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointX0ph_pen_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointX0ph_pen_min
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitX0ph_pen_min ?x0min .
+   }
+   {
+      SELECT ?subject (SUM(?x0minChild) as ?x0minChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVX0ph_pe_n_min ?lvx0min .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVX0min ?mvx0min .
+         }
+         ?element2 as:designElementIncludedBy ?circuit1 .
+         ?children1 as:designElementIncludedBy ?circuit2 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit1 .
+            })
+         BIND(IF (BOUND (?lvx0min), ?lvx0min, IF(BOUND(?mvx0min),
+                  ?mvx0min, xsd:decimal(0))) AS ?x0minChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?x0min - ?x0minChildren) AS ?dataPointX0ph_pen_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointMaxAsymShortCircuitCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointMaxAsymShortCircuitCurrent
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointX1min ?x1min .
+   ?subject dss:dataPointIk3max ?ik3max .
+   BIND(xsd:decimal(afn:sqrt(2)*?ik3max*(xsd:decimal(1.02)
+            +(xsd:decimal(0.98)*ps:pow(afn:e(),(xsd:decimal(-3)*(?r1min/?x1min))))))
+      AS ?dataPointMaxAsymShortCircuitCurrent) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointX0ph_pen_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointX0ph_pen_max
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitX0ph_pen_max ?x0max .
+   }
+   {
+      SELECT ?subject (SUM(?x0maxChild) as ?x0maxChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVX0ph_pe_n_max ?lvx0max .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVX0max ?mvx0max .
+         }
+         ?element2 as:designElementIncludedBy ?circuit1 .
+         ?children1 as:designElementIncludedBy ?circuit2 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit1 .
+            })
+         BIND(IF (BOUND (?lvx0max), ?lvx0max, IF(BOUND(?mvx0max),
+                  ?mvx0max, xsd:decimal(0))) AS ?x0maxChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?x0max - ?x0maxChildren) AS ?dataPointX0ph_pen_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitZ0min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitZ0min
+WHERE {
+   ?subject dss:circuitR0min ?r0min.
+   ?subject dss:circuitX0min ?x0min.
+   BIND(xsd:decimal(ps:abs(?r0min,?x0min))
+      AS ?circuitZ0min)
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mCBIcn">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?switchIcn
+WHERE{
+   {
+      ?subject dss:dataPointIk3max ?switchIcn.
+   }
+   UNION
+   {
+      ?subject dss:switchIcm ?icm.
+      ?subject dss:breakerLVFcm ?fcm.
+      BIND ((?icm/?fcm) AS ?switchIcn)
+   }
+}
+ORDER BY DESC(?switchIcn) LIMIT 1</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;connectionConResPhaseCondPerUnitLength20Degr">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?connectionConResPhaseCondPerUnitLength20Degr
+WHERE {
+   {
+      ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+      ?capacity dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr ?connectionConResPhaseCondPerUnitLength20Degr
+   } UNION {
+      ?subject dss:hasCableMVAllowedLoadCapacity ?capacity .
+      ?capacity dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr ?connectionConResPhaseCondPerUnitLength20Degr
+   }
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorPhi_dyn">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorPhi_dyn
+WHERE {
+   ?subject dss:motorRX_ratio ?r_x .
+  BIND(xsd:decimal(ps:atan(1/?r_x))
+      AS ?motorPhi_dyn) .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_n_max
+WHERE {
+    ?subject dss:cableLVX0ph_n_min ?cableLVX0ph_n_max .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_n_min
+WHERE {
+    ?subject dss:cableLVX0ph_n ?x0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableLVNumberRuns ?runs .
+    BIND(xsd:decimal((?x0 * ?length) / ?runs)
+        AS ?cableLVX0ph_n_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitR0ph_pen_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0ph_pen_min
+WHERE {
+   ?subject dss:circuitR0ph_pen_minCableLV ?cable .
+   ?subject dss:circuitR0maxTransformer ?transformer .
+   ?subject dss:circuitR0ph_pen_minParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitR0ph_pen_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerTotalActiveCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerTotalActiveCurrent
+WHERE {
+?subject dss:impedanceLoadCurrent ?ibStaticLoad.
+?subject dss:consumerCosPhi ?cosPhi.
+   BIND(xsd:decimal(?ibStaticLoad*?cosPhi)
+        AS ?consumerTotalActiveCurrent)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;breakerMVIk3max_F1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?breakerMVIk3max_F1
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unmv .
+   ?configDoc dss:electricalDesignDocumentMaxShortCircuitPower ?skq .
+   BIND(xsd:decimal((?skq/(afn:sqrt(3)*?unmv))*1000)
+      AS ?breakerMVIk3max_F1)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerActiveLoadCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerActiveLoadCurrent
+WHERE {
+ ?subject dss:consumerCapacity_LoadFactor ?ai.
+ ?subject dss:consumerTotalActiveCurrent ?igwStaticLoad.
+   BIND(xsd:decimal(?ai*?igwStaticLoad)
+      AS ?consumerActiveLoadCurrent)
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;connectionCurrentCarryingCapacity">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?connectionCurrentCarryingCapacity
+WHERE {
+   {
+     ?subject dss:cableLVNumberRuns ?runs .
+   } UNION {
+      ?subject dss:cableMVNumberRuns ?runs .
+   }
+   {
+      ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+      ?capacity as:attributionFactor ?ir .
+   } UNION {
+      ?subject dss:hasCableMVAllowedLoadCapacity ?capacity .
+      ?capacity as:attributionFactor ?ir .
+   }
+   ?subject dss:connectionFtot ?ftot.
+
+   BIND(xsd:decimal(?ir*?ftot*?runs)
+     AS ?connectionCurrentCarryingCapacity) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitR0ph_pen_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0ph_pen_max
+WHERE {
+   ?subject dss:circuitR0ph_pen_maxCableLV ?cable .
+   ?subject dss:circuitR0maxTransformer ?transformer .
+   ?subject dss:circuitR0ph_pen_maxParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitR0ph_pen_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedR0minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedR0minMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentR0minMV ?mVInfeedR0minMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0max
+WHERE {
+    ?subject dss:cableLVX0min ?cableLVX0max .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVIk1min_F4">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVIk1min_F4
+WHERE{
+?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:hasDesignDocumentType ?type .
+   ?doc as:includesConfigItem ?configDoc.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMinMV ?cminMV.
+   ?subject dss:cableLVR4_2 ?rf4_2.
+   ?subject dss:cableLVX4_2 ?xf4_2.
+
+BIND(xsd:decimal((?cminMV*?unMV)/(ps:abs(?rf4_2,?xf4_2)))
+AS ?cableLVIk1min_F4)
+
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;breakerLVFcm">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?breakerLVFcm
+WHERE {
+   ?subject dss:dataPointIkmax ?ikmax .
+   BIND(xsd:decimal(?ikmax/1000) AS ?indicator) .
+
+   BIND(
+      IF(?indicator &lt;= 6, 1.5,
+         IF(?indicator &lt;= 10, 1.7,
+            IF(?indicator &lt;= 20, 2.0,
+               IF(?indicator &lt;= 50, 2.2, 2.2))))
+      AS ?breakerLVFcm) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointR1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointR1max
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitR1max ?r1max .
+   }
+   {
+      SELECT ?subject (SUM(?r1maxChild) as ?r1maxChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVR1max ?lvr1max .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVR1max ?mvr1max .
+         }
+         ?element2 as:designElementIncludedBy ?circuit2 .
+         ?children1 as:designElementIncludedBy ?circuit3 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit2 .
+            })
+         BIND(IF (BOUND (?lvr1max), ?lvr1max, IF(BOUND(?mvr1max),
+                  ?mvr1max, xsd:decimal(0))) AS ?r1maxChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?r1max - ?r1maxChildren) AS ?dataPointR1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedVoltageFactorCMax">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedVoltageFactorCMax
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentVoltageFactorCMax ?mVInfeedVoltageFactorCMax .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitRelativeVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitRelativeVoltageDrop
+WHERE{
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:designElementIncludedBy ?document.
+   ?document as:hasDesignDocumentType ?type .
+   ?document as:includesConfigItem ?docConfig.
+   ?docConfig dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   ?subject dss:circuitAbsVoltageDrop ?deltaU.
+   BIND(xsd:decimal((?deltaU/?unLV)*100) AS ?circuitRelativeVoltageDrop)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentZ0minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentZ0minMV
+WHERE{
+  ?subject dss:electricalDesignDocumentZ1minMV ?z1minMV.
+  ?subject dss:electricalDesignDocumentRelationZ0_Z1min ?z0Toz1.
+  BIND(xsd:decimal(?z1minMV*?z0Toz1)
+      AS ?electricalDesignDocumentZ0minMV)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerReactiveLoadCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerReactiveLoadCurrent
+WHERE {
+   ?subject dss:consumerCapacity_LoadFactor ?ai.
+   ?subject dss:consumerTotalReactiveCurrent ?igbStaticLoad.
+   BIND(xsd:decimal(?ai*?igbStaticLoad)
+      AS ?consumerReactiveLoadCurrent)
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVR1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVR1min
+WHERE {
+    ?subject dss:connectionConResPhaseCondPerUnitLength20Degr ?r1 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableMVNumberRuns ?runs .
+    BIND(xsd:decimal((?r1 * ?length) / ?runs)
+        AS ?cableMVR1min)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointR1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointR1min
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitR1min ?r1min .
+   }
+   {
+      SELECT ?subject (SUM(?r1minChild) as ?r1minChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVR1min ?lvr1min .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVR1min ?mvr1min .
+         }
+         ?element2 as:designElementIncludedBy ?circuit2 .
+         ?children1 as:designElementIncludedBy ?circuit3 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit2 .
+            })
+         BIND(IF (BOUND (?lvr1min), ?lvr1min, IF(BOUND(?mvr1min),
+                  ?mvr1min, xsd:decimal(0))) AS ?r1minChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?r1min - ?r1minChildren) AS ?dataPointR1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentX0minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentX0minMV
+WHERE{
+  ?subject dss:electricalDesignDocumentZ0minMV ?z0minMV.
+  ?subject dss:electricalDesignDocumentR0minMV ?r0minMV.
+  BIND(xsd:decimal(afn:sqrt(ps:square(?z0minMV)-ps:square(?r0minMV)))
+      AS ?electricalDesignDocumentX0minMV)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;hasCircuitLoadType">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerReactivePower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerReactivePower
+WHERE {
+   ?subject dss:consumerTotalReactiveCurrent ?igbStaticLoad.
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   {
+      ?subject dss:hasGeneralLoadNumberPoles ?poles.
+      ?poles as:attributionFactor ?numberPoles.
+   } UNION {
+      ?subject dss:motorNumberPoles ?numberPoles.
+   }
+
+   BIND(xsd:decimal(((?igbStaticLoad*?unLV)/(afn:sqrt(3)*1000))*ps:square(?numberPoles))
+      AS ?consumerReactivePower)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedZ0minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedZ0minMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentZ0minMV ?mVInfeedZ0minMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointX1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointX1max
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitX1max ?x1max .
+   }
+   {
+      SELECT ?subject (SUM(?x1maxChild) as ?x1maxChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVX1max ?lvx1max .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVX1max ?mvx1max .
+         }
+         ?element2 as:designElementIncludedBy ?circuit2 .
+         ?children1 as:designElementIncludedBy ?circuit3 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit2 .
+            })
+         BIND(IF (BOUND (?lvx1max), ?lvx1max, IF(BOUND(?mvx1max),
+                  ?mvx1max, xsd:decimal(0))) AS ?x1maxChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?x1max - ?x1maxChildren) AS ?dataPointX1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk3min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk3min
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointX1max ?x1max .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cmin .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmin*?unlv)/(afn:sqrt(3) * ps:abs(?r1max, ?x1max)))
+      AS ?dataPointIk3min) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentZ1maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentZ1maxMV
+WHERE {
+    ?subject dss:electricalDesignDocumentNominalVoltageMV ?unMV .
+    ?subject dss:electricalDesignDocumentVoltageFactorCMinMV ?cminMV .
+    ?subject dss:electricalDesignDocumentMinShortCircuitPower ?skQmin .
+   BIND(xsd:decimal((?cminMV*ps:square(?unMV))/(?skQmin*1000))
+      AS ?electricalDesignDocumentZ1maxMV) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorIn">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorIn
+WHERE {
+   ?subject dss:motorNominalVoltage ?voltage .
+   ?subject dss:motorPmech ?p_mech .
+   ?subject dss:motorEfficiency ?efficiency .
+   ?subject dss:consumerCosPhi ?cosPhi .
+   BIND(xsd:decimal((?p_mech*1000)/(afn:sqrt(3)*?voltage*?cosPhi*?efficiency))
+      AS ?motorIn) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_n
+WHERE {
+   ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableLVAllowedLoadCapacityX0ph_n ?cableLVX0ph_n
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedX1maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedX1maxMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentX1maxMV ?mVInfeedX1maxMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_pe_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_pe_n
+WHERE {
+   ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableLVAllowedLoadCapacityR0ph_pe_n ?cableLVR0ph_pe_n
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;infeedIbem">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?infeedIbem
+WHERE {
+?subject dss:impedanceOperatingCurrent ?infeedIbem.
+}	</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;breakerLVI2">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?breakerLVI2
+WHERE {
+   ?subject dss:switchInswitch ?i_n .
+   BIND(xsd:decimal(xsd:decimal(1.45)*?i_n)
+   AS ?breakerLVI2) .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerR1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerR1max
+WHERE {
+   ?subject as:configItemIncludedBy ?trans.
+   ?trans as:designElementIncludedBy ?circuit.
+   ?circuit as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentNominalVoltageLV ?nLV.
+   ?config dss:electricalDesignDocumentVoltageFactorCMax ?cmax.
+   ?subject dss:transformerShortCircuitLosses ?pk.
+   ?subject dss:transformerRatedShortCircuitVoltage ?ukr.
+   ?subject dss:infeedNominalApparentPower ?sn.
+   BIND(xsd:decimal(((?pk*ps:square(?nLV))/ps:square(?sn))*0.95*(?cmax/(1+(0.6*(afn:sqrt(ps:square(?ukr/100)-ps:square(?pk/?sn)))))))
+      AS ?transformerR1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentR0maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentR0maxMV
+WHERE{
+  ?subject dss:electricalDesignDocumentZ0maxMV ?z0maxMV.
+  ?subject dss:electricalDesignDocumentRelationR0_X0min ?r0Tox0.
+  BIND(xsd:decimal(?z0maxMV/(afn:sqrt(1+ps:square(?r0Tox0))))
+      AS ?electricalDesignDocumentR0maxMV)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitZ0max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitZ0max
+WHERE {
+   ?subject dss:circuitR0max ?r0max.
+   ?subject dss:circuitX0max ?x0max.
+   BIND(xsd:decimal(ps:abs(?r0max,?x0max))
+      AS ?circuitZ0max)
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedZ1maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedZ1maxMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentZ1maxMV ?mVInfeedZ1maxMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitR1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR1min
+WHERE {
+   ?subject dss:circuitR1minParentCircuits ?parents .
+   ?subject dss:circuitR1minSiblingCircuits ?siblings .
+
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?motor .
+      ?motor as:includesConfigItem ?motorConfig .
+      ?motorConfig dss:motorR1 ?motorValue .
+   }
+
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:includesDesignElement ?transformer .
+      ?transformer as:isDesignStencil dsi:Transformer .
+      ?subject dss:circuitR1minTransformer ?transformerValue .
+   }
+
+   OPTIONAL {
+      ?subject dss:circuitR1minCableLV ?cable .
+   }
+
+   BIND(IF(BOUND(?cable), ?cable, xsd:decimal(0)) AS ?cableValue)
+
+   BIND(ps:inv(ps:inv(?parents)+ps:inv(?siblings)) AS ?influence)
+
+   BIND(IF(BOUND(?transformer) &amp;&amp; ?influence != 0,
+         xsd:decimal(?cableValue + ps:inv((1/(?transformerValue))+(1/?influence))),
+         IF(BOUND(?transformer),
+            xsd:decimal(?cableValue + ps:inv((1/(?transformerValue)))),
+            IF(BOUND(?motor)&amp;&amp; ?influence != 0,
+               xsd:decimal(?cableValue + ps:inv((1/(?motorValue))+(1/?influence))),
+               IF(BOUND(?motor),
+                  xsd:decimal(?cableValue + ?motorValue),
+                  xsd:decimal(?cableValue + ?influence)))))
+      AS ?circuitR1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk1maxph_pe">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk1maxph_pe
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointR0ph_pen_min ?r0min .
+   ?subject dss:dataPointX1min ?x1min .
+   ?subject dss:dataPointX0ph_pen_min ?x0min .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmax*afn:sqrt(3)*?unlv)/ps:abs(2*?r1min+?r0min, 2*?x1min+?x0min))
+      AS ?dataPointIk1maxph_pe) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentR1minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentR1minMV
+WHERE {
+    ?subject dss:electricalDesignDocumentZ1minMV ?z1minMV .
+    ?subject dss:electricalDesignDocumentX1minMV ?x1minMV .
+    BIND(xsd:decimal(afn:sqrt(ps:square(?z1minMV)-ps:square(?x1minMV)))
+        AS ?electricalDesignDocumentR1minMV) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitReactiveLoadCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?activeCurrent) AS ?circuitReactiveLoadCurrent)
+WHERE {
+    ?subject dss:circuitSimultaneityFactor ?sfactor.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:includesDesignElement ?minorElement.
+      ?minorElement as:includesConfigItem ?config.
+      ?config dss:consumerReactiveLoadCurrent ?consumerReactiveCurrent.
+   }
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?circuit .
+      ?circuit as:linksDesignElement ?childCircuit.
+      ?childCircuit as:includesConfigItem ?config.
+      ?config dss:circuitReactiveLoadCurrent ?circuitReactiveCurrent .
+      ?config dss:circuitQuantity ?quantity .
+   }
+   BIND(IF(BOUND(?consumerReactiveCurrent),
+   xsd:decimal(?consumerReactiveCurrent*?sfactor),
+   xsd:decimal(?circuitReactiveCurrent*?sfactor))
+      AS ?activeCurrent)
+
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVAbsVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVAbsVoltageDrop
+WHERE{
+   ?subject dss:cableLVR1DeltaU ?r1u.
+   ?subject dss:cableLVX1DeltaU ?x1u.
+   ?subject dss:cableLVR0ph_nDeltaU ?r0u.
+   ?subject dss:cableLVX0ph_nDeltaU ?x0u.
+   ?subject dss:impedanceOperatingCurrent ?ib.
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?cable.
+      ?cable as:linksDesignElement ?childElement.
+      ?childElement as:includesConfigItem ?configChild.
+      FILTER(EXISTS {
+         ?configChild dss:hasGeneralLoadNumberPoles dsi:GeneralLoadNumberPoles3PLUSN.
+         })
+   }
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?cable.
+      ?cable as:designElementIncludedBy ?circuit.
+      ?circuit as:includesConfigItem ?configCircuit.
+      ?configCircuit dss:circuitLoadTypeFactor ?loadType.
+      ?configCircuit dss:circuitCosPhi ?cosPhi.
+   }
+
+   BIND(IF(BOUND(?childElement),
+         (1/3)*afn:sqrt(3)*?ib*(((2*?r1u*?cosPhi)+(2*?x1u*ps:cosToSin(?cosPhi))
+               +(?r0u*?cosPhi)-(?x0u*ps:cosToSin(?cosPhi)*?loadType))/1000),
+         (afn:sqrt(3)*?ib*(((?r1u*?cosPhi)-(?x1u*ps:cosToSin(?cosPhi)*?loadType))/1000)))
+         AS ?cableLVAbsVoltageDrop)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitTotalApparantCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitTotalApparantCurrent
+WHERE {
+   ?subject dss:circuitTotalActiveCurrent ?igw.
+   ?subject dss:circuitTotalReactiveCurrent ?igb.
+   BIND(xsd:decimal(ps:abs(?igw, ?igb))
+      AS ?circuitTotalApparantCurrent)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;switchInswitch">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?switchInswitch
+WHERE {
+{
+      ?subject as:configItemIncludedBy ?switch .
+      ?switch as:designElementLinkedBy ?impedance .
+      ?impedance as:includesConfigItem ?config .
+      ?config dss:impedanceOperatingCurrent ?switchInswitch .
+   }
+   UNION
+   {
+      ?subject as:configItemIncludedBy ?switch.
+      ?switch as:linksDesignElement ?impedance.
+      ?impedance as:includesConfigItem ?config .
+      ?config dss:impedanceOperatingCurrent ?switchInswitch .
+   }
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk1max_F1">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk1max_F1
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unmv .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+   ?configDoc dss:electricalDesignDocumentR1minMV ?r1min .
+   ?configDoc dss:electricalDesignDocumentR0minMV ?r0min .
+   ?configDoc dss:electricalDesignDocumentX1minMV ?x1min .
+   ?configDoc dss:electricalDesignDocumentX0minMV ?x0min .
+   BIND(xsd:decimal((?cmax*?unmv)/ps:abs(2*?r1min+?r0min, 2*?x1min+?x0min))
+            AS ?dataPointIk1max_F1)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVCrossSectionPEConductor">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVCrossSectionPEConductor
+WHERE {
+   ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableLVAllowedLoadCapacityCrossSectionPEConductor ?cableLVCrossSectionPEConductor
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVR1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVR1max
+WHERE {
+     ?subject as:configItemIncludedBy ?element.
+ ?element  as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableDiscon ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableMVR1min ?r1min .
+    BIND(xsd:decimal(?r1min * (1 + ?alpha *(?temp - 20)))
+        AS ?cableMVR1max) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitRelativeCumVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitRelativeCumVoltageDrop
+WHERE{
+   ?subject as:configItemIncludedBy ?circuit.
+   ?circuit as:designElementIncludedBy ?document.
+   ?document as:hasDesignDocumentType ?type .
+   ?document as:includesConfigItem ?docConfig.
+   ?docConfig dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   ?subject dss:circuitSumAbsVoltageDrop ?sumDeltaU.
+   BIND(xsd:decimal((?sumDeltaU/?unLV)*100) AS ?circuitRelativeCumVoltageDrop)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;impedanceLoadCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?impedanceLoadCurrent
+WHERE {
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuit.
+   ?circuit as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   {
+      ?subject dss:generalLoadInStaticLoad ?in.
+      ?subject dss:generalLoadNominalVoltageLoad ?un.
+      ?subject dss:hasGeneralLoadNumberPoles ?poles.
+      ?poles as:attributionFactor ?numberPoles.
+   } UNION {
+      ?subject dss:motorIn ?in.
+      ?subject dss:motorNominalVoltage ?un.
+      ?subject dss:motorNumberPoles ?numberPoles.
+   }
+   BIND(xsd:decimal((?in/(?un*(afn:sqrt(3)/?unLV)))*?numberPoles)
+      AS ?impedanceLoadCurrent)
+}</ps:sparql>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedR0maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedR0maxMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentR0maxMV ?mVInfeedR0maxMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorCosPhi">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;impedanceOperatingCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?impedanceOperatingCurrent
+WHERE {
+   ?subject as:configItemIncludedBy ?impedance.
+   ?impedance as:designElementIncludedBy ?circuit.
+   ?circuit as:includesConfigItem ?circuitconfig.
+   ?circuitconfig dss:circuitActiveLoadCurrent ?ibw.
+   ?circuitconfig dss:circuitReactiveLoadCurrent ?ibb.
+   BIND(xsd:decimal(ps:abs(?ibw,?ibb))
+      AS ?impedanceOperatingCurrent)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitX0ph_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0ph_n_max
+WHERE {
+   ?subject dss:circuitX0ph_n_maxCableLV ?cable .
+   ?subject dss:circuitX0maxTransformer ?transformer .
+   ?subject dss:circuitX0ph_n_maxParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitX0ph_n_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_pe_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_pe_n_max
+WHERE {
+    ?subject dss:cableLVX0ph_pe_n_min ?cableLVX0ph_pe_n_max .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedRefPtVoltDropCalculation">
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject ?mVInfeedRefPtVoltDropCalculation
+{
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:hasDesignDocumentType ?type .
+   ?document as:includesConfigItem ?config.
+   ?config dss:hasElectricalDesignDocumentRefPtVoltDropCalculation ?obj.
+   ?obj rdfs:label ?val.
+   BIND(xsd:string(?val) AS ?mVInfeedRefPtVoltDropCalculation)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;connectionCrossSectionPhaseConductor">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?connectionCrossSectionPhaseConductor
+WHERE {
+   {
+      ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+      ?capacity dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor ?connectionCrossSectionPhaseConductor
+   } UNION {
+      ?subject dss:hasCableMVAllowedLoadCapacity ?capacity .
+      ?capacity dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor ?connectionCrossSectionPhaseConductor
+   }
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedCondTempLVCableBeginShortCircuit">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedCondTempLVCableBeginShortCircuit
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableBeginShortCircuit ?mVInfeedCondTempLVCableBeginShortCircuit .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitR0ph_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0ph_n_max
+WHERE {
+   ?subject dss:circuitR0ph_n_maxCableLV ?cable .
+   ?subject dss:circuitR0maxTransformer ?transformer .
+   ?subject dss:circuitR0ph_n_maxParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitR0ph_n_max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk1minph_pe">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk1minph_pe
+WHERE {
+   ?subject dss:dataPointR1max ?r1max .
+   ?subject dss:dataPointR0ph_pen_max ?r0max .
+   ?subject dss:dataPointX1max ?x1max .
+   ?subject dss:dataPointX0ph_pen_max ?x0max .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cmin .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmin*afn:sqrt(3)*?unlv)/ps:abs(2*?r1max+?r0max, 2*?x1max+?x0max))
+      AS ?dataPointIk1minph_pe) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitCosPhi">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitCosPhi
+WHERE {
+   ?subject dss:circuitActiveLoadCurrent ?ibw.
+   ?subject dss:circuitReactiveLoadCurrent ?ibb.
+   BIND(xsd:decimal(?ibw/ps:abs(?ibw,?ibb))
+        AS ?circuitCosPhi)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;motorNominalVoltage">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?motorNominalVoltage
+WHERE {
+   ?subject dss:motorNumberPoles ?poles .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?unlv/afn:sqrt(3)) * ?poles)
+      AS ?motorNominalVoltage) .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitR0ph_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR0ph_n_min
+WHERE {
+   ?subject dss:circuitR0ph_n_minCableLV ?cable .
+   ?subject dss:circuitR0maxTransformer ?transformer .
+   ?subject dss:circuitR0ph_n_minParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitR0ph_n_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerIk1min_F3">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerIk1min_F3
+WHERE{
+   ?subject dss:transformerRF3_3 ?rf3_3.
+   ?subject dss:transformerXF3_3 ?xf3_3.
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?configDoc.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+      ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+      ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cminLV.
+      ?doc as:hasDesignDocumentType ?type .
+   }
+
+   BIND(xsd:decimal((?unLV/(afn:sqrt(3)*?unMV))*((afn:sqrt(3)*?cminLV*(ps:square(?unMV)/?unLV))/ps:abs(?rf3_3,?xf3_3)))
+   AS ?transformerIk1min_F3)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedVoltageFactorCMinMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedVoltageFactorCMinMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentVoltageFactorCMinMV ?mVInfeedVoltageFactorCMinMV .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerAbsVoltageDrop">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerAbsVoltageDrop
+WHERE{
+   ?subject dss:transformerR1max ?r1max.
+   ?subject dss:transformerX1max ?x1max.
+   ?subject dss:impedanceOperatingCurrent ?ib.
+   ?subject as:configItemIncludedBy ?trans.
+   ?trans as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:includesConfigItem ?circuit.
+   ?circuit dss:circuitCosPhi ?cosPhi.
+   BIND(xsd:decimal(afn:sqrt(3)*?ib*(((?r1max*?cosPhi)+(?x1max*ps:cosToSin(?cosPhi)))/1000))
+      AS ?transformerAbsVoltageDrop)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointPhaseAngleIk1maxph_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointPhaseAngleIk1maxph_n
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointX1min ?x1min .
+   ?subject dss:dataPointR0ph_n_min ?r0min .
+   ?subject dss:dataPointX0ph_n_min ?x0min .
+   BIND(xsd:decimal(ps:arg(2*?r1min+?r0min, 2*?x1min+?x0min)*(-1))
+      AS ?dataPointPhaseAngleIk1maxph_n)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentX1minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentX1minMV
+WHERE {
+   ?subject dss:electricalDesignDocumentZ1minMV ?z1minMV .
+   ?subject dss:electricalDesignDocumentRelationR1_X1min ?r1_x1 .
+    BIND(xsd:decimal(?z1minMV / afn:sqrt(1 + ps:square(?r1_x1)))
+        AS ?electricalDesignDocumentX1minMV) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;switchIbem">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?switchIbem
+WHERE{
+   {
+      ?subject as:configItemIncludedBy ?switch.
+      ?switch as:designElementLinkedBy ?cable.
+      ?cable as:includesConfigItem ?cableConfig.
+      ?cableConfig dss:cableLVIbem ?switchIbem.
+   }
+   UNION
+   {
+      ?subject as:configItemIncludedBy ?switch.
+      ?switch as:linksDesignElement ?cable.
+      ?cable as:includesConfigItem ?cableConfig.
+      ?cableConfig dss:cableLVIbem ?switchIbem.
+   }
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedAmbientTemperature">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedAmbientTemperature
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentAmbientTemperature ?mVInfeedAmbientTemperature .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;impedanceReactivePower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?impedanceReactivePower
+WHERE {
+   OPTIONAL {
+      ?subject dss:consumerReactivePower ?consumerPower .
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?element.
+      ?element as:designElementIncludedBy ?circuitElement.
+      ?circuitElement as:includesConfigItem ?circuit.
+      ?circuit dss:circuitReactiveLoadCurrent ?ibb.
+      ?circuitElement as:designElementIncludedBy ?doc.
+      ?doc as:includesConfigItem ?config.
+      ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   }
+   BIND(IF(BOUND(?ibb),xsd:decimal((?ibb*?unLV*afn:sqrt(3))/1000),xsd:decimal(0))
+      AS ?val)
+
+   BIND(IF(BOUND(?consumerPower),?consumerPower, ?val)
+      AS ?impedanceReactivePower)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedR1minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedR1minMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentR1minMV ?mVInfeedR1minMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVIk2min_F4">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVIk2min_F4
+WHERE{
+?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:hasDesignDocumentType ?type .
+   ?doc as:includesConfigItem ?configDoc.
+   ?configDoc dss:electricalDesignDocumentNominalVoltageMV ?unMV.
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMinLV ?cminLV.
+   ?subject dss:cableLVR4_1 ?rf4_1.
+   ?subject dss:cableLVX4_1 ?xf4_1.
+
+BIND(xsd:decimal((?cminLV*?unMV)/(2*ps:abs(?rf4_1,?xf4_1)))
+AS ?cableLVIk2min_F4)
+
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;impedanceRatedPower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?impedanceRatedPower
+WHERE {
+?subject dss:impedanceRatedEffectivePower ?p.
+?subject dss:impedanceReactivePower ?q.
+BIND(xsd:decimal(ps:abs(?p,?q))
+      AS ?impedanceRatedPower)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerIn">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerIn
+WHERE {
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuit.
+   ?circuit as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentNominalVoltageLV ?unLV.
+   ?subject dss:infeedNominalApparentPower ?sn.
+   BIND(xsd:decimal(?sn*1000/((afn:sqrt(3))*?unLV))
+      AS ?transformerIn)
+} </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitX0ph_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitX0ph_n_min
+WHERE {
+   ?subject dss:circuitX0ph_n_minCableLV ?cable .
+   ?subject dss:circuitX0maxTransformer ?transformer .
+   ?subject dss:circuitX0ph_n_minParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitX0ph_n_min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;circuitR1max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?circuitR1max
+WHERE {
+   ?subject dss:circuitR1maxCableLV ?cable .
+   ?subject dss:circuitR1maxTransformer ?transformer .
+   ?subject dss:circuitR1maxParentCircuit ?parent .
+   BIND(xsd:decimal(?cable+?transformer+?parent) AS ?circuitR1max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointIk3max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointIk3max
+WHERE {
+   ?subject dss:dataPointR1min ?r1min .
+   ?subject dss:dataPointX1min ?x1min .
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+   ?circuit as:designElementIncludedBy ?document .
+   ?document as:includesConfigItem ?configDoc .
+   ?configDoc dss:electricalDesignDocumentVoltageFactorCMax ?cmax .
+   ?configDoc dss:electricalDesignDocumentNominalVoltageLV ?unlv .
+   BIND(xsd:decimal((?cmax*?unlv)/(afn:sqrt(3) * ps:abs(?r1min, ?x1min))) AS ?dataPointIk3max) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedCondTempLVCable">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedCondTempLVCable
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCable ?mVInfeedCondTempLVCable .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerX0max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerX0max
+WHERE {
+   ?subject as:configItemIncludedBy ?element.
+   ?element as:designElementIncludedBy ?circuitElement.
+   ?circuitElement as:designElementIncludedBy ?doc.
+   ?doc as:includesConfigItem ?config.
+   ?config dss:electricalDesignDocumentVoltageFactorCMinLV ?cminLV.
+   ?subject dss:transformerX1max ?x1max.
+   BIND(xsd:decimal(?cminLV*?x1max) AS ?transformerX0max)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;consumerTotalReactiveCurrent">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?consumerTotalReactiveCurrent
+WHERE {
+   ?subject dss:impedanceLoadCurrent ?ib.
+   ?subject dss:consumerCosPhi ?cosPhi.
+   {
+      ?subject dss:hasGeneralLoadLoadType ?loadType.
+   } UNION {
+      ?subject dss:hasMotorLoadType ?loadType.
+   }
+   ?loadType as:attributionFactor ?factor.
+
+   BIND(xsd:decimal(?ib*(ps:cosToSin(?cosPhi))*?factor)
+      AS ?consumerTotalReactiveCurrent)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_pe_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_pe_n_min
+WHERE {
+    ?subject dss:cableLVX0ph_pe_n ?x0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableLVNumberRuns ?runs .
+    BIND(xsd:decimal((?x0 * ?length) / ?runs)
+        AS ?cableLVX0ph_pe_n_min)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedVoltageFactorCMinLV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedVoltageFactorCMinLV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentVoltageFactorCMinLV ?mVInfeedVoltageFactorCMinLV .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentZ0maxMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentZ0maxMV
+WHERE{
+  ?subject dss:electricalDesignDocumentZ1maxMV ?z1maxMV.
+  ?subject dss:electricalDesignDocumentRelationZ0_Z1min ?z0Toz1.
+  BIND(xsd:decimal(?z1maxMV*?z0Toz1)
+      AS ?electricalDesignDocumentZ0maxMV)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_pe_n">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_pe_n
+WHERE {
+   ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableLVAllowedLoadCapacityX0ph_pe_n ?cableLVX0ph_pe_n
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_pe_n_min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_pe_n_min
+WHERE {
+    ?subject dss:cableLVR0ph_pe_n ?r0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:cableLVNumberRuns ?runs .
+    BIND(xsd:decimal((?r0 * ?length) / ?runs)
+        AS ?cableLVR0ph_pe_n_min)
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_pe_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_pe_n_max
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:hasDesignDocumentType ?type .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentCondTempLVCableDiscon ?temp .
+    ?subject dss:hasConnectionMaterial ?material .
+    ?material as:attributionFactor ?alpha .
+    ?subject dss:cableLVR0ph_pe_n_min ?r0 .
+    BIND(xsd:decimal(?r0 * (1 + ?alpha *(?temp - 20)))
+        AS ?cableLVR0ph_pe_n_max) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVR0ph_nmin">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVR0ph_nmin
+WHERE {
+    ?subject dss:cableLVR0ph_n ?r0 .
+    ?subject dss:connectionLength ?length .
+    ?subject dss:connectionNumberRuns ?runs .
+    BIND(xsd:decimal((?r0 * ?length) / ?runs)
+        AS ?cableLVR0ph_nmin)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;electricalDesignDocumentR0minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?electricalDesignDocumentR0minMV
+WHERE{
+  ?subject dss:electricalDesignDocumentZ0minMV ?z0minMV.
+  ?subject dss:electricalDesignDocumentRelationR0_X0min ?r0Tox0.
+  BIND(xsd:decimal(?z0minMV/(afn:sqrt(1+ps:square(?r0Tox0))))
+      AS ?electricalDesignDocumentR0minMV)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVCrossSectionNConductor">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVCrossSectionNConductor
+WHERE {
+   ?subject dss:hasCableLVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableLVAllowedLoadCapacityCrossSectionNConductor ?cableLVCrossSectionNConductor
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;mVInfeedZ1minMV">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?mVInfeedZ1minMV
+WHERE {
+   ?subject as:configItemIncludedBy ?element .
+   ?element as:designElementIncludedBy ?circuit .
+    ?circuit as:designElementIncludedBy ?document .
+    ?document as:includesConfigItem ?config.
+    ?config dss:electricalDesignDocumentZ1minMV ?mVInfeedZ1minMV .
+    ?document as:hasDesignDocumentType ?type .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointX1min">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointX1min
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitX1min ?x1min .
+   }
+   {
+      SELECT ?subject (SUM(?x1minChild) as ?x1minChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVX1min ?lvx1min .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVX1min ?mvx1min .
+         }
+         ?element2 as:designElementIncludedBy ?circuit2 .
+         ?children1 as:designElementIncludedBy ?circuit3 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit2 .
+            })
+         BIND(IF (BOUND (?lvx1min), ?lvx1min, IF(BOUND(?mvx1min),
+                  ?mvx1min, xsd:decimal(0))) AS ?x1minChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?x1min - ?x1minChildren) AS ?dataPointX1min)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableLVX0ph_nDeltaU">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableLVX0ph_nDeltaU
+WHERE {
+    ?subject dss:cableLVX0ph_n_min ?cableLVX0ph_nDeltaU .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerR0max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerR0max
+WHERE {
+?subject dss:transformerR1max ?transformerR0max.
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;dataPointX0ph_n_max">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?dataPointX0ph_n_max
+WHERE {
+   OPTIONAL {
+      ?subject as:configItemIncludedBy ?element1 .
+      ?element1 as:designElementIncludedBy ?circuit1 .
+      ?circuit1 as:includesConfigItem ?configCircuit .
+      ?configCircuit dss:circuitX0ph_n_max ?x0max .
+   }
+   {
+      SELECT ?subject (SUM(?x0maxChild) as ?x0maxChildren)
+      WHERE {
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableLVX0ph_n_max ?lvx0max .
+         }
+         OPTIONAL {
+            ?subject as:configItemIncludedBy ?element2 .
+            ?element2 as:linksDesignElement+ ?children1 .
+            ?children1 as:includesConfigItem ?configChildren1 .
+            ?configChildren1 dss:cableMVX0max ?mvx0max .
+         }
+         ?element2 as:designElementIncludedBy ?circuit1 .
+         ?children1 as:designElementIncludedBy ?circuit2 .
+         FILTER (EXISTS {
+               ?children1 as:designElementIncludedBy ?circuit1 .
+            })
+         BIND(IF (BOUND (?lvx0max), ?lvx0max, IF(BOUND(?mvx0max),
+                  ?mvx0max, xsd:decimal(0))) AS ?x0maxChild ).
+      } GROUP by ?subject
+   }
+   BIND(xsd:decimal(?x0max - ?x0maxChildren) AS ?dataPointX0ph_n_max)
+}</ps:sparql>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

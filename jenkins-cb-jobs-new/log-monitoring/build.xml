@@ -1,0 +1,53 @@
+<project default="main" xmlns:ac="antlib:net.sf.antcontrib">
+
+  <target name="main">
+
+    <!-- install to target repository -->
+    <property environment="env" />
+    <path id="classpath">
+      <fileset dir="${maven.home}/boot">
+        <include name="plexus-classworlds-*.jar" />
+      </fileset>
+    </path>
+
+    <property name="mvn.mainclass" value="org.codehaus.plexus.classworlds.launcher.Launcher" />
+
+    <!-- Before running neo executions, need to initialize sdk-->
+    <java classname="${mvn.mainclass}" classpathref="classpath" fork="true" failonerror="true">
+      <sysproperty key="classworlds.conf" value="${maven.home}/bin/m2.conf" />
+      <jvmarg value="-DsdkInstallPath=${project.build.directory}/sdk" />
+      <jvmarg value="-Dmaven.multiModuleProjectDirectory=${maven.home}" />
+      <arg value="com.sap.cloud:neo-java-web-maven-plugin:2.38.6:install-sdk" />
+    </java>
+	
+	<echo message="project build directory is : ${project.build.directory}" />
+	
+	<mkdir dir="${project.build.directory}/logFiles"/>
+	<echo message="folder: ${project.build.directory}/logFiles is created" />
+	
+	<!-- step no. 2 run jar file to process the log files and upload data into database-->	
+	<java jar="${project.build.directory}/../../../tools/log-monitoring/target/log-monitoring-capsule-fat.jar"
+      fork="true" failonerror="false" resultproperty="logFileProcessResult">
+	  <arg value="${project.build.directory}/sdk/tools/neo.sh" />
+	  <arg value="${project.build.directory}/logFiles" />
+	  <arg value="${HCPuser}" />
+	  <arg value="${HCPpassword}" />
+	  <arg value="${parameters}" />
+	  <arg value="${DBURL}" />
+	  <arg value="${DBuser}" />
+	  <arg value="${DBpassword}" />
+	  <arg value="${HCPaccount}" />
+	  <arg value="${HCPhost}" />
+	  <arg value="${databaseID}" />
+    </java>
+
+	
+	<echo message="log file download result : ${logFileProcessResult}" />
+	
+	<!-- delete the log files folder to prevent mistake -->
+	<delete dir="${project.build.directory}/logFiles"/>
+	<echo message="folder: ${project.build.directory}/logFiles is deleted" />
+	
+  </target>
+
+</project>

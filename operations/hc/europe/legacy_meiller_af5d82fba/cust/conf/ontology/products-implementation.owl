@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-NG -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-NG">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Absetzkipper 04 (NG)</rdfs:label>
+        <rdfs:label xml:lang="en">Absetzkipper 04 (NG)</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ABSETZKIPPER-04-NG</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-04-NG</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 4 (NG)</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;Absetzkipper-04-NG-PriceDE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK04BZW-001-AK04BZW"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Absetzkipper 04</rdfs:label>
+        <rdfs:label xml:lang="en">Absetzkipper 04</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ABSETZKIPPER-04</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-04</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 4</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;PriceAK04-9.0-AK04DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK04-9.0-AK04"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-07 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-07">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Absetzkipper 07</rdfs:label>
+        <rdfs:label xml:lang="en">Absetzkipper 07</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-07</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ABSETZKIPPER-07</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 7</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;PriceAK07-8.0-CRM_AK07DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK07-8.0-CRM_AK07"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-10 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-10">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Absetzkipper 10</rdfs:label>
+        <rdfs:label xml:lang="en">Absetzkipper 10</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ABSETZKIPPER-10</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-10</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 10</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;PriceAK10-14.0-CRM_AK10DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK10-14.0-CRM_AK10"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-12 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-12">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Absetzkipper 12</rdfs:label>
+        <rdfs:label xml:lang="en">Absetzkipper 12</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ABSETZKIPPER-12</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-12</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 12</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;PriceAK12-18.0-CRM_AK12DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK12-18.0-CRM_AK12"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-16 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-16">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Absetzkipper 16</rdfs:label>
+        <rdfs:label xml:lang="en">Absetzkipper 16</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-16</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ABSETZKIPPER-16</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 16</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductInActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;PriceAK16-7.0-CRM_AK16DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK16-7.0-CRM_AK16"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Frei_konfigurierbares_Produkt -->
+
+    <owl:NamedIndividual rdf:about="&pci;Frei_konfigurierbares_Produkt">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Frei Konfigurierbares Produkt</rdfs:label>
+        <rdfs:label xml:lang="en">Free Configurable Product</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">000000000060007100</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">000000000060007100</ps:businessTypeExternalId>
+        <as:productImage rdf:datatype="&xsd;string">box.png</as:productImage>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesKnowledgeBase rdf:resource="&pci;Item-KB"/>
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:includesPrice rdf:resource="&pci;PriceKSW"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#IndustrialMachineryAndConstruction -->
+
+    <owl:NamedIndividual rdf:about="&pci;IndustrialMachineryAndConstruction">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Industrial Machinery And Construction</rdfs:label>
+        <rdfs:label xml:lang="en">Industrial Machinery And Construction</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">INDUSTRIALMACHINERYANDCONSTRUCTION</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Industrial Machinery And Construction</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Item-KB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Item-KB">
+        <rdf:type rdf:resource="&pcs;Others"/>
+        <as:kbType rdf:datatype="&xsd;string">IMC</as:kbType>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ITEMKB</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ITEMKB</ps:businessTypeShortText>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Frei_konfigurierbares_Produkt"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MEILLER-KSW -->
+
+    <owl:NamedIndividual rdf:about="&pci;MEILLER-KSW">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">KSW</rdfs:label>
+        <rdfs:label xml:lang="en">Customer Special Request</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">KSW-KB</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">KSW-KB</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER-KSW</ps:businessTypeShortText>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:includesPrice rdf:resource="&pci;PriceKSW"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;KSW-1.0-KSW"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Meiller-AK-12 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Meiller-AK-12">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Meiller Internal AK 12</rdfs:label>
+        <rdfs:label xml:lang="en">Meiller Internal AK 12</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Meiller-AK-12</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Meiller-AK-12</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Meiller-AK-12</ps:businessTypeId>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;IndustrialMachineryAndConstruction"/>
+        <as:includesPrice rdf:resource="&pci;PriceAK12-14.0-CRM_AK12DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;MEILLER_AK12-2.0-MEILLER_AK12"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Others -->
+
+    <owl:NamedIndividual rdf:about="&pci;Others">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Others</rdfs:label>
+        <rdfs:label xml:lang="en">Others</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">OTHERS</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Others</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-NG-PriceDE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-NG-PriceDE">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">Absetzkipper-04-NG-PriceDE</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PriceAK04-9.0-AK04DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;PriceAK04-9.0-AK04DE">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">PriceAK04-9.0-AK04DE</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PriceAK07-8.0-CRM_AK07DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;PriceAK07-8.0-CRM_AK07DE">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">PriceAK07-8.0-CRM_AK07DE</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PriceAK10-14.0-CRM_AK10DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;PriceAK10-14.0-CRM_AK10DE">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">PriceAK10-14.0-CRM_AK10DE</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PriceAK12-18.0-CRM_AK12DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;PriceAK12-18.0-CRM_AK12DE">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">PriceAK12-18.0-CRM_AK12DE</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PriceAK16-7.0-CRM_AK16DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;PriceAK16-7.0-CRM_AK16DE">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">PriceAK16-7.0-CRM_AK16DE</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PriceKSW -->
+
+    <owl:NamedIndividual rdf:about="&pci;PriceKSW">
+        <rdf:type rdf:resource="&as;Price"/>
+        <rdfs:label xml:lang="en">PriceKSW</rdfs:label>
+        <as:productListPrice rdf:datatype="&xsd;decimal">0</as:productListPrice>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#AK04BZW-001-AK04BZW -->
+
+    <owl:NamedIndividual rdf:about="&ssc;AK04BZW-001-AK04BZW">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AK04BZW 001 (AK04BZW)</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AK04BZW&amp;001&amp;AK04BZW</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AK04BZW&amp;001&amp;AK04BZW</ps:businessTypeId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Absetzkipper-04-NG"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#AK04-9.0-AK04 -->
+
+    <owl:NamedIndividual rdf:about="&ssc;AK04-9.0-AK04">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AK 04 KB 9.0</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AK04&amp;9.0&amp;AK04</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AK04&amp;9.0&amp;AK04</ps:businessTypeId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Absetzkipper-04"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#AK07-8.0-CRM_AK07 -->
+
+    <owl:NamedIndividual rdf:about="&ssc;AK07-8.0-CRM_AK07">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AK 07 KB 8.0</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AK07&amp;8.0&amp;CRM_AK07</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AK07&amp;8.0&amp;CRM_AK07</ps:businessTypeId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Absetzkipper-07"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#AK10-14.0-CRM_AK10 -->
+
+    <owl:NamedIndividual rdf:about="&ssc;AK10-14.0-CRM_AK10">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AK 10 KB 14.0</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AK10&amp;14.0&amp;CRM_AK10</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AK10&amp;14.0&amp;CRM_AK10</ps:businessTypeExternalId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Absetzkipper-10"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#AK12-18.0-CRM_AK12 -->
+
+    <owl:NamedIndividual rdf:about="&ssc;AK12-18.0-CRM_AK12">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AK 12 KB 18.0</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AK12&amp;18.0&amp;CRM_AK12</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AK12&amp;18.0&amp;CRM_AK12</ps:businessTypeId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Absetzkipper-12"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#AK16-7.0-CRM_AK16 -->
+
+    <owl:NamedIndividual rdf:about="&ssc;AK16-7.0-CRM_AK16">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AK 16 KB 7.0</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AK16&amp;7.0&amp;CRM_AK16</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AK16&amp;7.0&amp;CRM_AK16</ps:businessTypeId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;Absetzkipper-16"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#KSW-1.0-KSW -->
+
+    <owl:NamedIndividual rdf:about="&ssc;KSW-1.0-KSW">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">KSW-1.0-KSW</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">KSW-1.0-KSW</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">KSW-1.0-KSW</ps:businessTypeId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+        <as:knowledgeBaseIncludedBy rdf:resource="&pci;MEILLER-KSW"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#MEILLER_AK12-2.0-MEILLER_AK12 -->
+
+    <owl:NamedIndividual rdf:about="&ssc;MEILLER_AK12-2.0-MEILLER_AK12">
+        <rdf:type rdf:resource="&as;KnowledgeBase"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">MEILLER_AK12-2.0-MEILLER_AK12</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER_AK12-2.0-MEILLER_AK12</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">MEILLER_AK12-2.0-MEILLER_AK12</ps:businessTypeExternalId>
+        <as:kbType rdf:datatype="&xsd;string">SAP</as:kbType>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

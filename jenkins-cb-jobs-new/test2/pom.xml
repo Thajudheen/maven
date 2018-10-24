@@ -1,0 +1,209 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <theHost>hana.ondemand.com</theHost>
+    <UserName>P1943193055</UserName>
+    <MyPassword>Enter@mun76</MyPassword> 
+    <DBpassword>Thisismyhana@123</DBpassword>
+      <TechUser>ISSAUTODEMO01</TechUser>
+	  <TechUserPass>Password1234567</TechUserPass>
+   <!-- <MyAccount>a8799585d</MyAccount> -->
+    <!--inmind cloud OEM account used for bind-db : when Database in another subaccount (same global account): -->
+    <AnotherSubAccount>a8799585d</AnotherSubAccount> 
+    <!-- DB account -->
+    <MyDBaccount>a8799585d</MyDBaccount>
+    <!-- sub account - trail -->
+    <MySubAccount>a6b6979fd</MySubAccount>
+    <ToAccount>a6b6979fd</ToAccount>
+    <MyApplication>issautodemo01</MyApplication>
+    <theSize>pro</theSize>  	 
+    <MySource>sam-0.0.2-SNAPSHOT</MySource>
+       <databaseUser>ISSAUTODEMO01</databaseUser>
+    <dbId>jle</dbId>
+      <databasePass>7esperErAJ3kuvep</databasePass>
+    <Permission>TUNNEL,BINDING</Permission>
+    <All>all</All>
+    <!--<Driver>${project.build.directory}/sdk/repository/.archive/lib/ngdbc.jar</Driver> -->
+              
+           
+    
+      	    </properties> 
+  <profiles>
+      <profile>
+    <id>installsdk</id>
+      <activation>
+         <property>
+             <name>env</name>
+              <value>opendb</value>
+           </property>
+      </activation>
+     <build>
+      <plugins>          
+              
+        <plugin>
+        <groupId>com.sap.cloud</groupId>
+        <artifactId>neo-java-web-maven-plugin</artifactId>
+        <version>3.53.13.3</version>	
+        <executions>
+          <execution>
+            <id>theInitialize</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-sdk</goal>
+            </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+            </configuration>
+           </execution> 
+         <execution>
+            
+       <id>opentunnel</id>
+            <phase>package</phase>
+              <goals>
+               <goal>open-db-tunnel</goal>
+             </goals>
+            <configuration>      
+            
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>             
+                <host>${theHost}</host>
+                <user>${UserName}</user>                
+                <password>${MyPassword}</password>
+                 <account>${MySubAccount}</account>
+               <background>true</background>
+                 <id>${MyDBaccount}:${dbId}</id> 
+              <consoleOutputPropertyPrefix>db-tunnel</consoleOutputPropertyPrefix>
+              
+              </configuration>
+          
+          </execution>
+              </executions>
+             </plugin>              
+             
+      </plugins>
+</build>
+</profile>    
+        
+          <profile>
+    <id>sqlmaven1</id>
+      <activation>
+         <property>
+             <name>env2</name>
+              <value>runsql</value>
+           </property>
+      </activation>
+             
+       
+             
+         <build>
+           <plugins>             
+          <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+             <artifactId>sql-maven-plugin</artifactId>
+           <version>1.5</version>
+            
+              <dependencies>          
+          <dependency>
+            <groupId>com.sap.cloud.db.jdbc</groupId>
+                 <artifactId>ngdbc</artifactId>
+                  <version>2.2.16</version>                     
+         <type>jar</type>  
+            <scope>runtime</scope>
+        
+                  
+                    </dependency>
+        </dependencies>
+             <configuration> 
+           <driver>com.sap.db.jdbc.Driver</driver> 
+           <url>jdbc:sap://localhost:30015</url>
+           <username>${UserName}</username>
+           <password>${DBpassword}</password> 
+             </configuration>           
+            <executions>
+          <execution>
+             <id>default-cli</id>            
+          <configuration>   
+            <driver>com.sap.db.jdbc.Driver</driver> 
+           <url>jdbc:sap://localhost:30015</url>
+           <username>${UserName}</username>
+           <password>${DBpassword}</password>   
+             <sqlCommand>CREATE USER ${TechUser} PASSWORD ${TechUserPass};</sqlCommand>
+		  	         <srcFiles> 
+              <srcFile>src/main/resources/scripts/scrpt1.sql</srcFile>
+             </srcFiles> 
+            <outputFile>result1.txt</outputFile>
+            </configuration>
+          </execution>
+		
+		  <execution>
+                <id>second-cli</id>  
+			  <goals>               
+                <goal>execute</goal>              
+            </goals>
+		    <configuration>   
+            <driver>com.sap.db.jdbc.Driver</driver> 
+           <url>jdbc:sap://localhost:30015</url>
+              <username>${TechUser}</username>
+                  <password>${TechUserPass}</password>    
+            <srcFiles>                 
+		    <srcFile>src/main/resources/scripts/scrpt2.sql</srcFile>
+             </srcFiles> 
+            <outputFile>result2.txt</outputFile>
+            </configuration>		    
+	      </execution>    
+        </executions>
+           </plugin>              
+          </plugins>
+        </build>
+       </profile>  
+             
+          <!-- <profile>
+            <id>sqlmaven2</id>
+             <activation>
+              <property>
+             <name>env4</name>
+              <value>quotesql</value>
+               </property>
+            </activation>
+                 <build>
+           <plugins>             
+          <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+             <artifactId>sql-maven-plugin</artifactId>
+           <version>1.5</version>            
+                 <dependencies>          
+                 <dependency>
+                 <groupId>com.sap.cloud.db.jdbc</groupId>
+                 <artifactId>ngdbc</artifactId>
+                  <version>2.2.16</version>                     
+                  <type>jar</type>  
+                  <scope>runtime</scope>
+                   </dependency>
+                </dependencies>                    
+            <executions>
+              <execution>
+              <id>default-cli</id>          
+             <configuration>   
+                 <driver>com.sap.db.jdbc.Driver</driver> 
+                 <url>jdbc:sap://localhost:30015</url>
+                 <username>${TechUser}</username>
+                  <password>${TechUserPass}</password>                   
+			         <srcFiles> 
+              <srcFile>src/main/resources/scripts/scrpt2.sql</srcFile>
+             </srcFiles> 
+		          <outputFile>quote_result.txt</outputFile>
+                </configuration>
+          </execution>
+       </executions>
+	  </plugin>              
+          </plugins>
+        </build>
+       </profile>   -->  
+       
+  </profiles>
+</project>

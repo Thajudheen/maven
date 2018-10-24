@@ -1,0 +1,251 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+   <properties>
+    <theHost>hana.ondemand.com</theHost>
+    <UserName>P1943193055</UserName>
+    <MyPassword>Enter@mun76</MyPassword>
+    <MyAccount>a6b6979fd</MyAccount>
+    <MyApplication>issautodemo01</MyApplication>
+    <theSize>prem</theSize>
+    <MySource>sam-0.0.2-SNAPSHOT</MySource>
+     <MySource>iss-0.0.2-SNAPSHOT</MySource>	 
+  </properties>
+
+         <profiles>
+         <profile>
+          <id>release-1608</id>
+          <activation>
+               <property>
+                    <name>env</name>
+                    <value>rel1608</value>
+                </property>
+            </activation>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.sap.cloud</groupId>
+        <artifactId>neo-java-web-maven-plugin</artifactId>
+        <version>3.44.5</version>
+        <executions>
+          <execution>
+            <id>theInitialize</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-sdk</goal>
+            </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+            </configuration>
+          </execution>
+          <execution>
+            <id>theStop</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+              <host>${theHost}</host>
+              <user>${UserName}</user>
+              <password>${MyPassword}</password>
+              <account>${MyAccount}</account>
+              <application>${MyApplication}</application>
+            </configuration>
+          </execution>
+          <execution>
+            <id>theInstall</id>
+            <phase>package</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+              <host>${theHost}</host>
+              <user>${UserName}</user>
+              <password>${MyPassword}</password>
+              <account>${MyAccount}</account>
+              <application>${MyApplication}</application>
+              <size>${theSize}</size>
+              <javaVersion>8</javaVersion>
+		   
+
+<vmArguments>-Dcom.imc.iss.repo.name=${MyAccount}.${MyApplication} -Dcom.imc.iss.repo.key=supersecret -Dcom.imc.iss.repo.user=iss</vmArguments>
+<compression>on</compression>
+<compressibleMimeType>text/html,text/xml,text/plain,application/javascript,application/json,application/xml</compressibleMimeType>
+<compressionMinSize>512</compressionMinSize>
+<uriEncoding>UTF-8</uriEncoding>
+<maximumProcesses>5</maximumProcesses>
+
+           <!-- <source>${project.build.directory}/../../application/iss/hc/sam/target/${MySource}.war</source>  -->
+
+           <source>${project.build.directory}/../../../application/iss/hc/sam/target</source>
+
+
+      	  </configuration>
+          </execution>
+          <execution>
+            <id>theStart</id>
+            <phase>install</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+              <host>${theHost}</host>
+              <user>${UserName}</user>
+              <password>${MyPassword}</password>
+              <account>${MyAccount}</account>
+              <application>${MyApplication}</application>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+	  <plugin>
+		<groupId>com.coderplus.maven.plugins</groupId>
+		<artifactId>copy-rename-maven-plugin</artifactId>
+		<executions>
+		  <execution>
+            <id>rename-file</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>rename</goal>
+            </goals>
+            <configuration>
+            <!--  <sourceFile>${project.build.directory}/../../application/iss/hc/sam/target/sam-0.0.2-SNAPSHOT.war</sourceFile>  -->
+		  <fileSets>			
+			       <fileSet>
+		    <sourceFile>${project.build.directory}/../../../application/iss/hc/sam/target/sam-0.0.2-SNAPSHOT.war</sourceFile>
+			<destinationFile>${project.build.directory}/../../../application/iss/hc/sam/target/sam.war</destinationFile>
+				</fileSet>
+         </fileSets>
+       </configuration>
+     </execution>
+  </executions>
+  </plugin>
+  </plugins>
+</build>
+</profile>
+
+   <profile>
+    <id>release-1802</id>
+      <activation>
+         <property>
+             <name>env</name>
+              <value>rel-from-product</value>
+           </property>
+      </activation>
+         <build>
+           <plugins>
+             <plugin>
+               <groupId>com.sap.cloud</groupId>
+               <artifactId>neo-java-web-maven-plugin</artifactId>
+               <version>3.44.5</version>
+               <executions>
+                 <execution>
+                   <id>theInitialize</id>
+                   <phase>initialize</phase>
+                   <goals>
+                     <goal>install-sdk</goal>
+                   </goals>
+                   <configuration>
+                     <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+                   </configuration>
+                 </execution>
+                 <execution>
+                   <id>theStop</id>
+                   <phase>prepare-package</phase>
+                   <goals>
+                     <goal>stop</goal>
+                   </goals>
+                   <configuration>
+                     <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+                     <host>${theHost}</host>
+                     <user>${UserName}</user>
+                     <password>${MyPassword}</password>
+                     <account>${MyAccount}</account>
+                     <application>${MyApplication}</application>
+                   </configuration>
+                 </execution>
+                 <execution>
+                   <id>theInstall</id>
+                   <phase>package</phase>
+                   <goals>
+                     <goal>deploy</goal>
+                   </goals>
+                   <configuration>
+                     <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+                     <host>${theHost}</host>
+                     <user>${UserName}</user>
+                     <password>${MyPassword}</password>
+                     <account>${MyAccount}</account>
+                     <application>${MyApplication}</application>
+                     <size>${theSize}</size>
+
+                     <javaVersion>8</javaVersion>
+       		   <!-- <source>${SourceFile1}</source>
+       		    <source>${SourceFile2}</source> -->
+
+       <vmArguments>-Dcom.imc.iss.repo.name=${MyAccount}.${MyApplication} -Dcom.imc.iss.repo.key=supersecret -Dcom.imc.iss.repo.user=iss</vmArguments>
+       <compression>on</compression>
+       <compressibleMimeType>text/html,text/xml,text/plain,application/javascript,application/json,application/xml</compressibleMimeType>
+       <compressionMinSize>512</compressionMinSize>
+       <uriEncoding>UTF-8</uriEncoding>
+       <maximumProcesses>5</maximumProcesses>
+
+                  <!-- <source>${project.build.directory}/../../application/iss/hc/sam/target/${MySource}.war</source>  -->
+
+                 <source>${project.build.directory}/../../../product/iss/hc/sam/target</source>
+
+             	     </configuration>
+                 </execution>
+                 <execution>
+                   <id>theStart</id>
+                   <phase>install</phase>
+                   <goals>
+                     <goal>start</goal>
+                   </goals>
+                   <configuration>
+                     <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+                     <host>${theHost}</host>
+                     <user>${UserName}</user>
+                     <password>${MyPassword}</password>
+                     <account>${MyAccount}</account>
+                     <application>${MyApplication}</application>
+                   </configuration>
+                 </execution>
+               </executions>
+             </plugin>
+       	  <plugin>
+       		<groupId>com.coderplus.maven.plugins</groupId>
+       		<artifactId>copy-rename-maven-plugin</artifactId>
+       		<executions>
+       		  <execution>
+                   <id>rename-file</id>
+                   <phase>generate-sources</phase>
+                   <goals>
+                     <goal>rename</goal>
+                   </goals>
+                   <configuration>
+                    <fileSets>              
+                     <fileSet>
+	<sourceFile>${project.build.directory}/../../../product/iss/hc/sam/target/sam-0.0.2-SNAPSHOT.war</sourceFile>
+	<destinationFile>${project.build.directory}/../../../product/iss/hc/sam/target/sam.war</destinationFile>
+
+		         </fileSet>
+		     </fileSets>
+
+      </configuration>
+      </execution>
+   </executions>
+   </plugin>
+   </plugins>
+ </build>
+ </profile>
+     </profiles>
+</project>

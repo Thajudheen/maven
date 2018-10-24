@@ -1,0 +1,638 @@
+ruleNet A16_MEILLER_RNET {
+  rules
+      GRUPPE_A16STE,
+      GRUPPE_A16MSS,
+	GRUPPE_A16BED,
+      GRUPPE_A16BOD,
+	  GRUPPE_A16FZG,
+	GRUPPE_A16HAS,
+	GRUPPE_A16EIL,
+      GRUPPE_A16DRE,
+    GRUPPE_A16EIN_1,
+    GRUPPE_A16EIN_2,
+      GRUPPE_A16ATT,
+      GRUPPE_A16AHK,
+      GRUPPE_A16PUM,
+      GRUPPE_A16KIP,
+      GRUPPE_A16SIC,
+      GRUPPE_A16PRE,
+      GRUPPE_A16UFS,
+      GRUPPE_A16HAK,
+      GRUPPE_A16GIP,
+    GRUPPE_A16KSC,
+//	GRUPPE_A16HKI_0,
+	GRUPPE_A16HKI_1,
+	GRUPPE_A16UBS,
+      GRUPPE_A16VSS,
+    GRUPPE_A16FSW,
+      GRUPPE_A16ASR,
+      GRUPPE_A16HIR,
+      GRUPPE_A16LAD,
+//    GRUPPE_A16ANL_0,
+    GRUPPE_A16ANL_1,
+    GRUPPE_A16STK_1,
+    GRUPPE_A16STK_2,
+      GRUPPE_A16KAA,
+      GRUPPE_A16KAB,
+      GRUPPE_A16KOT,
+      GRUPPE_A16SSV,
+    GRUPPE_A16MSV,
+      GRUPPE_A16UKH,
+      GRUPPE_A16BSH,
+      GRUPPE_A16DUO,
+      GRUPPE_A16EHA,
+      GRUPPE_A16ULP,
+      GRUPPE_A16FEU,
+      GRUPPE_A16SML,
+      GRUPPE_A16AST,
+      GRUPPE_A16ARE,
+      GRUPPE_A16ASS,
+      GRUPPE_A16AFW,
+      GRUPPE_A16ALB,
+      GRUPPE_A16KST,
+      GRUPPE_A16KRE,
+      GRUPPE_A16KON,
+//    GRUPPE_A16KOS_1,
+	GRUPPE_A16KOS_2,
+//    GRUPPE_A16KOH_1,
+	GRUPPE_A16KOH_2,
+      GRUPPE_A16ASC,
+      GRUPPE_A16GSC,
+      GRUPPE_A16PSC,
+      GRUPPE_A16WMA,
+      GRUPPE_A16HMA,
+      GRUPPE_A16ZEN,
+      GRUPPE_A16KAM,
+      GRUPPE_A16KMO,
+      GRUPPE_A16KAN,
+      GRUPPE_A16MON,
+      GRUPPE_A16MOP,
+//      GRUPPE_A16TFR,
+      GRUPPE_A16LAA,
+//      GRUPPE_A16AFA,
+//	GRUPPE_A16FCO,
+//	GRUPPE_A16FTO,
+//    GRUPPE_A16LAQ,
+      GRUPPE_A16OEL,
+//    GRUPPE_A16LLO_1,
+    GRUPPE_A16LLO_2,
+//    GRUPPE_A16VLO_1,
+    GRUPPE_A16VLO_2,
+      GRUPPE_A16ABN,
+      GRUPPE_A16FRA,
+      GRUPPE_A16DTP,
+      GRUPPE_A16KTP,
+      GRUPPE_A16UTP,
+      GRUPPE_A16HBE,
+      GRUPPE_A16KOE,
+      GRUPPE_A16RAU,
+      GRUPPE_A16AHV,
+      GRUPPE_A16DLU,
+      GRUPPE_A16DBW,
+      GRUPPE_A16VKT,
+      GRUPPE_A16VLK,
+      GRUPPE_A16ASV,
+      GRUPPE_A16DEH,
+      GRUPPE_A16MAU,
+      GRUPPE_A16MAK,
+      GRUPPE_A16MWH,
+      GRUPPE_A16KEA,
+      GRUPPE_A16WKH,
+      GRUPPE_A16VBK
+//      GRUPPE_A16WER,
+}
+////  Bedingungen immer in condition: kein if in restrictions verwenden
+rule GRUPPE_A16STE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_1 ?= 'ISAR'
+  body: then do: ?O.A16STE ?= 'A16STE01'
+}
+rule GRUPPE_A16MSS {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16STE = 'A16STE01'
+//  body: then do: ?O.CODENAME_3 ?= 'OHNE'//'I_S_A_R_MOTOR_START_STOP'
+  body: then do: ?O.A16MSS ?= 'A16MSS02'
+}
+rule GRUPPE_A16HAS {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_12 ?= 'OHNE'
+  body: then do: ?O.A16HAS ?= 'A16HAS01'
+}
+rule GRUPPE_A16EIL {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_4 ?= 'OHNE'
+  body: then do: ?O.A16EIL ?= 'A16EIL02'
+}
+rule GRUPPE_A16BED {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_8 ?= 'OHNE'
+  body: then do: ?O.A16BED ?= 'A16BED01'
+}
+rule GRUPPE_A16BOD {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_22 ?= 'OHNE'
+  body: then do: ?O.A16BOD ?= 'A16BOD01'
+}
+rule GRUPPE_A16DRE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_5 ?= 'DREHZAHLREGULIERUNG'
+  body: then do: ?O.A16DRE ?= 'A16DRE02'
+}
+rule GRUPPE_A16EIN_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16STE = 'A16STE02'
+//  body: then do: ?O.CODENAME_6 ?= 'OHNE'
+  body: then do: ?O.A16EIN ?= 'A16EIN01'
+}
+rule GRUPPE_A16EIN_2 {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16STE = 'A16STE01'
+//  body: then do: ?O.CODENAME_6 ?= 'OHNE'
+  body: then do: ?O.A16EIN ?= 'A16EIN02'
+}
+rule GRUPPE_A16ATT {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_7 ?= 'OHNE'
+  body: then do: ?O.A16ATT ?= 'A16ATT01'
+}
+rule GRUPPE_A16AHK {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_13 ?= 'OHNE'
+  body: then do: ?O.A16AHK ?= 'A16AHK01'
+}
+rule GRUPPE_A16PUM {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_98 ?= 'OHNE'
+  body: then do: ?O.A16PUM ?= 'A16PUM01'
+}
+rule GRUPPE_A16KIP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_10 ?= '1_FACH_KIPPHAKEN'
+  body: then do: ?O.A16KIP ?= 'A16KIP01'
+}
+rule GRUPPE_A16SIC {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_9 ?= 'BEHAELTERANS_VORNE_SEITLICH'
+  body: then do: ?O.A16SIC ?= 'A16SIC01'
+}
+rule GRUPPE_A16FZG {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_11 ?= 'OHNE'
+  body: then do: ?O.A16FZG ?= 'A16FZG16'
+}
+rule GRUPPE_A16PRE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_15 ?= 'OHNE'
+  body: then do: ?O.A16PRE ?= 'A16PRE01'
+}rule GRUPPE_A16UFS {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_16 ?= 'OHNE'
+  body: then do: ?O.A16UFS ?= 'A16UFS02'
+}
+rule GRUPPE_A16HAK {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_17 ?= 'Sicherheitshaken NW10'
+  body: then do: ?O.A16HAK ?= 'A16HAK01'
+}
+rule GRUPPE_A16GIP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_18 ?= 'Sicherheitshaken NW10'
+  body: then do: ?O.A16GIP ?= 'A16GIP01'
+}
+rule GRUPPE_A16KSC {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_17 ?= 'nein'
+  body: then do: ?O.A16KSC ?= 'A16KSC01'
+}
+rule GRUPPE_A16HKI_0 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16MOD = 'A16MOD01'
+//  body: then do: ?O.CODENAME_20 ?= 'OHNE'
+  body: then do: ?O.A16HKI ?= 'A16HKI00'
+}
+rule GRUPPE_A16HKI_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16MOD <> 'A16MOD01'
+//  body: then do: ?O.CODENAME_20 ?= 'OHNE'
+  body: then do: ?O.A16HKI ?= 'A16HKI01'
+}
+rule GRUPPE_A16UBS {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_20 ?= 'OHNE'
+  body: then do: ?O.A16UBS ?= 'A16UBS01'
+}
+rule GRUPPE_A16VSS {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_23 ?= 'OHNE'
+  body: then do: ?O.A16VSS ?= 'A16VSS01'
+}
+rule GRUPPE_A16FSW {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_24 ?= 'OHNE'
+  body: then do: ?O.A16FSW ?= 'A16FSW01'
+}
+rule GRUPPE_A16ASR {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_25 ?= 'OHNE'
+  body: then do: ?O.A16ASR ?= 'A16ASR01'
+}
+rule GRUPPE_A16ANL_0 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16MOD = 'A16MOD01'
+//  body: then do: ?O.CODENAME_26 ?= 'OHNE'
+  body: then do: ?O.A16ANL ?= 'A16ANL00'
+}
+rule GRUPPE_A16ANL_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16MOD <> 'A16MOD01'
+//  body: then do: ?O.CODENAME_26 ?= 'OHNE'
+  body: then do: ?O.A16ANL ?= 'A16ANL01'
+}
+rule GRUPPE_A16STK_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16MOD = 'A16MOD10' or ?O.A16MOD = 'A16MOD11' //and specified ?O.A16MOD
+//  body: then do: ?O.CODENAME_29 ?= 'OHNE'
+  body: then do: ?O.A16STK ?= 'A16STK01'
+}
+rule GRUPPE_A16STK_2 {
+  objects: ?O is_a (300)CRM_AK16
+    condition: ?O.A16MOD <> 'A16MOD10' and ?O.A16MOD <> 'A16MOD11' //and specified ?O.A16MOD
+//  body: then do: ?O.CODENAME_29 ?= 'OHNE'
+  body: then do: ?O.A16STK ?= 'A16STK02'
+}
+rule GRUPPE_A16HIR {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_27 ?= 'OHNE'
+  body: then do: ?O.A16HIR ?= 'A16HIR01'
+}
+rule GRUPPE_A16LAD {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_28 ?= 'OHNE'
+  body: then do: ?O.A16LAD ?= 'A16LAD01'
+}
+rule GRUPPE_A16KAA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_30 ?= 'OHNE'
+  body: then do: ?O.A16KAA ?= 'A16KAA01'
+}
+rule GRUPPE_A16KAB {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_31 ?= 'OHNE'
+  body: then do: ?O.A16KAB ?= 'A16KAB01'
+}
+rule GRUPPE_A16KOT {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_33 ?= 'OHNE'
+  body: then do: ?O.A16KOT ?= 'A16KOT01'
+}
+rule GRUPPE_A16MKO {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_34 ?= 'OHNE'
+  body: then do: ?O.A16MKO ?= 'A16MKO01'
+}
+rule GRUPPE_A16SSV {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_35 ?= 'OHNE'
+  body: then do: ?O.A16SSV ?= 'A16SSV01'
+}
+rule GRUPPE_A16MSV {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_36 ?= 'OHNE'
+  body: then do: ?O.A16MSV ?= 'A16MSV01'
+}
+rule GRUPPE_A16UKH {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_37 ?= 'OHNE'
+  body: then do: ?O.A16UKH ?= 'A16UKH01'
+}
+rule GRUPPE_A16BSH {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_38 ?= 'OHNE'
+  body: then do: ?O.A16BSH ?= 'A16BSH01'
+}
+rule GRUPPE_A16DUO {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_39 ?= 'OHNE'
+  body: then do: ?O.A16DUO ?= 'A16DUO01'
+}
+rule GRUPPE_A16EHA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_41 ?= 'OHNE'
+  body: then do: ?O.A16EHA ?= 'A16EHA01'
+}
+rule GRUPPE_A16ULP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_42 ?= 'OHNE'
+  body: then do: ?O.A16ULP ?= 'A16ULP01'
+}
+rule GRUPPE_A16FEU {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_43 ?= 'OHNE'
+  body: then do: ?O.A16FEU ?= 'A16FEU01'
+}
+rule GRUPPE_A16SML {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_44 ?= 'OHNE'
+  body: then do: ?O.A16SML ?= 'A16SML01'
+}
+rule GRUPPE_A16AST {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_45 ?= 'OHNE'
+  body: then do: ?O.A16AST ?= 'A16AST01'
+}
+rule GRUPPE_A16ARE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_46 ?= 'OHNE'
+  body: then do: ?O.A16ARE ?= 'A16ARE01'
+}
+rule GRUPPE_A16ASS {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_47 ?= 'OHNE'
+  body: then do: ?O.A16ASS ?= 'A16ASS01'
+}
+rule GRUPPE_A16AFW {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_48 ?= 'OHNE'
+  body: then do: ?O.A16AFW ?= 'A16AFW01'
+}
+rule GRUPPE_A16ALB {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_49 ?= 'OHNE'
+  body: then do: ?O.A16ALB ?= 'A16ALB01'
+}
+rule GRUPPE_A16KST {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_50 ?= 'OHNE'
+  body: then do: ?O.A16KST ?= 'A16KST01'
+}
+rule GRUPPE_A16KRE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_51 ?= 'OHNE'
+  body: then do: ?O.A16KRE ?= 'A16KRE01'
+}
+rule GRUPPE_A16KON {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_53 ?= 'OHNE'
+  body: then do: ?O.A16KON ?= 'A16KON01'
+}
+rule GRUPPE_A16KOS_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16KON = 'A16KON01'
+//  body: then do: ?O.CODENAME_54 ?= 'OHNE'
+  body: then do: ?O.A16KOS ?= 'A16KOS01'
+}
+rule GRUPPE_A16KOS_2 {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16KON = 'A16KON02' or ?O.A16KON = 'A16KON03'
+//  body: then do: ?O.CODENAME_54 ?= 'OHNE'
+  body: then do: ?O.A16KOS ?= 'A16KOS03'
+}
+rule GRUPPE_A16KOH_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16KON = 'A16KON01'
+//  body: then do: ?O.CODENAME_55 ?= 'OHNE'
+  body: then do: ?O.A16KOH ?= 'A16KOH01'
+}
+rule GRUPPE_A16KOH_2 {
+  objects: ?O is_a (300)CRM_AK16
+  condition ?O.A16KON = 'A16KON02' or ?O.A16KON = 'A16KON03'
+//  body: then do: ?O.CODENAME_55 ?= 'OHNE'
+  body: then do: ?O.A16KOH ?= 'A16KOH02'
+}
+rule GRUPPE_A16ASC {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_56 ?= 'OHNE'
+  body: then do: ?O.A16ASC ?= 'A16ASC01'
+}
+rule GRUPPE_A16GSC {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_57 ?= 'OHNE'
+  body: then do: ?O.A16GSC ?= 'A16GSC01'
+}
+rule GRUPPE_A16PSC {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_58 ?= 'OHNE'
+  body: then do: ?O.A16PSC ?= 'A16PSC01'
+}
+rule GRUPPE_A16WMA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_59 ?= 'OHNE'
+  body: then do: ?O.A16WMA ?= 'A16WMA01'
+}
+rule GRUPPE_A16HMA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_60 ?= 'OHNE'
+  body: then do: ?O.A16HMA ?= 'A16HMA01'
+}
+rule GRUPPE_A16ZEN {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_61 ?= 'OHNE'
+  body: then do: ?O.A16ZEN ?= 'A16ZEN01'
+}
+rule GRUPPE_A16KAM {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_62 ?= 'OHNE'
+  body: then do: ?O.A16KAM ?= 'A16KAM01'
+}
+rule GRUPPE_A16KMO {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_63 ?= 'OHNE'
+  body: then do: ?O.A16KMO ?= 'A16KMO01'
+}
+rule GRUPPE_A16KAN {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_64 ?= 'OHNE'
+  body: then do: ?O.A16KAN ?= 'A16KAN01'
+}
+rule GRUPPE_A16MON {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_65 ?= 'OHNE'
+  body: then do: ?O.A16MON ?= 'A16MON01'
+}
+rule GRUPPE_A16MOP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_66 ?= 'OHNE'
+  body: then do: ?O.A16MOP ?= 'keine Partnerfirma'
+}
+//rule GRUPPE_A16TFR {
+//  objects: ?O is_a (300)CRM_AK16
+////  body: then do: ?O.CODENAME_67 ?= 'OHNE'
+//  body: then do: ?O.A16TFR ?= 'A16TFR01'
+//}
+rule GRUPPE_A16LAA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_68 ?='GRUNDIERT'
+  body: then do: ?O.A16LAA ?= 'A16LAA01'
+}
+rule GRUPPE_A16AFA {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16LAA = 'A16LAA02'
+//  body: then do: ?O.CODENAME_69 ?= 'OHNE'//'AUFBAUFARBE'
+  body: then do: ?O.A16AFA ?= 'A16AFA01'
+}
+//rule GRUPPE_A16FCO {
+//  objects: ?O is_a (300)CRM_AK16
+//  condition: ?O.A16LAA = 'A16LAA02'
+////  body: then do: ?O.CODENAME_69 ?= 'OHNE'//'AUFBAUFARBE'
+//  body: then do: ?O.A16FCO ?= 'A16FCO01'
+//}
+//rule GRUPPE_A16FTO {
+//  objects: ?O is_a (300)CRM_AK16
+//  condition: ?O.A16LAA = 'A16LAA02'
+////  body: then do: ?O.CODENAME_69 ?= 'OHNE'//'AUFBAUFARBE'
+//  body: then do: ?O.A16FTO ?= 'A16FTO01'
+//}
+rule GRUPPE_A16LAQ {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_70 ?= 'OHNE'//'NUR_GRUNDIERT'
+  body: then do: ?O.A16LAQ ?= 'A16LAQ01'
+}
+//rule GRUPPE_A16UFA {
+//  objects: ?O is_a (300)CRM_AK16
+////  body: then do: ?O.CODENAME_71 ?= 'OHNE'//'UNTERBAUFARBE'
+//  body: then do: ?O.A16UFA ?= 'A16UFA01'
+//}
+//rule GRUPPE_A16LUQ {
+//  objects: ?O is_a (300)CRM_AK16
+////  body: then do: ?O.CODENAME_72 ?= 'OHNE'//'NUR_GRUNDIERT'
+//  body: then do: ?O.A16LUQ ?= 'A16LUQ01'
+//}
+rule GRUPPE_A16OEL {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_73 ?= 'MINERALOEL_HLPD_22'
+  body: then do: ?O.A16OEL ?= 'A16OEL01'
+}
+rule GRUPPE_A16LLO_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16LAA = 'A16LAA01' and ?O.A16MON = 'A16MON01'
+//  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+  body: then do: ?O.A16LLO ?= 'A16LLO01'
+}
+rule GRUPPE_A16LLO_2 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16LAA = 'A16LAA02' and ?O.A16MON = 'A16MON01'
+//  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+  body: then do: ?O.A16LLO ?= 'A16LLO02'
+}
+rule GRUPPE_A16VLO_1 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16LAA = 'A16LAA01' and ?O.A16MON = 'A16MON01'
+//  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+  body: then do: ?O.A16VLO ?= 'A16VLO01'
+}
+rule GRUPPE_A16VLO_2 {
+  objects: ?O is_a (300)CRM_AK16
+  condition: ?O.A16LAA = 'A16LAA02' and ?O.A16MON = 'A16MON01'
+//  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+  body: then do: ?O.A16VLO ?= 'A16VLO02'
+}
+rule GRUPPE_A16ABN {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_76 ?= 'OHNE'
+  body: then do: ?O.A16ABN ?= 'A16ABN01'
+}
+rule GRUPPE_A16FRA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_77 ?= 'OHNE'
+  body: then do: ?O.A16FRA ?= 'A16FRA01'
+}
+rule GRUPPE_A16DTP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_78 ?= 'OHNE'
+  body: then do: ?O.A16DTP ?= 'A16DTP01'
+}
+rule GRUPPE_A16KTP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_79 ?= 'OHNE'
+  body: then do: ?O.A16KTP ?= 'A16KTP01'
+}
+rule GRUPPE_A16UTP {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_80 ?= 'OHNE'
+  body: then do: ?O.A16UTP ?= 'A16UTP01'
+}
+rule GRUPPE_A16HBE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_81 ?= 'OHNE'
+  body: then do: ?O.A16HBE ?= 'A16HBE01'
+}
+rule GRUPPE_A16KOE {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_82 ?= 'OHNE'
+  body: then do: ?O.A16KOE ?= 'A16KOE01'
+}
+rule GRUPPE_A16RAU {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_83 ?= 'OHNE'
+  body: then do: ?O.A16RAU ?= 'A16RAU01'
+}
+rule GRUPPE_A16AHV {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_84 ?= 'OHNE'
+  body: then do: ?O.A16AHV ?= 'A16AHV01'
+}
+rule GRUPPE_A16DLU {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_85 ?= 'OHNE'
+  body: then do: ?O.A16DLU ?= 'A16DLU01'
+}
+rule GRUPPE_A16DBW {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_86 ?= 'OHNE'
+  body: then do: ?O.A16DBW ?= 'A16DBW01'
+}
+rule GRUPPE_A16VKT {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_87 ?= 'OHNE'
+  body: then do: ?O.A16VKT ?= 'A16VKT01'
+}
+rule GRUPPE_A16VLK {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_88 ?= 'OHNE'
+  body: then do: ?O.A16VLK ?= 'A16VLK01'
+}
+rule GRUPPE_A16ASV {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_89 ?= 'OHNE'
+  body: then do: ?O.A16ASV ?= 'A16ASV01'
+}
+rule GRUPPE_A16DEH {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_90 ?= 'OHNE'
+  body: then do: ?O.A16DEH ?= 'A16DEH01'
+}
+rule GRUPPE_A16MAU {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_91 ?= 'OHNE'
+  body: then do: ?O.A16MAU ?= 'A16MAU01'
+}
+rule GRUPPE_A16MAK {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_92 ?= 'OHNE'
+  body: then do: ?O.A16MAK ?= 'A16MAK01'
+}
+rule GRUPPE_A16MWH {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_93 ?= 'OHNE'
+  body: then do: ?O.A16MWH ?= 'A16MWH01'
+}
+rule GRUPPE_A16KEA {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_94 ?= 'OHNE'
+  body: then do: ?O.A16KEA ?= 'A16KEA01'
+}
+rule GRUPPE_A16WKH {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_95 ?= 'OHNE'
+  body: then do: ?O.A16WKH ?= 'A16WKH01'
+}
+rule GRUPPE_A16VBK {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_96 ?= 'OHNE'
+  body: then do: ?O.A16VBK ?= 'A16VBK01'
+}
+rule GRUPPE_A16WER {
+  objects: ?O is_a (300)CRM_AK16
+//  body: then do: ?O.CODENAME_97 ?= 'OHNE'
+  body: then do: ?O.A16WER ?= 'A16WER01'
+}

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-03-12T12:56:23 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.datamodel.BusinessObject"/>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.imc.datamodel.transferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.imc.datamodel.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactPosition" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personPosition")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="genderExternalId" class="java.lang.String">
+		<variableExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></initialValueExpression>
+	</variable>
+	<variable name="contactTitleKeyword" class="java.lang.String">
+		<variableExpression><![CDATA[$P{REPORT_LOCALE}.toString().startsWith("de") ? (($V{genderExternalId} == "MALE")? "geehrter ": (($V{genderExternalId} == "FEMALE")? "geehrte " : "geehrte/r ")) : ""]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcloud.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="802" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="594" height="822" forecolor="#000000" backcolor="#FFFFFF" uuid="7d286781-6d0a-47ab-9117-ad893e579604"/>
+				<textField isBlankWhenNull="true">
+					<reportElement x="178" y="260" width="239" height="38" forecolor="#015C98" uuid="fbbaa961-c18c-44a4-914d-ed643ca713cc"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="26"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasSalesDocumentType", "objectName")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="178" y="300" width="239" height="20" forecolor="#015C98" uuid="26ac4db4-99e0-4f7e-adf7-5f9555d1d0e3"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.terms}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="178" y="320" width="239" height="20" forecolor="#015C98" uuid="54c804db-dcb3-4caa-88b7-77c202c38a77"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.website}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="26" y="371" width="100" height="19" uuid="b33ef810-0a6e-4970-a525-1fd7a5e063f8"/>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+					<text><![CDATA[Master Data]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="26" y="396" width="164" height="24" backcolor="#E6E6E6" uuid="8f72a0be-dd54-468e-a611-c88788ba3ff0"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.projectname}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="396" width="317" height="24" uuid="bd033950-d044-4085-a242-19d6210c5f3c"/>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph lineSpacing="Single" leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("quoteContainedBy", "objectName")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="26" y="468" width="164" height="24" uuid="0094a31e-1b56-4299-a489-0a894dceeb93"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.planningoffice}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="468" width="317" height="24" uuid="7c1535c0-da10-41d8-b777-979c771950ea"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasSalesOffice","objectName")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="26" y="420" width="164" height="24" uuid="08bcd932-dc69-4965-959a-ec70aacc0b20"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.salesquoteref}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="420" width="317" height="24" uuid="37688015-9a5f-4c76-8a0a-2b1130734c2f"/>
+					<box rightPadding="0">
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("quoteId")+"-"+$P{Quote}.getAttributeValue("salesDocumentVersion")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="26" y="444" width="164" height="24" uuid="0cc85ab9-3c19-4fe8-b5fd-549eb0ee26e4"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.editor}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="444" width="317" height="24" uuid="15e7da4f-6d8a-4ba9-b369-9f53bfa00751"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personFirstName") + " " + $P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personLastName")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="26" y="516" width="164" height="24" uuid="b71d321f-cc27-49a7-9b70-69bca2a19f3a"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.Changed}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="516" width="317" height="24" uuid="3ca99ebc-c226-474a-934c-0b8c9995eacf"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new
+SimpleDateFormat("dd.MM.yyyy").format(((GregorianCalendar)$P{Quote}.getAttributeValue("objectDateOfUpdate")).getTime())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="26" y="492" width="164" height="24" uuid="c11d7526-65e1-4023-88ee-60c69ebc75fc"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.Created}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="492" width="317" height="24" uuid="0e5542e8-56d0-406c-8c5c-908fc6c67178"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd. MMMM yyyy", $P{REPORT_LOCALE}).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="26" y="561" width="100" height="19" uuid="b9f265e5-c960-4536-a17e-c54e8096a7c8"/>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+					<text><![CDATA[Customer Data]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="26" y="590" width="164" height="24" uuid="c663a1f7-2643-46da-b83b-93d1e9800f5b"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.CustCity}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="590" width="317" height="24" uuid="6824397b-4548-4b89-85d7-270ce922889b"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressCity")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="26" y="614" width="164" height="24" uuid="e54f65cf-202c-4238-b99d-6325ba3dd9cf"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.Customer}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="190" y="614" width="317" height="24" uuid="4893d654-704f-407d-b3a4-a95fdb112d54"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="10"/>
+						<paragraph leftIndent="5" rightIndent="14" spacingAfter="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("quoteContainedBy", "objectName")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="26" y="670" width="100" height="19" uuid="fa7d0b39-b46c-4602-a7cf-2c9803c87d70"/>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+					<text><![CDATA[Comments]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="26" y="700" width="491" height="101" isRemoveLineWhenBlank="true" uuid="347fb600-c209-49c6-be45-88a80c8e574b"/>
+					<textElement>
+						<font fontName="Times New Roman"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("id_textfield_desc")]]></textFieldExpression>
+				</textField>
+				<image hAlign="Center" vAlign="Middle">
+					<reportElement x="198" y="115" width="199" height="100" uuid="20270ea3-3fcf-4b7c-af42-a39859df6e27"/>
+					<imageExpression><![CDATA[$P{CMIS} + "/logos/reportlogo.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</pageHeader>
+</jasperReport>

@@ -1,0 +1,1125 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY platform-schema "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY products-schema-metalstamping "http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:platform-schema="http://www.inmindcomputing.com/platform/platform-schema.owl#"
+     xmlns:products-schema-metalstamping="http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl">
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#pricingInfoSequence -->
+
+    <owl:AnnotationProperty rdf:about="&as;pricingInfoSequence"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#toolingMaintenanceSpecifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#toolingMaintenanceSpecifiedBy">
+        <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesToolingMaintenance"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifiedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#hasThickness -->
+
+    <owl:ObjectProperty rdf:about="&products-schema-metalstamping;hasThickness">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&products-schema-metalstamping;Thickness"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#machineSpecifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#machineSpecifiedBy">
+        <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachine"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifiedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialSpecifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#materialSpecifiedBy">
+        <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMaterial"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifiedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#rateSpecifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#rateSpecifiedBy">
+        <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesRate"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifiedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesEfficiency -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesEfficiency">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineEfficiency"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachine -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachine">
+        <rdfs:domain rdf:resource="&as;Company"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachineCostPerHour -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachineCostPerHour">
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineCostPerHour"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Rate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachineType -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMachineType">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineType"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMaterial">
+        <rdfs:domain rdf:resource="&as;Company"/>
+        <rdfs:range rdf:resource="&products-schema-metalstamping;Material"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMaterialCode -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesMaterialCode">
+        <rdfs:range rdf:resource="&products-schema-metalstamping;MaterialCode"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&products-schema-metalstamping;Thickness"/>
+                    <rdf:Description rdf:about="&products-schema-metalstamping;ToolingMaintenance"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesOperationType -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesOperationType">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#OperationType"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesOutputPerHour -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesOutputPerHour">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#MachineOutputPerHour"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesRate -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesRate">
+        <rdfs:domain rdf:resource="&as;Company"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Rate"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesSetupTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesSetupTime">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineSetupTime"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesStrokesPerMinute -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesStrokesPerMinute">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineStrokesPerMinute"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesToolingMaintenance -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesToolingMaintenance">
+        <rdfs:range rdf:resource="&products-schema-metalstamping;ToolingMaintenance"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&as;Company"/>
+                    <rdf:Description rdf:about="&products-schema-metalstamping;Material"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesToolingMaintenanceCost -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#specifiesToolingMaintenanceCost">
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ToolingMaintenanceCost"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;specifies"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+                    <rdf:Description rdf:about="&products-schema-metalstamping;Thickness"/>
+                    <rdf:Description rdf:about="&products-schema-metalstamping;ToolingMaintenance"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#defines -->
+
+    <owl:ObjectProperty rdf:about="&platform-schema;defines"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#has -->
+
+    <owl:ObjectProperty rdf:about="&platform-schema;has"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#pricingInfo -->
+
+    <owl:DatatypeProperty rdf:about="&as;pricingInfo"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#efficiencyValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#efficiencyValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineEfficiency"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#machineCodeValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#machineCodeValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#machineCostPerHourValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#machineCostPerHourValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineCostPerHour"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#machineTypeValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#machineTypeValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineType"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#operationValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#operationValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#OperationType"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#outputPerHourValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#outputPerHourValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#MachineOutputPerHour"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#setupTimeValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#setupTimeValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineSetupTime"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue">
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;assertion"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#strokesPerMinuteValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#strokesPerMinuteValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineStrokesPerMinute"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#toolingMaintenanceCostValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#toolingMaintenanceCostValue">
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ToolingMaintenanceCost"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#materialCodeValue -->
+
+    <owl:DatatypeProperty rdf:about="&products-schema-metalstamping;materialCodeValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#specificationAssertionValue"/>
+        <rdfs:domain rdf:resource="&products-schema-metalstamping;MaterialCode"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#materialDensity -->
+
+    <owl:DatatypeProperty rdf:about="&products-schema-metalstamping;materialDensity">
+        <rdfs:comment>Relates an instance of MaterialSpecification with the inherent density of the material it describes. It is used to build sparql queries calculating and materializing the weight of a metal part. FOR INTERNAL USE ONLY!</rdfs:comment>
+        <rdfs:domain rdf:resource="&products-schema-metalstamping;Material"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#othersPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#othersPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Price</rdfs:label>
+        <rdfs:label xml:lang="zh">售价</rdfs:label>
+        <platform-schema:defaultValue rdf:datatype="&xsd;decimal">0</platform-schema:defaultValue>
+        <platform-schema:sequenceID>2</platform-schema:sequenceID>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl#Base"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Others"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;businessData"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#partPartName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#partPartName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Part Name</rdfs:label>
+        <rdfs:label xml:lang="zh">零件名称</rdfs:label>
+        <as:pricingInfoSequence>-1</as:pricingInfoSequence>
+        <platform-schema:sequenceID>-1</platform-schema:sequenceID>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl#Base"/>
+        <rdfs:subPropertyOf rdf:resource="&as;pricingInfo"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#partPartNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#partPartNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Part Number</rdfs:label>
+        <rdfs:label xml:lang="zh">零件号</rdfs:label>
+        <as:pricingInfoSequence>-2</as:pricingInfoSequence>
+        <platform-schema:sequenceID>-2</platform-schema:sequenceID>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl#Base"/>
+        <rdfs:subPropertyOf rdf:resource="&as;pricingInfo"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#businessData -->
+
+    <owl:DatatypeProperty rdf:about="&platform-schema;businessData"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Machine">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineCostPerHour -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineCostPerHour">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineEfficiency -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineEfficiency">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineSetupTime -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineSetupTime">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineStrokesPerMinute -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineStrokesPerMinute">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineType -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MachineType">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MasterPart-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MasterPart-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#OperationType -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#OperationType">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Rate -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Rate">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+        <rdfs:comment rdf:datatype="&xsd;string">This class distinguishs to number of shifts in whom a machine is used.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StandaloneMetalstamping-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StandaloneMetalstamping-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ToolingMaintenanceCost -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ToolingMaintenanceCost">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#Material -->
+
+    <owl:Class rdf:about="&products-schema-metalstamping;Material">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#MaterialCode -->
+
+    <owl:Class rdf:about="&products-schema-metalstamping;MaterialCode">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The code for specific material according to amtek master data. These code depends on the maintenance a tooling of a material specifies and the thickness of the ordered material.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#Thickness -->
+
+    <owl:Class rdf:about="&products-schema-metalstamping;Thickness">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#ToolingMaintenance -->
+
+    <owl:Class rdf:about="&products-schema-metalstamping;ToolingMaintenance">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#MachineOutputPerHour -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#MachineOutputPerHour">
+        <rdfs:subClassOf rdf:resource="&platform-schema;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Assembly-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#Assembly-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MasterPart-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBNonMFG-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#MRBNonMFG-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBNonMFG-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Tooling-MRB-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MasterPart-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Tooling-MRB-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Others -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#Others">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPartOther-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPartOther-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBNonMFG-KB"/>
+        <owl:disjointWith rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPlasticPart-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPlasticPart-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPlasticPart-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBNonMFG-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryFinishing-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryFinishing-KB">
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBNonMFG-KB"/>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Tooling-MRB-KB -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#Tooling-MRB-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#Attribution -->
+
+    <owl:Class rdf:about="&platform-schema;Attribution"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#AL1050 -->
+
+    <owl:NamedIndividual rdf:about="&as;AL1050"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#AL1100_H14 -->
+
+    <owl:NamedIndividual rdf:about="&as;AL1100_H14"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#AL5005_H34 -->
+
+    <owl:NamedIndividual rdf:about="&as;AL5005_H34"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#AL5052_H32 -->
+
+    <owl:NamedIndividual rdf:about="&as;AL5052_H32"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C1020 -->
+
+    <owl:NamedIndividual rdf:about="&as;C1020"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C1100 -->
+
+    <owl:NamedIndividual rdf:about="&as;C1100"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C1200 -->
+
+    <owl:NamedIndividual rdf:about="&as;C1200"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C2600 -->
+
+    <owl:NamedIndividual rdf:about="&as;C2600"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C2680 -->
+
+    <owl:NamedIndividual rdf:about="&as;C2680"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C5191 -->
+
+    <owl:NamedIndividual rdf:about="&as;C5191"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#C7701 -->
+
+    <owl:NamedIndividual rdf:about="&as;C7701"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SECC-C -->
+
+    <owl:NamedIndividual rdf:about="&as;SECC-C"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SECC-P -->
+
+    <owl:NamedIndividual rdf:about="&as;SECC-P"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SGCC -->
+
+    <owl:NamedIndividual rdf:about="&as;SGCC"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SPCC-SD -->
+
+    <owl:NamedIndividual rdf:about="&as;SPCC-SD"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SPTE -->
+
+    <owl:NamedIndividual rdf:about="&as;SPTE"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#STS34 -->
+
+    <owl:NamedIndividual rdf:about="&as;STS34"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUMI_BLACK -->
+
+    <owl:NamedIndividual rdf:about="&as;SUMI_BLACK"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS301_1/2H -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS301_1/2H"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS301_3/4H -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS301_3/4H"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS301_FH -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS301_FH"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS304_1/2H -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS304_1/2H"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS304_3/4H -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS304_3/4H"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS304_FH -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS304_FH"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS430_2B -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS430_2B"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS430_ANNEALED -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS430_ANNEALED"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SUS430_BA -->
+
+    <owl:NamedIndividual rdf:about="&as;SUS430_BA"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#TERNE_STEEL -->
+
+    <owl:NamedIndividual rdf:about="&as;TERNE_STEEL"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1035 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1035"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1060 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1060"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1110 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1110"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1160 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1160"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1200 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1200"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1250 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1250"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1300 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1300"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1400 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_1400"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2060 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2060"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2110 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2110"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2160 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2160"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2200 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2200"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2300 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_AHIL_2300"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1110 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1110"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1200 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1200"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1300 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1300"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1500 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_1500"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2110 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2110"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2200 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2200"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2300 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2300"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2500 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_HATL_2500"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_NULL -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MACHINE_NULL"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#NO_TM -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#NO_TM"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#OTHER"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#RATE_A -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#RATE_A"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#RATE_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#RATE_B"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#TM1 -->
+
+    <owl:NamedIndividual rdf:about="&products-schema-metalstamping;TM1"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#TM2 -->
+
+    <owl:NamedIndividual rdf:about="&products-schema-metalstamping;TM2"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#TM3 -->
+
+    <owl:NamedIndividual rdf:about="&products-schema-metalstamping;TM3"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Summary -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#Summary">
+        <rdf:type rdf:resource="&as;Group"/>
+        <platform-schema:groupCode>_190</platform-schema:groupCode>
+        <platform-schema:sequenceID>10</platform-schema:sequenceID>
+        <platform-schema:groupDescription xml:lang="en">Summary</platform-schema:groupDescription>
+        <platform-schema:groupDescription xml:lang="zh">总结</platform-schema:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StandaloneMetalstamping-KB"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/security/security-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/security/security-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Computing AG. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+       
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_APPROVAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_APPROVAL"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#INMIND -->
+
+    <owl:NamedIndividual rdf:about="&sec;INMIND">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">INMIND</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;INMIND-Password"/>
+        <as:includesPerson rdf:resource="&sec;PersonINMIND"/>
+        <as:hasRole rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#INMIND-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;INMIND-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">04103</as:addressZip>
+        <as:addressStreet rdf:datatype="&xsd;string">Hauptstr. 123</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">INMIND-Address</ps:objectName>
+        <as:addressCity rdf:datatype="&xsd;string">Leipzig</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonINMIND"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#INMIND-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;INMIND-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">0839aac0d01d166587c6aaba2596dd8a804ed613ef778986962eb17f29499dea</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonINMIND -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonINMIND">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">InMind Admin</rdfs:label>
+        <as:personEmail rdf:datatype="&xsd;string"></as:personEmail>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personPosition rdf:datatype="&xsd;string">ADMINISTRATOR</as:personPosition>
+        <as:personLastName rdf:datatype="&xsd;string">Admin</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">InMind</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">InMind Admin</ps:objectName>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonReader -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonReader">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Reader Reader</rdfs:label>
+        <as:personEmail rdf:datatype="&xsd;string"></as:personEmail>
+        <as:personPhone rdf:datatype="&xsd;string"></as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Reader</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">Reader</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Reader</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Reader Reader</ps:objectName>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_KNACKADMIN -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_KNACKADMIN">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Z_KNACKADMIN</rdfs:label>
+        <as:personEmail rdf:datatype="&xsd;string"></as:personEmail>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personPosition rdf:datatype="&xsd;string">ADMINISTRATOR</as:personPosition>
+        <as:personLastName rdf:datatype="&xsd;string">Admin</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Knack</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKADMIN</ps:objectName>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_KNACKMAN01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_KNACKMAN01">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Manager Knack</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Knack</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Manager</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Manager Knack</ps:objectName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MAN</as:personPosition>
+        <as:personEmail rdf:datatype="&xsd;string">z_knackman01@inmindcomputing.de</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+   
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_KNACKVP -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_KNACKVP">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">VP Knack</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Knack</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES VP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">VP</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">VP Knack</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">Z_KNACKVP@inmindcomputing.de</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_SALESMAN01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_SALESMAN01">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Jonny Cash</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Cash</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Jonny</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Jonny Cash</ps:objectName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MAN</as:personPosition>
+        <as:personEmail rdf:datatype="&xsd;string">z_salesman01@inmindcomputing.de</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_SALESREP01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_SALESREP01">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Tom Sales</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personLastName rdf:datatype="&xsd;string">Sales</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Tom</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Tom Sales</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">z_salesrep01@inmindcomputing.de</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_SALESVP -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_SALESVP">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Lisa Burn</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Burn</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Lisa</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Lisa Burn</ps:objectName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES VP</as:personPosition>
+        <as:personEmail rdf:datatype="&xsd;string">z_salesvp@inmindcomputing.de</as:personEmail>
+        <as:hasGender rdf:resource="&ai;FEMALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Personadmin -->
+
+    <owl:NamedIndividual rdf:about="&sec;Personadmin">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Max Crowe</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string"></as:personPhone>
+        <as:personEmail rdf:datatype="&xsd;string"></as:personEmail>
+        <as:personPosition rdf:datatype="&xsd;string">ADMINISTRATOR</as:personPosition>
+        <as:personLastName rdf:datatype="&xsd;string">Crowe</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Max</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Max Crowe</ps:objectName>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_ADMIN -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_ADMIN">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROLE_ADMIN</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">2</as:roleAuthority>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_ADMIN</ps:objectName>
+        <ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_ISS_USER -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_ISS_USER">
+        <rdf:type rdf:resource="&as;Role"/>
+        <as:roleAuthority rdf:datatype="&xsd;int">3</as:roleAuthority>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_ISS_USER</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_READER -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_READER">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROLE_READER</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_READER</ps:objectName>
+        <rdfs:comment rdf:datatype="&xsd;string">Read only</rdfs:comment>
+        <as:hasAccessToDataOfHierarchy rdf:resource="&sec;ROLE_SALES_VP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_MGR -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_MGR">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROLE_SALES_MGR</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">17</as:roleAuthority>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_SALES_MGR</ps:objectName>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-Excel"/>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-PDF"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_WITHDRAW"/>
+        <as:createsObjectsVisibleForHierarchy rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasAccessToDataOfHierarchy rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_OPS -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_OPS">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROLE_SALES_OPS</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">15</as:roleAuthority>
+        <rdfs:comment rdf:datatype="&xsd;string">Create Sales Order</rdfs:comment>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_SALES_OPS</ps:objectName>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-Excel"/>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-PDF"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_APPROVAL"/>
+        <as:hasAccessToDataOfHierarchy rdf:resource="&sec;ROLE_SALES_VP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_REP -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_REP">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROLE_SALES_REP</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">13</as:roleAuthority>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_SALES_REP</ps:objectName>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-Excel"/>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-PDF"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_APPROVAL"/>
+        <as:hasAccessToDataOfHierarchy rdf:resource="&sec;ROLE_ISS_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_VP -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_VP">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">SALES VP</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">25</as:roleAuthority>
+        <ps:objectName rdf:datatype="&xsd;string">ROLE_SALES_VP</ps:objectName>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-Excel"/>
+        <as:hasReportTemplate rdf:resource="&ai;Quote-PDF"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_WITHDRAW"/>
+        <as:hasAccessToDataOfHierarchy rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:createsObjectsVisibleForHierarchy rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Reader-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Reader-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">04103</as:addressZip>
+        <as:addressStreet rdf:datatype="&xsd;string">Hauptstr. 123</as:addressStreet>
+        <as:addressCity rdf:datatype="&xsd;string">Leipzig</as:addressCity>
+        <ps:objectName rdf:datatype="&xsd;string">Reader-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonReader"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKADMIN -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKADMIN">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKADMIN</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_KNACKADMIN"/>
+        <as:hasRole rdf:resource="&sec;ROLE_ADMIN"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_KNACKADMIN-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKADMIN-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKADMIN-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 1</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKADMIN-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_KNACKADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKADMIN-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKADMIN-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">efcb49df461b1ac313f03b6d60f4a2bb941c046a53b7fc26e52600ab32eade90</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKMAN01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKMAN01">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKMAN01</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_KNACKMAN01"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_KNACKMAN01-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKMAN01-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKMAN01-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 2</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKMAN01-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_KNACKMAN01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKMAN01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKMAN01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">21178603e9178fea8d298031c76e238c64317f8360386fbb9a29c9c60e9fcf18</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKREP01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKREP01">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKREP01</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_KNACKREP01"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_KNACKREP01-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKREP01-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKREP01-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 1</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKREP01-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_KNACKREP01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKREP01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKREP01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">21178603e9178fea8d298031c76e238c64317f8360386fbb9a29c9c60e9fcf18</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+	 <!-- http://www.inmindcomputing.com/security/security-implementation.owl#PersonZ_KNACKREP01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;PersonZ_KNACKREP01">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Salesrep Knack</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">49123456789</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Knack</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Salesrep</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Salesrep Knack</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">z_knackrep01@inmindcomputing.de</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+	
+	 <!-- http://www.inmindcomputing.com/security/security-implementation.owl#aluser -->
+
+    <owl:NamedIndividual rdf:about="&sec;aluser">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">aluser</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;Personaluser"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:includesUserPassword rdf:resource="&sec;aluser-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#aluser-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;aluser-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 1</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">aluser-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;Personaluser"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#aluser-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;aluser-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">21178603e9178fea8d298031c76e238c64317f8360386fbb9a29c9c60e9fcf18</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+	 <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Personaluser -->
+
+    <owl:NamedIndividual rdf:about="&sec;Personaluser">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Alghanim Knack</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">4912345678</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">User</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Alghanim</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Salesrep Knack</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">ynagarajrao@gmail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+	
+	
+	 <!-- http://www.inmindcomputing.com/security/security-implementation.owl#alman -->
+
+    <owl:NamedIndividual rdf:about="&sec;alman">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">alman</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;Personalman"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:includesUserPassword rdf:resource="&sec;alman-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#alman-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;alman-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 1</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">alman-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;Personalman"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#alman-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;alman-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">21178603e9178fea8d298031c76e238c64317f8360386fbb9a29c9c60e9fcf18</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+	 <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Personalman -->
+
+    <owl:NamedIndividual rdf:about="&sec;Personalman">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Aluser Manager</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">1293456780</as:personPhone>
+        <as:personLastName rdf:datatype="&xsd;string">Alman</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">Manager</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Salesrep</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">Aluser Manager</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">kishan.mandava@gmail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+	
+	
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKVP -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKVP">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKVP</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_KNACKVP"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_VP"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_KNACKVP-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKVP-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKVP-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 1</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">Z_KNACKVP-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_KNACKVP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_KNACKVP-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_KNACKVP-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">21178603e9178fea8d298031c76e238c64317f8360386fbb9a29c9c60e9fcf18</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESMAN01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESMAN01">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_SALESMAN01</ps:objectName>
+        <ps:objectExternalId>E9001</ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_SALESMAN01"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_SALESMAN01-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESMAN01-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESMAN01-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">04103</as:addressZip>
+        <as:addressStreet rdf:datatype="&xsd;string">Hauptstr. 123</as:addressStreet>
+        <as:addressCity rdf:datatype="&xsd;string">Leipzig</as:addressCity>
+        <ps:objectName rdf:datatype="&xsd;string">Z_SALESMAN01-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_SALESMAN01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESMAN01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESMAN01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c8eba3af986d2c8ff111445b220631ae847e6dbb5bc4fad76c74163a90a73df1</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESREP01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESREP01">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_SALESREP01</ps:objectName>
+        <ps:objectExternalId>E9000</ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_SALESREP01"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_SALESREP01-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESREP01-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESREP01-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">04103</as:addressZip>
+        <as:addressStreet rdf:datatype="&xsd;string">Hauptstr. 123</as:addressStreet>
+        <as:addressCity rdf:datatype="&xsd;string">Leipzig</as:addressCity>
+        <ps:objectName rdf:datatype="&xsd;string">Z_SALESREP01-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_SALESREP01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESREP01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESREP01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c8eba3af986d2c8ff111445b220631ae847e6dbb5bc4fad76c74163a90a73df1</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESVP -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESVP">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">Z_SALESVP</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;PersonZ_SALESVP"/>
+        <as:hasRole rdf:resource="&sec;ROLE_SALES_VP"/>
+        <as:includesUserPassword rdf:resource="&sec;Z_SALESVP-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESVP-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESVP-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">04103</as:addressZip>
+        <as:addressStreet rdf:datatype="&xsd;string">Hauptstr. 123</as:addressStreet>
+        <as:addressCity rdf:datatype="&xsd;string">Leipzig</as:addressCity>
+        <ps:objectName rdf:datatype="&xsd;string">Z_SALESVP-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&sec;PersonZ_SALESVP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Z_SALESVP-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Z_SALESVP-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c8eba3af986d2c8ff111445b220631ae847e6dbb5bc4fad76c74163a90a73df1</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#admin -->
+
+    <owl:NamedIndividual rdf:about="&sec;admin">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:objectName rdf:datatype="&xsd;string">admin</ps:objectName>
+        <ps:objectExternalId></ps:objectExternalId>
+        <as:containsCompany rdf:resource="&ai;CEI"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesPerson rdf:resource="&sec;Personadmin"/>
+        <as:hasRole rdf:resource="&sec;ROLE_ADMIN"/>
+        <as:includesUserPassword rdf:resource="&sec;admin-Password"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#admin-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;admin-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip rdf:datatype="&xsd;string">07095</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">New Jersey</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Woodbridge Center 1</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">admin-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:addressIncludedBy rdf:resource="&sec;Personadmin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#admin-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;admin-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">f2d535fdfc0ddc74d6b132f53430bc6bc1361e1491221c36193931150b0b01d0</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

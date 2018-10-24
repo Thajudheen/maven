@@ -1,0 +1,22 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ss: <http://www.inmindcomputing.com/ssc/submodel.owl#>
+PREFIX ps: <http://www.inmindcomputing.com/platform/platform-schema.owl#>
+PREFIX as: <http://www.inmindcomputing.com/application/application-schema.owl#>
+PREFIX sec: <http://www.inmindcomputing.com/security/security-implementation.owl#>
+PREFIX wi: <http://www.inmindcomputing.com/application/workItem-implementation.owl#>
+PREFIX pcs: <http://www.inmindcomputing.com/application/products/products-schema.owl#>
+PREFIX ai: <http://www.inmindcomputing.com/application/application-implementation.owl#>
+PREFIX pci: <http://www.inmindcomputing.com/application/products/products-implementation.owl#>
+
+
+SELECT ?subject ?dhCC ?ihpi
+
+where { 
+   ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem ?si .
+    ?si as:includesItemHeaderPriceItem ?ihpi .
+    #  as:documentHeaderCustomCalculation0 ?dhCC.
+   
+} 

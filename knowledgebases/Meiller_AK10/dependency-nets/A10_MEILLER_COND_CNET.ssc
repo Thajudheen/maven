@@ -1,0 +1,155 @@
+constraintNet A10_MEILLER_COND_CNET {
+  constraints
+
+	A10_TABLES
+//	PRODUCTLISTPRICE	
+}
+constraint A10_TABLES{
+	objects ?O is_a(300)CRM_AK10
+		
+	restrictions
+		?O.MEILLER_MOD = ?O.A10MOD,
+		table TYP_MODELL (
+			TYP = ?O.domain TYP,
+			MODELL = ?O.domain MODELL,
+			A10MOD = ?O.domain A10MOD,
+			PRODUCTIMAGE = ?O.domain PRODUCTIMAGE
+//			PRODUCTLISTPRICE = ?O.domain PRODUCTLISTPRICE
+		),
+		table A10MSS (
+			A10MSS = ?O.domain A10MSS,
+			A10STE = ?O.domain A10STE
+		),
+		table A10PRE (
+			A10PRE = ?O.domain A10PRE,
+			A10SIC = ?O.domain A10SIC
+		),
+		table A10BOD (
+			A10BOD = ?O.domain A10BOD,
+			A10SIC = ?O.domain A10SIC
+		),
+		table A10ANL_MOD (
+			A10ANL = ?O.domain A10ANL,
+			A10MOD = ?O.domain A10MOD
+		),
+		table A10ANL (
+			A10ANL = ?O.domain A10ANL,
+			A10STK = ?O.domain A10STK
+		),
+		table A10EIN (
+			A10EIN = ?O.domain A10EIN,
+			A10STE = ?O.domain A10STE
+		),
+		table A10ATT (
+			A10ATT = ?O.domain A10ATT,
+			A10STE = ?O.domain A10STE
+		),
+		table A10BED (
+			A10BED = ?O.domain A10BED,
+			A10STE = ?O.domain A10STE
+		),
+		table A10HAS (
+			A10HAS = ?O.domain A10HAS,
+			A10FZG = ?O.domain A10FZG,
+			A10STE = ?O.domain A10STE
+		),
+		table A10MKO (
+			A10MKO = ?O.domain A10MKO,
+			A10KOT = ?O.domain A10KOT
+		),
+		table A10STK_MOD (
+			A10STK = ?O.domain A10STK,
+			A10MOD = ?O.domain A10MOD
+		),
+		table A10HKI_MOD (
+			A10HKI = ?O.domain A10HKI,
+			A10MOD = ?O.domain A10MOD
+		),
+		table A10ASR_MOD (
+			A10ASR = ?O.domain A10ASR,
+			A10MOD = ?O.domain A10MOD
+		),
+		table A10MSV (
+			A10MSV = ?O.domain A10MSV,
+			A10SSV = ?O.domain A10SSV
+		),
+		table A10KON (
+			A10KOS = ?O.domain A10KOS,
+			A10KON = ?O.domain A10KON
+		),
+		table A10KOS (
+			A10KOS = ?O.domain A10KOS,
+			A10KOH = ?O.domain A10KOH
+		),
+		table A10KOH (
+			A10KON = ?O.domain A10KON,
+			A10KOH = ?O.domain A10KOH
+		),
+// Farbtabelle
+		table A10AFA (
+			A10AFA = ?O.domain A10AFA,
+			A10LAQ = ?O.domain A10LAQ,
+			A10FCO = ?O.domain A10FCO,
+			A10FTO = ?O.domain A10FTO
+		),
+		table A10LAQ (
+			A10LAQ = ?O.domain A10LAQ,
+			A10LAA = ?O.domain A10LAA
+		),
+		table A10LLO (
+			A10LLO = ?O.domain A10LLO,
+			A10MON = ?O.domain A10MON,
+			A10LAA = ?O.domain A10LAA
+		),
+		table A10VLO (
+			A10VLO = ?O.domain A10VLO,
+			A10MON = ?O.domain A10MON,
+			A10LAA = ?O.domain A10LAA
+		),
+		table A10TFR (
+			A10TFR = ?O.domain A10TFR,
+			A10MON = ?O.domain A10MON
+		),
+		table A10WER (
+			A10WER = ?O.domain A10WER,
+			A10MON = ?O.domain A10MON
+		)
+	inferences:
+		?O.MEILLER_MOD,
+		?O.domain TYP, ?O.domain MODELL, ?O.domain A10MOD,
+		?O.domain PRODUCTIMAGE,
+//			?O.domain PRODUCTLISTPRICE
+		?O.domain A10PRE,
+		?O.domain A10BOD,
+		?O.domain A10ANL,
+		?O.domain A10SIC,
+		?O.domain A10STK,
+		?O.domain A10STE,
+		?O.domain A10MSS,
+		?O.domain A10EIN,
+		?O.domain A10ATT,
+		?O.domain A10BED,
+		?O.domain A10HAS,
+		?O.domain A10FZG,
+		?O.domain A10MKO,
+		?O.domain A10KOT,
+		?O.domain A10STK,
+		?O.domain A10HKI,
+		?O.domain A10ASR,
+		?O.domain A10MSV,
+		?O.domain A10SSV,
+		?O.domain A10KOS,
+		?O.domain A10KON,
+		?O.domain A10KOH,
+		?O.domain A10AFA,
+		?O.domain A10LAQ,
+		?O.domain A10FCO,
+		?O.domain A10FTO,
+		?O.domain A10LLO,
+		?O.domain A10VLO,
+		?O.domain A10MON,
+		?O.domain A10LAA,
+		?O.domain A10TFR,
+		?O.domain A10WER
+}
+

@@ -1,0 +1,619 @@
+ruleNet A04_MEILLER_RNET {
+  rules
+    GRUPPE_A04STE_1,
+    GRUPPE_A04STE_2,
+//    GRUPPE_A04MSS_0,
+    GRUPPE_A04MSS_1,
+//    GRUPPE_A04MSS_2,
+//	GRUPPE_A04BED_0,
+	GRUPPE_A04BED_1,
+//	GRUPPE_A04BED_2,
+	  GRUPPE_A04FZG,
+//	GRUPPE_A04HAS_0,
+	GRUPPE_A04HAS_1,
+    GRUPPE_A04DRE_0,
+    GRUPPE_A04DRE_1,
+    GRUPPE_A04DRE_2,
+    GRUPPE_A04EIN_1,
+    GRUPPE_A04EIN_2,
+//      GRUPPE_A04ATT_0,
+      GRUPPE_A04ATT_1,
+      GRUPPE_A04KIP,
+      GRUPPE_A04SIC,
+      GRUPPE_A04UFS,
+//      GRUPPE_A04HAK,
+//	GRUPPE_A04HKI_0,
+	GRUPPE_A04HKI_1,
+//      GRUPPE_A04VSS,
+      GRUPPE_A04ASR,
+      GRUPPE_A04HIR,
+      GRUPPE_A04KAA,
+      GRUPPE_A04KAB,
+      GRUPPE_A04KOT,
+      GRUPPE_A04SSV,
+    GRUPPE_A04MSV,
+      GRUPPE_A04UKH,
+      GRUPPE_A04BSH,
+      GRUPPE_A04DUO,
+      GRUPPE_A04EHA,
+      GRUPPE_A04ULP,
+      GRUPPE_A04FEU,
+      GRUPPE_A04SML,
+      GRUPPE_A04AST,
+      GRUPPE_A04ARE,
+      GRUPPE_A04ASS,
+      GRUPPE_A04AFW,
+      GRUPPE_A04ALB,
+      GRUPPE_A04KST,
+      GRUPPE_A04KRE,
+      GRUPPE_A04KON,
+//    GRUPPE_A04KOS_1,
+	GRUPPE_A04KOS_2,
+//    GRUPPE_A04KOH_1,
+	GRUPPE_A04KOH_2,
+      GRUPPE_A04ASC,
+      GRUPPE_A04GSC,
+      GRUPPE_A04PSC,
+      GRUPPE_A04WMA,
+      GRUPPE_A04HMA,
+      GRUPPE_A04ZEN,
+      GRUPPE_A04KAM,
+      GRUPPE_A04KMO,
+      GRUPPE_A04KAN,
+      GRUPPE_A04MON,
+      GRUPPE_A04MOP,
+//      GRUPPE_A04TFR,
+      GRUPPE_A04LAA,
+//      GRUPPE_A04AFA,
+//	GRUPPE_A04FCO,
+//	GRUPPE_A04FTO,
+//    GRUPPE_A04LAQ,
+      GRUPPE_A04OEL,
+//    GRUPPE_A04LLO_1,
+    GRUPPE_A04LLO_2,
+//    GRUPPE_A04VLO_1,
+    GRUPPE_A04VLO_2,
+      GRUPPE_A04ABN,
+      GRUPPE_A04FRA,
+      GRUPPE_A04DTP,
+      GRUPPE_A04KTP,
+      GRUPPE_A04UTP,
+      GRUPPE_A04HBE,
+      GRUPPE_A04KOE,
+      GRUPPE_A04RAU,
+      GRUPPE_A04AHV,
+      GRUPPE_A04DLU,
+      GRUPPE_A04DBW,
+      GRUPPE_A04VKT,
+      GRUPPE_A04VLK,
+      GRUPPE_A04ASV,
+      GRUPPE_A04DEH,
+      GRUPPE_A04MAU,
+      GRUPPE_A04MAK,
+      GRUPPE_A04MWH,
+      GRUPPE_A04KEA,
+      GRUPPE_A04WKH,
+      GRUPPE_A04VBK
+//      GRUPPE_A04WER,
+}
+////  Bedingungen immer in condition: kein if in restrictions verwenden
+rule GRUPPE_A04STE_1 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD02'
+//  body: then do: ?O.CODENAME_1 ?= 'ISAR'
+  body: then do: ?O.A04STE ?= 'A04STE01'
+}
+rule GRUPPE_A04STE_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD01'
+//  body: then do: ?O.CODENAME_1 ?= 'pneumatisch'
+  body: then do: ?O.A04STE ?= 'A04STE02'
+}
+//rule GRUPPE_A04MSS_0 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD = 'A04MOD01'
+////  body: then do: ?O.CODENAME_3 ?= 'OHNE'
+//  body: then do: ?O.A04MSS ?= 'A04MSS00'
+//}
+rule GRUPPE_A04MSS_1 {
+  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD = 'A04MOD02' and ?O.A04STE <> 'A04STE01'
+//  body: then do: ?O.CODENAME_3 ?= 'OHNE'
+  body: then do: ?O.A04MSS ?= 'A04MSS01'
+}
+//rule GRUPPE_A04MSS_2 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition ?O.A04MOD = 'A04MOD02' and ?O.A04STE = 'A04STE01'
+////  body: then do: ?O.CODENAME_3 ?= 'OHNE'//'I_S_A_R_MOTOR_START_STOP'
+//  body: then do: ?O.A04MSS ?= 'A04MSS02'
+//}
+//rule GRUPPE_A04HAS_0 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD = 'A04MOD01'
+////  body: then do: ?O.CODENAME_12 ?= 'OHNE'
+//  body: then do: ?O.A04HAS ?= 'A04HAS00'
+//}
+rule GRUPPE_A04HAS_1 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD02'
+//  body: then do: ?O.CODENAME_12 ?= 'OHNE'
+  body: then do: ?O.A04HAS ?= 'A04HAS01'
+}
+//rule GRUPPE_A04BED_0 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD = 'A04MOD01'
+////  body: then do: ?O.CODENAME_8 ?= 'OHNE'
+//  body: then do: ?O.A04BED ?= 'A04BED00'
+//}
+rule GRUPPE_A04BED_1 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD02'// and ?O.A04STE = 'A04STE02'
+//  body: then do: ?O.CODENAME_8 ?= 'OHNE'
+  body: then do: ?O.A04BED ?= 'A04BED01'
+}
+//rule GRUPPE_A04BED_2 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD = 'A04MOD02' and ?O.A04STE = 'A04STE01'
+////  body: then do: ?O.CODENAME_8 ?= 'OHNE'
+//  body: then do: ?O.A04BED ?= 'A04BED02'
+//}
+rule GRUPPE_A04DRE_0 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD01'// and ?O.A04STE = 'A04STE02'
+//  body: then do: ?O.CODENAME_5 ?= 'DREHZAHLREGULIERUNG'
+  body: then do: ?O.A04DRE ?= 'A04DRE01'
+}
+rule GRUPPE_A04DRE_1 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD02' and ?O.A04STE = 'A04STE01'
+//  body: then do: ?O.CODENAME_5 ?= 'DREHZAHLREGULIERUNG'
+  body: then do: ?O.A04DRE ?= 'A04DRE02'
+}
+rule GRUPPE_A04DRE_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04MOD = 'A04MOD02' and ?O.A04STE = 'A04STE02'
+//  body: then do: ?O.CODENAME_5 ?= 'DREHZAHLREGULIERUNG'
+  body: then do: ?O.A04DRE ?= 'A04DRE01'
+}
+rule GRUPPE_A04EIN_1 {
+  objects: ?O is_a (300)CRM_AK04
+  condition ?O.A04STE = 'A04STE02'
+//  body: then do: ?O.CODENAME_6 ?= 'OHNE'
+  body: then do: ?O.A04EIN ?= 'A04EIN01'
+}
+rule GRUPPE_A04EIN_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition ?O.A04STE = 'A04STE01'
+//  body: then do: ?O.CODENAME_6 ?= 'OHNE'
+  body: then do: ?O.A04EIN ?= 'A04EIN02'
+}
+//rule GRUPPE_A04ATT_0 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04STE = 'A04STE01'
+////  body: then do: ?O.CODENAME_7 ?= 'OHNE'
+//  body: then do: ?O.A04ATT ?= 'A04ATT00'
+//}
+rule GRUPPE_A04ATT_1 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04STE = 'A04STE02'
+//  body: then do: ?O.CODENAME_7 ?= 'OHNE'
+  body: then do: ?O.A04ATT ?= 'A04ATT01'
+}
+rule GRUPPE_A04KIP {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_10 ?= '1_FACH_KIPPHAKEN'
+  body: then do: ?O.A04KIP ?= 'A04KIP01'
+}
+rule GRUPPE_A04SIC {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_9 ?= 'BEHAELTERANS_VORNE_SEITLICH'
+  body: then do: ?O.A04SIC ?= 'A04SIC01'
+}
+rule GRUPPE_A04FZG {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_11 ?= 'OHNE'
+  body: then do: ?O.A04FZG ?= 'A04FZG16'
+}
+rule GRUPPE_A04UFS {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_16 ?= 'OHNE'
+  body: then do: ?O.A04UFS ?= 'A04UFS02'
+}
+//rule GRUPPE_A04HAK {
+//  objects: ?O is_a (300)CRM_AK04
+////  body: then do: ?O.CODENAME_17 ?= 'Sicherheitshaken NW10'
+//  body: then do: ?O.A04HAK ?= 'A04HAK04'
+//}
+//rule GRUPPE_A04HKI_0 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD = 'A04MOD01'
+////  body: then do: ?O.CODENAME_20 ?= 'OHNE'
+//  body: then do: ?O.A04HKI ?= 'A04HKI00'
+//}
+rule GRUPPE_A04HKI_1 {
+  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04MOD <> 'A04MOD01'
+//  body: then do: ?O.CODENAME_20 ?= 'OHNE'
+  body: then do: ?O.A04HKI ?= 'A04HKI01'
+}
+//rule GRUPPE_A04VSS {
+//  objects: ?O is_a (300)CRM_AK04
+////  body: then do: ?O.CODENAME_23 ?= 'OHNE'
+//  body: then do: ?O.A04VSS ?= 'A04VSS02'
+//}
+rule GRUPPE_A04ASR {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_25 ?= 'OHNE'
+  body: then do: ?O.A04ASR ?= 'A04ASR01'
+}
+rule GRUPPE_A04HIR {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_27 ?= 'OHNE'
+  body: then do: ?O.A04HIR ?= 'A04HIR01'
+}
+rule GRUPPE_A04KAA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_30 ?= 'OHNE'
+  body: then do: ?O.A04KAA ?= 'A04KAA01'
+}
+rule GRUPPE_A04KAB {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_31 ?= 'OHNE'
+  body: then do: ?O.A04KAB ?= 'A04KAB01'
+}
+rule GRUPPE_A04KOT {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_33 ?= 'OHNE'
+  body: then do: ?O.A04KOT ?= 'A04KOT01'
+}
+rule GRUPPE_A04MKO {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_34 ?= 'OHNE'
+  body: then do: ?O.A04MKO ?= 'A04MKO01'
+}
+rule GRUPPE_A04SSV {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_35 ?= 'OHNE'
+  body: then do: ?O.A04SSV ?= 'A04SSV01'
+}
+rule GRUPPE_A04MSV {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_36 ?= 'OHNE'
+  body: then do: ?O.A04MSV ?= 'A04MSV01'
+}
+rule GRUPPE_A04UKH {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_37 ?= 'OHNE'
+  body: then do: ?O.A04UKH ?= 'A04UKH01'
+}
+rule GRUPPE_A04BSH {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_38 ?= 'OHNE'
+  body: then do: ?O.A04BSH ?= 'A04BSH01'
+}
+rule GRUPPE_A04DUO {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_39 ?= 'OHNE'
+  body: then do: ?O.A04DUO ?= 'A04DUO01'
+}
+rule GRUPPE_A04EHA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_41 ?= 'OHNE'
+  body: then do: ?O.A04EHA ?= 'A04EHA01'
+}
+rule GRUPPE_A04ULP {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_42 ?= 'OHNE'
+  body: then do: ?O.A04ULP ?= 'A04ULP01'
+}
+rule GRUPPE_A04FEU {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_43 ?= 'OHNE'
+  body: then do: ?O.A04FEU ?= 'A04FEU01'
+}
+rule GRUPPE_A04SML {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_44 ?= 'OHNE'
+  body: then do: ?O.A04SML ?= 'A04SML01'
+}
+rule GRUPPE_A04AST {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_45 ?= 'OHNE'
+  body: then do: ?O.A04AST ?= 'A04AST01'
+}
+rule GRUPPE_A04ARE {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_46 ?= 'OHNE'
+  body: then do: ?O.A04ARE ?= 'A04ARE01'
+}
+rule GRUPPE_A04ASS {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_47 ?= 'OHNE'
+  body: then do: ?O.A04ASS ?= 'A04ASS01'
+}
+rule GRUPPE_A04AFW {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_48 ?= 'OHNE'
+  body: then do: ?O.A04AFW ?= 'A04AFW01'
+}
+rule GRUPPE_A04ALB {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_49 ?= 'OHNE'
+  body: then do: ?O.A04ALB ?= 'A04ALB01'
+}
+rule GRUPPE_A04KST {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_50 ?= 'OHNE'
+  body: then do: ?O.A04KST ?= 'A04KST01'
+}
+rule GRUPPE_A04KRE {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_51 ?= 'OHNE'
+  body: then do: ?O.A04KRE ?= 'A04KRE01'
+}
+rule GRUPPE_A04KON {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_53 ?= 'OHNE'
+  body: then do: ?O.A04KON ?= 'A04KON01'
+}
+//rule GRUPPE_A04KOS_1 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition ?O.A04KON = 'A04KON01'
+////  body: then do: ?O.CODENAME_54 ?= 'OHNE'
+//  body: then do: ?O.A04KOS ?= 'A04KOS01'
+//}
+rule GRUPPE_A04KOS_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition ?O.A04KON = 'A04KON02' or ?O.A04KON = 'A04KON03'
+//  body: then do: ?O.CODENAME_54 ?= 'OHNE'
+  body: then do: ?O.A04KOS ?= 'A04KOS03'
+}
+//rule GRUPPE_A04KOH_1 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition ?O.A04KON = 'A04KON01'
+////  body: then do: ?O.CODENAME_55 ?= 'OHNE'
+//  body: then do: ?O.A04KOH ?= 'A04KOH01'
+//}
+rule GRUPPE_A04KOH_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition ?O.A04KON = 'A04KON02' or ?O.A04KON = 'A04KON03'
+//  body: then do: ?O.CODENAME_55 ?= 'OHNE'
+  body: then do: ?O.A04KOH ?= 'A04KOH02'
+}
+rule GRUPPE_A04ASC {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_56 ?= 'OHNE'
+  body: then do: ?O.A04ASC ?= 'A04ASC01'
+}
+rule GRUPPE_A04GSC {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_57 ?= 'OHNE'
+  body: then do: ?O.A04GSC ?= 'A04GSC01'
+}
+rule GRUPPE_A04PSC {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_58 ?= 'OHNE'
+  body: then do: ?O.A04PSC ?= 'A04PSC01'
+}
+rule GRUPPE_A04WMA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_59 ?= 'OHNE'
+  body: then do: ?O.A04WMA ?= 'A04WMA01'
+}
+rule GRUPPE_A04HMA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_60 ?= 'OHNE'
+  body: then do: ?O.A04HMA ?= 'A04HMA01'
+}
+rule GRUPPE_A04ZEN {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_61 ?= 'OHNE'
+  body: then do: ?O.A04ZEN ?= 'A04ZEN01'
+}
+rule GRUPPE_A04KAM {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_62 ?= 'OHNE'
+  body: then do: ?O.A04KAM ?= 'A04KAM01'
+}
+rule GRUPPE_A04KMO {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_63 ?= 'OHNE'
+  body: then do: ?O.A04KMO ?= 'A04KMO01'
+}
+rule GRUPPE_A04KAN {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_64 ?= 'OHNE'
+  body: then do: ?O.A04KAN ?= 'A04KAN01'
+}
+rule GRUPPE_A04MON {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_65 ?= 'OHNE'
+  body: then do: ?O.A04MON ?= 'A04MON01'
+}
+rule GRUPPE_A04MOP {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_66 ?= 'OHNE'
+  body: then do: ?O.A04MOP ?= 'keine Partnerfirma'
+}
+//rule GRUPPE_A04TFR {
+//  objects: ?O is_a (300)CRM_AK04
+////  body: then do: ?O.CODENAME_67 ?= 'OHNE'
+//  body: then do: ?O.A04TFR ?= 'A04TFR01'
+//}
+rule GRUPPE_A04LAA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_68 ?='GRUNDIERT'
+  body: then do: ?O.A04LAA ?= 'A04LAA01'
+}
+//rule GRUPPE_A04AFA {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04LAA = 'A04LAA02'
+////  body: then do: ?O.CODENAME_69 ?= 'OHNE'//'AUFBAUFARBE'
+//  body: then do: ?O.A04AFA ?= 'A04AFA01'
+//}
+//rule GRUPPE_A04FCO {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04LAA = 'A04LAA02'
+////  body: then do: ?O.CODENAME_69 ?= 'OHNE'//'AUFBAUFARBE'
+//  body: then do: ?O.A04FCO ?= 'A04FCO01'
+//}
+//rule GRUPPE_A04FTO {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04LAA = 'A04LAA02'
+////  body: then do: ?O.CODENAME_69 ?= 'OHNE'//'AUFBAUFARBE'
+//  body: then do: ?O.A04FTO ?= 'A04FTO01'
+//}
+//rule GRUPPE_A04LAQ {
+//  objects: ?O is_a (300)CRM_AK04
+////  body: then do: ?O.CODENAME_70 ?= 'OHNE'//'NUR_GRUNDIERT'
+//  body: then do: ?O.A04LAQ ?= 'A04LAQ01'
+//}
+//rule GRUPPE_A04UFA {
+//  objects: ?O is_a (300)CRM_AK04
+////  body: then do: ?O.CODENAME_71 ?= 'OHNE'//'UNTERBAUFARBE'
+//  body: then do: ?O.A04UFA ?= 'A04UFA01'
+//}
+//rule GRUPPE_A04LUQ {
+//  objects: ?O is_a (300)CRM_AK04
+////  body: then do: ?O.CODENAME_72 ?= 'OHNE'//'NUR_GRUNDIERT'
+//  body: then do: ?O.A04LUQ ?= 'A04LUQ01'
+//}
+rule GRUPPE_A04OEL {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_73 ?= 'MINERALOEL_HLPD_22'
+  body: then do: ?O.A04OEL ?= 'A04OEL01'
+}
+//rule GRUPPE_A04LLO_1 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04LAA = 'A04LAA01' and ?O.A04MON = 'A04MON01'
+////  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+//  body: then do: ?O.A04LLO ?= 'A04LLO01'
+//}
+rule GRUPPE_A04LLO_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04LAA = 'A04LAA02' and ?O.A04MON = 'A04MON01'
+//  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+  body: then do: ?O.A04LLO ?= 'A04LLO02'
+}
+//rule GRUPPE_A04VLO_1 {
+//  objects: ?O is_a (300)CRM_AK04
+//  condition: ?O.A04LAA = 'A04LAA01' and ?O.A04MON = 'A04MON01'
+////  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+//  body: then do: ?O.A04VLO ?= 'A04VLO01'
+//}
+rule GRUPPE_A04VLO_2 {
+  objects: ?O is_a (300)CRM_AK04
+  condition: ?O.A04LAA = 'A04LAA02' and ?O.A04MON = 'A04MON01'
+//  body: then do: ?O.CODENAME_74 ?= 'OHNE'
+  body: then do: ?O.A04VLO ?= 'A04VLO02'
+}
+rule GRUPPE_A04ABN {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_76 ?= 'OHNE'
+  body: then do: ?O.A04ABN ?= 'A04ABN01'
+}
+rule GRUPPE_A04FRA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_77 ?= 'OHNE'
+  body: then do: ?O.A04FRA ?= 'A04FRA01'
+}
+rule GRUPPE_A04DTP {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_78 ?= 'OHNE'
+  body: then do: ?O.A04DTP ?= 'A04DTP01'
+}
+rule GRUPPE_A04KTP {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_79 ?= 'OHNE'
+  body: then do: ?O.A04KTP ?= 'A04KTP01'
+}
+rule GRUPPE_A04UTP {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_80 ?= 'OHNE'
+  body: then do: ?O.A04UTP ?= 'A04UTP01'
+}
+rule GRUPPE_A04HBE {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_81 ?= 'OHNE'
+  body: then do: ?O.A04HBE ?= 'A04HBE01'
+}
+rule GRUPPE_A04KOE {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_82 ?= 'OHNE'
+  body: then do: ?O.A04KOE ?= 'A04KOE01'
+}
+rule GRUPPE_A04RAU {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_83 ?= 'OHNE'
+  body: then do: ?O.A04RAU ?= 'A04RAU01'
+}
+rule GRUPPE_A04AHV {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_84 ?= 'OHNE'
+  body: then do: ?O.A04AHV ?= 'A04AHV01'
+}
+rule GRUPPE_A04DLU {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_85 ?= 'OHNE'
+  body: then do: ?O.A04DLU ?= 'A04DLU01'
+}
+rule GRUPPE_A04DBW {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_86 ?= 'OHNE'
+  body: then do: ?O.A04DBW ?= 'A04DBW01'
+}
+rule GRUPPE_A04VKT {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_87 ?= 'OHNE'
+  body: then do: ?O.A04VKT ?= 'A04VKT01'
+}
+rule GRUPPE_A04VLK {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_88 ?= 'OHNE'
+  body: then do: ?O.A04VLK ?= 'A04VLK01'
+}
+rule GRUPPE_A04ASV {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_89 ?= 'OHNE'
+  body: then do: ?O.A04ASV ?= 'A04ASV01'
+}
+rule GRUPPE_A04DEH {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_90 ?= 'OHNE'
+  body: then do: ?O.A04DEH ?= 'A04DEH01'
+}
+rule GRUPPE_A04MAU {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_91 ?= 'OHNE'
+  body: then do: ?O.A04MAU ?= 'A04MAU01'
+}
+rule GRUPPE_A04MAK {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_92 ?= 'OHNE'
+  body: then do: ?O.A04MAK ?= 'A04MAK01'
+}
+rule GRUPPE_A04MWH {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_93 ?= 'OHNE'
+  body: then do: ?O.A04MWH ?= 'A04MWH01'
+}
+rule GRUPPE_A04KEA {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_94 ?= 'OHNE'
+  body: then do: ?O.A04KEA ?= 'A04KEA01'
+}
+rule GRUPPE_A04WKH {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_95 ?= 'OHNE'
+  body: then do: ?O.A04WKH ?= 'A04WKH01'
+}
+rule GRUPPE_A04VBK {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_96 ?= 'OHNE'
+  body: then do: ?O.A04VBK ?= 'A04VBK01'
+}
+rule GRUPPE_A04WER {
+  objects: ?O is_a (300)CRM_AK04
+//  body: then do: ?O.CODENAME_97 ?= 'OHNE'
+  body: then do: ?O.A04WER ?= 'A04WER01'
+}

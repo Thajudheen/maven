@@ -1,0 +1,247 @@
+constraintNet ENTERPRISE_ROUTER_CNET {
+  constraints
+   BILD_CS,
+    CREATE_CONTRACT
+    ,CREATE_CABIN
+    ,CREATE_CANOPY
+    ,CABIN_PAINTING
+    ,PAINTING_INVIS
+    ,AGGR_2_PP
+    ,MAINTENANCE_PRICE_CS
+    ,AGGR_3_PP
+}
+
+constraint CABIN_PAINTING{
+objects ?O is_a(300)MOBILEEXCAVATOR
+		
+		restrictions
+		
+		table CABIN_PAINTING (
+			EXCAVATOR_TYPE = ?O.domain EXCAVATOR_TYPE
+			,PAINTING = ?O.domain PAINTING	
+)
+
+		inferences:
+			?O.domain EXCAVATOR_TYPE, ?O.domain PAINTING
+}
+
+constraint PAINTING_INVIS {
+	objects ?O is_a(300)MOBILEEXCAVATOR
+	condition:
+		?O.PAINTING ne 'BODY_CUSTOM'  or  ?O.HLP_VIS = 0
+	
+	restrictions:
+		
+		?O.invisible CUSTOMPAINTING
+			
+		
+	inferences:
+		?O.invisible CUSTOMPAINTING
+}
+constraint BILD_CS {
+	objects ?O is_a(300)MOBILEEXCAVATOR
+	condition:
+		?O.EXCAVATOR_TYPE specified
+	
+	restrictions:
+		
+		?O.PRODUCTIMAGE = 'CABIN.jpg'
+			if ?O.EXCAVATOR_TYPE = 'CAB'
+		,?O.PRODUCTIMAGE = 'CANOPY.jpg'
+			if ?O.EXCAVATOR_TYPE = 'CANOPY'
+		
+	inferences:
+		?O.PRODUCTIMAGE
+}
+
+
+
+
+constraint AGGR_2_PP {
+	objects ?O is_a(300)MOBILEEXCAVATOR
+	
+	restrictions:
+		?O.PRODUCTPRICE = ?O.PRICE_AGGR
+	
+	 inferences
+	 ?O.PRODUCTPRICE
+}
+constraint AGGR_3_PP {
+	objects ?O is_a(300)CABIN
+	
+	restrictions:
+		?O.PRODUCTPRICE = ?O.PRICE_AGGR
+	
+	 inferences
+	 ?O.PRODUCTPRICE
+}
+
+constraint CREATE_CONTRACT {
+	objects
+		?O is_object(material) (300) (nr=MOBILEEXCAVATOR)
+	
+	condition:
+		?O.EXCAVATOR_TYPE specified
+	
+	restrictions:
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr=MAINTENANCE)
+
+		) 
+}
+constraint CREATE_CABIN {
+
+	objects
+		?O is_object(material) (300) (nr=MOBILEEXCAVATOR)
+	
+	condition:
+		?O.EXCAVATOR_TYPE specified
+restrictions:
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr=CABIN)
+		) if ?O.EXCAVATOR_TYPE = 'CAB'
+}
+constraint CREATE_CANOPY {
+
+	objects
+		?O is_object(material) (300) (nr=MOBILEEXCAVATOR)
+	
+	condition:
+		?O.EXCAVATOR_TYPE specified
+restrictions:
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr=CANOPY)
+		) if ?O.EXCAVATOR_TYPE = 'CANOPY'
+
+}
+
+//constraint CREATE_POWER_CHORD {
+//	objects
+//		?O is_object(material) (300) (nr=ENTERPRISE_ROUTER)
+//	
+//	condition:
+//		?O.POWER_CHORD specified
+//	
+//	restrictions:
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_ARG)
+//		) if ?O.POWER_CHORD = 'PC_AC_ARG',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_AUS)
+//		) if ?O.POWER_CHORD = 'PC_AC_AUS',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_BR)
+//		) if ?O.POWER_CHORD = 'PC_AC_BR',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_CHN)
+//		) if ?O.POWER_CHORD = 'PC_AC_CHN',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_DEN)
+//		) if ?O.POWER_CHORD = 'PC_AC_DEN',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_EC)
+//		) if ?O.POWER_CHORD = 'PC_AC_EC',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_IN)
+//		) if ?O.POWER_CHORD = 'PC_AC_IN',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_IS)
+//		) if ?O.POWER_CHORD = 'PC_AC_IS',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_IT)
+//		) if ?O.POWER_CHORD = 'PC_AC_IT',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_JPN)
+//		) if ?O.POWER_CHORD = 'PC_AC_JPN',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_KOR)
+//		) if ?O.POWER_CHORD = 'PC_AC_KOR',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_LA)
+//		) if ?O.POWER_CHORD = 'PC_AC_LA',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_SWI)
+//		) if ?O.POWER_CHORD = 'PC_AC_SWI',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_UK)
+//		) if ?O.POWER_CHORD = 'PC_AC_UK',
+//		
+//		has_part(
+//			?O, 
+//			pos_type=(material)(300)(nr=PC_AC_ZA)
+//		) if ?O.POWER_CHORD = 'PC_AC_ZA'
+//		
+//}
+
+
+constraint MAINTENANCE_PRICE_CS {
+	objects
+		?C is_a (300) MAINTENANCE
+	restrictions
+		table MAINTENANCE_PRICE (
+			CONTRACT_SERVICE_TERM = ?C.CONTRACT_SERVICE_TERM,
+			CONTRACT_SUPPORT_TYPE = ?C.CONTRACT_SUPPORT_TYPE,
+			PRODUCTPRICE = ?C.PRODUCTPRICE
+		)
+	inferences
+		?C.PRODUCTPRICE
+}
+
+//constraint CABIN_PRICE_CS {
+//	objects
+//		?C is_a (300) CABIN
+//	restrictions
+//		
+//			0 = ?C.PRODUCTPRICE
+//		
+//	inferences
+//		?C.PRODUCTPRICE
+//}
+//constraint INSIGHT_CS {
+//	objects
+//		?O is_object(material) (300) (nr=ENTERPRISE_ROUTER)
+//	condition:
+//		?O.MODEL specified and
+//	    ?O.REGULATORY_DOMAIN specified and
+//	    ?O.AP_COUNT specified and
+//	    ?O.PORT_DEFAULT_ADDONS specified and 
+//	    ?O.PORT_ADDITIONAL_ADDONS specified and
+//	    ?O.REDUNDANT_PSU  specified and
+//	    ?O.MOUNTING_OPTION  specified and
+//	    ?O.POWER_CHORD  specified and
+//	    ?O.PRODUCTIMAGE  specified
+//	 restrictions:
+//	 	?O.CONFIGURATIONINSIGHT = 'MESSAGE1'
+//	 inferences:
+//	 ?O.CONFIGURATIONINSIGHT
+//}

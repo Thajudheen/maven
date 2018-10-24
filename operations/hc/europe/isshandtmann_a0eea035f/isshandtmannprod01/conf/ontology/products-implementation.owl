@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+    </owl:Ontology>
+
+
+
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#ExampleCategory -->
+
+    <owl:NamedIndividual rdf:about="&pci;ExampleCategory">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Beispiele</rdfs:label>
+        <rdfs:label xml:lang="en">Examples</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ExampleCategory</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ExampleCategory</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#PBZ -->
+
+    <owl:NamedIndividual rdf:about="&pci;PBZCategory">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">PBZ</rdfs:label>
+        <rdfs:label xml:lang="en">PBZ</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">PBZCategory</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PBZCategory</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#TRUNNION -->
+
+    <owl:NamedIndividual rdf:about="&pci;TRUNNIONCategory">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Trunnion</rdfs:label>
+        <rdfs:label xml:lang="en">Trunnion</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">TRUNNIONCategory</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">TRUNNIONCategory</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GANTRY -->
+
+    <owl:NamedIndividual rdf:about="&pci;GANTRYCategory">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Gantry</rdfs:label>
+        <rdfs:label xml:lang="en">Gantry</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">GANTRYCategory</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GANTRYCategory</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-PBZ-HD -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-PBZ-HD">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">PBZ HD</rdfs:label>
+        <rdfs:label xml:lang="en">PBZ HD</rdfs:label>
+        <as:productIdECC rdf:datatype="&xsd;string">000000000010000022</as:productIdECC>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">PBZ</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">PBZ</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PBZ HD</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;PBZCategory"/>
+	<as:productImage rdf:datatype="&xsd;string">pbz_hd.jpg</as:productImage>
+        <as:includesPriceItem rdf:resource="&pci;Handtmann-PBZ-HD-Price-DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;000000000010000022-20150701-000000000010000022"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-IBN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-IBN">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">IBN</rdfs:label>
+        <rdfs:label xml:lang="en">Startup operations</rdfs:label>
+        <as:productIdECC rdf:datatype="&xsd;string">000000000010000172</as:productIdECC>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">IBN</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">IBN</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">IBN</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">false</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Hour"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;ExampleCategory"/>
+        <as:includesPriceItem rdf:resource="&pci;Handtmann-IBN-Price-DE"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-Schulung -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-Schulung">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Schulung</rdfs:label>
+        <rdfs:label xml:lang="en">Training</rdfs:label>
+        <as:productIdECC rdf:datatype="&xsd;string">000000000010000173</as:productIdECC>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Schulung</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Schulung</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Schulung</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">false</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Hour"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;ExampleCategory"/>
+        <as:includesPriceItem rdf:resource="&pci;Handtmann-Schulung-Price-DE"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-Konstruktion -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-Konstruktion">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Konstruktion</rdfs:label>
+        <rdfs:label xml:lang="en">Construction</rdfs:label>
+        <as:productIdECC rdf:datatype="&xsd;string">000000000010000171</as:productIdECC>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Konstruktion</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Konstruktion</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Konstruktion</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">false</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Hour"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;ExampleCategory"/>
+        <as:includesPriceItem rdf:resource="&pci;Handtmann-Konstruktion-Price-DE"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-Prototyp -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-Prototyp">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Modellprototyp</rdfs:label>
+        <rdfs:label xml:lang="en">Modellprototyp</rdfs:label>
+        <as:productIdECC rdf:datatype="&xsd;string">000000000010000386</as:productIdECC>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Modellprototyp</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Modellprototyp</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Modellprototyp</ps:businessTypeShortText>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+		<as:productImage rdf:datatype="&xsd;string">modellprototyp.jpg</as:productImage>
+        <as:productContainedBy rdf:resource="&pci;ExampleCategory"/>
+        <as:includesPriceItem rdf:resource="&pci;Handtmann-Prototype-Price-DE"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;000000000010000386-20150820-000000000010000386"/>
+    </owl:NamedIndividual>
+
+	
+	
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-Prototype-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-Prototype-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Handtmann-Prototy-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+	<as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-PBZ-HD-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-PBZ-HD-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Handtmann-PBZ-HD-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+	<as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-Konstruktion-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-Konstruktion-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Handtmann-Konstruktion-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+	<as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-Schulung-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-Schulung-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Handtmann-Schulung-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+	<as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Handtmann-IBN-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Handtmann-IBN-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Handtmann-IBN-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+	<as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#TagExample -->
+
+    <owl:NamedIndividual rdf:about="&pci;TagExample">
+        <rdf:type rdf:resource="&as;Tag"/>
+        <rdfs:label rdf:datatype="&xsd;string">TagExample</rdfs:label>
+    </owl:NamedIndividual>
+
+    <rdf:Description rdf:about="&ssc;PRODUCT-000000000010000389">
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+    </rdf:Description>
+	
+	<rdf:Description rdf:about="&ssc;PRODUCT-000000000010000390">
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+    </rdf:Description>
+
+	
+</rdf:RDF>
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

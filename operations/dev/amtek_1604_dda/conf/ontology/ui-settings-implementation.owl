@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY uii "http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+    xml:base="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:uii="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+    xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+    xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl">
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/security/security-implementation.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+    -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_APP_DEFAULT -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_APP_DEFAULT">
+        <rdf:type rdf:resource="&as;UiProfileFeatureBased"/>
+        <ps:objectName rdf:datatype="&xsd;string">HIDE FEATURE WISE UI</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uii;UI_APP_DEFAULT_OPPORTUNITY"/>
+        <as:hasUiProfile rdf:resource="&uii;UI_APP_DEFAULT_QUOTE"/>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_homeview_insight</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textField_newAccountsForm_accountDiscount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_add_cust_ipe_accountDiscount</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">id_chartSection_opportunityOverview</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">id_group_button_accountsTable_synchronize</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">id_button_syncQuote</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_APP_DEFAULT_OPPORTUNITY -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_APP_DEFAULT_OPPORTUNITY">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">HIDE FEATURE WISE UI ( OPPORTUNITY )</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_thingInspector_opportunityTableToolbar_addOpportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_thingInspector_opportunityTableToolbar_deleteOpportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_accountsView_opportunityVolume</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_accountsView_opportunityWeightedVolume</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_contactPage_createOpportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_contactPage_createLead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_group_button_accountsTable_createOppotunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_group_button_accountsTable_createLead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_navigationItem_accountDetails_opportunities</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_lead</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">id_group_button_accountsTable_createOpportunity</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">id_group_button_accountsTable_createLead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunity</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_APP_DEFAULT_QUOTE -->
+
+  <owl:NamedIndividual rdf:about="&uii;UI_APP_DEFAULT_QUOTE">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">HIDE FEATURE WISE UI ( QUOTE )</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_checkAvailability</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_navigationItem_singleQuoteView_analytics</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileHide>
+        <!-- HIDING THE SEPARATOR BELOW QUOTE DISCOUNT WITHIN THE DISCOUNT SECTION  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_divider_discountSection</as:uiProfileHide>
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">id_col_quotationView_actions</as:uiProfileHide> -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_listPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_group_singleQuote_discount</as:uiProfileHide>
+        <!-- HIDING THE PRICING VIEW-->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_toggleView_pricing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_refreshLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_openSalesSimulation</as:uiProfileHide>
+        <!--HIDING REFRESH LINE ITEM POSITION BUTTON
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_refreshLineItems</as:uiProfileHide> -->
+        <!--HIDING THE ECC PRICING-->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_quoteExternalPricing</as:uiProfileHide>
+        <!--HIDING THE SALES SIMULATION-->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_openSalesSimulation</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_ADMIN -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_ADMIN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Admin</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_paneBarItem_products</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_paneBarItem_search</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_shell_searchTool</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_account</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_contact</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_quote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_accounts</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_accountsOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_cockpit</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_contactOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_guidedSelling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_home</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_inbox</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunityOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_quotation</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_quotationOverview</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_discount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_optionsPrice</as:uiProfileHide>
+        <!--<as:uiProfileHide rdf:datatype="&xsd;string">id_column_singleQuoteView_ActionColumn</as:uiProfileHide>-->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_admin</as:uiProfileHide>
+<!--        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_cockpit</as:uiProfileHide> -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_guidedSelling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunityOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_products</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_productsOverview</as:uiProfileHide>
+        <!-- HIDING QUOTE DISCOUNT AREA IN QUOTE DETAILS HEADER  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_quoteGlobalTerms</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_totalPriceBeforeDisc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPriceBeforeDisc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_quoteDiscount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_cell_discountL</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_toggleButton_quoteDiscount_absolute</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_toggleButton_quoteDiscount_percent</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileHide>
+        <!-- as:uiProfileHide rdf:datatype="&xsd;string">id_button_openSalesSimulation</as:uiProfileHide -->
+        <!-- HIDING THE SEPARATOR BELOW QUOTE DISCOUNT WITHIN THE DISCOUNT SECTION  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_divider_discountSection</as:uiProfileHide>
+        <!-- HIDING PRICE RELATED COLUMN IN LINE ITEM TABLES OF QUOTE DETAILS VIEW -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_approveConfItem</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_rejectConfItem</as:uiProfileHide>
+       <as:uiProfileHide rdf:datatype="&xsd;string">id_column_configure_optionals</as:uiProfileHide>
+      <!--  <as:uiProfileHide rdf:datatype="&xsd;string">id_group_column_singleQuoteView_optionalRequiredCheckBox</as:uiProfileHide> -->
+    </owl:NamedIndividual>
+
+
+ <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_Rep -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_Rep">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Sales Reps and Project Users</ps:objectName>
+        <!--HIDE THE Insights for SALES Reps and Project Users-->
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">id_col_homeview_insight</as:uiProfileHide> -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_insights</as:uiProfileHide>
+    <as:uiProfileDisable rdf:datatype="&xsd;string">id_button_shell_quotesOverview_table_delete</as:uiProfileDisable>
+    </owl:NamedIndividual>
+
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_ACCEPTED -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_ACCEPTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Accepted state</ps:objectName>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+        <as:hasUiProfile rdf:resource="&uii;UI_PROFILE_SALES_NON_OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_APPROVED -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_APPROVED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Approved state</ps:objectName>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasUiProfile rdf:resource="&uii;UI_PROFILE_SALES_NON_OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_COMPLETED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Completed state</ps:objectName>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+        <as:hasUiProfile rdf:resource="&uii;UI_PROFILE_SALES_NON_OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_NON_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_NON_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Locked state</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_mail</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_uploadLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileHide>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileDisable>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_group_controls_additionalTabs</as:uiProfileHide>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_paymentTerms</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_type</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">id_matrixLayout_currencyRate_currencyRateTable</as:uiProfileDisable>
+        <!-- HIDING THE SEPARATOR BELOW QUOTE DISCOUNT WITHIN THE DISCOUNT SECTION  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_divider_discountSection</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileHide>
+        <!--HIDE THE VERSION ICON IF THE STATUS IS NOT OPEN-->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Open state</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_mail</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileHide>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_SALES_REJECTED -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_SALES_REJECTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Sales: Rejected state</ps:objectName>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+        <as:hasUiProfile rdf:resource="&uii;UI_PROFILE_SALES_NON_OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_USER -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_USER">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Non-sales user</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_discount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_optionsPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_column_singleQuoteView_ActionColumn</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_navigationItem_singleQuoteView_shippingDetails</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_navigationItem_singleQuoteView_version</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_paneBarItem_search</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_shell_searchTool</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_account</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_contact</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_tool_quote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_accounts</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_accountsOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_admin</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_cockpit</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_contactOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_guidedSelling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunityOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_products</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_productsOverview</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_quotation</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_quotationOverview</as:uiProfileHide>
+        <!-- HIDING QUOTE DISCOUNT AREA IN QUOTE DETAILS HEADER -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_discount_content_container</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_quoteGlobalTerms</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_totalPriceBeforeDisc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPriceBeforeDisc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_quoteDiscount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_cell_discountL</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_toggleButton_quoteDiscount_percent</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_toggleButton_quoteDiscount_absolute</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileHide>
+        <!-- HIDING THE SEPARATOR BELOW QUOTE DISCOUNT WITHIN THE DISCOUNT SECTION  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_divider_discountSection</as:uiProfileHide>
+        <!-- HIDING PRICE RELATED COLUMN IN LINE ITEM TABLES OF QUOTE DETAILS VIEW -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_listPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_discount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_unitPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_optionsPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_col_singleQuoteView_totalPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_approveConfItem</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_rejectConfItem</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_column_configure_optionals</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_group_column_singleQuoteView_optionalRequiredCheckBox</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_navigationItem_singleQuoteView_currencyRate</as:uiProfileHide>
+        <!-- HIDING QUOTE GENERAL HEADER OF QUOTE DETAILS VIEW -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_quote_type</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_type</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_datePicker_dateOfExpiry</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_label_dropdown_contact</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_toggleView_proposal</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">id_button_proposalGeneration</as:uiProfileHide>
+        <!-- HIDING ADD AND DELETE OF LINE ITEM BUTTON OF QUOTE DETAILS VIEW -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_addLineItem</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_openSalesSimulation</as:uiProfileHide>
+        <!--HIDE THE VERSION ICON IF THE STATUS IS NOT OPEN-->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+    <!--HIDE THE Insights for NON SALES Users-->
+     <as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_insights</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_USER_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_USER_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for Non-sales user: Open state</ps:objectName>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportExcel</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_mail</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_type</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileHide>
+        <!-- HIDING THE SEPARATOR BELOW QUOTE DISCOUNT WITHIN THE DISCOUNT SECTION  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_divider_discountSection</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROFILE_USER_COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="&uii;UI_PROFILE_USER_COMPLETED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">Profile for User: Completed state</ps:objectName>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_uploadLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_column_tag</as:uiProfileHide>
+        <!-- Copied from UI_PROFILE_USER_OPEN since the reference is not working -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportExcel</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_mail</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_quote_type</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileHide>
+        <!-- HIDING THE SEPARATOR BELOW QUOTE DISCOUNT WITHIN THE DISCOUNT SECTION  -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_divider_discountSection</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPrice</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileHide>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

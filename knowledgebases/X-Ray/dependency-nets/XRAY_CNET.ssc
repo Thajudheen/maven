@@ -1,0 +1,43 @@
+constraintNet XRAY_CNET {
+  constraints
+
+//	CSTR_XRAY_1,
+	CSTR_XRAY_2
+}
+
+
+//constraint CSTR_XRAY_1 {
+//	objects ?O is_a(300)XRAY
+//	
+//	condition:
+//		?O.XRAY_STRENGTH specified
+//	
+//	restrictions:
+//		?O.XRAY_STRENGTH_PRICE = '100'
+//			if ?O.XRAY_STRENGTH = 'TYPE1'
+//		,?O.XRAY_STRENGTH_PRICE = '200'
+//			if ?O.XRAY_STRENGTH = 'TYPE2'
+//		,?O.XRAY_STRENGTH_PRICE = '300'
+//			if ?O.XRAY_STRENGTH = 'TYPE3'
+//		,?O.XRAY_STRENGTH_PRICE = '400'
+//			if ?O.XRAY_STRENGTH = 'TYPE4'
+//		
+//	inferences:
+//		?O.XRAY_STRENGTH_PRICE		
+//}
+
+
+constraint CSTR_XRAY_2 {
+	objects ?O is_a(300)XRAY
+	
+	restrictions:
+		?O.XRAY_STRENGTH_PRICE = ?O.XRAY_PRICEAGGR
+	
+	 inferences
+	 ?O.XRAY_STRENGTH_PRICE
+}
+
+		
+		
+		
+		

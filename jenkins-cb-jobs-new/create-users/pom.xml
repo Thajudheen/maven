@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <theHost>hana.ondemand.com</theHost>
+    <UserName>P1943193055</UserName>
+    <MyPassword>Enter@mun76</MyPassword>
+   <!-- <MyAccount>a8799585d</MyAccount> -->
+    <!--inmind cloud OEM account used for bind-db : when Database in another subaccount (same global account): -->
+    <AnotherSubAccount>a8799585d</AnotherSubAccount> 
+    <!-- DB account -->
+    <MyDBaccount>a8799585d</MyDBaccount>
+    <!-- sub account - trail -->
+    <MySubAccount>a6b6979fd</MySubAccount>
+    <ToAccount>a6b6979fd</ToAccount>
+    <MyApplication>issautodemo01</MyApplication>
+    <theSize>pro</theSize>  	 
+    <MySource>sam-0.0.2-SNAPSHOT</MySource>
+       <databaseUser>ISSAUTODEMO01</databaseUser>
+    <dbId>jle</dbId>
+      <databasePass>Password1234567</databasePass>
+    <Permission>TUNNEL,BINDING</Permission>
+    
+  	    </properties>
+   
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.sap.cloud</groupId>
+        <artifactId>neo-java-web-maven-plugin</artifactId>
+        <version>3.53.13.3</version>	
+        <executions>
+          <execution>
+            <id>theInitialize</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-sdk</goal>
+            </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+            </configuration>
+           </execution> 
+         <execution>
+       <id>grantDBaccess</id>
+            <phase>package</phase>
+              <goals>
+               <goal>grant-db-access</goal>
+             </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+                <host>${theHost}</host>
+                <user>${UserName}</user>                
+                <password>${MyPassword}</password>
+                 <account>${MyDBaccount}</account>
+                 <id>${dbId}</id> 
+                  <toAccount>${ToAccount}</toAccount>
+                 <dbUser>${databaseUser}</dbUser>                 
+                <dbPassword>${databasePass}</dbPassword> 
+               <permissions>${Permission}</permissions>
+              </configuration>
+          </execution>
+          
+        <execution>
+       <id>bindDB</id>
+            <phase>package</phase>
+              <goals>
+               <goal>bind-db</goal>
+             </goals>
+            <configuration>
+              <sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+                <host>${theHost}</host>
+                <user>${UserName}</user>                
+                <password>${MyPassword}</password>
+                 <account>${MySubAccount}</account>
+                 <id>${AnotherSubAccount}:${dbId}</id> 
+              <application>${MyApplication}</application>
+                 <dbUser>${databaseUser}</dbUser>                 
+                <dbPassword>${databasePass}</dbPassword> 
+              </configuration>
+          </execution>       
+                    
+        </executions>
+      </plugin>	 
+    </plugins>
+  </build>  
+    
+  
+ 
+</project>

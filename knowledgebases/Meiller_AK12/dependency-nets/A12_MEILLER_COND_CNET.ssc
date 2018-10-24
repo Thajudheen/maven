@@ -1,0 +1,198 @@
+constraintNet A12_MEILLER_COND_CNET {
+  constraints
+
+	A12_TABLES
+//	PRODUCTLISTPRICE	
+}
+constraint A12_TABLES{
+	objects ?O is_a(300)CRM_AK12
+		
+	restrictions
+		?O.MEILLER_MOD = ?O.A12MOD,
+		table A12_TYP_MODELL (
+			TYP = ?O.domain TYP,
+			MODELL = ?O.domain MODELL,
+			A12MOD = ?O.domain A12MOD,
+			PRODUCTIMAGE = ?O.domain PRODUCTIMAGE
+//			PRODUCTLISTPRICE = ?O.domain PRODUCTLISTPRICE
+		),
+		table A12STE(
+			A12STE = ?O.domain A12STE,
+			A12AUS = ?O.domain A12AUS
+//			A12EIN = ?O.domain A12EIN,
+//			A12KIP = ?O.domain A12KIP
+		),
+		table A12FST (
+			A12FST = ?O.domain A12FST,
+			A12STE = ?O.domain A12STE
+		),
+		table A12KIP (
+			A12KIP = ?O.domain A12KIP,
+			A12AUS = ?O.domain A12AUS,
+			A12STE = ?O.domain A12STE
+		),
+		table A12SIC (
+			A12SIC = ?O.domain A12SIC,
+			A12AUS = ?O.domain A12AUS
+		),
+		table A12MSS (
+			A12MSS = ?O.domain A12MSS,
+			A12STE = ?O.domain A12STE
+		),
+		table A12PRE (
+			A12PRE = ?O.domain A12PRE,
+			A12SIC = ?O.domain A12SIC
+		),
+		table A12BOD (
+			A12BOD = ?O.domain A12BOD,
+			A12SIC = ?O.domain A12SIC
+		),
+		table A12BOD_MOD (
+			A12BOD = ?O.domain A12BOD,
+			A12AUS = ?O.domain A12AUS,
+			A12VSS = ?O.domain A12VSS
+		),
+		table A12ANL_MOD (
+			A12ANL = ?O.domain A12ANL,
+			A12MOD = ?O.domain A12MOD
+		),
+		table A12ANL (
+			A12ANL = ?O.domain A12ANL,
+			A12STK = ?O.domain A12STK
+		),
+		table A12EIN (
+			A12EIN = ?O.domain A12EIN,
+			A12STE = ?O.domain A12STE
+		),
+		table A12ATT (
+			A12ATT = ?O.domain A12ATT,
+			A12STE = ?O.domain A12STE
+		),
+		table A12BED (
+			A12BED = ?O.domain A12BED,
+			A12STE = ?O.domain A12STE
+		),
+		table A12AHK (
+			A12AHK = ?O.domain A12AHK,
+			A12STE = ?O.domain A12STE
+		),
+		table A12HAS (
+			A12HAS = ?O.domain A12HAS,
+			A12FZG = ?O.domain A12FZG,
+			A12STE = ?O.domain A12STE
+		),
+		table A12MKO (
+			A12MKO = ?O.domain A12MKO,
+			A12KOT = ?O.domain A12KOT
+		),
+		table A12STK_MOD (
+			A12STK = ?O.domain A12STK,
+			A12MOD = ?O.domain A12MOD
+		),
+		table A12FSW_MOD (
+			A12FSW = ?O.domain A12FSW,
+			A12MOD = ?O.domain A12MOD
+		),
+		table A12ASR_MOD (
+			A12ASR = ?O.domain A12ASR,
+			A12MOD = ?O.domain A12MOD
+		),
+		table A12HKI_MOD (
+			A12HKI = ?O.domain A12HKI,
+			A12MOD = ?O.domain A12MOD
+		),
+		table A12HKI (
+			A12HKI = ?O.domain A12HKI,
+			A12STB = ?O.domain A12STB
+		),
+		table A12MSV (
+			A12MSV = ?O.domain A12MSV,
+			A12SSV = ?O.domain A12SSV
+		),
+		table A12KON (
+			A12KOS = ?O.domain A12KOS,
+			A12KON = ?O.domain A12KON
+		),
+		table A12KOS (
+			A12KOS = ?O.domain A12KOS,
+			A12KOH = ?O.domain A12KOH
+		),
+		table A12KOH (
+			A12KON = ?O.domain A12KON,
+			A12KOH = ?O.domain A12KOH
+		),
+// Farbtabelle
+		table A12AFA (
+			A12AFA = ?O.domain A12AFA,
+			A12LAQ = ?O.domain A12LAQ,
+			A12FCO = ?O.domain A12FCO,
+			A12FTO = ?O.domain A12FTO
+		),
+		table A12LAQ (
+			A12LAQ = ?O.domain A12LAQ,
+			A12LAA = ?O.domain A12LAA
+		),
+		table A12LLO (
+			A12LLO = ?O.domain A12LLO,
+			A12MON = ?O.domain A12MON,
+			A12LAA = ?O.domain A12LAA
+		),
+		table A12VLO (
+			A12VLO = ?O.domain A12VLO,
+			A12MON = ?O.domain A12MON,
+			A12LAA = ?O.domain A12LAA
+		),
+		table A12TFR (
+			A12TFR = ?O.domain A12TFR,
+			A12MON = ?O.domain A12MON
+		),
+		table A12WER (
+			A12WER = ?O.domain A12WER,
+			A12MON = ?O.domain A12MON
+		)
+	inferences:
+		?O.domain TYP, ?O.domain MODELL, ?O.domain A12MOD, ?O.MEILLER_MOD,
+		?O.domain PRODUCTIMAGE,
+//			?O.domain PRODUCTLISTPRICE
+		?O.domain A12AUS,
+		?O.domain A12MOD,
+		?O.domain A12PRE,
+		?O.domain A12BOD,
+		?O.domain A12VSS,
+		?O.domain A12ANL,
+		?O.domain A12SIC,
+		?O.domain A12STK,
+		?O.domain A12STE,
+		?O.domain A12MSS,
+		?O.domain A12EIN,
+		?O.domain A12ATT,
+		?O.domain A12BED,
+		?O.domain A12AHK,
+		?O.domain A12HAS,
+		?O.domain A12FZG,
+		?O.domain A12MKO,
+		?O.domain A12KOT,
+		?O.domain A12HKI,
+		?O.domain A12STB,
+		?O.domain A12FSW,
+		?O.domain A12ASR,
+		?O.domain A12MSV,
+		?O.domain A12SSV,
+		?O.domain A12KOS,
+		?O.domain A12KON,
+		?O.domain A12KOH,
+		?O.domain A12AFA,
+		?O.domain A12LAQ,
+		?O.domain A12FCO,
+		?O.domain A12FTO,
+		?O.domain A12LLO,
+		?O.domain A12VLO,
+		?O.domain A12MON,
+		?O.domain A12LAA,
+		?O.domain A12TFR,
+		?O.domain A12WER,
+		?O.domain A12PRE,
+		?O.domain A12FST,
+		?O.domain A12KIP		
+}
+

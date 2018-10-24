@@ -1,0 +1,788 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY platform-schema "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY application-schema "http://www.inmindcomputing.com/application/application-schema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-schema-process.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-schema-process.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:platform-schema="http://www.inmindcomputing.com/platform/platform-schema.owl#"
+     xmlns:application-schema="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl">
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#enumerable -->
+
+    <owl:AnnotationProperty rdf:about="&platform-schema;enumerable"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#mandatory -->
+
+    <owl:AnnotationProperty rdf:about="&platform-schema;mandatory"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasMSURate -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasMSURate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">MSU Rate</rdfs:label>
+        <platform-schema:sequenceID>8</platform-schema:sequenceID>
+        <platform-schema:enumerable>true</platform-schema:enumerable>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MSURate"/>
+        <platform-schema:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MSU_RATE_A"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;has"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB2"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasProcessStation -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasProcessStation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Work Station (Process)</rdfs:label>
+        <rdfs:label xml:lang="zh">工作设备 (加工工艺)</rdfs:label>
+        <application-schema:costingRelevantSequence>5</application-schema:costingRelevantSequence>
+        <rdfs:comment>ProcessStation and inverse (includesProcessStation) some (Factory and inverse (hasFactory) some (Quote and includesDocumentHeaderPriceItem some DocumentHeaderPriceItem))</rdfs:comment>
+        <platform-schema:sequenceID>6</platform-schema:sequenceID>
+        <platform-schema:enumerable>true</platform-schema:enumerable>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasStation"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ProcessStation"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#includesProcessStation"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Factory"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl#hasFactory"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&application-schema;Quote"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasStation -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasStation">
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasWorkStation -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasWorkStation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Work Station</rdfs:label>
+        <rdfs:label xml:lang="zh">工作设备</rdfs:label>
+        <platform-schema:enumerable>true</platform-schema:enumerable>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <rdfs:comment>StampingStation and inverse (includesWorkStation) some (Factory and inverse (hasFactory) some (Quote and includesDocumentHeaderPriceItem some DocumentHeaderPriceItem))</rdfs:comment>
+        <platform-schema:sequenceID>3</platform-schema:sequenceID>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <application-schema:costingRelevantSequence>2</application-schema:costingRelevantSequence>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB2"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasStation"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingStation"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#includesWorkStation"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Factory"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl#hasFactory"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&application-schema;Quote"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingInhouseFinishingProcessCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingInhouseFinishingProcessCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject  ?metalStampingInhouseFinishingProcessCost
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:salesItemIncludedBy ?parentSi .
+   ?parentSi as:isProduct pci:MetalStamping .
+  
+   Optional {
+      ?subject  pcs:mrbNonMFGCostPerSet ?metalStampingProcessCost4.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:InhouseFinishing .}
+   BIND (IF (!BOUND(?metalStampingProcessCost4),
+                     xsd:decimal(0),  xsd:decimal(?metalStampingProcessCost4)) AS ?metalStampingProcessCost)
+}</platform-schema:sparql>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingProcessCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingProcessCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <platform-schema:sparql>SELECT ?subject  ?metalStampingProcessCost
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:salesItemIncludedBy ?parentSi .
+   ?parentSi as:isProduct pci:MetalStamping .
+   Optional {
+      ?subject pcs:metalStampingCostPerPiece ?metalStampingProcessCost1.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:StampingProcess .}
+   Optional {
+      ?subject  pcsp:processMachineCostPerPiece ?metalStampingProcessCost2.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:SecondaryProcess .}
+   Optional {
+      ?subject  pcsp:processMachineCostPerPiece ?metalStampingProcessCost3.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:SecondaryFinishingProcess .}
+   Optional {
+      ?subject  pcs:mrbNonMFGCostPerSet ?metalStampingProcessCost4.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:InhouseFinishing .}
+   BIND (IF (!BOUND(?metalStampingProcessCost1),
+         IF (!BOUND(?metalStampingProcessCost2),
+            IF (!BOUND(?metalStampingProcessCost3),
+               IF (!BOUND(?metalStampingProcessCost4),
+                     xsd:decimal(0),  xsd:decimal(?metalStampingProcessCost4)), xsd:decimal(?metalStampingProcessCost3)),
+            xsd:decimal(?metalStampingProcessCost2)), xsd:decimal(?metalStampingProcessCost1)) AS ?metalStampingProcessCost)
+}</platform-schema:sparql>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingProcessLabourCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingProcessLabourCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <platform-schema:sparql>SELECT ?subject  ?metalStampingProcessLabourCost
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:salesItemIncludedBy ?parentSi .
+   ?parentSi as:isProduct pci:MetalStamping .
+   Optional {
+      ?subject pcst:metalStampingLabourCostPerPiece ?metalStampingProcessLabourCost1.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:StampingProcess .}
+   Optional {
+      ?subject  pcsp:processLabourCostPerPiece ?metalStampingProcessLabourCost2.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:SecondaryProcess .}
+   Optional {
+      ?subject  pcsp:processLabourCostPerPiece ?metalStampingProcessLabourCost3.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:SecondaryFinishingProcess .}
+   BIND (IF (!BOUND(?metalStampingProcessLabourCost1),
+         IF (!BOUND(?metalStampingProcessLabourCost2),
+            IF (!BOUND(?metalStampingProcessLabourCost3),
+                  xsd:decimal(0),  xsd:decimal(?metalStampingProcessLabourCost3)),xsd:decimal(?metalStampingProcessLabourCost2)), xsd:decimal(?metalStampingProcessLabourCost1)) AS ?metalStampingProcessLabourCost)
+}</platform-schema:sparql>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingProcessSUCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#metalStampingProcessSUCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <platform-schema:sparql>SELECT ?subject  ?metalStampingProcessSUCost
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:salesItemIncludedBy ?parentSi .
+   ?parentSi as:isProduct pci:MetalStamping .
+   Optional {
+      ?subject pcs:metalStampingSuCost ?metalStampingProcessSUCost1.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:StampingProcess .}
+   Optional {
+      ?subject pcsp:processSuCostPc ?metalStampingProcessSUCost2.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:SecondaryProcess .}
+   Optional {
+      ?subject pcsp:processSuCostPc ?metalStampingProcessSUCost3.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:SecondaryFinishingProcess .}
+   BIND (IF (!BOUND(?metalStampingProcessSUCost1),
+         IF (!BOUND(?metalStampingProcessSUCost2),
+            IF (!BOUND(?metalStampingProcessSUCost3),
+                  xsd:decimal(0),  xsd:decimal(?metalStampingProcessSUCost3)),xsd:decimal(?metalStampingProcessSUCost2)), xsd:decimal(?metalStampingProcessSUCost1)) AS ?metalStampingProcessSUCost)
+}</platform-schema:sparql>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processCostPerSet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processCostPerSet">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processCostPerSet
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesItemHeaderPriceItem ?priceItem .
+   ?subject pcsp:processTotalCostPerPiece ?cpp .
+   ?priceItem as:itemHeaderQuantity ?cq .
+   BIND (xsd:decimal(?cpp * ?cq) AS ?processCostPerSet)
+}
+
+</platform-schema:sparql>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processCycleTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processCycleTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Cycle Time (seconds)</rdfs:label>
+        <rdfs:label xml:lang="zh">周期时间 (秒)</rdfs:label>
+        <platform-schema:sequenceID rdf:datatype="&xsd;int">1</platform-schema:sequenceID>
+        <application-schema:costingRelevantSequence>2</application-schema:costingRelevantSequence>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processData"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processData">
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;assertion"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processFinalCostPerPcMRB -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processFinalCostPerPcMRB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Total Cost / Pc (inc. Markup) (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">总成本 / 每件 (包括加价)</rdfs:label>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processFinalCostPerPcMRB
+WHERE {
+   ?subject pcsp:processTotalCostPerPiece ?tc.
+   ?subject pcsp:processMarkupMRB ?mu.
+   BIND (xsd:decimal(?tc * (1 + ?mu /100)) as ?processFinalCostPerPcMRB)
+} </platform-schema:sparql>
+        <platform-schema:sequenceID>3</platform-schema:sequenceID>
+        <platform-schema:description>This cost should only be if the Process is a direct submaterial of an assebly. It includes the normal process cost and the markups. This value is inherited to the Line item table</platform-schema:description>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processFinalCostPerSet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processFinalCostPerSet">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?processFinalCostPerSet)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesItemHeaderPriceItem ?priceItem .
+   ?subject pcsp:processFinalCostPerPcMRB ?fcpp .
+   ?priceItem as:itemHeaderQuantity ?cq .
+   BIND (xsd:decimal(?fcpp * ?cq) AS ?val)
+}
+</platform-schema:sparql>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourCostPerHour -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourCostPerHour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Labour Cost Per Hour</rdfs:label>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <platform-schema:sequenceID>1</platform-schema:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ProcessStation"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourCostPerPiece -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourCostPerPiece">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Labour Cost / Pc</rdfs:label>
+        <rdfs:label xml:lang="zh">劳动力成本 / 每件</rdfs:label>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processLabourCostPerPiece
+WHERE {
+   ?subject pcsp:hasStation ?ws.
+   ?ws      pcsp:processLabourCostPerHour ?lcph.
+   ?subject pcsp:processLabourHoursPerRun ?lhpr.
+   ?subect pcsp:processQtyPerRun ?qty.
+   BIND (xsd:decimal(?lcph * ?lhpr / ?qty) AS ?processLabourCostPerPiece)
+}</platform-schema:sparql>
+        <platform-schema:sequenceID>11</platform-schema:sequenceID>
+        <platform-schema:description>Labour Hours per Run * Labour Cost per Hour (from Machine Master Data ) / Qty per Run</platform-schema:description>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourHoursPerRun -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourHoursPerRun">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Labour Hours Per Run</rdfs:label>
+        <rdfs:label xml:lang="zh">每次运行的劳动小时数</rdfs:label>
+        <platform-schema:sequenceID rdf:datatype="&xsd;int">5</platform-schema:sequenceID>
+        <application-schema:costingRelevantSequence>4</application-schema:costingRelevantSequence>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processData"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineCostPerPiece -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineCostPerPiece">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Machine Cost/Pc</rdfs:label>
+        <rdfs:label xml:lang="zh"> 机器设备成本/每件 </rdfs:label>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processMachineCostPerPiece
+WHERE {
+   ?subject pcsp:processMachineRatePerHr ?rph .
+   ?subject pcsp:processMachineQtyPerHour ?qphr.
+   BIND ( IF (?qphr != 0, xsd:decimal(?rph / ?qphr) ,xsd:decimal(0)) AS ?processMachineCostPerPiece)
+}</platform-schema:sparql>
+        <platform-schema:sequenceID>13</platform-schema:sequenceID>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineHoursPerRun -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineHoursPerRun">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Machine Hours Per Run</rdfs:label>
+        <platform-schema:sparql>SELECT ?subject (?val AS ?processMachineHoursPerRun)
+WHERE{
+    ?subject pcsp:processQtyPerRun ?qpr .
+     ?subject pcsp:processMachineQtyPerHour ?qph .
+   BIND(xsd:decimal(?qpr/?qph) AS ?val)
+}</platform-schema:sparql>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <platform-schema:sequenceID>4</platform-schema:sequenceID>
+        <application-schema:costingRelevantSequence>3</application-schema:costingRelevantSequence>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineQtyPerHour -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineQtyPerHour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty per Hour</rdfs:label>
+        <rdfs:label xml:lang="zh">每小时生产数量</rdfs:label>
+        <platform-schema:sparql rdf:datatype="&xsd;string">select ?subject  ?processMachineQtyPerHour
+          WHERE {
+            ?subject pcsp:processCycleTime ?ct .
+            BIND (xsd:decimal(3600 / ?ct) AS ?processMachineQtyPerHour ) .
+}</platform-schema:sparql>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <platform-schema:description>Qty produced by the machine per hour.
+Depending on the Cycletime in (s).</platform-schema:description>
+        <platform-schema:sequenceID>2</platform-schema:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMarkupMRB -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMarkupMRB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Process Markup (%) (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">加工工艺加价 (%) (MRB)</rdfs:label>
+        <platform-schema:defaultValue rdf:datatype="&xsd;decimal">0</platform-schema:defaultValue>
+        <platform-schema:sequenceID>2</platform-schema:sequenceID>
+        <application-schema:costingRelevantSequence>22</application-schema:costingRelevantSequence>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processData"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processQtyPerRun -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processQtyPerRun">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty per Run</rdfs:label>
+        <rdfs:label xml:lang="zh">每次运行生产数量</rdfs:label>
+        <platform-schema:sequenceID rdf:datatype="&xsd;int">2</platform-schema:sequenceID>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <application-schema:costingRelevantSequence>2</application-schema:costingRelevantSequence>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processData"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPc">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Setup Cost / PC</rdfs:label>
+        <rdfs:label xml:lang="zh">生产准备成本 / 每件</rdfs:label>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processSuCostPc
+WHERE {
+  ?subject pcsp:processSuCostPerRun ?cpr.
+?subject pcsp:processQtyPerRun ?qpr.
+
+   BIND( xsd:decimal(?cpr / ?qpr) AS ?processSuCostPc) .
+}
+</platform-schema:sparql>
+        <platform-schema:description>Setup Cost / Qty per Run</platform-schema:description>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <platform-schema:sequenceID>9</platform-schema:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPerRun -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPerRun">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Setup Cost / Run</rdfs:label>
+        <rdfs:label xml:lang="zh">生产准备成本 / 每次运营</rdfs:label>
+        <platform-schema:defaultValue rdf:datatype="&xsd;decimal">0</platform-schema:defaultValue>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processSuCostPerRun
+WHERE {
+   ?subject pcsp:hasProcessStation ?ps.
+   ?ps pcs-kb:workStationSetupTime ?st.
+   ?subject pcsp:processMachineRatePerHr ?rph.
+   BIND( xsd:decimal(?rph * ?st) AS ?processSuCostPerRun) .
+}</platform-schema:sparql>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <platform-schema:sequenceID>7</platform-schema:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-process.owl#processTotalCostPerPiece -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-process.owl#processTotalCostPerPiece">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Total Cost / Pc</rdfs:label>
+        <rdfs:label xml:lang="zh">总成本 / 每件</rdfs:label>
+        <platform-schema:sequenceID rdf:datatype="&xsd;int">14</platform-schema:sequenceID>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject ?processTotalCostPerPiece
+WHERE {
+   ?subject pcsp:processLabourCostPerPiece ?lpp.
+   ?subject pcsp:processMachineCostPerPiece ?mpp.
+   ?subject pcsp:processSuCostPc ?spp.
+   BIND( xsd:decimal(?mpp + ?lpp + ?spp) AS ?processTotalCostPerPiece) .
+}</platform-schema:sparql>
+        <application-schema:costingRelevantSequence>7</application-schema:costingRelevantSequence>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <platform-schema:readOnly>true</platform-schema:readOnly>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Secondary-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#metalStampingRemark -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#metalStampingRemark">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Remark</rdfs:label>
+        <rdfs:label xml:lang="zh">备注</rdfs:label>
+        <platform-schema:sequenceID>34</platform-schema:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#toolingData"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#toolingData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#toolingData">
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;assertion"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolCost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Tool cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总成本</rdfs:label>
+        <platform-schema:sequenceID>5</platform-schema:sequenceID>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <application-schema:costingRelevantSequence>3</application-schema:costingRelevantSequence>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#toolingData"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolMarkup -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolMarkup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>TOOL MARKUP (%)</rdfs:label>
+        <rdfs:label xml:lang="zh">模具加价(%)</rdfs:label>
+        <platform-schema:defaultValue rdf:datatype="&xsd;decimal">0</platform-schema:defaultValue>
+        <application-schema:costingRelevantSequence>51</application-schema:costingRelevantSequence>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <platform-schema:sequenceID>18</platform-schema:sequenceID>
+        <platform-schema:mandatory>true</platform-schema:mandatory>
+        <rdfs:subPropertyOf rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#toolingData"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB"/>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl#Processes"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#processPartName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#processPartName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Metal Part Name</rdfs:label>
+        <rdfs:label xml:lang="zh">零件名称</rdfs:label>
+        <platform-schema:sequenceID rdf:datatype="&xsd;int">-1</platform-schema:sequenceID>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?processPartName)
+          WHERE {
+            ?subject as:configItemIncludedBy ?minorSalesItem .
+            ?minorSalesItem as:salesItemIncludedBy ?salesItem.
+
+            ?salesItem as:includesConfigItem ?c .
+           ?c pcs:partPartName ?pn .
+         ?salesItem as:isProduct pci:MetalStamping .
+            BIND (xsd:string(?pn) AS ?val)
+
+   }
+</platform-schema:sparql>
+        <platform-schema:readOnly rdf:datatype="&xsd;boolean">true</platform-schema:readOnly>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <application-schema:costingRelevantSequence>2</application-schema:costingRelevantSequence>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl#Base"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;materialization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#processPartNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#processPartNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Metal Part Number</rdfs:label>
+        <rdfs:label xml:lang="zh">零件号</rdfs:label>
+        <platform-schema:sequenceID rdf:datatype="&xsd;int">-2</platform-schema:sequenceID>
+        <platform-schema:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?processPartNumber)
+          WHERE {
+            ?subject as:configItemIncludedBy ?minorSalesItem .
+            ?minorSalesItem as:salesItemIncludedBy ?salesItem.
+
+            ?salesItem as:includesConfigItem ?c .
+           ?c pcs:partPartNumber ?pn .
+        ?salesItem as:isProduct pci:MetalStamping .
+            BIND (xsd:string(?pn) AS ?val)
+   }
+</platform-schema:sparql>
+        <platform-schema:readOnly rdf:datatype="&xsd;boolean">true</platform-schema:readOnly>
+        <application-schema:costingRelevant>true</application-schema:costingRelevant>
+        <application-schema:costingRelevantSequence>1</application-schema:costingRelevantSequence>
+        <platform-schema:group rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl#Base"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&platform-schema;materialization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

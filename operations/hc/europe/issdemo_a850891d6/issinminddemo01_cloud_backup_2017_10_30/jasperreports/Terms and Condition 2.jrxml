@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-10-27T12:20:09 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quote" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" isFloatColumnFooter="true" uuid="bb0d1098-0e3d-4574-89bb-b8d8e056d41c">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="ireport.zoom" value="3.2210200000000104"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="336"/>
+	<import value="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.vocabulary.Application"/>
+	<import value="com.imc.vocabulary.Platform"/>
+	<import value="com.imc.datamodel.BusinessObject"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<subDataset name="additionalItemDS" uuid="a7729f67-416f-4b76-b284-39bfe9d6c4b8">
+		<parameter name="additionalItems" class="java.util.Set"/>
+		<parameter name="additionalItemPrice" class="java.util.List"/>
+		<field name="_THIS" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+		<variable name="putAdditionalItemPrice" class="java.lang.String">
+			<variableExpression><![CDATA["";final StringBuilder sb = new java.lang.StringBuilder();
+
+Iterator<?> iterator = ($F{_THIS}.getAttributeLongValue("objectName").values()).iterator();
+while(iterator.hasNext()) { sb.append((String)iterator.next());}
+
+int originalSize = $P{additionalItems}.size();
+$P{additionalItems}.add(sb.toString());
+
+if (originalSize != $P{additionalItems}.size()) {
+		String str = sb.toString().startsWith("<br>")? sb.toString().replaceFirst("<br>", ""): sb.toString();
+		Map individualMap = new HashMap<String, Object>(); individualMap.put("additionItem", str); 
+		individualMap.put("price", $F{_THIS}.getAttributeValue("includesPriceItem", "priceItemBaseAmount")); 
+		$P{additionalItemPrice}.add(individualMap);
+}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="additionalItemPriceDS" uuid="98baa442-3834-4cab-86e4-221b0fc659a0">
+		<field name="additionItem" class="java.lang.String"/>
+		<field name="price" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="optionalDS" uuid="51f79c0d-79b8-465f-a02b-404a30e35627">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="_THIS" class="java.lang.String"/>
+		<field name="btshorttext" class="java.lang.String"/>
+		<field name="qty" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="unitPriceDisc" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.imc.datamodel.transferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.imc.datamodel.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if (!(Boolean)$F{SalesItem}.getAttributeValue("salesItemOptional")) {
+
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<group name="TOTAL_GROUP">
+		<groupExpression><![CDATA[]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<pageHeader>
+		<band height="687">
+			<image scaleImage="RealHeight" hAlign="Left">
+				<reportElement stretchType="RelativeToTallestObject" x="33" y="18" width="147" height="20" uuid="b3a1bcf7-2b6b-4734-ad8a-27512da2d136">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/springer.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="33" y="48" width="498" height="22" uuid="22bec110-9a2a-4d56-8048-08299b759ef0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[General Terms and Conditions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="65" width="498" height="22" uuid="a202336f-5816-47d1-a048-374b022c40cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[for Electronic Products]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="100" width="498" height="30" uuid="cccd3e25-2297-452e-b69b-ac324dff24de"/>
+				<text><![CDATA[These General Terms and Conditions are part of and incorporated into the License Agreement by and between Licensor and Customer.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="160" width="259" height="527" uuid="4cf7cf13-e9a1-4bdc-9024-e8d8a3741310"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[1.1	“Affiliate” means a party controlling, controlled by, or under common control with another party, where “control” means the direct or indirect ownership of at least fifty percent (50%) of the stock or other equity interest of a party.
+
+1.2	“Authorized Users” means Licensee’s full- and part-time faculty members, students, staff, researchers, contractors (provided that use by a contractor of Licensee is authorized solely to the extent it is for the benefit of Licensee, and not for the benefit of the contractor or any third party), and authorized walk-in users.
+
+1.3	“Commencement Date” means the date from which Licensee is granted access to the Content under individual Product Terms with respect to the Content identified in such Product Terms.
+
+1.4	“Content” means the journals, books, archives, databases and all other materials identified in the Product Terms and which are licensed to Licensee under this License Agreement.
+
+1.5	“Continuing Access” means Licensee’s continuing access to the Content after the Term, subject always to all provisions of this License Agreement, excluding, however, the obligation to pay License Fees.
+
+1.6	“Licensee” means each of the parties identified as “Licensee” in the License Details.
+
+1.7	“Licensor” means Springer Customer Service Center, LLC, acting on its own behalf and/or on behalf of certain of its Affiliates.
+
+1.8	“Platforms” means Licensor’s websites and other content delivery systems used by Licensee and Authorized Users to access Licensor’s content pursuant to this License Agreement.
+
+1.9	“Product” means the specific category of Content identified in individual Product Terms.
+
+1.10	“Product Terms” mean the terms and conditions applicable to specific categories of Content.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="170" width="257" height="460" uuid="6d718088-d6f1-40bb-9b9d-908f2c4a0b14"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[
+
+2.1	Subject to Licensee’s compliance with the License Agreement, and except as otherwise stated herein, Licensor hereby grants Licensee a non-exclusive, revocable and non-transferrable license to:
+
+2.1.1	permit Authorized Users to access the Content for the duration and in the manner set forth in the License Agreement;
+
+2.1.2	incorporate links on Licensee’s intranet websites to the Content in full text format on the Platforms; 
+
+2.1.3	transmit to a non-commercial library single items of Content only for personal educational, scientific, or research purposes. Such transmission shall be by post, fax or secure electronic transmission, e.g. Ariel or NILDE; the electronic file must retain the relevant copyright notice and be deleted immediately after printing. The right set out in this clause does not extend to centralized ordering facilities, such as document delivery systems, nor the distribution of copies in such quantities as to substitute for a subscription or purchase of the distributed Content.
+
+2.2	Authorized Users may solely for their personal educational, scientific, or research purposes:
+
+2.2.1	access (including by remote access, with the exception of  walk-in-users), browse, view, collate, display, search and retrieve the Content,
+
+2.2.2	download, store on a hard drive or removable media drive, print and copy in paper and digital form single articles, chapters or other individual items of the Content, 
+
+2.2.3	use single articles, chapters or other individual items of the Content for the preparation of academic 
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="140" width="173" height="30" uuid="d4463663-1cb7-44c6-98fd-adfa5d2186e9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. Definitions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="140" width="250" height="30" uuid="25c260a4-81f7-479a-9daa-ec12843a7d97"/>
+				<text><![CDATA[1.11	“Term” means the effective period of this License Agreement for an individual Product, as set forth in the Product Terms, including any renewal term.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="162" width="249" height="30" uuid="110d6ea7-7de0-448a-8030-0b77f940cee2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+2. Grant and Scope of License]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="640" width="100" height="30" forecolor="#000000" uuid="79654478-1897-499f-a123-c2c4d7c29993"/>
+				<text><![CDATA[etc…]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="2" splitType="Prevent">
+			<printWhenExpression><![CDATA[(Boolean)$F{SalesItem}.getAttributeValue("salesItemOptional")]]></printWhenExpression>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="64">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textFieldCurrentPage" x="435" y="5" width="114" height="13" isRemoveLineWhenBlank="true" forecolor="#848A8F" backcolor="#FFFFFF" uuid="dd5d313a-5b7d-41c9-a8c0-b886a35190f3"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page.page}+" "+$V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band>
+			<printWhenExpression><![CDATA[new Boolean($P{REPORT_PARAMETERS_MAP}.put("LastPageNumber",$V{PAGE_NUMBER}).equals("dummyPrintWhen"))]]></printWhenExpression>
+		</band>
+	</summary>
+</jasperReport>

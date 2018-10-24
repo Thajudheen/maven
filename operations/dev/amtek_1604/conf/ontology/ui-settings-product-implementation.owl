@@ -1,0 +1,955 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY uis "http://www.inmindcomputing.com/application/ui/ui-settings-schema.owl#" >
+    <!ENTITY uii "http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#" >
+    <!ENTITY uip "http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#"
+     xmlns:uii="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+     xmlns:uip="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:uis="http://www.inmindcomputing.com/application/ui/ui-settings-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl">
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NON_SALES_USER -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NON_SALES_USER">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+         <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NON_SALES_USER</ps:objectName>
+        <!-- Readonly: SEC -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSelfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zhasPlant</as:uiProfileDisable>
+        <!-- Readonly: Base -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#partPartName</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#partPartNumber</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingQtyMth</as:uiProfileDisable>
+        <!-- Hide: Base -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingProjectVolume</as:uiProfileHide>
+        <!-- Hide: Finishing -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalFinishingCost</as:uiProfileHide>
+        <!-- Hide: material -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingToolingMaintenanceOther</as:uiProfileHide>
+        <!-- Hide: Sales groups -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Sales</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Summary</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#LineItem-Tracking</as:uiProfileHide>
+        <!-- Hide: MRB groups -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#AccessoriesTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PlasticMold</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRBSubTotals</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRB</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBPurchasedPartOthers</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#PlasticsPurchasedPart</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBAssemblyProfitPackagingDelivery</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBL6Assembly</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#StampingTool</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FinishingTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SheetMetal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryFinishingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Group_SummaryUSD</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SummaryTooling</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_ENGINEERING_USER -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_ENGINEERING_USER">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_ENGINEERING_USER</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_ACCEPTED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_APPROVED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_COMPLETED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_OPEN"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_REJECTED"/>
+        <!-- Hide: Material -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#hasMaterialType</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPerformance</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingHardnessTolerance</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingThicknessTolerance</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingWidthTolerance</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingMatlUtilizing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingDensity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingWastage</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingLeadTime</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPitch</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingMOQ</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingCavity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingRawMatlCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingRawMatlMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingSlittingCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalPartMatlCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingMatlCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingToolingMaintenance</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingMaterialCode</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingAppointedVendor</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingVendor</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingComments</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingValidityDate</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingWastage</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPitch</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingCavity</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingLeadTimeMaterial</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPurchaseCategory</as:uiProfileHide>
+        <!-- Hiding requested new: Material -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingToolingMaintenance</as:uiProfileHide>
+    <!-- Readonly: Material -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingProposedMatlSpec</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingProposedTypeOther</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingDensityOther</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingStripSizeThickness</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingWidth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPartArea</as:uiProfileDisable>
+    <!-- Hide Fields from : PurchasePart Base -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#purchasedPartPartDescription</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#purchasedPartProductType</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#purchasedPartPurchaseCategory</as:uiProfileHide>
+  <!-- Hide Fields from : Stamping Process and Sec process -->
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasMSURate</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineRatePerHr</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingSuCostRun</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#metalStampingLabourCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingLabourCostPerMachineHour</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processTotalCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPerRun</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPc</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourCostPerPiece</as:uiProfileHide>
+
+
+
+  </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SALES</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;PROFILE_SALES_ACCEPTED"/>
+        <as:hasUiProfile rdf:resource="&uip;PROFILE_SALES_APPROVED"/>
+        <as:hasUiProfile rdf:resource="&uip;PROFILE_SALES_COMPLETED"/>
+        <as:hasUiProfile rdf:resource="&uip;PROFILE_SALES_OPEN"/>
+        <as:hasUiProfile rdf:resource="&uip;PROFILE_SALES_REJECTED"/>
+        <!-- Hide group -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePart</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryProcess</as:uiProfileHide>
+        <!-- Hide: MRB groups To hide only when the fix to UiProfile vs Sales simulation is completed
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#AccessoriesTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PlasticMold</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRBSubTotals</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRB</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBPurchasedPartOthers</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#PlasticsPurchasedPart</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBAssemblyProfitPackagingDelivery</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBL6Assembly</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#StampingTool</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FinishingTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SheetMetal</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryFinishingProcess</as:uiProfileHide>
+        -->
+    </owl:NamedIndividual>
+
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_TOOLING_HUIZHOU -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_TOOLING_HUIZHOU">
+    <rdf:type rdf:resource="&as;UiProfile"/>
+    <ps:objectName rdf:datatype="&xsd;string">PROFILE_TOOLING_HUIZHOU</ps:objectName>
+    <as:hasUiProfile rdf:resource="&uip;PROFILE_TOOLING"/>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processCycleTime</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processQtyPerRun</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasProcessStation</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourHoursPerRun</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_TOOLING -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_TOOLING">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_TOOLING</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_USER"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_TOOLING_ACCEPTED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_TOOLING_APPROVED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_TOOLING_COMPLETED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_TOOLING_OPEN"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_TOOLING_REJECTED"/>
+        <!-- Readonly: For material -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingLeadTime</as:uiProfileDisable>
+        <!-- Hide: Qty Month on Base -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingQtyPerRunOther</as:uiProfileHide>
+        <!-- Hide: Processes -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#metalStampingLeadTime</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToAmortize</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingOverPcs</as:uiProfileHide>
+    <!-- Hide New: Processes -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingSetup</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingSuCost</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTMaint</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalProcessCostPC</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingRatePerHr</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#hasRate</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalProcessCostPC</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#metalStampingOutputPerHour</as:uiProfileHide>
+    <!-- Hide Fields from : Sec Finishing Base -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#secondaryProcessCategory</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#secondaryProcessDescription</as:uiProfileHide>
+    <!-- Hide Fields from : PurchasePart Base -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#purchasedPartPartDescription</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#purchasedPartProductType</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#purchasedPartPurchaseCategory</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#actCostPerPieceMOQ1</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#actCostPerPieceMOQ2</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#actCostPerPieceMOQ3</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#actCostPerPieceMOQ4</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#actCostPerPieceMOQ5</as:uiProfileHide>
+    <!-- Hide: Material -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingRawMatlCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingRawMatlMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingSlittingCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingAppointedVendor</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingVendor</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingValidityDate</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPurchaseCategory</as:uiProfileHide>
+    <!-- Hide New: Material -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingFinishing</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalPartMatlCost</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingMatlCost</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingToolingMaintenance</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#hasToolingMaintenanceOther</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingMaterialCode</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalProcessTMaint</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalProcessCostPC</as:uiProfileHide>
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalProcessSUCost</as:uiProfileHide>
+    <!-- Hide New: Sec Process and Stamping Process -->
+    <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasMSURate</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineRatePerHr</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processMachineCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingSuCostRun</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#metalStampingLabourCostPerPiece</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingLabourCostPerMachineHour</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processTotalCostPerPiece</as:uiProfileHide>
+
+
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPerRun</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processSuCostPc</as:uiProfileHide>
+  <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#processLabourCostPerPiece</as:uiProfileHide>
+
+
+
+
+
+        <!-- Hide group -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#Assembly</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#AssemblyTransport</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Customs</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FreightHubbing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Packaging</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#EngineeringOverhead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Storage</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePartSubMaterial</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePart</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedParts</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FinishingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SCM -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SCM">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SCM</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_USER"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_ACCEPTED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_APPROVED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_COMPLETED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_OPEN"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_REJECTED"/>
+        <!-- Readonly: Material -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingStripSizeThickness</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingWidth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingWastage</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPitch</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingCavity</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPerformance</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingHardnessTolerance</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingThicknessTolerance</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingWidthTolerance</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#hasMaterialType</as:uiProfileDisable>
+        <!-- Hide: Purchase Part -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingTotalPurchasedCost</as:uiProfileHide>
+        <!-- Hide: Material -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPartArea</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingMatlUtilizing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingToolingMaintenance</as:uiProfileHide>
+        <!-- Hide New: Material -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingMatlCost</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#hasToolingMaintenanceOther</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingMaterialCode</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPackagingMatlMarkup</as:uiProfileHide>
+        <!-- Hide group -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#Assembly</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#EngineeringOverhead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Storage</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Processes</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#StampingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_ASSEMBLY -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_ASSEMBLY">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_ASSEMBLY</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_USER"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_ACCEPTED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_APPROVED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_COMPLETED"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_OPEN"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_REJECTED"/>
+        <!-- Hide: Assembly -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyGAMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyProfit</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyProfitMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyCostProfit</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyCostProfitMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyOverhead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyOverheadMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyGA</as:uiProfileHide>
+        <!-- Hide: MRB - Tooling -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGToolAmortization</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbToolingMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbRecoverAmount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbRecoverQuoted</as:uiProfileHide>
+        <!-- Hide group -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#AssemblyTransport</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#StampingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FinishingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Material</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Finishing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedParts</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Packaging</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FreightHubbing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#EngineeringOverhead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Storage</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Processes</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Customs</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePartSubMaterial</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePart</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#SecondaryProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#ProcessGroup</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_PLATING -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_PLATING">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_PLATING</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_USER"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_ENGINEERING_USER"/>
+        <!-- Hide group -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#LineItem-Tracking</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#StampingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Finishing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedParts</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Packaging</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FreightHubbing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#EngineeringOverhead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Storage</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Processes</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#AccessoriesTooling</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Customs</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePartSubMaterial</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#AssemblyTransport</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#Assembly</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePart</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_IE -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_IE">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_IE</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NON_SALES_USER"/>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_ENGINEERING_USER"/>
+        <!-- Hide: Assembly -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyGAMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyProfit</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyProfitMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyCostProfit</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyCostProfitMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyOverhead</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyStampingAndAssemblyOverheadMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#assemblyGA</as:uiProfileHide>
+        <!-- Hide: MRB - Tooling -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGToolAmortization</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbToolingMarkup</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbRecoverAmount</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#mrbRecoverQuoted</as:uiProfileHide>
+        <!-- Hide group -->
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#StampingProcess</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Finishing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedParts</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#FreightHubbing</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Processes</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Customs</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePartSubMaterial</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#AssemblyTransport</as:uiProfileHide>
+        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasePart</as:uiProfileHide>
+    </owl:NamedIndividual>
+
+
+    <!-- HIDING SEC RELATED BDA -->
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_ACCEPTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_ACCEPTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SALES_ACCEPTED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_APPROVED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_APPROVED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SALES_APPROVED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_COMPLETED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SALES_COMPLETED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SALES_OPEN</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_SALES_OPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_REJECTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_REJECTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_SALES_REJECTED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NON_SALES_ACCEPTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NON_SALES_ACCEPTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NON_SALES_ACCEPTED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NONSALE_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NON_SALES_APPROVED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NON_SALES_APPROVED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NON_SALES_APPROVED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NONSALE_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NON_SALES_COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NON_SALES_COMPLETED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NON_SALES_COMPLETED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NONSALE_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NON_SALES_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NON_SALES_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NON_SALES_OPEN</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NONSALE_OPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NON_SALES_REJECTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NON_SALES_REJECTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NON_SALES_REJECTED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_NONSALE_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_TOOLING_ACCEPTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_TOOLING_ACCEPTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_TOOLING_ACCEPTED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_USER_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_TOOLING_APPROVED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_TOOLING_APPROVED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_TOOLING_APPROVED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_USER_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_TOOLING_COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_TOOLING_COMPLETED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_TOOLING_COMPLETED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_USER_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_TOOLING_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_TOOLING_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_TOOLING_OPEN</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_USER_OPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_TOOLING_REJECTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_TOOLING_REJECTED">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_TOOLING_REJECTED</ps:objectName>
+        <as:hasUiProfile rdf:resource="&uip;SUBPROFILE_USER_NONOPEN"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_SALES_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_SALES_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_SALES_OPEN</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteCMSNumber</as:uiProfileDisable>
+        <!--
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteCMSNumber</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        -->
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_SALES_NONOPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_SALES_NONOPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_SALES_NONOPEN</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteCMSNumber</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment</as:uiProfileDisable>
+<!--         <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate</as:uiProfileDisable> -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement</as:uiProfileDisable>
+<!--         <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate</as:uiProfileDisable> -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5</as:uiProfileDisable>
+<!--         <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ</as:uiProfileDisable> -->
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zhasPlant</as:uiProfileDisable>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+    </owl:NamedIndividual>
+
+
+     <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NONSALE_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NONSALE_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NONSALE_OPEN</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteCMSNumber</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zhasPlant</as:uiProfileDisable>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_NONSALE_NONOPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_NONSALE_NONOPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_NONSALE_NONOPEN</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema.owl#salesDocumentSAPSalesDocumentID</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteCMSNumber</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zhasPlant</as:uiProfileDisable>
+             <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_USER_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_USER_OPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_USER_OPEN</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema.owl#salesDocumentSAPSalesDocumentID</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#f</as:uiProfileDisable>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_USER_NONOPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_USER_NONOPEN">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_USER_NONOPEN</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema.owl#salesDocumentSAPSalesDocumentID</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5</as:uiProfileDisable>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#zhasPlant</as:uiProfileDisable>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+    </owl:NamedIndividual>
+
+
+   <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_USER_BATAM -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_USER_BATAM">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">SUBPROFILE_USER_BATAM</ps:objectName>
+        <as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-process.owl#hasMSURate</as:uiProfileDisable>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_USER_SG -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_USER_SG">
+        <rdf:type rdf:resource="&as;UiProfile"/>
+        <ps:objectName rdf:datatype="&xsd;string">PROFILE_USER_SG</ps:objectName>
+<!--        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#Packaging</as:uiProfileHide>-->
+<!--        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#masterPartPackagingInHouse</as:uiProfileHide> -->
+<!--        <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#masterPartPackagingRemark</as:uiProfileHide> -->
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPackagingLabourCostRate</as:uiProfileHide> -->
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPackagingMatl</as:uiProfileHide> -->
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#metalStampingPackagingMatlMarkup</as:uiProfileHide> -->
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPackagingRate</as:uiProfileHide> -->
+<!--         <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPackagingValidityDate</as:uiProfileHide> -->
+<!--     <as:uiProfileHide rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingPackagingCost</as:uiProfileHide> -->
+    </owl:NamedIndividual>
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

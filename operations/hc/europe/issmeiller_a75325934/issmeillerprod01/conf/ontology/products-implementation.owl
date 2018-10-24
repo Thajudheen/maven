@@ -1,0 +1,1283 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Absetzkipper AK 4</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Absetzkipper AK 4</rdfs:label>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043004</as:productECCId>
+        <ps:objectId rdf:datatype="&xsd;string">ABSETZKIPPER-04</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-04</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 4</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+      <as:includesPriceItem rdf:resource="&pci;Absetzkipper-04-Price-DE"/>
+      <as:includesPriceItem rdf:resource="&pci;Absetzkipper-04-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-04-Price-PLN"/>
+     <as:includesPriceItem rdf:resource="&pci;Absetzkipper-04-Price-RUB"/>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;A04V01-001-STANDARD"/>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+    </owl:NamedIndividual>
+
+
+
+     <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-Price-DE --> 
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-04-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-04-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-04-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	 <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-Price-RUB --> 
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-04-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+	 <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-04-local 
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-04-local">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Absetzkipper AK 4 (local)</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Absetzkipper AK 4 (local)</rdfs:label>
+        <as:productECCId rdf:datatype="&xsd;string">000000000061043004</as:productECCId>
+        <ps:objectId rdf:datatype="&xsd;string">ABSETZKIPPER-04-local</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-04-local</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 4 (local)</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+	    <as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;AK04BZW-001-AK04BZW"/>
+    </owl:NamedIndividual>
+ -->
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-RS21 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-RS21">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RS 21</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RS 21</rdfs:label>
+         <as:productECCId rdf:datatype="&xsd;string">000000000060053521</as:productECCId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-RS21</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-RS21</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RS 21</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-RS21-Price-DE"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-RS21-Price-CZK"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-RS21-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-RS21-Price-RUB"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R21V01-001-EXPORT"/>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+    </owl:NamedIndividual>
+	
+     <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-RS21-Price-DE --> 
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-RS21-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-RS21-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-RS21-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-RS21-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-RS21-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-RS21-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-RS21-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-RS21-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	 <!--http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-RS21-Price-RUB --> 
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-RS21-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-RS21-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+	
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-07 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-07">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Absetzkipper AK 7</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Absetzkipper AK 7</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-07</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">ABSETZKIPPER-07</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 7</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-07-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-07-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-07-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Absetzkipper-07-Price-RUB"/>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;A07V01-001-STANDARD"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043007</as:productECCId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-07-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-07-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-07-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-07-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-07-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-07-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-07-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-07-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-07-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+ <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-07-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-07-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-07-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-10 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-10">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Absetzkipper AK 10</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Absetzkipper AK 10</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">ABSETZKIPPER-10</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-10</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 10</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-10-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-10-Price-PLN"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-10-Price-CZK"/>
+		<as:includesPriceItem rdf:resource="&pci;Absetzkipper-10-Price-RUB"/>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043010</as:productECCId>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;A10V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-10-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-10-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-10-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-10-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-10-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-10-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-10-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-10-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-10-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-10-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-10-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-10-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-12 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-12">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Absetzkipper AK 12</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Absetzkipper AK 12</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">ABSETZKIPPER-12</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-12</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 12</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-12-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-12-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-12-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Absetzkipper-12-Price-RUB"/>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043012</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;A12V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-12-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-12-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-12-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-12-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-12-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-12-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-12-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-12-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-12-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-12-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-12-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-12-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-16 -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-16">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Absetzkipper AK 16</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Absetzkipper AK 16</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ABSETZKIPPER-16</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">ABSETZKIPPER-16</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Absetzkipper AK 16</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-16-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-16-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Absetzkipper-16-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Absetzkipper-16-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043016</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;A16V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-16-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-16-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-16-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-16-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-16-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-16-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-16-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-16-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-16-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Absetzkipper-16-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Absetzkipper-16-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Absetzkipper-16-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+   <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-6 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-6">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 6</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 6</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-6</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-6</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 6</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-6-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-6-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-6-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-6-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043506</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R06V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-6-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-6-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-6-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-6-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-6-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-6-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-6-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-6-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-6-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-6-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-6-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-6-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+
+<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-8 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-8">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 8</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 8</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-8</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-8</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 8</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-8-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-8-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-8-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-8-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043508</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R08V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-8-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-8-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-8-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-8-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-8-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-8-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-8-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-8-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-8-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-8-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-8-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-8-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+
+  <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-11 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-11">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 11</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 11</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-11</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-11</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 11</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-11-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-11-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-11-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-11-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043511</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R11V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-11-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-11-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-11-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-11-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-11-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-11-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-11-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-11-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-11-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+ <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-11-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-11-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-11-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-14 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-14">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 14</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 14</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-14</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-14</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 14</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-14-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-14-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-14-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-14-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043514</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R14V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-14-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-14-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-14-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-14-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-14-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-14-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-14-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-14-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-14-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-14-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-14-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-14-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+  <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-20 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-20">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 20</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 20</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-20</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-20</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 20</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-20-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-20-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-20-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-20-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043520</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R20V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-20-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-20-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-20-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-20-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-20-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-20-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-20-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-20-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-20-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-20-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-20-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-20-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+  <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-26 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-26">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 26</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 26</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-26</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-26</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 26</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-26-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-26-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-26-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-26-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043526</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R26V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-26-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-26-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-26-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-26-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-26-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-26-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-26-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-26-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-26-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-26-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-26-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-26-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+  <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-30 -->
+
+  <owl:NamedIndividual rdf:about="&pci;Abrollkipper-30">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Abrollkipper RK 30</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Abrollkipper RK 30</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Abrollkipper-30</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Abrollkipper-30</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Abrollkipper RK 30</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-30-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-30-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Abrollkipper-30-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Abrollkipper-30-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Dumper"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060043530</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;R30V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-30-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-30-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-30-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-30-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-30-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-30-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-30-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-30-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-30-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Abrollkipper-30-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Abrollkipper-30-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Abrollkipper-30-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Behaeltertransportanhaenger-->
+
+    <owl:NamedIndividual rdf:about="&pci;Behaeltertransportanhaenger">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Beh&#228;ltertransportanh&#228;nger BTA</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Beh&#228;ltertransportanh&#228;nger BTA</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Beh&#228;ltertransportanh&#228;nger</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Beh&#228;ltertransportanh&#228;nger</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Beh&#228;ltertransportanh&#228;nger BTA</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Behaeltertransportanhaenger-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Behaeltertransportanhaenger-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Behaeltertransportanhaenger-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Behaeltertransportanhaenger-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060044715</as:productECCId>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;M18V01-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Behaeltertransportanhaenger-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Behaeltertransportanhaenger-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Beh&#228;ltertransportanh&#228;nger-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Behaeltertransportanhaenger-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Behaeltertransportanhaenger-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Beh&#228;ltertransportanh&#228;nger-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Behaeltertransportanhaenger-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Behaeltertransportanhaenger-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Beh&#228;ltertransportanh&#228;nger-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Behaeltertransportanhaenger-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Behaeltertransportanhaenger-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Beh&#228;ltertransportanh&#228;nger-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+
+
+  <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Kippsattelanhaenger-43%2F3-->
+
+  <owl:NamedIndividual rdf:about="&pci;Kippsattelanhaenger-43%2F3">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">MEILLER-Kippsattelanh&#228;nger-43/3</rdfs:label>
+        <rdfs:label xml:lang="en">MEILLER-Kippsattelanh&#228;nger-43/3</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">Kippsattelanh&#228;nger-43/3</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">Kippsattelanh&#228;nger-43/3</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-Kippsattelanh&#228;nger-43/3</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">false</as:productIsOptional>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesPriceItem rdf:resource="&pci;Kippsattelanhaenger-43%2F3-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;Kippsattelanhaenger-43%2F3-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;Kippsattelanhaenger-43%2F3-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;Kippsattelanhaenger-43%2F3-Price-RUB"/>
+		<as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060044600</as:productECCId>
+        <as:includesKnowledgeBase rdf:resource="&ssc;SAT3V01-001-STANDARD"/>
+		<as:linksEditablePriceItemType rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondType-ZA00"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Kippsattelanhaenger-43%2F3-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;Kippsattelanhaenger-43%2F3-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Kippsattelanh&#228;nger-43/3-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Kippsattelanhaenger-43%2F3-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;Kippsattelanhaenger-43%2F3-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Kippsattelanh&#228;nger-43/3-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Kippsattelanhaenger-43%2F3-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;Kippsattelanhaenger-43%2F3-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Kippsattelanh&#228;nger-43/3-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Kippsattelanhaenger-43%2F3-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;Kippsattelanhaenger-43%2F3-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">Kippsattelanh&#228;nger-43/3-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Dumper -->
+
+    <owl:NamedIndividual rdf:about="&pci;Dumper">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Kipper</rdfs:label>
+        <rdfs:label xml:lang="en">Dumper</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">DUMPER</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Kipper</ps:objectName>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FKP -->
+
+    <owl:NamedIndividual rdf:about="&pci;FKP">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Frei Konfigurierbares Produkt</rdfs:label>
+        <rdfs:label xml:lang="en">Free Configurable Product</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">FKP</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">FKP</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Frei konfigurierbares Produkt</ps:objectName>
+        <as:productImage rdf:datatype="&xsd;string">box.png</as:productImage>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">false</as:productConfigurable>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productDiscountAllowed rdf:datatype="&xsd;boolean">false</as:productDiscountAllowed>
+	    <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060007400</as:productECCId>
+        <as:includesPriceItem rdf:resource="&pci;FKP-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;FKP-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;FKP-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;FKP-Price-RUB"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FKP-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;FKP-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">FKP-Price-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FKP-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;FKP-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">FKP-Price-CZK</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FKP-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;FKP-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">FKP-Price-PLN</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FKP-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;FKP-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">FKP-Price-RUB</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MEILLER-KSW -->
+
+    <owl:NamedIndividual rdf:about="&pci;MEILLER-KSW">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">KSW</rdfs:label>
+        <rdfs:label xml:lang="en">Customer Special Request</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">KSW</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">KSW</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">MEILLER-KSW</ps:objectName>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productDiscountAllowed rdf:datatype="&xsd;boolean">false</as:productDiscountAllowed>
+        <as:hasUnitofMeasure rdf:resource="&ai;Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+		
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:includesPriceItem rdf:resource="&pci;MEILLER-KSW-Price-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;MEILLER-KSW-Price-CZK"/>
+        <as:includesPriceItem rdf:resource="&pci;MEILLER-KSW-Price-PLN"/>
+		<as:includesPriceItem rdf:resource="&pci;MEILLER-KSW-Price-RUB"/>
+        <as:productECCId rdf:datatype="&xsd;string">000000000060007100</as:productECCId>
+        <as:includesKnowledgeBase rdf:resource="&ssc;KSW-001-STANDARD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MEILLER-KSW-Price-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;MEILLER-KSW-Price-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">PriceKSW</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MEILLER-KSW-Price-CZK -->
+
+    <owl:NamedIndividual rdf:about="&pci;MEILLER-KSW-Price-CZK">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">PriceKSW</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CZK"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MEILLER-KSW-Price-PLN -->
+
+    <owl:NamedIndividual rdf:about="&pci;MEILLER-KSW-Price-PLN">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">PriceKSW</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;PLN"/>
+    </owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MEILLER-KSW-Price-RUB -->
+
+    <owl:NamedIndividual rdf:about="&pci;MEILLER-KSW-Price-RUB">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">PriceKSW</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasPriceItemType rdf:resource="&as;ListPriceItemType"/>
+        <as:hasBaseCurrency rdf:resource="&ai;RUB"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Others -->
+
+    <owl:NamedIndividual rdf:about="&pci;Others">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Sonstiges</rdfs:label>
+        <rdfs:label xml:lang="en">Others</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">OTHERS</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Sonstiges</ps:objectName>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

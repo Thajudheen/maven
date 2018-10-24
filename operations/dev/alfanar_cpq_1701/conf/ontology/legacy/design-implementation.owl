@@ -1,0 +1,866 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY dss "http://www.inmindcomputing.com/application/design/design-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY products-schema-process "http://www.inmindcomputing.com/application/products/products-schema-process.owl#" >
+    <!ENTITY products-schema-knowledgebase "http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/design/design-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/design/design-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:dss="http://www.inmindcomputing.com/application/design/design-schema.owl#"
+     xmlns:products-schema-process="http://www.inmindcomputing.com/application/products/products-schema-process.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:products-schema-knowledgebase="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl">
+        <rdfs:comment>Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:versionInfo>0.3</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/design/design-generated-implementation.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/design/design-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#BreakerMV -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#BreakerMV">
+        <ps:objectName rdf:datatype="&xsd;string">BreakerMV</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#Busway -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#Busway">
+        <ps:objectName rdf:datatype="&xsd;string">Busway</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLV -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLV">
+        <ps:objectName rdf:datatype="&xsd;string">CableLV</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity119 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity119">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.083</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.314</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.314</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.529</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">2.116</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">2.116</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">35</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">35</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">35</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity144 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity144">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.083</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.312</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.312</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.37</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">1.481</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">1.481</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">50</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">50</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">50</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity17_5 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity17_5">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.118</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.47</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.47</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">1.5</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">1.5</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">1.5</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">12.346</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">49.383</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">49.383</dss:cableLVAllowedLoadCapacityR0ph_n>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity184 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity184">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.082</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.265</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.3</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.3</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">1.058</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">1.058</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">70</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">70</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">70</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity223 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity223">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.082</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.195</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.299</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.299</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">0.78</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">0.78</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">95</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">95</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">95</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity24 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity24">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.113</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.453</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.453</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">2.5</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">2.5</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">2.5</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">29.63</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">29.63</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">7.407</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity259 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity259">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.08</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.154</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.292</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.292</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">0.617</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">0.617</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">120</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">120</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">120</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity299 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity299">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.08</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.123</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.292</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.292</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">0.494</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">0.494</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">150</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">150</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">150</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity32 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity32">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.107</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.426</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.426</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">18.519</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">18.519</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">4</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">4</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">4</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">4.63</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity341 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity341">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.08</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.1</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.292</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.292</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">0.4</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">0.4</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">185</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">185</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">185</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity403 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity403">
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.077</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.079</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.29</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.29</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">0.309</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">0.309</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">240</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">240</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">240</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity41 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity41">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.1</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.403</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.403</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">12.346</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">12.346</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">3.086</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">6</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">6</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">6</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity464 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity464">
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.062</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.079</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">0.247</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">0.247</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.289</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.289</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">300</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">300</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">300</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity57 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity57">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.094</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.378</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.378</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">1.852</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">10</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">10</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">10</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">7.407</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">7.407</dss:cableLVAllowedLoadCapacityR0ph_n>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity76 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity76">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.09</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.358</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.358</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">1.157</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">16</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">16</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">16</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">4.63</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">4.63</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity96 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableLVAllowedLoadCapacity96">
+        <dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.086</dss:cableLVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableLVAllowedLoadCapacityX0ph_pe_n rdf:datatype="&xsd;decimal">0.355</dss:cableLVAllowedLoadCapacityX0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityX0ph_n rdf:datatype="&xsd;decimal">0.355</dss:cableLVAllowedLoadCapacityX0ph_n>
+        <dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.741</dss:cableLVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableLVAllowedLoadCapacityR0ph_n rdf:datatype="&xsd;decimal">2.963</dss:cableLVAllowedLoadCapacityR0ph_n>
+        <dss:cableLVAllowedLoadCapacityR0ph_pe_n rdf:datatype="&xsd;decimal">2.963</dss:cableLVAllowedLoadCapacityR0ph_pe_n>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPEConductor rdf:datatype="&xsd;decimal">25</dss:cableLVAllowedLoadCapacityCrossSectionPEConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">25</dss:cableLVAllowedLoadCapacityCrossSectionPhaseConductor>
+        <dss:cableLVAllowedLoadCapacityCrossSectionNConductor rdf:datatype="&xsd;decimal">25</dss:cableLVAllowedLoadCapacityCrossSectionNConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMV -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMV">
+        <ps:objectName rdf:datatype="&xsd;string">CableMV</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity151 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity151">
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.169</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.5240</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.624</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">1.375</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">35</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity178 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity178">
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.158</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.3870</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.624</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">1.234</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">50</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity217 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity217">
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.149</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.2680</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.589</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">1.110</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">70</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity258 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity258">
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.158</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.1930</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.597</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">1.029</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">95</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity291 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity291">
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.138</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.1530</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.595</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.984</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">120</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity326 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity326">
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.1240</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.134</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.326</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.735</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">150</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity366 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity366">
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.0991</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.128</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.318</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.704</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">185</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity421 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity421">
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.0754</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.123</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.316</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.666</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">240</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity473 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity473">
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.0601</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.119</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.322</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.634</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">300</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity530 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity530">
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.0470</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.115</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.196</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.456</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">400</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity592 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#CableMVAllowedLoadCapacity592">
+        <dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr rdf:datatype="&xsd;decimal">0.0366</dss:cableMVAllowedLoadCapacityConResPhaseCondPerUnitLength20Degr>
+        <dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength rdf:datatype="&xsd;decimal">0.111</dss:cableMVAllowedLoadCapacityConReactPhaseCondPerUnitLength>
+        <dss:cableMVAllowedLoadCapacityX0 rdf:datatype="&xsd;decimal">0.192</dss:cableMVAllowedLoadCapacityX0>
+        <dss:cableMVAllowedLoadCapacityR0 rdf:datatype="&xsd;decimal">0.421</dss:cableMVAllowedLoadCapacityR0>
+        <dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor rdf:datatype="&xsd;decimal">500</dss:cableMVAllowedLoadCapacityCrossSectionPhaseConductor>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_119 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_119">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=119</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_119</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_144 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_144">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=144</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_144</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_17_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_17_5">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu lr=17.5</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_17_5</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_184 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_184">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=184</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_184</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_223 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_223">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=223</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_223</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_24 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_24">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=24</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_24</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_259 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_259">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=259</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_259</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_299 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_299">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=299</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_299</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_32 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_32">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=32</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_32</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_341 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_341">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=341</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_341</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_403 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_403">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=403</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_403</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_41 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_41">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=41</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_41</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_464 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_464">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=464</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_464</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_57 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_57">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=57</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_57</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_76 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_76">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=76</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_76</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_96 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#ConnectionMaterialCu_Ir_96">
+        <rdf:type rdf:resource="&dss;ConnectionMaterial"/>
+        <rdfs:label xml:lang="en">Cu Ir=96</rdfs:label>
+        <as:attributionFactor rdf:datatype="&xsd;decimal">0.00393</as:attributionFactor>
+        <ps:objectName rdf:datatype="&xsd;string">ConnectionMaterialCu_Ir_96</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#Fuse -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#Fuse">
+        <ps:objectName rdf:datatype="&xsd;string">BreakerLV</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#GeneralLoad -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#GeneralLoad">
+        <ps:objectName rdf:datatype="&xsd;string">General Load</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#Generator -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#Generator">
+        <ps:objectName rdf:datatype="&xsd;string">Generator</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#MCB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#MCB">
+        <ps:objectName rdf:datatype="&xsd;string">BreakerLV</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#MSnet -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#MSnet">
+        <ps:objectName rdf:datatype="&xsd;string">MSnet</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#MVInfeed -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#MVInfeed">
+        <ps:objectName rdf:datatype="&xsd;string">MVInfeed</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#Motor -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#Motor">
+        <ps:objectName rdf:datatype="&xsd;string">Motor</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#RCD -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#RCD">
+        <ps:objectName rdf:datatype="&xsd;string">RCD</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#Transformer -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#Transformer">
+        <ps:objectName rdf:datatype="&xsd;string">Transformer</ps:objectName>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower100 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower100">
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">0.250</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">1.500</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">4.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower1000 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower1000">
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">1.100</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">6.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">9.000</dss:transformerNominalApparentPowerShortCircuitLosses>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower1500 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower1500">
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">1.700</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">14.000</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">6.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower200 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower200">
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">0.380</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">2.200</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">4.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower2000 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower2000">
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">18.000</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">2.400</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">6.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower300 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower300">
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">0.520</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">3.200</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">4.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower3150 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower3150">
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">28.000</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">3.000</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">6.500</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower500 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/design/design-implementation.owl#TransformerNominalApparentPower500">
+        <dss:transformerNominalApparentPowerNoLoadLosses rdf:datatype="&xsd;decimal">0.750</dss:transformerNominalApparentPowerNoLoadLosses>
+        <dss:transformerNominalApparentPowerShortCircuitLosses rdf:datatype="&xsd;decimal">4.700</dss:transformerNominalApparentPowerShortCircuitLosses>
+        <dss:transformerNominalApparentPowerRatedShortCircuitVoltage rdf:datatype="&xsd;decimal">5.000</dss:transformerNominalApparentPowerRatedShortCircuitVoltage>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&dss;cableMVX0">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVX0
+WHERE {
+   ?subject dss:hasCableMVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableMVAllowedLoadCapacityX0 ?cableMVX0 .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;cableMVR0">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?cableMVR0
+WHERE {
+   ?subject dss:hasCableMVAllowedLoadCapacity ?capacity .
+   ?capacity dss:cableMVAllowedLoadCapacityR0 ?cableMVR0 .
+}
+</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerNoLoadLosses">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerNoLoadLosses
+WHERE {
+   ?subject dss:hasTransformerNominalApparentPower ?power .
+   ?power dss:transformerNominalApparentPowerNoLoadLosses ?transformerNoLoadLosses
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;infeedNominalApparentPower">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?infeedNominalApparentPower
+WHERE {
+   ?subject dss:hasTransformerNominalApparentPower ?power .
+   ?power as:attributionFactor ?infeedNominalApparentPower
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dss;transformerShortCircuitLosses">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?transformerShortCircuitLosses
+WHERE {
+   ?subject dss:hasTransformerNominalApparentPower ?power .
+   ?power dss:transformerNominalApparentPowerShortCircuitLosses ?transformerShortCircuitLosses
+}</ps:sparql>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

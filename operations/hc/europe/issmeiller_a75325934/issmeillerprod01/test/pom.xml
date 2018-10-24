@@ -1,0 +1,170 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <name>CustomizingTestMeiller</name>
+
+  <parent>
+    <groupId>com.imc</groupId>
+    <artifactId>package-parent</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+    <relativePath>../../parent/package-parent</relativePath>
+  </parent>
+
+  <groupId>test.customizing</groupId>
+  <artifactId>issmeillertest01</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+
+
+   <properties>
+        <src.dir>src/main/java</src.dir>
+    </properties>
+
+  <dependencies>
+      <dependency>
+        <groupId>com.imc.application.iss</groupId>
+        <artifactId>core</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.imc.platform</groupId>
+        <artifactId>tools-db-app</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <version>1.3.170</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- spring -->
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+      </dependency>
+
+         <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-arq</artifactId>
+      <version>2.10.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-log4j12</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>log4j</artifactId>
+          <groupId>log4j</groupId>
+        </exclusion>
+        <exclusion>
+          <groupId>stax</groupId>
+          <artifactId>stax-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-core</artifactId>
+      <version>2.10.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>log4j</artifactId>
+          <groupId>log4j</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>slf4j-log4j12</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-iri</artifactId>
+      <version>0.9.6</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>log4j</artifactId>
+          <groupId>log4j</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>slf4j-log4j12</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+     <!-- logging -->
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.imc</groupId>
+        <artifactId>vocabgen-maven-plugin</artifactId>
+        <version>1.0.6</version>
+        <executions>
+          <execution>
+            <id>generate-role-test-jenvocabulary</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <ontologyFile>${project.basedir}/src/test/resources/roleTest.owl</ontologyFile>
+              <packageName>com.er.test.util.jena</packageName>
+              <vocabularyClass>RoleTestVocabulary</vocabularyClass>
+              <vocabularyStyle>jena</vocabularyStyle>
+            </configuration>
+            <goals>
+              <goal>gen-vocabulary</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+ </project>

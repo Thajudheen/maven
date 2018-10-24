@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY sec "http://www.inmindcloud.com/security/security-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcloud.dev.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/security/security-implementation.owl#"
+     xml:base="http://www.inmindcloud.com/security/security-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcloud.dev.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcloud.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcloud.com/security/security-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud AG. All rights reserved.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcloud.dev.com/application/application-implementation.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcloud.com/application/ui/ui-settings-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcloud.com/application/schema.owl#objectExternalID -->
+
+    <owl:AnnotationProperty rdf:about="&ps;objectExternalID"/>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/schema.owl#objectID -->
+
+    <owl:AnnotationProperty rdf:about="&ps;objectID"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcloud.dev.com/application/application-implementation.owl#EMEASalesvp -->
+
+    <owl:NamedIndividual rdf:about="&ai;EMEASalesvp">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">EmeaSalesvp</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EmeaSalesvp</ps:objectName>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasRole rdf:resource="&ai;ROLE_SALES_VP_EMEA"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;EMEASalesvp-Password"/>
+        <as:includesPerson rdf:resource="&sec;EMEASalesvp-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.dev.com/application/application-implementation.owl#admin -->
+
+    <owl:NamedIndividual rdf:about="&ai;admin">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">admin</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">admin</ps:objectName>
+        <as:hasRole rdf:resource="&ai;ROLE_ADMIN"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;admin-Password"/>
+        <as:includesPerson rdf:resource="&sec;admin-Person"/>
+        <as:userReceiveEmail rdf:datatype="&xsd;boolean">true</as:userReceiveEmail>
+        <as:userReceiveRoutingEmail rdf:datatype="&xsd;boolean">true</as:userReceiveRoutingEmail>
+        <as:userReceiveApprovalEmail rdf:datatype="&xsd;boolean">true</as:userReceiveApprovalEmail>
+        <as:userReceiveTeamCollaborationEmail rdf:datatype="&xsd;boolean">true</as:userReceiveTeamCollaborationEmail>
+        <as:hasDefaultCurrency rdf:resource="&ai;EUR"/>
+        <as:hasCurrency rdf:resource="&ai;EUR"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:containsCompany rdf:resource="&ai;IMCPTELTD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEAMarketingrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEAMarketingrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">EMEAMarketingrep01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EMEAMarketingrep01</ps:objectName>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasRole rdf:resource="&ai;ROLE_MARKETING_EMEA"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;EMEAMarketingrep01-Password"/>
+        <as:includesPerson rdf:resource="&sec;EMEAMarketingrep01-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEAMarketingrep01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEAMarketingrep01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEAMarketingrep01-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEAMarketingrep01-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">EMEAMarketingrep01-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EMEAMarketingrep01-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">EMEAMarketingrep01@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEASalesrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEASalesrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">EMEASalesrep01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EMEASalesRep01</ps:objectName>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasRole rdf:resource="&ai;ROLE_SALES_REP_EMEA"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;EMEASalesrep01-Password"/>
+        <as:includesPerson rdf:resource="&sec;EMEASalesrep01-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEASalesrep01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEASalesrep01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEASalesrep01-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEASalesrep01-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">EMEASalesrep01-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EMEASalesrep01-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">EMEASalesrep01@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEASalesvp-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEASalesvp-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#EMEASalesvp-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;EMEASalesvp-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">EMEASalesvp-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EMEASalesvp-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">EmeaSalesvp@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#Salesops -->
+
+    <owl:NamedIndividual rdf:about="&sec;Salesops">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Salesops</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Salesops</ps:objectName>
+        <as:hasRole rdf:resource="&ai;ROLE_GLOBAL_SALES_OPS"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;Salesops-Password"/>
+        <as:includesPerson rdf:resource="&sec;Salesops-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#Salesops-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;Salesops-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#Salesops-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;Salesops-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">Salesops-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Salesops-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">Salesops@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USMarketingrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;USMarketingrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USMarketingrep01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">USMarketingrep01</ps:objectName>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:hasRole rdf:resource="&ai;ROLE_MARKETING_US"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;USMarketingrep01-Password"/>
+        <as:includesPerson rdf:resource="&sec;USMarketingrep01-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USMarketingrep01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;USMarketingrep01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USMarketingrep01-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;USMarketingrep01-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">USMarketingrep01-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">USMarketingrep01-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">USMarketingrep01@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesman -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesman">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesman</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesman</ps:objectName>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasRole rdf:resource="&ai;ROLE_SALES_MGR_US"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;USSalesman-Password"/>
+        <as:includesPerson rdf:resource="&sec;USSalesman-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesman-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesman-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesman-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesman-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesman-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesman-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">USSalesman@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesrep01</rdfs:label>
+        <ps:objectExternalID rdf:datatype="&xsd;string">8000000006</ps:objectExternalID>
+        <ps:objectID rdf:datatype="&xsd;string">E1005</ps:objectID>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesrep01</ps:objectName>
+        <as:userReceiveEmail rdf:datatype="&xsd;boolean">true</as:userReceiveEmail>
+        <as:userReceiveRoutingEmail rdf:datatype="&xsd;boolean">true</as:userReceiveRoutingEmail>
+        <as:userReceiveApprovalEmail rdf:datatype="&xsd;boolean">true</as:userReceiveApprovalEmail>
+        <as:userReceiveTeamCollaborationEmail rdf:datatype="&xsd;boolean">true</as:userReceiveTeamCollaborationEmail>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:containsCompany rdf:resource="&ai;IMCPTELTD"/>
+        <as:hasRole rdf:resource="&ai;ROLE_SALES_REP_US"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:hasDefaultCurrency rdf:resource="&ai;EUR"/>
+        <as:includesUserPassword rdf:resource="&sec;USSalesrep01-Password"/>
+        <as:includesPerson rdf:resource="&sec;USSalesrep01-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep01-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep01-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressUnitNo rdf:datatype="&xsd;string">3410</as:addressUnitNo>
+        <as:addressZip rdf:datatype="&xsd;string">94304</as:addressZip>
+        <as:addressState rdf:datatype="&xsd;string">CA</as:addressState>
+        <as:addressStreet rdf:datatype="&xsd;string">Hillview Avenue</as:addressStreet>
+        <as:addressCity rdf:datatype="&xsd;string">Palo Alto</as:addressCity>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesrep01-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;US"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep01-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep01-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep01-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep01-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesrep01-Person</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">Lisa Smith</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USSalesrep01</as:personFirstName>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesrep01-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">USSalesrep01@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;FEMALE"/>
+        <as:includesAddress rdf:resource="&sec;USSalesrep01-Address"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep02 -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesrep02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesrep02</ps:objectName>
+        <as:userReceiveEmail rdf:datatype="&xsd;boolean">true</as:userReceiveEmail>
+        <as:userReceiveTeamCollaborationEmail rdf:datatype="&xsd;boolean">true</as:userReceiveTeamCollaborationEmail>
+        <as:userReceiveApprovalEmail rdf:datatype="&xsd;boolean">true</as:userReceiveApprovalEmail>
+        <as:userReceiveRoutingEmail rdf:datatype="&xsd;boolean">true</as:userReceiveRoutingEmail>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:containsCompany rdf:resource="&ai;IMCPTELTD"/>
+        <as:hasRole rdf:resource="&ai;ROLE_SALES_REP_US"/>
+        <as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+        <as:includesUserPassword rdf:resource="&sec;USSalesrep02-Password"/>
+        <as:includesPerson rdf:resource="&sec;USSalesrep02-Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep02-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep02-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#USSalesrep02-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep02-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesrep02-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">USSalesrep02-Person</ps:objectName>
+        <as:personEmail rdf:datatype="&xsd;string">USSalesrep02@fakemail.com</as:personEmail>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#admin-Password -->
+
+    <owl:NamedIndividual rdf:about="&sec;admin-Password">
+        <rdf:type rdf:resource="&as;UserPassword"/>
+        <ps:objectName rdf:datatype="&xsd;string">8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918</ps:objectName>
+        <as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#admin-Person -->
+
+    <owl:NamedIndividual rdf:about="&sec;admin-Person">
+        <rdf:type rdf:resource="&as;Person"/>
+        <rdfs:label rdf:datatype="&xsd;string">admin-Person</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">admin-Person</ps:objectName>
+        <as:personFirstName rdf:datatype="&xsd;string">In Mind</as:personFirstName>
+        <as:personLastName rdf:datatype="&xsd;string">Admin</as:personLastName>
+        <as:personEmail rdf:datatype="&xsd;string">admin@fakemail.com</as:personEmail>
+        <as:includesAddress rdf:resource="&sec;admin-Address"/>
+        <as:hasGender rdf:resource="&ai;MALE"/>
+    </owl:NamedIndividual>
+    
+    
+    <!-- http://www.inmindcloud.com/security/security-implementation.owl#admin-Address -->
+
+    <owl:NamedIndividual rdf:about="&sec;admin-Address">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressUnitNo rdf:datatype="&xsd;string">35</as:addressUnitNo>
+        <as:addressZip rdf:datatype="&xsd;string">94304</as:addressZip>
+        <as:addressState rdf:datatype="&xsd;string">SG</as:addressState>
+        <as:addressStreet rdf:datatype="&xsd;string">Ann Siang</as:addressStreet>
+        <as:addressCity rdf:datatype="&xsd;string">Singapore</as:addressCity>
+        <ps:objectName rdf:datatype="&xsd;string">admin-Address</ps:objectName>
+        <as:hasCountry rdf:resource="&ai;SG"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

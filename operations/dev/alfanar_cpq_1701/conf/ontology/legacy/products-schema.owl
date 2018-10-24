@@ -1,0 +1,1544 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#includesCostComponent -->
+
+    <owl:ObjectProperty rdf:about="&pcs;includesCostComponent">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#breakerCurrentTotal -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;breakerCurrentTotal">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?breakerCurrentTotal)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?config.
+   ?minorSi as:includesItemHeaderPriceItem ?ihpi.
+   ?ihpi as:itemHeaderQuantity ?cq.
+   ?config ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?obj.
+   ?da ps:isDynamicAttribute pci:Lv-breakerIn.
+   ?obj as:attributionFactor ?bin.
+   ?minorSi as:isProduct pci:LV-BREAKER .
+   ?salesItem as:isProduct pci:LV-CUBICLE .
+   BIND (xsd:decimal(?bin*?cq) AS ?val)
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-CUBICLE-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#copperWeight -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;copperWeight">
+        <rdfs:domain rdf:resource="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costAssemblyBbLabPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costAssemblyBbLabPerHour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Assembly (Bb) Lab</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costAssemblyBbMcnPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costAssemblyBbMcnPerHour">
+        <rdfs:label xml:lang="en">Assembly (Bb) Mcn</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costBasbarCellLabPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costBasbarCellLabPerHour">
+        <rdfs:label xml:lang="en">Basbar Cell Lab</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costBasbarCellMcnPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costBasbarCellMcnPerHour">
+        <rdfs:label xml:lang="en">Basbar Cell Mcn</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costBusbarTechLabPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costBusbarTechLabPerHour">
+        <rdfs:label xml:lang="en">Busbar Techn Lab</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costBusbarTechMcnPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costBusbarTechMcnPerHour">
+        <rdfs:label xml:lang="en">Busbar Techn Mcn</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costFabOfCopper -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costFabOfCopper">
+        <rdfs:label xml:lang="en">Fab of Copper</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costLMECopperPerKG -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costLMECopperPerKG">
+        <rdfs:label xml:lang="en">LME Copper</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costLMEPerKG -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costLMEPerKG">
+        <rdfs:label xml:lang="en">LME Cost (per KG)</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costLazerLabPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costLazerLabPerHour">
+        <rdfs:label xml:lang="en">Lazer Engraving M/C Lab</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costLazerMcnPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costLazerMcnPerHour">
+        <rdfs:label xml:lang="en">Lazer Engraving M/C Mcn</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costTinPlating -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costTinPlating">
+        <rdfs:label xml:lang="en">Tin Plating</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costTinPlatingPerKG -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costTinPlatingPerKG">
+        <rdfs:label xml:lang="en">TIN Plating ( per KG)</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costWiringLabPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costWiringLabPerHour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Wiring Lab </rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#costWiringMcnPerHour -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;costWiringMcnPerHour">
+        <rdfs:label xml:lang="en">Wiring Mcn</rdfs:label>
+        <rdfs:domain rdf:resource="&pcs;CostComponent"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#cubicleDoorSpace -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;cubicleDoorSpace">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?cubicleDoorSpace)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?config.
+   ?minorSi as:includesItemHeaderPriceItem ?ihpi.
+   ?ihpi as:itemHeaderQuantity ?cq.
+   ?config ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?obj.
+   ?da ps:isDynamicAttribute pci:Lv-breakerIn.
+   ?obj as:attributionFactor ?bin.
+   ?minorSi as:isProduct pci:LV-BREAKER .
+   ?salesItem as:isProduct pci:LV-CUBICLE .
+   ?config ps:includesDynamicAttribute ?da2.
+?da2 ps:usesSymbolicValue ?D.
+   ?D ps:objectName ?o.
+   FILTER(?o = &quot;BREAKER_TYPE_MCCB&quot;)
+   BIND (IF (xsd:decimal(?bin) &gt; xsd:decimal(399), xsd:decimal(4) * ?cq, xsd:decimal(3)* ?cq) AS ?val)
+
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-CUBICLE-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#manufacturer -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;manufacturer">
+        <rdfs:domain rdf:resource="&pcs;LV-BREAKER-MATERIAL-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;materialCost">
+        <rdfs:domain rdf:resource="&pcs;LV-BREAKER-MATERIAL-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialRoutingAssemblyHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;materialRoutingAssemblyHrs">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Assembly Hrs</rdfs:label>
+        <ps:group rdf:resource="&pcs;GroupLV-BREAKER"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&pcs;LV-BREAKER-MATERIAL-KB"/>
+                    <rdf:Description rdf:about="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialRoutingBasbarCellHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;materialRoutingBasbarCellHrs">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&pcs;LV-BREAKER-MATERIAL-KB"/>
+                    <rdf:Description rdf:about="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialRoutingBusbarTechnHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;materialRoutingBusbarTechnHrs">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&pcs;LV-BREAKER-MATERIAL-KB"/>
+                    <rdf:Description rdf:about="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialRoutingLaserHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;materialRoutingLaserHrs">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&pcs;LV-BREAKER-MATERIAL-KB"/>
+                    <rdf:Description rdf:about="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#materialRoutingWiringHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;materialRoutingWiringHrs">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Wiring Hrs</rdfs:label>
+        <ps:group rdf:resource="&pcs;GroupLV-BREAKER"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&pcs;LV-BREAKER-MATERIAL-KB"/>
+                    <rdf:Description rdf:about="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#reportBBposition -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;reportBBposition">
+        <ps:sparql>SELECT ?subject ?reportBBposition WHERE {
+   ?subject ps:includesDynamicAttribute ?dyn.
+   ?dyn ps:usesSymbolicValue ?val.
+   ?val ps:objectName ?reportBBposition.
+   ?dyn ps:objectName ?dname.
+   Filter (?dname = &quot;LV-SB-MF_BBP&quot;)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostCopper -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostCopper">
+        <rdfs:label xml:lang="en">Copper Cost</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:sparql>SELECT  ?subject ?sbCostCopper
+WHERE {
+  ?subject as:configItemIncludedBy ?sbsi.
+  ?subject pcs:includesCostComponent ?cc.
+  ?cc pcs:costLMECopperPerKG ?lme.
+  ?subject pcs:sbTotalCopperWeight ?wgt.
+  BIND ((?wgt * ?lme ) AS ?sbCostCopper).
+}</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostLabor -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostLabor">
+        <rdfs:label xml:lang="en">Labor Cost</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:sparql>SELECT  ?subject ?sbCostLabor
+WHERE {
+  ?subject as:configItemIncludedBy ?sbsi.
+  ?subject pcs:includesCostComponent ?cc.
+  ?cc pcs:costAssemblyBbLabPerHour ?ablcph.
+  ?cc pcs:costWiringLabPerHour ?wircph.
+  ?cc pcs:costBasbarCellLabPerHour ?bbccph.
+  ?cc pcs:costBusbarTechLabPerHour ?bbltcph.
+  ?cc pcs:costLazerLabPerHour ?lazcph.
+ ?subject pcs:sbTotalRoutingWiringHrs ?whrs.
+ ?subject pcs:sbTotalRoutingLaserHrs ?lhrs.
+ ?subject pcs:sbTotalRoutingBusbarTechnHrs ?bthrs.
+ ?subject pcs:sbTotalRoutingBasbarHrs ?bbhrs.
+ ?subject pcs:sbTotalRoutingAssemblyHrs ?ahrs.
+  BIND ((?ahrs * ?ablcph + ?whrs * ?wircph +  ?bbhrs * ?bbccph + ?bthrs * ?bbltcph    +    ?lhrs  *    ?lazcph ) AS ?sbCostLabor).
+}</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostMachine -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostMachine">
+        <rdfs:label xml:lang="en">Machine Cost</rdfs:label>
+        <ps:sparql xml:lang="en">SELECT  ?subject ?sbCostMachine
+WHERE {
+  ?subject as:configItemIncludedBy ?sbsi.
+  ?subject pcs:includesCostComponent ?cc.
+  ?cc pcs:costAssemblyBbMcnPerHour ?ablcph.
+  ?cc pcs:costWiringMcnPerHour ?wircph.
+  ?cc pcs:costBasbarCellMcnPerHour ?bbccph.
+  ?cc pcs:costBusbarTechMcnPerHour ?bbltcph.
+  ?cc pcs:costLazerMcnPerHour ?lazcph.
+ ?subject pcs:sbTotalRoutingWiringHrs ?whrs.
+ ?subject pcs:sbTotalRoutingLaserHrs ?lhrs.
+ ?subject pcs:sbTotalRoutingBusbarTechnHrs ?bthrs.
+ ?subject pcs:sbTotalRoutingBasbarHrs ?bbhrs.
+ ?subject pcs:sbTotalRoutingAssemblyHrs ?ahrs.
+  BIND ((?ahrs * ?ablcph + ?whrs * ?wircph +  ?bbhrs * ?bbccph + ?bthrs * ?bbltcph    +    ?lhrs  *    ?lazcph ) AS ?sbCostMachine).
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostMaterial -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostMaterial">
+        <rdfs:label xml:lang="en">Material Cost</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:sparql>#SELECT ?subject (SUM(?cost) AS ?sbCostMaterial) WHERE {
+ #?subject as:configItemIncludedBy ?sbsi.
+  #?sbsi as:includesSalesItem+ ?si.
+ # ?si as:includesConfigItem ?conf.
+ # ?conf pcs:breakerCost ?cost
+#} GROUP BY ?subject
+
+SELECT ?subject (SUM(?cost) AS ?sbCostMaterial) WHERE {
+   ?subject as:configItemIncludedBy ?sbsi.
+   ?sbsi as:includesSalesItem+ ?si.
+   ?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+   ?si as:includesConfigItem ?conf.
+   ?conf pcs:materialCost ?cost1.
+   BIND (?cost1 * ?qty as ?cost)
+} GROUP BY ?subject
+</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostOH -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostOH">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Overhead Cost</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sparql>  Select ?subject ?sbCostOH WHERE
+   {
+   ?subject pcs:sbCostLabor ?lab.
+   ?subject pcs:sbCostMaterial ?mat.
+?subject pcs:sbCostCopper ?cop
+   BIND ((?mat + ?cop) * xsd:decimal(0.03) + ?lab * xsd:decimal(0.05) as ?sbCostOH)
+  } </ps:sparql>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostSFG -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostSFG">
+        <rdfs:label xml:lang="en">Semi Finished Good Cost</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:sparql>SELECT ?subject (SUM(?cost) AS ?sbCostSFG) WHERE {
+   ?subject as:configItemIncludedBy ?sbsi.
+   ?sbsi as:includesSalesItem+ ?si.
+   ?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+   ?si as:includesConfigItem ?conf.
+   ?conf pcs:sfgCost ?cost1.
+   BIND (?cost1 * ?qty as ?cost)
+} GROUP BY ?subject
+</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbCostTotal -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbCostTotal">
+        <rdfs:label xml:lang="en">Total Cost</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sparql>SELECT ?subject ?sbCostTotal WHERE {
+   ?subject  pcs:sbCostMaterial ?mat.
+    ?subject  pcs:sbCostOH ?oh.
+    ?subject  pcs:sbCostLabor ?lab.
+?subject pcs:sbCostCopper ?cop.
+?subject pcs:sbCostSFG ?sfg.
+
+   BIND (?mat + ?oh + ?lab + ?cop + ?sfg as ?sbCostTotal)
+}
+</ps:sparql>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalCopperWeight -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalCopperWeight">
+        <ps:sparql>SELECT ?subject (SUM(?wgt) AS ?sbTotalCopperWeight) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+  ?conf pcs:copperWeight ?wgt1.
+BIND (?wgt1 * ?qty as ?wgt)
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalRoutingAssemblyHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalRoutingAssemblyHrs">
+        <rdfs:label xml:lang="en">Assembly (Bb) Routing hrs</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql>SELECT ?subject (SUM(?hrs) AS ?sbTotalRoutingAssemblyHrs) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+  ?conf pcs:materialRoutingAssemblyHrs ?hrs1.
+BIND (?hrs1 * ?qty as ?hrs)
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalRoutingBasbarHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalRoutingBasbarHrs">
+        <rdfs:label xml:lang="en">Basbar Cell Routing Hrs</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql>SELECT ?subject (SUM(?hrs) AS ?sbTotalRoutingBasbarHrs) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+  ?conf pcs:materialRoutingBasbarCellHrs ?hrs1.
+BIND (?hrs1 * ?qty as ?hrs)
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalRoutingBusbarTechnHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalRoutingBusbarTechnHrs">
+        <rdfs:label xml:lang="en">Busbar Techn Routing Hrs</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql>SELECT ?subject (SUM(?hrs) AS ?sbTotalRoutingBusbarTechnHrs) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+  ?conf pcs:materialRoutingBusbarTechnHrs ?hrs1.
+BIND (?hrs1 * ?qty as ?hrs)
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalRoutingLaserHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalRoutingLaserHrs">
+        <rdfs:label xml:lang="en">Lazer Engraving Routing Hrs</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql>SELECT ?subject (SUM(?hrs) AS ?sbTotalRoutingLaserHrs) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+  ?conf pcs:materialRoutingLaserHrs ?hrs1.
+BIND (?hrs1 * ?qty as ?hrs)
+} GROUP BY ?subject
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalRoutingWiringHrs -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalRoutingWiringHrs">
+        <rdfs:label xml:lang="en">Wiring Routing Hrs</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql>SELECT  (SUM(?hrs) as ?sbTotalBreakerWiringHrs) WHERE {
+?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+?si as:includesItemHeaderPriceItem ?ihp.
+   ?ihp as:itemHeaderQuantity ?qty.
+  ?conf pcs:materialRoutingWiringHrs ?hrs1.
+BIND (?hrs1 * ?qty as ?hrs)
+} GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalSFGAreaPlating -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalSFGAreaPlating">
+        <ps:sparql>SELECT  (SUM(?hrs) as ?sbTotalSFGArea) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+  ?conf pcs:sfgArea ?hrs
+}
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sbTotalSFGWeight -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sbTotalSFGWeight">
+        <ps:sparql>SELECT  (SUM(?hrs) as ?sbTotalSFGWeight) WHERE {
+ ?subject as:configItemIncludedBy ?sbsi.
+  ?sbsi as:includesSalesItem+ ?si.
+  ?si as:includesConfigItem ?conf.
+  ?conf pcs:sfgWeight ?hrs
+}
+</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sfgArea -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sfgArea">
+        <rdfs:domain rdf:resource="&pcs;LV-SFG-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sfgCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sfgCost">
+        <rdfs:domain rdf:resource="&pcs;LV-CUBICLE-MATERIAL-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#sfgWeight -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;sfgWeight">
+        <rdfs:domain rdf:resource="&pcs;LV-SFG-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#switchboardId -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;switchboardId">
+        <ps:sparql>SELECT ?subject ?switchboardId WHERE {
+   ?subject as:configItemIncludedBy ?si.
+   ?si as:salesItemIncludedBy+ ?sbsi.
+   ?sbsi as:isProduct pci:LV-SB-MF.
+   ?sbsi ps:objectId ?switchboardId.
+}</ps:sparql>
+        <rdfs:comment>For Report generation only</rdfs:comment>
+        <rdfs:domain rdf:resource="&pcs;LV-BREAKER-MATERIAL-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#CostComponent -->
+
+    <owl:Class rdf:about="&pcs;CostComponent">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-BREAKER-ACCESSORY-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-BREAKER-ACCESSORY-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-BREAKER-ACCESSORY-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-BREAKER-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-CUBICLE-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-SB-MF-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-BREAKER-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-BREAKER-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-CUBICLE-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-BREAKER-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-BREAKER-MATERIAL-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-BREAKER-MATERIAL-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-CUBICLE-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-CUBICLE-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-CUBICLE-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-CUBICLE-MATERIAL-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-CUBICLE-MATERIAL-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-METERING-ACCESSORY-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-METERING-ACCESSORY-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-CUBICLE-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-BREAKER-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;LV-SB-MF-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SFG-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-SFG-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC -->
+
+    <owl:NamedIndividual rdf:about="&as;TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC">
+        <rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+        <rdfs:label xml:lang="de">Generische CSTIC Auswahl</rdfs:label>
+        <rdfs:label xml:lang="en">Generic CSTIC selection</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1000</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+CONSTRUCT
+{
+   #?aAttribute ps:dynamicAttributeReadOnly ?readonly .
+   ?aAttribute ps:usesSymbolicValue ?aValue .
+}
+WHERE {
+   {SELECT ?aAttribute ?aValue ?readonly WHERE {
+                 ?quote rdf:type ps:ActiveObject .
+               ?quote rdf:type as:Quote .
+               ?salesItem as:salesItemIncludedBy+ ?quote.
+               ?salesItem as:includesConfigItem ?config .
+               ?config ps:includesDynamicAttribute ?aSelectedAttribute .
+               ?aSelectedAttribute  ps:usesSymbolicValue ?value .
+               ?value ps:isSymbolicValue ?valueUri .
+         ?value ps:selectsSymbolicValue ?aValue .
+               ?currentRange ps:includesSymbolicValue ?aValue .
+         ?aAttribute ps:includesAttributeRange ?currentRange .
+          BIND(&quot;true&quot;^^xsd:boolean as ?readonly)
+#FILTER NOT EXISTS { ?aAttribute ps:usesSymbolicValue ?alreadySomethingSelected  }
+      }
+   }
+   UNION
+   {SELECT ?aAttribute ?aValue ?readonly WHERE {
+         # values that could be activated
+         ?aAttribute ps:includesAttributeRange ?currentRange .
+         ?currentRange ps:includesSymbolicValue ?aValue .
+         ?aValue rdf:type ps:ActiveSymbolicValue.
+         {
+            SELECT ?aAttribute (COUNT(?aAttribute) as ?countActiveValues) WHERE {
+               # values that could be activated
+               ?quote rdf:type ps:ActiveObject .
+               ?quote rdf:type as:Quote .
+               ?salesItem as:salesItemIncludedBy+ ?quote.
+               ?salesItem as:includesConfigItem ?config .
+               ?config ps:includesDynamicAttribute ?aAttribute .
+               ?aAttribute ps:includesAttributeRange ?currentRange .
+               ?currentRange ps:includesSymbolicValue ?aValue .
+               ?aValue rdf:type ps:ActiveSymbolicValue.
+            } GROUP BY ?aAttribute
+         }
+         BIND(&quot;false&quot;^^xsd:boolean as ?readonly)
+         FILTER(?countActiveValues = 1)
+         FILTER NOT EXISTS {
+            ?aAttribute ps:usesSymbolicValue ?activeValue .
+            FILTER(?aValue != ?activeValue)
+         }
+      }
+   }
+}
+</ps:sparql>
+        <ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC</ps:objectName>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC</ps:objectExternalId>
+        <ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+        <ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+        <ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-BREAKER -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-BREAKER">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Breaker</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">1</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-BREAKER</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-BREAKER-ACCESSORY -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-BREAKER-ACCESSORY">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Breaker accessory</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">1</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-BREAKER-ACCESSORY</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-CUBICLE -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-CUBICLE">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Cubicle</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">1</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-CUBICLE</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-SB-MF -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-SB-MF">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">electrical characteristics</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">1</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-SB-MF</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-SB_BB -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-SB_BB">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">busbars characteristics</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">3</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-SB_BB</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-SB_ENCLOSURE -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-SB_ENCLOSURE">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">mechanical characteristics for Enclosure</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">2</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-SB_ENCLOSURE</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#TRIGGERED_CALCULATION_CUBICLE_BBP -->
+
+    <owl:NamedIndividual rdf:about="&pcs;TRIGGERED_CALCULATION_CUBICLE_BBP">
+        <rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+        <ps:sequenceID rdf:datatype="&xsd;int">-1000</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+
+CONSTRUCT
+{
+   ?cbbp ps:usesSymbolicValue ?result.
+}
+WHERE
+{
+   ?quote rdf:type ps:ActiveObject .
+   ?quote rdf:type as:Quote .
+   ?salesItem as:salesItemIncludedBy+ ?quote.
+   ?salesItem as:isProduct pci:LV-SB-MF.
+   #?salesItem as:includesSalesItem ?cubicle.
+   ?cubicle as:salesItemIncludedBy ?salesItem .
+   ?cubicle as:isProduct pci:LV-CUBICLE.
+   ?salesItem as:includesConfigItem ?config .
+   ?config ps:includesDynamicAttribute ?attribute.
+   ?attribute ps:isDynamicAttribute pci:Lv-sb-mfIncomCable.
+   ?attribute ps:usesSymbolicValue ?value.
+   ?value ps:isSymbolicValue ?valueUri.
+   ?cubicle as:includesConfigItem ?cubicleconfig .
+   ?cubicleconfig ps:includesDynamicAttribute ?cbbp.
+   ?cbbp ps:isDynamicAttribute pci:Lv-cubicleBbp.
+   ?cbbp ps:includesAttributeRange ?range .
+   ?range ps:includesSymbolicValue ?uhbb .
+   ?uhbb ps:isSymbolicValue pci:CubicleUhbb .
+   ?range ps:includesSymbolicValue ?lhbb .
+   ?lhbb ps:isSymbolicValue pci:CubicleLhbb .
+   BIND (IF(?valueUri = pci:SbIncomCableBottom,
+         ?uhbb , ?lhbb)      as ?result)
+}</ps:sparql>
+        <ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_CUBICLE_BBP</ps:objectName>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_CUBICLE_BBP</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_CUBICLE_BBP</ps:objectId>
+        <ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+        <ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+        <ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#TRIGGERED_CALCULATION_CUBICLE_FREE_SPACE -->
+
+    <owl:NamedIndividual rdf:about="&pcs;TRIGGERED_CALCULATION_CUBICLE_FREE_SPACE">
+        <rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+        <ps:sequenceID rdf:datatype="&xsd;int">10001</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX ase: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+
+CONSTRUCT
+{
+   ?bom as:hasProduct ?product .
+   ?bom as:hasProduct ?product2.
+}
+WHERE
+{
+
+   SELECT ?bom ?product ?product2
+   WHERE {
+      FILTER (!bound(?_activeConfig))
+      {SELECT ?config (sum(?val) as ?space)
+         WHERE {
+            ?config as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesSalesItem ?minorSi .
+            ?minorSi as:includesConfigItem ?config2.
+            ?minorSi as:includesItemHeaderPriceItem ?ihpi.
+            ?ihpi as:itemHeaderQuantity ?cq.
+            ?config2 ps:includesDynamicAttribute ?da.
+            ?da ps:usesSymbolicValue ?obj.
+            ?da ps:isDynamicAttribute pci:Lv-breakerIn.
+            ?obj as:attributionFactor ?bin.
+            ?minorSi as:isProduct pci:LV-BREAKER .
+            ?salesItem as:isProduct pci:LV-CUBICLE .
+            ?config2 ps:includesDynamicAttribute ?da2.
+            ?da2 ps:usesSymbolicValue ?D.
+            ?D ps:objectName ?o.
+            FILTER(?o = &quot;BREAKER_TYPE_MCCB&quot;)
+            BIND (IF (xsd:decimal(?bin) &gt; xsd:decimal(399), xsd:decimal(4) * ?cq, xsd:decimal(3)* ?cq) AS ?val)
+
+         } GROUP BY ?config
+      }
+      ?quote rdf:type ps:ActiveObject .
+      ?quote rdf:type as:Quote .
+      ?salesItem as:salesItemIncludedBy+ ?quote.
+      ?salesItem as:isProduct pci:LV-CUBICLE.
+      ?salesItem as:includesConfigItem ?config .
+      ?salesItem as:includesSalesItem ?s2.
+      ?config ase:cubicleNoSpaceValidationError ?error.
+
+      FILTER(?error != true).
+      BIND (xsd:decimal(46 - 6 - ?space) as ?mod).
+      Filter(?mod != 40)
+      BIND (IF((?mod &gt; 0 &amp;&amp; ?mod &lt; 10), xsd:string(&quot;http://www.inmindcomputing.com/application/products/products-implementation.owl#FRM220&quot; + xsd:string(?mod)), IF((?mod &gt; 9),xsd:string(&quot;http://www.inmindcomputing.com/application/products/products-implementation.owl#FRM22&quot; + xsd:string(?mod)), &quot;&quot;)) as ?p1).
+
+      BIND (IF((?mod &gt; 0 &amp;&amp; ?mod &lt; 10), xsd:string(&quot;http://www.inmindcomputing.com/application/products/products-implementation.owl#CVR110&quot; + xsd:string(?mod)), IF((?mod &gt; 9),xsd:string(&quot;http://www.inmindcomputing.com/application/products/products-implementation.owl#CVR11&quot; + xsd:string(?mod)), &quot;&quot;)) as ?p2).
+
+      BIND (IF(?p1 != &apos;&apos;, uri(?p1),?nothing) as ?product).
+      BIND (IF(?p2 != &apos;&apos;, uri(?p2),?nothing2) as ?product2).
+      # ?product a as:Product.
+
+   }
+
+}
+</ps:sparql>
+        <ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_CUBICLE_FREE_SPACE</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_CUBICLE_FREE_SPACE</ps:objectId>
+        <ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+        <ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+        <ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#TRIGGERED_CALCULATION_DYNAMIC_HIDE -->
+
+    <owl:NamedIndividual rdf:about="&pcs;TRIGGERED_CALCULATION_DYNAMIC_HIDE">
+        <rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+        <ps:sequenceID rdf:datatype="&xsd;int">1002</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+CONSTRUCT
+{
+   ?aAttribute ps:dynamicAttributeHidden  &quot;true&quot;^^xsd:boolean .
+}
+WHERE {
+   {SELECT ?aAttribute  WHERE {
+         BIND (?_activeConfig as ?config)
+         ?quote rdf:type ps:ActiveObject .
+         ?quote rdf:type as:Quote .
+         ?salesItem as:salesItemIncludedBy+ ?quote.
+         ?salesItem as:includesConfigItem ?config .
+         ?config ps:includesDynamicAttribute ?aSelectedAttribute .
+         ?aSelectedAttribute  ps:usesSymbolicValue ?value .
+         ?value ps:hidesDynamicAttribute ?aAttribute.
+         ?config ps:includesDynamicAttribute ?aAttribute.
+
+
+      }
+   }
+}</ps:sparql>
+        <ps:objectName rdf:datatype="&xsd;string">TRIGGERED CALCULATION DYNAMIC HIDE</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DYNAMIC_HIDE</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DYNAMIC_HIDE</ps:objectExternalId>
+        <ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+        <ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+        <ps:deleteAllowed>false</ps:deleteAllowed>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,92 @@
+ruleNet ENTERPRISE_ROUTER_RNET {
+  rules
+    INIT_HLP_VIS,
+    SET_HLP_VIS,
+    LISTPRICE_2_PRODUCTPRICE,
+    MODEL_R2000_PRODUCTPRICE,
+    MODEL_X4000_PRODUCTPRICE,
+    STD_PORT_2_PRODUCTPRICE,
+    ADD_PORT_2_PRODUCTPRICE,
+    MNTNG_WALL_PRODUCTPRICE,
+    MNTNG_RACK_PRODUCTPRICE
+}
+
+rule INIT_HLP_VIS {
+  objects: 
+    ?O is_a (300)ENTERPRISE_ROUTER
+  body:
+    then increment: ?O.HLP_VIS by 0
+}
+
+rule SET_HLP_VIS {
+  objects: 
+    ?O is_a (300)ENTERPRISE_ROUTER
+  condition:
+ 	?O.MODEL specified and 
+	?O.REGULATORY_DOMAIN specified and 
+	?O.AP_COUNT specified
+  body:
+    then increment: ?O.HLP_VIS by 1
+	
+}
+
+rule LISTPRICE_2_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+	body:
+		then increment: ?O.PRICE_AGGR by ?O.PRODUCTLISTPRICE		
+}
+
+rule MODEL_R2000_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+    condition:
+    	?O.MODEL = 'R2000'
+	body:
+		then increment: ?O.PRICE_AGGR by 150
+}
+
+rule MODEL_X4000_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+    condition:
+    	?O.MODEL = 'X4000'
+	body:
+		then increment: ?O.PRICE_AGGR by 500
+}
+
+rule STD_PORT_2_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+    condition:
+    	?O.PORT_DEFAULT_ADDONS = 2
+	body:
+		then increment: ?O.PRICE_AGGR by 50
+}
+
+rule ADD_PORT_2_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+    condition:
+    	?O.PORT_ADDITIONAL_ADDONS > 0
+	body:
+		then increment: ?O.PRICE_AGGR by ?O.PORT_ADDITIONAL_ADDONS * 80
+}
+
+rule MNTNG_WALL_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+    condition:
+    	?O.MOUNTING_OPTION = 'WALL'
+	body:
+		then increment: ?O.PRICE_AGGR by 10
+}
+
+rule MNTNG_RACK_PRODUCTPRICE {
+  	objects: 
+    	?O is_a (300)ENTERPRISE_ROUTER
+    condition:
+    	?O.MOUNTING_OPTION = 'RACK'
+	body:
+		then increment: ?O.PRICE_AGGR by 50
+}

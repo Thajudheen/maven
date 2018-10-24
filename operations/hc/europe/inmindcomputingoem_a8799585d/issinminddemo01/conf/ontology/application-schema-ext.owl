@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xml:base="http://www.inmindcomputing.com/application/application-schema-ext.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-schema-ext.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#ExternalCRM -->
+
+    <owl:NamedIndividual rdf:about="&ase;ExternalCRM">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <as:settingValue rdf:datatype="&xsd;string">SoD</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">This is to define the external system to allow iss to import, synchronize and export.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.externalCRM</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&as;quotePriceAfterExchangeRate">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?quotePriceAfterExchangeRate)
+            WHERE{
+                        ?subject  rdf:type as:Quote .
+                        ?subject as:quotePrice ?price.
+                    OPTIONAL{
+                        ?subject as:includeExchangeRateDocument ?rate .
+                        ?subject as:hasBaseCurrency ?baseCurrency .
+                        ?subject as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:exchangeRate ?rateValue .   }
+                        BIND ( IF ( EXISTS {
+                        ?subject as:includeExchangeRateDocument ?rate .
+                        ?subject as:hasBaseCurrency ?baseCurrency .
+                        ?subject as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                             },
+                        xsd:decimal(?price * ?rateValue), ?price ) AS ?val )
+    }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteForecastedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?objectVal as ?quoteForecastedVolume)
+  where {
+    ?subject as:hasDocumentStatus ?qs .
+    ?subject as:quotePrice ?qp .
+     BIND(
+      if( ?qs = as:ACCEPTED, xsd:decimal(?qp)*0.90,
+      if( ?qs = as:APPROVED, xsd:decimal(?qp)*0.25,
+      if( ?qs = as:COMPLETED, xsd:decimal(?qp)*0.10,
+      if( ?qs = as:OPEN, xsd:decimal(?qp)*0.10,
+      0
+        ) ) ) )
+      as
+      ?objectVal
+   ) .
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productSpec">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quotePrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?quotePrice)
+  WHERE {
+    ?subject as:quotePriceAfterConfigDiscount ?qp .
+    ?subject as:quoteDiscount ?qd .
+    BIND (xsd:decimal(xsd:decimal(?qp)*xsd:decimal(100-?qd)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityWeightedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?opportunityWeightedVolume)
+  WHERE {
+    ?subject as:opportunityVolume ?vol .
+    ?subject as:opportunityChanceofSuccess ?prop .
+    BIND (xsd:decimal(xsd:decimal(?vol)*xsd:decimal(?prop)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationPrice)
+ WHERE {
+  OPTIONAL {?subject as:includesPrice ?price . ?price as:productListPrice ?plp .}
+    OPTIONAL {?subject as:configurationCurrentPrice ?ccp .}
+     BIND (
+      IF (
+       NOT EXISTS {?subject as:configurationCurrentPrice ?ccp},
+       IF(
+        NOT EXISTS {?subject as:includesPrice ?price .?price as:productListPrice ?plp},
+        xsd:decimal(0),
+       ?plp
+       ),
+       ?ccp
+    ) AS ?val
+  )
+ }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationTotalPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationTotalPrice)
+  WHERE {
+    ?subject as:configurationUnitPrice ?cp .
+    ?subject as:configurationQuantity ?cq .
+    OPTIONAL {?subject as:configurationOptionalRequired ?co .
+                        ?subject as:configurationOptionsPrice ?cop .}
+    BIND (
+        if (NOT EXISTS {?subject as:configurationOptionalRequired ?co .
+                                  ?subject as:configurationOptionsPrice ?cop},
+          xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq)),
+          if ( ?co = xsd:boolean(false), xsd:decimal(0) ,
+          xsd:decimal((xsd:decimal(?cp) + xsd:decimal(?cop)) * xsd:decimal(?cq))
+        )) AS ?val
+    )
+  }
+
+  </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;enterpriseImage">
+        <ps:defaultValue rdf:datatype="&xsd;string">logo.png</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productIsOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationUnitPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationUnitPrice)
+  WHERE {
+    ?subject as:configurationPrice ?cp .
+    OPTIONAL { ?subject as:configurationDiscount ?cnfDscnt . }
+    BIND ( IF (BOUND(?cnfDscnt), ?cnfDscnt, 0.0) AS ?cd ) .
+    BIND (xsd:decimal(xsd:decimal(100 - ?cd) * 0.01 * xsd:decimal(?cp))  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productConfigurable">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quotePriceAfterConfigDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?quotePriceAfterConfigDiscount)
+  WHERE
+  {
+    ?subject as:includesConfiguration+ ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:configurationTotalPrice ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationQuantity">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">1.0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productRating">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentVersion">
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationCost">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationCost)
+  WHERE {
+    ?subject as:configurationPrice ?cp .
+    BIND (xsd:decimal(?cp * 0.8) AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteForecastedRevenue">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject ((100-?cd)*0.01*?quoteRevenueBeforeDiscount as ?quoteForecastedRevenue)
+  where {
+    ?subject as:quoteDiscount ?cd .
+    {
+    SELECT ?subject (sum(?configurationFirstYearRevenue) as ?quoteRevenueBeforeDiscount)
+    where {
+      ?subject as:includesConfiguration+ ?cSubject .
+      ?cSubject as:configurationFirstYearRevenue ?configurationFirstYearRevenue .
+    }
+    group by ?subject
+    }
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteListPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?quoteListPrice)
+  WHERE
+  {
+    ?subject as:includesConfiguration+ ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:configurationQuantity ?cq .
+             ?c as:configurationPrice ?cp .
+             BIND (xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq))  AS ?val)
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationRevenueStartDate">
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?objectVal as ?configurationRevenueStartDate)
+  where {
+    ?subject as:configurationIncludedBy+ ?quoteID .
+    ?quoteID as:quoteEffectiveDate ?objectVal1 .
+    OPTIONAL {
+      ?subject pcs:subscriptionStart ?objectVal2
+    }
+    BIND(if(NOT EXISTS {?subject pcs:subscriptionStart ?objectVal2}, ?objectVal1, ?objectVal2) as ?objectVal)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscountLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteId">
+        <rdfs:comment rdf:datatype="&xsd;string">select ?subject (concat(ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 4, &quot;0&quot;), &quot;/&quot;, ?companyAbbr, &quot;/&quot;, ?fyShortText, &quot;/&quot;, ps:leftPad(ps:sequencetable(&quot;COMPANYQUOTE&quot;, ?company  ), 4, &quot;0&quot;)) as ?quoteId)
+where {
+   ?subject as:hasCompany ?company.
+   ?company as:companyAbbreviation ?companyAbbr.
+   {
+     select ?fyShortText
+     where
+     {
+         ?fy a as:FiscalPeriod.
+         ?fy ps:businessTypeShortText ?fyShortText.
+         ?fy as:fiscalPeriodEndDate ?fyEndDate.
+         ?fy as:fiscalPeriodStartDate ?fyStartDate.
+         filter(now()&gt;?fyStartDate &amp;&amp;  now() &lt;?fyEndDate)
+      }
+   }
+}</rdfs:comment>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 5, &quot;0&quot;) as ?quoteId) where { }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationMargin">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationMargin)
+  WHERE {
+    ?subject as:configurationUnitPrice ?cp .
+    ?subject as:configurationCost ?cc .
+    BIND ( (xsd:decimal(?cp) - xsd:decimal(?cc)) / xsd:decimal(?cc) * 100  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbVersion">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;groupHidden">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationFirstYearRevenue">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (avg(?objectVal) as ?configurationFirstYearRevenue)
+  where {
+    ?subject as:configurationTotalPrice ?cp .
+    ?subject as:configurationRevenueStartDate ?startD .
+    OPTIONAL {
+      ?subject pcs:subscriptionYears ?sY .
+    }
+    BIND(
+      if( NOT EXISTS {?subject pcs:subscriptionYears ?sY},
+        xsd:decimal(?cp),    xsd:int(STRAFTER(STRBEFORE(xsd:string(xsd:date(CONCAT(xsd:string(YEAR(?startD)),&quot;-12-31&quot;)) - xsd:date(?startD)),&quot;D&quot;),&quot;P&quot;))/(?sY * 365)*xsd:decimal(?cp)
+      ) as ?objectVal
+    )
+  }
+  group by ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationCurrentPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationCurrentPrice)
+ WHERE {
+  ?subject as:isProduct ?p .
+   OPTIONAL {?p as:productContainedBy pci:Cubicle . ?subject pcs:cubiclePrice ?val .}
+   OPTIONAL {?p as:productContainedBy pci:Light . ?subject pcs:lightPrice ?val .}
+   OPTIONAL {?p as:productContainedBy pci:Tracks . ?subject pcs:tracksPrice ?val .}
+   OPTIONAL {?p as:productContainedBy pci:Subscription . ?subject pcs:subscriptionPrice ?val .}
+   OPTIONAL {?p as:productContainedBy pci:Others . ?subject pcs:othersPrice ?val .}
+   OPTIONAL {?subject ssc:productPrice ?val .}
+ }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDescription">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productListPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationOptionalRequired">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">true</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbType">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?configurationError
+  where {
+  ?subject as:isProduct ?product .
+  ?product as:includesKnowledgeBase ?kbObj .
+  ?kbObj rdf:type ?kbType .
+  ?pred rdfs:domain ?kbType .
+  ?pred ps:mandatory true .
+  BIND (if(NOT EXISTS { ?subject ?pred ?val }, true, false) as ?configurationError) .
+  FILTER NOT EXISTS {?subject ?pred ?val} .
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productOptionsPrice">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productATPSchedule">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscontAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationPosition">
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?val as ?configurationPosition)
+where {
+    OPTIONAL {?subject as:configurationIncludedBy ?parent . ?parent a as:Quote.}
+    OPTIONAL {?subject as:configurationIncludedBy ?parent . ?parent a as:Configuration. ?parent as:configurationPosition ?confPos}.
+    BIND(
+    IF(
+    EXISTS{?subject as:configurationIncludedBy ?parent . ?parent a as:Configuration. ?parent as:configurationPosition ?confPos},
+    concat(?confPos, &quot;.&quot;, xsd:string(ps:sequencetable(&quot;QUOTEORCONFIGCONFIG&quot;, ?parent))),
+    xsd:string(ps:sequencetable(&quot;QUOTEORCONFIGCONFIG&quot;, ?parent))
+    )
+    AS ?val)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteTotalDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?quoteTotalDiscount)
+  WHERE {
+    ?subject as:quoteListPrice ?priceBeforeDiscount .
+    ?subject as:quotePrice ?priceAfterDiscount .
+    BIND ( ((xsd:decimal(?priceBeforeDiscount)  - xsd:decimal(?priceAfterDiscount) ) / xsd:decimal(?priceBeforeDiscount)) * 100  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationRevenueEndDate">
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject ?configurationRevenueEndDate
+  where {
+    ?subject as:configurationRevenueStartDate ?sDate .
+    OPTIONAL {
+      ?subject pcs:subscriptionYears ?sYear .
+    }
+    BIND(if(NOT EXISTS {?subject pcs:subscriptionYears ?sYear},?sDate,?sDate+xsd:duration(CONCAT(&apos;P&apos;,xsd:string(?sYear),&apos;Y&apos;))) as ?configurationRevenueEndDate)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteReportTitle">
+        <ps:defaultValue xml:lang="de">Angebot</ps:defaultValue>
+        <ps:defaultValue xml:lang="en">Quote</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityChanceofSuccess">
+        <ps:defaultValue rdf:datatype="&xsd;int">50</ps:defaultValue>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,1 @@
+UPDATE TUPLES SET GA=2 WHERE GRAPH_ID IN (SELECT DISTINCT GRAPH_ID FROM TUPLES WHERE SUBJECT_TYPE='http://www.inmindcomputing.com/application/application-schema.owl#Account') AND GA=-1

@@ -1,0 +1,2419 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xml:base="http://www.inmindcomputing.com/application/application-schema-ext.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-schema-ext.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/report-schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#groupCode -->
+
+    <owl:AnnotationProperty rdf:about="&ps;groupCode"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#groupDescription -->
+
+    <owl:AnnotationProperty rdf:about="&ps;groupDescription"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zhasPlant -->
+
+    <owl:ObjectProperty rdf:about="&ase;zhasPlant">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Factory (Plant)</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">20</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <rdfs:comment>Range: Factory and factoryIncludedBy some (Company and inverse containsCompany some (Quote and includesDocumentHeaderPriceItem some DocumentHeaderPriceItem))</rdfs:comment>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:range rdf:resource="&as;Plant"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+     <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteTotalSalesUSD -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteTotalSalesUSD">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Total Sales USD</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?zQuoteTotalSalesUSD
+Where
+{?subject rdf:type as:Quote.
+   ?subject ase:zQuoteProductLifeSpan ?ls.
+   ?subject ase:zQuoteQuantityPerMonth ?qpm.
+   ?subject as:includesDocumentHeaderPriceItem ?dhpi.
+   ?dhpi as:documentHeaderPrice ?o.
+   ?subject as:hasBaseCurrency ?cur.
+   OPTIONAL{
+      ?quote as:includeExchangeRateSalesDocument ?rateDoc .
+      ?quote as:hasBaseCurrency ?targetCurrency .
+      as:SALES_SYSTEM_INSTANCE as:hasDefaultCurrency ?defaultCurrency.
+      ?rateDoc as:hasTargetCurrency ?defaultCurrency.
+      ?rateDoc as:hasBaseCurrency ?targetCurrency .
+      ?rateDoc as:exchangeRate ?rateValue .
+   }
+
+   BIND (IF (Exists {?subject as:hasBaseCurrency ai:USD},
+
+         ?ls * ?qpm * ?o,  ?ls * ?qpm * ?o * ?rateValue)  as ?zQuoteTotalSalesUSD)
+}</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:sequenceID rdf:datatype="&xsd;int">20</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+<!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#materialTypeMandatoryError -->
+
+    <owl:DatatypeProperty rdf:about="&ase;materialTypeMandatoryError">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?materialTypeMandatoryError
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem.
+   ?subject pcs:metalStampingMatlCost ?cost.
+
+   BIND(IF(?cost = 0, true,false) as ?materialTypeMandatoryError)
+
+}</ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;ConfigItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+
+
+
+<!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#allConfigMandatoryError -->
+
+    <owl:DatatypeProperty rdf:about="&ase;allConfigMandatoryError">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?allConfigMandatoryError
+where {
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?subject rdf:type ?kbType .
+      ?kbType rdfs:subClassOf as:KnowledgeBase .
+      ?pred rdfs:domain ?kbType .
+      ?pred ps:mandatory &apos;true&apos; .
+      FILTER NOT EXISTS { ?subject ?pred ?val } .
+      BIND (if(NOT EXISTS { ?subject ?pred ?val }, true, false) as ?allConfigMandatoryError) .
+
+   }Group by ?subject ?allConfigMandatoryError</ps:sparql>
+        <rdfs:domain rdf:resource="&as;ConfigItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#materialTypeMandatoryErrorText -->
+
+    <owl:DatatypeProperty rdf:about="&ase;materialTypeMandatoryErrorText">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?materialTypeMandatoryErrorText
+WHERE {
+?subject ase:materialTypeMandatoryError ?error.
+   BIND(IF(?error,&quot;model.materialTypeMandatoryError&quot;,&quot;&quot;) as ?materialTypeMandatoryErrorText)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;ConfigItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualActivityProductionCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualActivityProductionCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualBilledQuantityInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualBilledQuantityInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualBilledValueInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualBilledValueInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualCOGSInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualCOGSInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualDeliveredQuantityInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualDeliveredQuantityInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualGPInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualGPInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualMaterialProductionCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualMaterialProductionCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualProducedQuantityInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualProducedQuantityInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualProductionCostInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualProductionCostInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#actualTotalProductionCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;actualTotalProductionCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#businessSegment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;businessSegment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#customer -->
+
+    <owl:DatatypeProperty rdf:about="&ase;customer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#customerCode -->
+
+    <owl:DatatypeProperty rdf:about="&ase;customerCode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#customerCountry -->
+
+    <owl:DatatypeProperty rdf:about="&ase;customerCountry">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#functionalCurrency -->
+
+    <owl:DatatypeProperty rdf:about="&ase;functionalCurrency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#period -->
+
+    <owl:DatatypeProperty rdf:about="&ase;period">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedGPInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedGPInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedMaterialCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedMaterialCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedRevenueBookedInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedRevenueBookedInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedSalesQuantityPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedSalesQuantityPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedTotalCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedTotalCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedTotalSellingPricePerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedTotalSellingPricePerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#plannedcostInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;plannedcostInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteIntro -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteIntro">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Einleitung</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Introduction</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="de">${quote.intro.text}</rdfs:comment>
+        <rdfs:comment xml:lang="en">${quote.intro.text}</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteTerms -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTerms">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Angebot - Geschäftsbedingungen</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Terms and Conditions</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="en">&lt;ol&gt;&lt;li&gt;
+&lt;u&gt;${terms.label.salesterms}&lt;/u&gt;&lt;br&gt;${terms.text.11}&lt;br&gt;${terms.text.12}&lt;br&gt;&lt;/li&gt; &lt;li&gt;&lt;u&gt;${terms.label.leadtime}&lt;/u&gt;&lt;br&gt;${terms.text.21}&lt;br&gt;&lt;/li&gt; &lt;li&gt;&lt;u&gt;${terms.label.paymentterm}&lt;/u&gt;&lt;br&gt;${terms.text.31}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.311}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.312}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.313}&lt;br&gt;${terms.text.32}&lt;br&gt;${terms.text.321}&lt;br&gt;${terms.text.321note}&lt;br&gt;${terms.text.33}&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;u&gt;${terms.label.delivery}&lt;/u&gt;&lt;br&gt;${terms.text.41}&lt;br&gt;${terms.text.42}&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.paymentmode}&lt;/u&gt;&lt;br&gt;${terms.text.51}&lt;br&gt;&lt;b&gt;${terms.text.52}&lt;/b&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.price}&lt;/u&gt;&lt;br&gt;${terms.text.61}&lt;br&gt;${terms.text.62}&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.confidentiality}&lt;/u&gt;&lt;br&gt;${terms.text.71}&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.limit}&lt;/u&gt;&lt;br&gt;${terms.text.81}&lt;br&gt;${terms.text.82}&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.transfer}&lt;/u&gt;&lt;br&gt;${terms.text.91}&lt;br&gt;${terms.text.92}&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.cancel}&lt;/u&gt;&lt;br&gt;
+${terms.text.101}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.101.1}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.101.2}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.101.3}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${terms.text.101.4}&lt;br&gt;${terms.text.102}&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;${terms.label.order}&lt;/u&gt;&lt;br&gt;${terms.text.111}&lt;br&gt;${terms.text.112}&lt;/li&gt;&lt;/ol&gt;</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedActivitiesCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedActivitiesCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedCostInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedCostInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedGPInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedGPInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedMaterialCostPerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedMaterialCostPerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedRevenueBookedInPeriod -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedRevenueBookedInPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedSalesQuantity -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedSalesQuantity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedTotalCostperUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedTotalCostperUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotedTotalPricePerUnit -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotedTotalPricePerUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportDate -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportDate">
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#sellingManufacturedPart -->
+
+    <owl:DatatypeProperty rdf:about="&ase;sellingManufacturedPart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#year -->
+
+    <owl:DatatypeProperty rdf:about="&ase;year">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ase;ExternalData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zKnowledgeBaseSAPID -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zKnowledgeBaseSAPID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">LineItem SAP ID</rdfs:label>
+        <rdfs:label xml:lang="en">LineItem SAP ID</rdfs:label>
+        <rdfs:label xml:lang="zh">行项目SAP ID</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1000</ps:sequenceID>
+        <ps:group rdf:resource="&ase;LineItem-Tracking"/>
+        <rdfs:domain rdf:resource="&as;KnowledgeBase"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteActiveMOQ -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteActiveMOQ">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Active MOQ</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">22</ps:sequenceID>
+        <ps:defaultValue rdf:datatype="&xsd;string">MOQ1</ps:defaultValue>
+        <ps:synchronizeAllowed rdf:datatype="&xsd;boolean">true</ps:synchronizeAllowed>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">MOQ1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">MOQ2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">MOQ3</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">MOQ4</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">MOQ5</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteBusinessSegment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteBusinessSegment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Business Type</rdfs:label>
+        <ps:enumerable>true</ps:enumerable>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">AEROSPACE</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">AUDIO/VIDEO DEVICES</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">AUTOMOTIVE</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">COMPUTER PRODUCT ASSEMBLY</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">DISPLAY DEVICES</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">ELECTRICAL&amp;ELECTRONICS INDUSTRY</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">ENTERPRISE SERVER</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">HOME APPLIANCES</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                        <rdf:first rdf:datatype="&xsd;string">IMAGING&amp;PRINTING</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                <rdf:first rdf:datatype="&xsd;string">INDUSTRIAL DEVICES</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                        <rdf:first rdf:datatype="&xsd;string">INDUSTRIAL ELECTRONICS</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                <rdf:first rdf:datatype="&xsd;string">LIFE SCIENCE AND MEDICAL</rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                        <rdf:first rdf:datatype="&xsd;string">MASS STORAGE DEVICES</rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                                <rdf:first rdf:datatype="&xsd;string">MOBILE DEVICES</rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                                        <rdf:first rdf:datatype="&xsd;string">NETWORK DEVICES</rdf:first>
+                                                                                                                                        <rdf:rest>
+                                                                                                                                            <rdf:Description>
+                                                                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                                                <rdf:first rdf:datatype="&xsd;string">OTHER DEVICES &amp; EQUIPEMENT</rdf:first>
+                                                                                                                                                <rdf:rest>
+                                                                                                                                                    <rdf:Description>
+                                                                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                                                        <rdf:first rdf:datatype="&xsd;string">SCIENTIFIC AND TEST</rdf:first>
+                                                                                                                                                        <rdf:rest>
+                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                                                                <rdf:first rdf:datatype="&xsd;string">TELECOMMUNICATION DEVICES</rdf:first>
+                                                                                                                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                                                                                                            </rdf:Description>
+                                                                                                                                                        </rdf:rest>
+                                                                                                                                                    </rdf:Description>
+                                                                                                                                                </rdf:rest>
+                                                                                                                                            </rdf:Description>
+                                                                                                                                        </rdf:rest>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteCMSNumber -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteCMSNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">CMS Number</rdfs:label>
+        <rdfs:label xml:lang="en">CMS Number</rdfs:label>
+        <rdfs:label xml:lang="zh">CMS 编号</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">0</ps:sequenceID>
+        <ps:group rdf:resource="&ase;Quote-Tracking"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteClosedDate -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteClosedDate">
+        <rdfs:label xml:lang="en">Closed Date</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteDatabase -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteDatabase">
+        <rdfs:label xml:lang="en">Database</rdfs:label>
+        <rdfs:label xml:lang="zh">数据库</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">2D</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">3D</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">AVL</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">BOM</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteEstimatedQuantityPerShipment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteEstimatedQuantityPerShipment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Quantity per Shipment</rdfs:label>
+        <rdfs:label xml:lang="zh">每票快件数量</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?zQuoteEstimatedQuantityPerShipment)
+          WHERE {
+            ?subject ase:zQuoteActiveMOQ ?activemoq.
+   OPTIONAL {
+            ?subject ase:zQuoteQtyPerShipmentMOQ1 ?smoq1 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQtyPerShipmentMOQ2 ?smoq2 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQtyPerShipmentMOQ3 ?smoq3 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQtyPerShipmentMOQ4 ?smoq4 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQtyPerShipmentMOQ5 ?smoq5 .
+          }
+
+   BIND (IF( str(?activemoq) = &quot;MOQ1&quot;,
+         ?smoq1,
+         IF ( str(?activemoq) = &quot;MOQ2&quot;,
+          ?smoq2  ,
+            IF ( str(?activemoq) = &quot;MOQ3&quot;,
+               ?smoq3  ,
+               IF ( str(?activemoq) = &quot;MOQ4&quot;,
+                  ?smoq4  ,
+                  IF ( str(?activemoq) = &quot;MOQ5&quot;,
+                     ?smoq5 ,
+                     xsd:int(0)))))) AS ?val)
+
+}</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:sequenceID rdf:datatype="&xsd;int">15</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileLocalSharedDrive -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteFileLocalSharedDrive">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Local Shared Drive</rdfs:label>
+        <rdfs:label xml:lang="zh">本地共享驱动器</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFileRemoteFTP -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteFileRemoteFTP">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Remote FTP</rdfs:label>
+        <rdfs:label xml:lang="zh">远程FTP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteFrequencyOfShipment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteFrequencyOfShipment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Frequency of Shipment</rdfs:label>
+        <rdfs:label xml:lang="zh">出货频率</rdfs:label>
+        <ps:enumerable>true</ps:enumerable>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Bi-Weekly</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Daily</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">Monthly</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">Weekly</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteModeOfDelivery -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteModeOfDelivery">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Mode of Delivery</rdfs:label>
+        <rdfs:label xml:lang="zh">运输方式</rdfs:label>
+        <ps:enumerable>true</ps:enumerable>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Air</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Inland Trucking</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">Sea</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">Self-Delivery</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteNewOrReplacement -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteNewOrReplacement">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">New or Replacement</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">New</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Replacement</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageMaterial -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuotePackageMaterial">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Package Material</rdfs:label>
+        <rdfs:label xml:lang="zh">包装材料</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Non Recycle</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Recycle</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuotePackageType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuotePackageType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Package Type</rdfs:label>
+        <rdfs:label xml:lang="zh">封装类型</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductLifeSpan -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteProductLifeSpan">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Product Life Span (Months)</rdfs:label>
+        <rdfs:label xml:lang="zh">产品生命周期 (个月)</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteProductType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteProductType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Product Type</rdfs:label>
+        <rdfs:label xml:lang="zh">产品类型</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:enumerable>true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Hard Tooling</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Modification</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">NCT</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">Replacement</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">Soft Tooling</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">Transfer</rdf:first>
+                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQtyPerShipmentMOQ1">
+        <rdfs:label xml:lang="en">Quantity Per Shipment MOQ1</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">28</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQtyPerShipmentMOQ2">
+        <rdfs:label xml:lang="en">Quantity Per Shipment MOQ2</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">29</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ3 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQtyPerShipmentMOQ3">
+        <rdfs:label xml:lang="en">Quantity Per Shipment MOQ3</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">30</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ4 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQtyPerShipmentMOQ4">
+        <rdfs:label xml:lang="en">Quantity Per Shipment MOQ4</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">31</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQtyPerShipmentMOQ5 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQtyPerShipmentMOQ5">
+        <rdfs:label xml:lang="en">Quantity Per Shipment MOQ5</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">32</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQualityandTestingspecs -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQualityandTestingspecs">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Quality and Testing specs</rdfs:label>
+        <rdfs:label xml:lang="zh">质量检验测试规范</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerMonth">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Quantity per Month</rdfs:label>
+        <rdfs:label xml:lang="zh">每月数量</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?zQuoteQuantityPerMonth)
+          WHERE {
+            ?subject ase:zQuoteActiveMOQ ?activemoq.
+   OPTIONAL {
+            ?subject ase:zQuoteQuantityPerMonth1 ?moqval1 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQuantityPerMonth2 ?moqval2 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQuantityPerMonth3 ?moqval3 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQuantityPerMonth4 ?moqval4 .
+          }
+   OPTIONAL {
+            ?subject ase:zQuoteQuantityPerMonth5 ?moqval5 .
+          }
+
+   BIND (IF( str(?activemoq) = &quot;MOQ1&quot;,
+         ?moqval1,
+         IF ( str(?activemoq) = &quot;MOQ2&quot;,
+          ?moqval2  ,
+            IF ( str(?activemoq) = &quot;MOQ3&quot;,
+               ?moqval3  ,
+               IF ( str(?activemoq) = &quot;MOQ4&quot;,
+                  ?moqval4  ,
+                  IF ( str(?activemoq) = &quot;MOQ5&quot;,
+                     ?moqval5 ,
+                     xsd:int(0)))))) AS ?val)
+
+}</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerMonth1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty / Month MOQ 1</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">17</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerMonth2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty / Month MOQ 2</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">18</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth3 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerMonth3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty / Month MOQ 3</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">19</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth4 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerMonth4">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty / Month MOQ 4</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">20</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerMonth5 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerMonth5">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Qty / Month MOQ 5</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">21</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteQuantityPerRun -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteQuantityPerRun">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Quantity per Run</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">12</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?zQuoteQuantityPerRun)
+          WHERE {
+            ?subject ase:zQuoteActiveMOQ ?activemoq.
+   OPTIONAL {
+      ?subject ase:zQuoteQuantityPerMonth1 ?moqval1 .
+      ?subject ase:zQuoteSetupPerMonth1 ?spm1
+          }
+   OPTIONAL {
+      ?subject ase:zQuoteQuantityPerMonth2 ?moqval2 .
+      ?subject ase:zQuoteSetupPerMonth2 ?spm2
+          }
+   OPTIONAL {
+      ?subject ase:zQuoteQuantityPerMonth3 ?moqval3 .
+      ?subject ase:zQuoteSetupPerMonth3 ?spm3
+          }
+   OPTIONAL {
+      ?subject ase:zQuoteQuantityPerMonth4 ?moqval4 .
+      ?subject ase:zQuoteSetupPerMonth4 ?spm4
+          }
+   OPTIONAL {
+      ?subject ase:zQuoteQuantityPerMonth5 ?moqval5 .
+      ?subject ase:zQuoteSetupPerMonth5 ?spm5
+          }
+
+   BIND (IF( str(?activemoq) = &quot;MOQ1&quot;,
+         (?moqval1/?spm1),
+         IF ( str(?activemoq) = &quot;MOQ2&quot;,
+            (?moqval2/?spm2),
+            IF ( str(?activemoq) = &quot;MOQ3&quot;,
+               (?moqval3/?spm3),
+               IF ( str(?activemoq) = &quot;MOQ4&quot;,
+                  (?moqval4/?spm4),
+                  IF ( str(?activemoq) = &quot;MOQ5&quot;,
+                     (?moqval5/?spm5) ,
+                     xsd:decimal(0)))))) AS ?val)
+
+}</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSOPDate -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSOPDate">
+        <rdfs:label xml:lang="en">Start Of Production</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesCategory -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSalesCategory">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Sales Category</rdfs:label>
+        <rdfs:label xml:lang="zh">销售类</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">9</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Bonded sales with USD no VAT</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Export Custom Clearance</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">Exports sales with USD no VAT </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">Local sales with RMB with VAT </rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSalesTransactionType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSalesTransactionType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Sales Transaction Type</rdfs:label>
+        <rdfs:label xml:lang="zh">销售交易类型</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Domestic</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Export</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSetupPerMonth1">
+        <rdfs:label xml:lang="en">Setups / Month MOQ 1</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">23</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSetupPerMonth2">
+        <rdfs:label xml:lang="en">Setups / Month MOQ 2</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">24</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth3 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSetupPerMonth3">
+        <rdfs:label xml:lang="en">Setups / Month MOQ 3</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">25</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth4 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSetupPerMonth4">
+        <rdfs:label xml:lang="en">Setups / Month MOQ 4</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">26</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteSetupPerMonth5 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteSetupPerMonth5">
+        <rdfs:label xml:lang="en">Setups / Month MOQ 5</rdfs:label>
+        <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sequenceID rdf:datatype="&xsd;int">27</ps:sequenceID>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuoteToolingType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuoteToolingType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Tooling Type</rdfs:label>
+        <rdfs:label xml:lang="zh">模具类型</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ase;AmtekSalesEnquiryCheckList"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Combo (Stamping+Matching)</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Manual</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">No Requirement</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">Progressive</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">Progressive and Manual</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#salesDocumentPriority -->
+
+    <rdf:Description rdf:about="&as;salesDocumentPriority">
+        <ps:defaultValue rdf:datatype="&xsd;string">LOW</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?salesDocumentPriority
+WHERE {
+   ?subject as:includesDocumentHeaderPriceItem ?dhpi.
+  OPTIONAL { ?dhpi as:documentHeaderPriceAfterExchangeRate ?dhp.
+   ai:SettingQuotePriority_Low as:settingValueNumeric ?vallow.
+   ai:SettingQuotePriority_Mid as:settingValueNumeric ?valmid.
+      ai:SettingQuotePriority_High as:settingValueNumeric ?valhigh.}
+   ?subject rdf:type as:Quote.
+   BIND (IF (BOUND(?dhp),
+   (IF  (xsd:decimal(?dhp) &lt; xsd:decimal(?vallow),&quot;LOW&quot;^^xsd:string,
+               IF(xsd:decimal(?dhp) &lt; xsd:decimal(?valmid) &amp;&amp; xsd:decimal(?dhp) &gt; xsd:decimal(?vallow), &quot;MEDIUM&quot;^^xsd:string,
+                  IF(xsd:decimal(?dhp) &lt; xsd:decimal(?valhigh),&quot;HIGH&quot;^^xsd:string ,&quot;VERYHIGH&quot;^^xsd:string)))), &quot;LOW&quot;^^xsd:string) AS ?salesDocumentPriority)
+}</ps:sparql>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+    </rdf:Description>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#ExternalData -->
+
+    <owl:Class rdf:about="&ase;ExternalData">
+        <rdfs:subClassOf rdf:resource="&ps;Primary"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#Plant -->
+
+    <rdf:Description rdf:about="&as;Plant">
+        <rdfs:subClassOf rdf:resource="&ps;Cached"/>
+    </rdf:Description>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ProcessStation -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ProcessStation"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingStation -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingStation"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#Cached -->
+
+    <owl:Class rdf:about="&ps;Cached"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#AmtekSalesEnquiryCheckList -->
+
+    <owl:NamedIndividual rdf:about="&ase;AmtekSalesEnquiryCheckList">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Sales Enquiry Check List</rdfs:label>
+        <rdfs:label xml:lang="en">Sales Enquiry Check List</rdfs:label>
+        <rdfs:label xml:lang="zh">行销询问检查列表</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">0</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">Sales Enquiry Check List</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#LineItem-Tracking -->
+
+    <owl:NamedIndividual rdf:about="&ase;LineItem-Tracking">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">LineItem Tracking</rdfs:label>
+        <rdfs:label xml:lang="en">LineItem Tracking</rdfs:label>
+        <rdfs:label xml:lang="zh">跟踪行项目</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">0</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">LineItem-Tracking</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#Quote-Tracking -->
+
+    <owl:NamedIndividual rdf:about="&ase;Quote-Tracking">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Quote Tracking</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Tracking</rdfs:label>
+        <rdfs:label xml:lang="zh"> 报价号</rdfs:label>
+        <rdfs:label xml:lang="zh">跟踪报价</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">Quote Tracking</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#Sales-Simulation -->
+
+    <owl:NamedIndividual rdf:about="&ase;Sales-Simulation">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label rdf:datatype="&xsd;string">Sales Simulation</rdfs:label>
+        <rdfs:label xml:lang="de">Sales Simulation</rdfs:label>
+        <rdfs:label xml:lang="en">Sales Simulation</rdfs:label>
+        <rdfs:label xml:lang="zh"> 销售模拟</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">Sales-Simulation</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&as;documentHeaderPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderPrice)
+  WHERE
+  {
+   ?subject as:documentHeaderPriceItemIncludedBy ?q.
+   ?q as:includesSalesItem+ ?si .
+   ?si as:includesItemHeaderPriceItem ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+            ?c as:itemHeaderTotalPrice ?cp .
+            BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  } group by ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productSpec">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityWeightedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationTotalPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationTotalPrice)
+  WHERE {
+    ?subject as:configurationUnitPrice ?cp .
+    ?subject as:configurationQuantity ?cq .
+    OPTIONAL {?subject as:configurationOptionalRequired ?co .
+                        ?subject as:configurationOptionsPrice ?cop .}
+    BIND (
+        if (NOT EXISTS {?subject as:configurationOptionalRequired ?co .
+                                  ?subject as:configurationOptionsPrice ?cop},
+          xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq)),
+          if ( ?co = xsd:boolean(false), xsd:decimal(0) ,
+          xsd:decimal((xsd:decimal(?cp) + xsd:decimal(?cop)) * xsd:decimal(?cq))
+        )) AS ?val
+    )
+  }
+
+  </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configItemError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?configItemError
+where {
+
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?subject rdf:type ?kbType .
+      ?kbType rdfs:subClassOf as:KnowledgeBase .
+      ?pred rdfs:domain ?kbType .
+      ?pred ps:mandatory &apos;true&apos; .
+      FILTER NOT EXISTS { ?subject ?pred ?val } .
+      BIND (if(NOT EXISTS { ?subject ?pred ?val }, true, false) as ?configItemStaticError) .
+
+   }
+
+   OPTIONAL
+   {
+      ?subject ase:materialTypeMandatoryError ?materialTypeMandatoryError
+   }
+
+   BIND (xsd:boolean(?configItemStaticError || ?materialTypeMandatoryError ) AS ?configItemError)
+} GROUP BY ?subject ?configItemError</ps:sparql>
+        <rdfs:comment>?pred rdfs:domain/(owl:unionOf/rdf:rest*/rdf:first)* ?kbType.
+to get the domains which are the unionOf Collection
+the above expression slow down the performance
+Use only one KB for domain</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productIsOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationUnitPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationUnitPrice)
+  WHERE {
+    ?subject as:configurationPrice ?cp .
+    BIND (xsd:decimal(?cp)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quotePriceAfterConfigDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?quotePriceAfterConfigDiscount)
+  WHERE
+  {
+    ?subject as:includesConfiguration+ ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+            ?c as:configurationTotalPrice ?cp .
+            BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesDocumentVersion">
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderPrice)
+WHERE {
+    OPTIONAL {
+                      ?subject as:includesPriceItem ?price .
+                      ?price as:hasPriceItemType as:ListPriceItemType.
+                      ?price as:priceItemBaseAmount ?plp .
+                      }
+    OPTIONAL {
+                      ?subject as:itemHeaderCurrentPrice ?ccp .
+                      }
+    BIND ( IF ( EXISTS {
+                    ?subject as:itemHeaderCurrentPrice &quot;-&quot; .
+                      },
+                IF( NOT EXISTS {
+                    ?subject as:includesPriceItem ?price .
+                    ?price as:hasPriceItemType as:ListPriceItemType.
+                    ?price as:priceItemBaseAmount ?plp
+                    }, xsd:decimal(0), ?plp), ?ccp) AS ?val)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderUnitPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderUnitPrice)
+  WHERE {
+    ?subject as:itemHeaderPrice ?cp .
+    OPTIONAL { ?subject as:itemHeaderDiscount ?cnfDscnt . }
+    BIND ( IF (BOUND(?cnfDscnt), ?cnfDscnt, 0.0) AS ?cd ) .
+    BIND (xsd:decimal(xsd:decimal(100 - ?cd) * 0.01 * xsd:decimal(?cp))  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productRating">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteListPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?quoteListPrice)
+  WHERE
+  {
+    ?subject as:includesConfiguration+ ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+            ?c as:configurationQuantity ?cq .
+            ?c as:configurationPrice ?cp .
+            BIND (xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq))  AS ?val)
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteId">
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (concat(ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 4, &quot;0&quot;), &quot;/&quot;, ?companyAbbr, &quot;/&quot;, ?fyShortText, &quot;/&quot;, ps:leftPad(ps:sequencetable(&quot;COMPANYQUOTE&quot;, ?company  ), 4, &quot;0&quot;)) as ?quoteId)
+where {
+  ?subject as:containsCompany ?company.
+  ?company as:companyAbbreviation ?companyAbbr.
+  {
+    select ?fyShortText
+    where
+    {
+        ?fy a as:FiscalPeriod.
+        ?fy ps:objectName ?fyShortText.
+        ?fy as:fiscalPeriodEndDate ?fyEndDate.
+        ?fy as:fiscalPeriodStartDate ?fyStartDate.
+        filter(now()&gt;?fyStartDate &amp;&amp;  now() &lt;?fyEndDate)
+      }
+  }
+}</ps:sparql>
+        <rdfs:comment rdf:datatype="&xsd;string">select ?subject (ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 5, &quot;0&quot;) as ?quoteId) where { }</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;accountOpportunityWeightedVolume">
+        <ps:sparql>SELECT ?subject (SUM(?vol) AS ?accountOpportunityWeightedVolume) WHERE {
+   ?subject as:containsOpportunity ?opp.
+   ?opp as:opportunityWeightedVolume ?vol.
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbVersion">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationMargin">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderMargin">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderMargin)
+  WHERE {
+    ?subject as:itemHeaderUnitPrice ?cp .
+    ?subject as:itemHeaderCost ?cc .
+    BIND ( (xsd:decimal(?cp) - xsd:decimal(?cc)) / xsd:decimal(?cc) * 100  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationFirstYearRevenue">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDescription">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productListPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationOptionalRequired">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">true</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;accountOpportunityVolume">
+        <ps:sparql>SELECT ?subject (SUM(?vol) AS ?accountOpportunityVolume) WHERE {
+   ?subject as:containsOpportunity ?opp.
+   ?opp as:opportunityVolume ?vol.
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?configurationError
+  where {
+  ?subject as:isProduct ?product .
+  ?product as:includesKnowledgeBase ?kbObj .
+  ?kbObj rdf:type ?kbType .
+  ?pred rdfs:domain ?kbType .
+  ?pred ps:mandatory &quot;true&quot; .
+  BIND (if(NOT EXISTS { ?subject ?pred ?val }, true, false) as ?configurationError) .
+  FILTER NOT EXISTS {?subject ?pred ?val} .
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderCost">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderCost)
+  WHERE {
+    ?subject as:itemHeaderPrice ?cp .
+    BIND (xsd:decimal(?cp * 0.8) AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderListPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderListPrice)
+  WHERE
+  {
+   ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem+ ?si .
+    ?si as:includesItemHeaderPriceItem ?headerPriceItem .
+
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+            ?headerPriceItem as:itemHeaderQuantity ?cq .
+            ?headerPriceItem as:itemHeaderPrice ?cp .
+            BIND (xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq))  AS ?val)
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productATPSchedule">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterExchangeRate">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?documentHeaderPriceAfterExchangeRate)
+            WHERE{
+                    ?subject as:documentHeaderPrice ?price.
+                    ?subject as:documentHeaderPriceItemIncludedBy ?quote.
+                    OPTIONAL{
+                        ?quote as:includeExchangeRateSalesDocument ?rate .
+                        ?quote as:hasBaseCurrency ?baseCurrency .
+                        ?quote as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:exchangeRate ?rateValue .   }
+                        BIND ( IF ( EXISTS {
+                        ?quote as:includeExchangeRateSalesDocument ?rate .
+                        ?quote as:hasBaseCurrency ?baseCurrency .
+                        ?quote as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                            },
+                        xsd:decimal(?price * ?rateValue), ?price ) AS ?val )
+    }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;accountQuoteVolume">
+        <ps:sparql>SELECT ?subject (SUM(?vol) AS ?accountQuoteVolume) WHERE {
+   ?subject as:containsQuote ?quote .
+   ?quote as:includesDocumentHeaderPriceItem ?price .
+   ?price as:documentHeaderPriceAfterExchangeRate ?vol .
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quotePriceAfterExchangeRate">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?quotePriceAfterExchangeRate)
+            WHERE{
+                        ?subject  rdf:type as:Quote .
+                        ?subject as:quotePrice ?price.
+                    OPTIONAL{
+                        ?subject as:includeExchangeRateSalesDocument ?rate .
+                        ?subject as:hasBaseCurrency ?baseCurrency .
+                        ?subject as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:exchangeRate ?rateValue .   }
+                        BIND ( IF ( EXISTS {
+                        ?subject as:includeExchangeRateSalesDocument ?rate .
+                        ?subject as:hasBaseCurrency ?baseCurrency .
+                        ?subject as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                            },
+                        xsd:decimal(?price * ?rateValue), ?price ) AS ?val )
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteForecastedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderCurrentPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?itemHeaderCurrentPrice
+WHERE {
+   OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:metalStampingQuotedPrice ?val1 .
+      ?salesItem as:isProduct pci:MetalStamping .
+   }
+   OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:mrbNonMFGCostPerPiece ?val2 .
+      ?salesItem as:isProduct pci:PurchasedPartOther .
+    }
+   OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config psa:assemblyCurrentPrice ?val3 .
+      ?salesItem as:isProduct pci:Assembly .
+   }
+   OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:othersPrice ?val4 .
+      ?salesItem as:isProduct pci:Item .
+   }
+  OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:mrbNonMFGCostPerPiece ?val5 .
+      ?salesItem as:isProduct pci:PurchasedPlasticPart .
+   }
+  OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:mrbNonMFGCostPerPiece ?val6 .
+      ?headSalesItem as:isProduct pci:Assembly.
+      ?salesItem as:salesItemIncludedBy ?headSalesItem.
+      ?salesItem as:isProduct pci:Subcon .
+   }
+   OPTIONAL {
+    ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcsp:processFinalCostPerPcMRB ?val7 .
+      ?headSalesItem as:isProduct pci:Assembly.
+      ?salesItem as:salesItemIncludedBy ?headSalesItem.
+      ?salesItem as:isProduct pci:SecondaryProcess .
+   }
+   OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcsp:processFinalCostPerPcMRB ?val8 .
+      ?headSalesItem as:isProduct pci:Assembly.
+      ?salesItem as:salesItemIncludedBy ?headSalesItem.
+      ?salesItem as:isProduct pci:SecondaryFinishingProcess .
+   }
+  OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:packagingTotalPkgCostPerPiece ?val9 .
+      ?salesItem as:salesItemIncludedBy ?quote.
+      ?quote a as:Quote.
+      #?headSalesItem as:isProduct pci:Assembly.
+      #?salesItem as:salesItemIncludedBy ?headSalesItem.
+      #?salesItem as:isProduct pci:Packaging .
+   }
+    OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:mrbNonMFGCostPerPiece ?val10 .
+      ?headSalesItem as:isProduct pci:Assembly.
+      ?salesItem as:salesItemIncludedBy ?headSalesItem.
+      ?salesItem as:isProduct pci:InhouseFinishing .
+    }
+    OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:plasticCostPerPc ?val11 .
+      ?headSalesItem as:isProduct pci:Assembly.
+      ?salesItem as:salesItemIncludedBy ?headSalesItem.
+      ?salesItem as:isProduct pci:Plastic .
+    }
+   BIND (IF(!BOUND(?val1),
+         IF(!BOUND(?val2),
+            IF(!BOUND(?val3),
+               IF(!BOUND(?val4),
+                  IF(!BOUND(?val5),
+                     IF(!BOUND(?val6),
+                        IF(!BOUND(?val7),
+                           IF(!BOUND(?val8),
+                              IF(!BOUND(?val9),
+                                 IF(!BOUND(?val10),
+                                 IF(!BOUND(?val11),xsd:decimal(0),?val11),?val10),?val9),?val8), ?val7), ?val6), ?val5), ?val4), ?val3), ?val2), ?val1) AS ?itemHeaderCurrentPrice) .
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?configurationPrice)
+WHERE {
+  OPTIONAL {?subject as:includesPrice ?price . ?price as:productListPrice ?plp .}
+    OPTIONAL {?subject as:configurationCurrentPrice ?ccp .}
+    BIND (
+      IF (
+      NOT EXISTS {?subject as:configurationCurrentPrice ?ccp},
+      IF(
+        NOT EXISTS {?subject as:includesPrice ?price .?price as:productListPrice ?plp},
+        xsd:decimal(0),
+      ?plp
+      ),
+      ?ccp
+    ) AS ?val
+  )
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;companyImage">
+        <ps:defaultValue rdf:datatype="&xsd;string">logo.png</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productConfigurable">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderTotalDiscount">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderTotalDiscount)
+  WHERE {
+    ?subject as:documentHeaderListPrice ?priceBeforeDiscount .
+    ?subject as:documentHeaderPrice ?priceAfterDiscount .
+    BIND ( ((xsd:decimal(?priceBeforeDiscount)  - xsd:decimal(?priceAfterDiscount) ) / xsd:decimal(?priceBeforeDiscount)) * 100  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationQuantity">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">1.0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderTotalPrice">
+        <rdfs:comment rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderTotalPrice)
+  WHERE {
+    ?subject as:itemHeaderUnitPrice ?cp .
+    ?subject as:itemHeaderQuantity ?cq .
+    ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+    OPTIONAL {
+                      ?salesItem as:salesItemOptional ?co . }
+    OPTIONAL {
+                      ?subject as:itemHeaderAddtionalPrice ?cop .}
+    BIND ( IF ( NOT EXISTS {
+                    ?salesItem as:salesItemOptional ?co .
+                    } || ?co,
+                    IF (EXISTS {
+                          ?subject as:itemHeaderAdditionalPrice &quot;-&quot; .
+                          } || NOT EXISTS {
+                          ?subject as:itemHeaderAdditionalPrice ?cop .
+                          },
+                      xsd:decimal(?cp * ?cq),
+                      xsd:decimal(?cp + ?cop * ?cq)
+              ),
+              xsd:decimal(0)) AS ?val)
+}</rdfs:comment>
+        <ps:sparql rdf:datatype="&xsd;string">
+SELECT ?subject (?val as ?itemHeaderTotalPrice)
+WHERE {
+   ?subject as:itemHeaderUnitPrice ?cp .
+   ?subject as:itemHeaderQuantity ?cq .
+   ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+   OPTIONAL {
+      ?salesItem as:salesItemOptional ?co . }
+   #OPTIONAL {
+    #  ?subject as:itemHeaderAddtionalPrice ?cop .}
+   BIND ( IF (!BOUND(?co) || ?co,
+            xsd:decimal(?cp * ?cq),xsd:decimal(0)) AS ?val)
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderAdditionalPrice">
+    <as:precision rdf:datatype="&xsd;int">0</as:precision>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?itemHeaderAdditionalPrice
+{
+   OPTIONAL{
+   ?subject as:itemHeaderPriceItemIncludedBy ?salesItem.
+   ?salesItem as:includesConfigItem ?config.
+   ?config pcs:metalStampingQtyMth ?itemHeaderAdditionalPrice.
+   ?salesItem as:isProduct pci:MetalStamping.
+   }
+
+
+   OPTIONAL{
+   ?subject as:itemHeaderPriceItemIncludedBy ?salesItem.
+   ?salesItem as:includesConfigItem ?config.
+   ?config pcs:assemblyProcessQtyMth ?itemHeaderAdditionalPrice.
+   ?salesItem as:isProduct pci:Assembly.
+   }
+
+
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;accountQuoteCount">
+        <ps:sparql>SELECT  ?subject (COUNT(?quote) AS ?accountQuoteCount) WHERE {
+   ?subject as:containsQuote ?quote.
+} GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?salesItemError
+  where {
+  ?subject as:includesConfigItem ?config .
+  ?config as:configItemError ?configItemError .
+  ?config ase:materialTypeMandatoryError ?materialTypeMandatoryError.
+
+   BIND (?materialTypeMandatoryError ||?configItemError as ?salesItemError)
+
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configItemErrorText">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?configItemErrorText
+where {
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?subject ase:allConfigMandatoryError ?configError.
+   }
+   OPTIONAL{
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?subject ase:materialTypeMandatoryError ?materialTypeMandatoryError.
+      ?subject ase:materialTypeMandatoryErrorText ?materialTypeMandatoryErrorText.
+   }
+   BIND(IF(?configError,xsd:string(&quot;model.configItemError&quot;),
+   IF(?materialTypeMandatoryError,?materialTypeMandatoryErrorText,
+                  &quot;&quot;)) AS ?configItemErrorText)
+
+
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configurationDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteForecastedRevenue">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscountLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">true</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;groupHidden">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbType">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productOptionsPrice">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscontAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteTotalDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesDocumentSAPSalesDocumentID">
+        <ps:group rdf:resource="&ase;Quote-Tracking"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteReportTitle">
+        <ps:defaultValue xml:lang="de">Angebot</ps:defaultValue>
+        <ps:defaultValue xml:lang="en">Quote</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityChanceofSuccess">
+        <ps:defaultValue rdf:datatype="&xsd;int">50</ps:defaultValue>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

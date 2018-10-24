@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-10-24T11:19:13 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.datamodel.BusinessObject"/>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.imc.datamodel.transferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.imc.datamodel.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactPosition" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personPosition")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="genderExternalId" class="java.lang.String">
+		<variableExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></initialValueExpression>
+	</variable>
+	<variable name="contactTitleKeyword" class="java.lang.String">
+		<variableExpression><![CDATA[$P{REPORT_LOCALE}.toString().startsWith("de") ? (($V{genderExternalId} == "MALE")? "geehrter ": (($V{genderExternalId} == "FEMALE")? "geehrte " : "geehrte/r ")) : ""]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcloud.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="822" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="593" height="822" forecolor="#000000" backcolor="#FFFFFF" uuid="7d286781-6d0a-47ab-9117-ad893e579604">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textField>
+					<reportElement x="306" y="693" width="114" height="19" forecolor="#848A8F" uuid="e5653d16-f224-4634-9fa8-32f762ca3e81"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("MMMM dd, yyyy", $P{REPORT_LOCALE}).format(new java.util.Date()).toUpperCase()]]></textFieldExpression>
+				</textField>
+				<image hAlign="Center" vAlign="Middle">
+					<reportElement x="140" y="94" width="320" height="144" uuid="fbc97aca-b155-4ba7-8a71-c8ab0621ca53">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<imageExpression><![CDATA[$P{CMIS} + "logos/logo.png"]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="105" y="545" width="165" height="19" forecolor="#848A8F" uuid="94ad1e8e-ec89-443a-900f-15cd9a6d3e05"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.by}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="105" y="693" width="165" height="19" forecolor="#848A8F" uuid="3810721b-6b71-4562-96c9-9031d0605b4f"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement x="306" y="421" width="239" height="19" forecolor="#848A8F" uuid="fa925673-844a-4ba6-8183-24e06e224f83"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{contactTitle} != null ?
+										($V{contactTitle}.l10nKey + " " + $V{contactLastName})
+										: ($V{contactFirstName} + " " + $V{contactLastName})).toUpperCase()
+											]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="306" y="438" width="239" height="19" forecolor="#848A8F" uuid="8e730c0e-071c-457c-a96c-fee7f4fc8678"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{contactPosition} != null ?
+										$V{contactPosition}	:  " ").toUpperCase()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="306" y="596" width="239" height="19" forecolor="#848A8F" uuid="62d29800-bfb1-4ad5-ae0b-63f05136fee6"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personFirstName") + " " + $P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personLastName")
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="306" y="545" width="165" height="19" forecolor="#848A8F" uuid="d1b9342f-7f20-4e69-bf5a-650d10ec3118"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{coverpage.company.name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="144" y="274" width="313" height="50" forecolor="#007D9F" uuid="1289a398-97dc-4a59-b8c9-c4a151f47a4d"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="36" isBold="false"/>
+						<paragraph rightIndent="5"/>
+					</textElement>
+					<text><![CDATA[QUOTATION]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="105" y="387" width="165" height="19" forecolor="#848A8F" uuid="b7dec3bf-9dc1-4ee9-8845-0b75a0a1a624"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[END CUSTOMER]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="451" y="693" width="30" height="19" forecolor="#848A8F" uuid="7792e251-baeb-4c69-8e87-011bfc950fde"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("salesDocumentVersion")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="421" y="693" width="30" height="19" forecolor="#848A8F" uuid="20960176-00ef-4e60-b378-c2429de3931f"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[REV.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="306" y="579" width="239" height="19" forecolor="#848A8F" uuid="980339e5-a5a4-432a-a5d7-93a6c755f652"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[(“IN MIND CLOUD”)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="306" y="387" width="239" height="19" forecolor="#848A8F" uuid="9b68c5aa-e1c2-4f04-8502-66d77b3548e0"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{Quote}.getAttributeValue("quoteContainedBy", "objectName")).toString().toUpperCase()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="306" y="456" width="240" height="32" forecolor="#848A8F" uuid="1970a7c8-0782-41e3-a25b-59e3ec4bb691"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{Quote}.getAttributeValue("usesAddress", "addressStreet") != null ? $P{Quote}.getAttributeValue("usesAddress", "addressStreet") :"") +" "]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="306" y="404" width="239" height="20" forecolor="#848A8F" uuid="3196d152-13ec-4ace-929e-bd147de0d927"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[(“CUSTOMER”)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="306" y="489" width="241" height="24" forecolor="#848A8F" uuid="45fa6c9f-33e0-45b8-9e59-161106746731"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{Quote}.getAttributeValue("usesAddress", "addressCity") != null ? $P{Quote}.getAttributeValue("usesAddress", "addressCity") :"")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="306" y="472" width="240" height="30" forecolor="#848A8F" uuid="c6cbfb8a-09ce-4cf0-8ec4-516d7d4c7117"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[ ($P{Quote}.getAttributeValue("usesAddress", "addressZip") != null ? $P{Quote}.getAttributeValue("usesAddress", "addressZip") : "")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="306" y="562" width="239" height="17" forecolor="#848A8F" uuid="b6773bad-4b25-4fc0-a38b-e80f8b97cba5"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[ZWEIGNIEDERLASSUNG DEUTSCHLAND]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="306" y="613" width="239" height="25" forecolor="#848A8F" uuid="3674aad6-9bdd-487d-a95b-951759da4f32">
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					</reportElement>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[THERESIENSTR. 1]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="306" y="630" width="241" height="30" forecolor="#848A8F" uuid="06b6df3f-f4e8-4615-8314-35d7670ff5e3"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[80333 MUNICH, GERMANY]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="286" y="770" width="303" height="52" forecolor="#848A8F" uuid="60a926f5-91c8-4a75-a2b7-142cec829cdc"/>
+					<text><![CDATA[N MIND CLOUD PTE LTD, Zweigniederlassung Deutschland
+Theresienstr. 1, 80333 Munich, Germany
+registered in Germany, HRB 228218 Munich
+]]></text>
+				</staticText>
+				<image hAlign="Center" vAlign="Middle">
+					<reportElement x="36" y="770" width="124" height="48" uuid="3aa05262-9d4a-40f9-a480-37ec90443645">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<imageExpression><![CDATA[$P{CMIS} + "logos/SAPlogo.png"]]></imageExpression>
+				</image>
+			</frame>
+			<image scaleImage="RetainShape" hAlign="Center">
+				<reportElement x="-24" y="15" width="600" height="10" uuid="d0543ae6-2cce-47a3-9eb4-e547b5aa8569">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement fill="Solid"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/colourband.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+</jasperReport>

@@ -1,0 +1,69 @@
+class MOBILEEXCAVATOR{
+//class ENTERPRISE_ROUTER {
+	name "Mobile Excavator"
+  	characteristics
+	   EXCAVATOR_TYPE required,
+	   DIPPER required,
+	   ATTACHMENTS,
+	   OVERLOAD_SYSTEM,
+	   CUSTOMPAINTING,
+	  
+	   OIL,
+	   PAINTING,
+	   
+//    MODEL ,
+//	    REGULATORY_DOMAIN required,
+//	    AP_COUNT required ,
+//	    PORT_DEFAULT_ADDONS required defaultValues (1), 
+//	    PORT_ADDITIONAL_ADDONS required defaultValues (0),
+//	    REDUNDANT_PSU required,
+//	    MOUNTING_OPTION required,
+//	    COMMENTS,
+//	    POWER_CHORD required,
+	    PRODUCTIMAGE required invisible,
+	    PRODUCTLISTPRICE noinput invisible defaultValues(70000),
+	    PRODUCTPRICE noinput ,
+	    HLP_VIS invisible,
+	    PRICE_AGGR noinput invisible,
+//	    CONFIGURATIONINSIGHT invisible	    
+}
+class CABIN {
+	name "Cabin"
+	characteristics
+	SEAT required,
+	MIRROR,
+	PRODUCTPRICE noinput,
+	PRODUCTLISTPRICE noinput invisible defaultValues(0), 
+	 PRICE_AGGR noinput invisible
+}
+class CANOPY{
+	name "Canopy"
+	
+}
+
+
+class MAINTENANCE {
+	name "Warranty"
+	characteristics
+		CONTRACT_SUPPORT_TYPE required,
+		CONTRACT_SERVICE_TERM required,
+		PRODUCTCONFIGURABLE defaultValues ('TRUE') invisible,
+		PRODUCTPRICE noinput  , 
+}
+
+//class POWER_CHORD {
+//	characteristics
+//		PRODUCTCONFIGURABLE defaultValues ('FALSE') invisible,
+//		PRODUCTLISTPRICE noinput invisible defaultValues(20),
+//	//	PRODUCTLISTPRICE noinput invisible defaultValues(20),
+//}
+
+//
+//class FIBER_CONNECTOR {
+//	name "Fiber Optic Connector"
+//	characteristics
+//		PRODUCTCONFIGURABLE defaultValues ('FALSE') invisible,
+//		PRODUCTLISTPRICE noinput invisible defaultValues(25),
+////		PRODUCTLISTPRICE noinput invisible defaultValues(25),		
+//}
+

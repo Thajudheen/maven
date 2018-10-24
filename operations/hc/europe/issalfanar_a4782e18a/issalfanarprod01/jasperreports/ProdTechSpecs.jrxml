@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-03-07T14:44:53 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.datamodel.BusinessObject"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.imc.datamodel.transferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.imc.datamodel.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcloud.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="180" y="0" width="199" height="100" uuid="ac288525-8994-4534-97e6-eb06da8e1eb7"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/reportlogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="496">
+			<staticText>
+				<reportElement x="-1" y="62" width="555" height="20" uuid="da65f1d1-568d-4746-9449-7544389ce61b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Low voltage switchgear & controlgear (PSC) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="83" width="555" height="94" uuid="4aa6c960-6a7a-4809-9b0c-b7ec237ccda0"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The switchgear & controlgear has the following properties: 
+- Design verified low voltage switchgear assembly (former TTA) according to IEC 61439-2
+- Rated insulation voltage is up to 1000Vac
+- Rated Impulse withstand voltage is up to 12kV
+- Degree of protection is according to IEC 60529
+- Mechanical strength is according to IEC 62262
+- Possible network configurations: TN-C, TN-S, TN-C-S, IT and TT 
+- Free standing panel
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="7" width="301" height="41" uuid="3afd854b-2291-4a34-83cb-ae074ea24303"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Products Technical Specification]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="197" width="555" height="20" uuid="6b57e73c-7148-4226-b01a-248f957a2e21"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub-distribution panel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="217" width="555" height="100" uuid="842d3e9f-6d7e-4d73-879d-be9649a90185"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The sub- distribution has the following properties: 
+- Design verified low voltage switchgear and controlgear assembly (former TTA) according to IEC 61439-2
+- Rated insulation voltage is up to 800Vac
+- Rated Impulse withstand voltage is up to 8kV
+- Degree of protection is according to IEC 60529
+- Mechanical strength is according to IEC 62262
+- Possible network configurations: TN-C, TN-S, TN-C-S, IT and TT 
+- Doorway angle 180°
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="335" width="555" height="20" uuid="6c5e67b2-84e7-47d8-bd12-914634d276bc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Final distribution panel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="355" width="555" height="100" uuid="61097129-4da8-4e97-93ef-8da22c2b67db"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="false"/>
+				</textElement>
+				<text><![CDATA[The Final- distribution has the following properties: 
+- Design verified low voltage – switchgear and controlgear assembly (former TTA) according to IEC 61439-3 
+- Rated insulation voltage is up to 500Vac
+- Rated Impulse withstand voltage is up to 6kV
+- Degree of protection is according to IEC 60529
+- Mechanical strength is according to IEC 62262
+- Cable entry direction top / below
+- Doorway angle 180°
+- Standard color is RAL-7038 for front doors and side end walls and special color on request
+]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="55" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

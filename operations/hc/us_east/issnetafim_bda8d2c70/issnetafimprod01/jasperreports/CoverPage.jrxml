@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="accountCountry" class="java.lang.String">
+		<variableExpression><![CDATA[((com.er.platform.datatransferobjects.BusinessObjectDTO)$P{Quote}.getAttributeValue("Account", "includesAddress", "hasCountry")).l10nKey]]></variableExpression>
+		<initialValueExpression><![CDATA[((com.er.platform.datatransferobjects.BusinessObjectDTO)$P{Quote}.getAttributeValue("Account", "includesAddress", "hasCountry")).l10nKey]]></initialValueExpression>
+	</variable>
+	<variable name="quoteReference" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("quoteReference") != null ? $P{Quote}.getAttributeValue("quoteReference") : ""]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{Quote}.getAttributeValue("quoteReference")]]></initialValueExpression>
+	</variable>
+	<pageHeader>
+		<band height="802" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="594" height="822" forecolor="#000000" backcolor="#FFFFFF" uuid="7d286781-6d0a-47ab-9117-ad893e579604"/>
+				<textField>
+					<reportElement x="60" y="512" width="290" height="19" forecolor="#000000" uuid="e5653d16-f224-4634-9fa8-32f762ca3e81"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="Arial" size="13" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd. MMMM yyyy", $P{REPORT_LOCALE}).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<image hAlign="Center" onErrorType="Blank">
+					<reportElement x="0" y="219" width="594" height="264" uuid="fbc97aca-b155-4ba7-8a71-c8ab0621ca53">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<imageExpression><![CDATA[$P{CMIS} + "/logos/cover_image.jpg"]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="60" y="493" width="290" height="19" forecolor="#000000" uuid="3810721b-6b71-4562-96c9-9031d0605b4f"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="Arial" size="13" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.cover.prepared}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="54" width="594" height="45" forecolor="#00457D" uuid="cd902a9e-0d5f-46a7-a773-9afe6b373978"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
+						<font fontName="Arial" size="27" isBold="true" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.cover.proposal}]]></textFieldExpression>
+				</textField>
+				<image hAlign="Right">
+					<reportElement x="380" y="498" width="163" height="38" uuid="e2abe226-de04-4144-96cb-b64776c0cb02">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<imageExpression><![CDATA[$P{CMIS} + "/logos/logo_pdf.png"]]></imageExpression>
+				</image>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="60" y="194" width="483" height="19" forecolor="#FFFFFF" backcolor="#BDB8B3" uuid="bc86670f-8fef-4c05-8c9f-c0552be5f7dc">
+						<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("reportCropName")!="-"]]></printWhenExpression>
+					</reportElement>
+					<box padding="0">
+						<pen lineWidth="0.01"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Arial" size="14" isBold="false" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("reportCropName")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="60" y="563" width="483" height="217" forecolor="#000000" uuid="3d8e39c2-8f97-4a18-b624-b6bcf0f3a18a"/>
+					<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
+						<font fontName="Arial" size="11" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.cover.disclaimer}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="60" y="539" width="119" height="19" forecolor="#000000" uuid="293c21fa-e272-420f-a19e-2bbecb05efac">
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+						<font fontName="Arial" size="13" isBold="true" isUnderline="true" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.cover.disclaimerheader}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="167" y="531" width="226" height="1" uuid="b4c0e644-324a-4da0-a1f7-aa826f21db1c">
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="60" y="146" width="483" height="19" forecolor="#00457D" uuid="5fa227d9-6924-4f40-b026-87bdfa9747a3"/>
+					<box padding="0">
+						<pen lineWidth="0.01"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Arial" size="14" isBold="false" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.cover.projectNo} + " " + $P{Quote}.getAttributeValue("objectName")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="60" y="170" width="483" height="19" forecolor="#00457D" uuid="34ade98a-70c1-40ce-9115-6d6e4c08516d"/>
+					<box padding="0">
+						<pen lineWidth="0.01"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Arial" size="14" isBold="false" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("reportCountry") !=null
+?$P{Quote}.getAttributeValue("reportCountry")  : "" + " " + $P{Quote}.getAttributeValue("reportFarm") != null ?  $P{Quote}.getAttributeValue("reportFarm") : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="100" width="594" height="45" forecolor="#00457D" uuid="a38051ed-c016-4530-91bb-1400d2a6a158"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
+						<font fontName="Arial" size="27" isBold="false" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("quoteContainedBy", "objectName")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+</jasperReport>

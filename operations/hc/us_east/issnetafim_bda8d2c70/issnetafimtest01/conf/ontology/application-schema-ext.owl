@@ -1,0 +1,2363 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xml:base="http://www.inmindcomputing.com/application/application-schema-ext.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-schema-ext.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/report-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/extension/configuration-extension-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#roleHasDC -->
+
+    <owl:ObjectProperty rdf:about="&ase;roleHasDC">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <rdfs:range rdf:resource="&as;DistributionChannel"/>
+        <rdfs:domain rdf:resource="&as;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#roleHasSalesOrg -->
+
+    <owl:ObjectProperty rdf:about="&ase;roleHasSalesOrg">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;Role"/>
+        <rdfs:range rdf:resource="&as;SalesOrg"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#documentHeaderPriceBeforeDiscount -->
+
+    <owl:DatatypeProperty rdf:about="&ase;documentHeaderPriceBeforeDiscount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Header Price Before Discont</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderPriceBeforeDiscount)
+  WHERE {
+?subject as:documentHeaderPriceAfterItemDiscount ?aid.
+    ?subject ase:documentHeaderTotalDiscountBeforeQuoteDiscount ?qp .
+    BIND (xsd:decimal(?aid - ?qp)  AS ?val)
+  }</ps:sparql>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#documentHeaderTotalDiscountBeforeQuoteDiscount -->
+
+    <owl:DatatypeProperty rdf:about="&ase;documentHeaderTotalDiscountBeforeQuoteDiscount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?val) as ?documentHeaderTotalDiscountBeforeQuoteDiscount)
+  WHERE {
+    ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem+ ?si .
+    ?si as:includesItemHeaderPriceItem ?ihpi .
+    {
+      SELECT DISTINCT ?ihpi ?val
+      WHERE
+      {
+             ?ihpi as:itemHeaderTotalDiscount ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+   } GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#documentHeaderTotalDiscountPercentage -->
+
+    <owl:DatatypeProperty rdf:about="&ase;documentHeaderTotalDiscountPercentage">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderTotalDiscountPercentage)
+  WHERE {
+?subject as:documentHeaderTotalDiscount ?td.
+    ?subject ase:documentHeaderPriceBeforeDiscount ?bd .
+    BIND (xsd:decimal( ?td *  xsd:decimal(100) / ?bd )  AS ?val)
+  }</ps:sparql>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderAccessoryPrice -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderAccessoryPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Accessory Price</rdfs:label>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderAdditionalPriceIncludes -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderAdditionalPriceIncludes">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderAdditionalPriceUses -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderAdditionalPriceUses">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderSubPrice -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderSubPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Sub Item Price</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">
+ SELECT ?subject (xsd:decimal(SUM(?value)) AS ?itemHeaderSubPrice)
+ WHERE {
+    ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+    ?salesItem as:includesSalesItem ?minorSi .
+    ?minorSi as:salesItemOptional true .
+    ?minorSi as:includesItemHeaderPriceItem ?headerPriceItem .
+    ?headerPriceItem as:itemHeaderTotalPrice ?value .
+ } GROUP BY ?subject
+   </ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderSubPrice1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderSubPrice1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Sub Item Price1</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">
+        SELECT ?subject (sum(?pr) as ?itemHeaderSubPrice1)
+        WHERE {
+            #SELECT ?subject ?net ?vprs ?kumu ?pr00 ?pr WHERE {
+            SELECT DISTINCT  ?subject ?pr {
+			
+                ?quote rdf:type ps:ActiveObject.
+				?quote rdf:type as:Quote.
+				?quote as:hasSalesDocumentType ?salesDocument.
+				?salesDocument ps:objectName ?salesDocumentName.
+
+				
+                OPTIONAL { 
+                    ?subject as:itemHeaderNetPrice ?net
+					
+					Optional{
+					#FILTER(BOUND(?kumu))
+					?subject as:includesPriceItem ?piypqu .
+					?piypqu as:hasPriceItemType ?ptypqu .
+					?ptypqu  as:objectERPId 'YPQU' .
+					?piypqu  as:priceItemTargetAmount ?ypqu
+						FILTER(?ypqu > 0)
+					}
+					
+                    Optional{
+                        ?subject as:includesPriceItem ?pikumu .
+                        ?pikumu as:hasPriceItemType ?ptkumu .
+                        ?ptkumu as:objectERPId 'KUMU'.
+                        ?pikumu as:priceItemTargetAmount ?kumu
+                            FILTER(?kumu > 0 &amp;&amp; ?salesDocumentName != &quot;ZCPQ2&quot;)
+                    }
+						                                
+                
+					Optional{
+                        #FILTER(!BOUND(?kumu)||!BOUND(?ypqu))
+                        ?subject as:includesPriceItem ?pivprs .
+                        ?pivprs as:hasPriceItemType ?ptvprs .
+                        ?ptvprs as:objectERPId 'VPRS' .
+                        ?pivprs as:priceItemTargetAmount ?vprs .
+                        FILTER(?vprs >0 &amp;&amp; ?salesDocumentName != &quot;ZCPQ2&quot;)
+					}
+                                                                
+				FILTER ( BOUND(?ypqu) || BOUND(?vprs)|| BOUND(?kumu) ) .
+				}
+                
+			Bind(IF(BOUND(?ypqu),?ypqu,IF(BOUND(?kumu),?kumu,IF(BOUND(?vprs), ?vprs,0)))as ?pr)
+			} 
+    } group by ?subject
+</ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteAbout -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteAbout">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">About</rdfs:label>
+        <rdfs:label xml:lang="tr">Hakkında</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="en">${quote.about.text}</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteClimateConditions -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteClimateConditions">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Climate Conditions</rdfs:label>
+        <rdfs:label xml:lang="tr">İklim Verileri</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="en">${quote.exec.climate}</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteNotIncluded -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteNotIncluded">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Not included</rdfs:label>
+        <rdfs:label xml:lang="tr">Dahil Olmayanlar</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="en">${quote.notIncluded.text}</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotePaymentTerms -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotePaymentTerms">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Payment Terms Special</rdfs:label>
+        <rdfs:label xml:lang="tr">Özel Ödeme Koşulları</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="en">${quote.paymentterms.1}</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteTextCO -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTextCO">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Text Kommerzielles Angebot</rdfs:label>
+        <rdfs:label xml:lang="en">Text Commercial Offer</rdfs:label>
+        <rdfs:label xml:lang="tr">Teklif İçeriği</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="en">${quote.co.text}</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteTextCrop -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTextCrop">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Text Crop</rdfs:label>
+        <rdfs:label xml:lang="en">Text Crop</rdfs:label>
+        <rdfs:label xml:lang="tr">Ürün Bilgileri</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+	
+	<!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportImageFlush -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportImageFlush">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Report Image Flush</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?reportImageFlush
+WHERE {
+   ?da ps:isDynamicAttribute pci:SubmainTypeDripsystem .
+   ?subject as:includesSalesItem ?salesItem1.
+   ?salesItem1 as:isProduct pci:OpenFieldProject.
+   ?sal2 as:isProduct pci:Submain.
+   ?salesItem1 as:includesSalesItem ?sal2.
+   ?sal2 as:includesConfigItem ?conf.
+   ?conf   ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?val.
+   ?val ps:isSymbolicValue ?x.
+   BIND(IF(?x = pci:SubmainSubsurfaceFlush ,&quot;subwithflushsys&quot;,&quot;no&quot;) as ?reportImageFlush)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportImageFilter -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportImageFilter">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Report Image Filter</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?reportImageFilter
+WHERE {
+   ?da ps:isDynamicAttribute pci:FtRequired .
+   ?subject as:includesSalesItem ?salesItem1.
+   ?salesItem1 as:isProduct pci:OpenFieldProject.
+   ?sal2 as:isProduct pci:Filtration.
+   ?salesItem1 as:includesSalesItem ?sal2.
+   ?sal2 as:includesConfigItem ?conf.
+   ?conf   ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?val.
+  ?val ps:isSymbolicValue ?x.
+   BIND(IF( ?x =  pci:DiscFilters,&quot;discfilter&quot;,IF (?x = pci:GravelSandFilters, &quot;mediafilter&quot;, IF(?x = pci:HdrocycloneCompptSet ||?x = pci:MeshElectricFilters ||?x = pci:MeshHydraulicFilters, &quot;screenfilter&quot;, &quot;no&quot;))) as ?reportImageFilter)
+
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportImageLateralType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportImageLateralType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Report Image LateralType</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?InfieldLateralType
+WHERE {
+   ?da ps:isDynamicAttribute pci:InfieldLateralType .
+   ?subject as:includesSalesItem ?salesItem1.
+   ?salesItem1 as:isProduct pci:OpenFieldProject.
+   ?sal2 as:isProduct pci:Infield.
+   ?salesItem1 as:includesSalesItem ?sal2.
+   ?sal2 as:includesConfigItem ?conf.
+   ?conf   ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?val.
+  ?val ps:isSymbolicValue ?x.
+   BIND(IF(?x = pci:Sprinklers,&quot;sprinkler&quot;,IF (?x = pci:On-lineDrippers || ?x = pci:In-lineDrippers , &quot;dripper&quot;,&quot;no&quot;)) as ?InfieldLateralType)
+
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportImagePipe -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportImagePipe">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Report Image Pipe</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?reportImagePipe
+WHERE {
+   ?da ps:isDynamicAttribute pci:SubmainType .
+   ?subject as:includesSalesItem ?salesItem1.
+   ?salesItem1 as:isProduct pci:OpenFieldProject.
+   ?sal2 as:isProduct pci:Submain.
+   ?salesItem1 as:includesSalesItem ?sal2.
+   ?sal2 as:includesConfigItem ?conf.
+   ?conf   ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?val.
+  ?val ps:isSymbolicValue ?x.
+   BIND(IF(?x = pci:Pvc,&quot;pvcpipes&quot;,IF (?x = pci:Pe, &quot;pepipes&quot;, IF(?x = pci:Flexnet, &quot;flexnet&quot;, &quot;no&quot;))) as ?reportImagePipe)
+
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportImagePressure -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportImagePressure">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Report IMage Pressure</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?reportImagePressure
+WHERE {
+   ?da ps:isDynamicAttribute pci:InfieldLateralDescription .
+   ?subject as:includesSalesItem ?salesItem1.
+   ?salesItem1 as:isProduct pci:OpenFieldProject.
+   ?sal2 as:isProduct pci:Infield.
+   ?salesItem1 as:includesSalesItem ?sal2.
+   ?sal2 as:includesConfigItem ?conf.
+   ?conf   ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?val.
+  ?val ps:isSymbolicValue ?x.
+   BIND(IF(?x = pci:Pc,&quot;pcdripline&quot;,IF (?x = pci:Non-pc, &quot;npcdripline&quot;,&quot;no&quot;)) as ?reportImagePressure)
+
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#reportImagePump -->
+
+    <owl:DatatypeProperty rdf:about="&ase;reportImagePump">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Report IMage Pump</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?reportImagePump
+WHERE {
+   ?da ps:isDynamicAttribute pci:PsPumprequired .
+   ?subject as:includesSalesItem ?salesItem1.
+   ?salesItem1 as:isProduct pci:OpenFieldProject.
+   ?sal2 as:isProduct pci:PumpingStation.
+   ?salesItem1 as:includesSalesItem ?sal2.
+   ?sal2 as:includesConfigItem ?conf.
+   ?conf   ps:includesDynamicAttribute ?da.
+   ?da ps:usesSymbolicValue ?val.
+   ?val ps:isSymbolicValue ?x.
+   BIND(IF(?x = pci:PsRequired,&quot;pumpyes&quot;,IF (?x = pci:PsYestrequired, &quot;pumpno&quot;,&quot;no&quot;)) as ?reportImagePump)
+}</ps:sparql>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zListPriceHeader -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zListPriceHeader">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Area for Development</rdfs:label>
+        <rdfs:label xml:lang="en">Area for Development</rdfs:label>
+		<rdfs:label xml:lang="tr">Arazinin Geliştirilebilirliği</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Area for Development - mapping at a proper scaling and contours for drip irrigation detailed design</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Arazinin Geliştirilebilirliği- damla sulama dizaynı için topoğrafik haritalama</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities10 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities10">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Manufacture equipment per design specifications</rdfs:label>
+        <rdfs:label xml:lang="en">Manufacture equipment per design specifications</rdfs:label>
+        <rdfs:label xml:lang="tr">Ekipmanın dizayn özelliklerine uygun biçimde üretilmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Manufacture equipment per design specifications</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Ekipmanın dizayn özelliklerine uygun biçimde üretilmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities11 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities11">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Procure complementary components and assemblies</rdfs:label>
+        <rdfs:label xml:lang="en">Procure complementary components and assemblies</rdfs:label>
+        <rdfs:label xml:lang="tr">Yardımcı bileşen ve sistemlerin dizayn özellikleri</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Procure complementary components and assemblies per design specifications and detailed Bill of Materials (BOM)</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Yardımcı bileşen ve sistemlerin dizayn özellikleri ve ayrıntılı Malzeme Listesine (BOM) uygun biçimde tedarik edilmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities12 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities12">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Assure products quality and compliance</rdfs:label>
+        <rdfs:label xml:lang="en">Assure products quality and compliance</rdfs:label>
+        <rdfs:label xml:lang="tr">Ürün kalitesi ve Uygunluğun sağlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">12</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Assure products quality and compliance with project specifications</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Ürün kalitesi ve proje özelliklerine uyumun güvence altına alınması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities13 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities13">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Load equipment into the containers for sea freight</rdfs:label>
+        <rdfs:label xml:lang="en">Load equipment into the containers for sea freight</rdfs:label>
+        <rdfs:label xml:lang="tr">Ekipmanın denizyolu nakliyesi için konteynerlere yüklenmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">13</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Load equipment into the containers for sea freight</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Ekipmanın denizyolu nakliyesi için konteynerlere yüklenmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities14 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities14">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Coordinate the vessel loading and issuance of marine transportation documentation (CFR)</rdfs:label>
+        <rdfs:label xml:lang="en">Coordinate the vessel loading and issuance of marine transportation documentation (CFR)</rdfs:label>
+        <rdfs:label xml:lang="tr">Gemi yüklemesi ve denizyolu nakliye belgelerinin hazırlanmasının (CFR) koordine edilmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">14</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Coordinate the vessel loading and issuance of marine transportation documentation (CFR)</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Gemi yüklemesi ve denizyolu nakliye belgelerinin hazırlanmasının (CFR) koordine edilmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities15 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities15">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Issue marine insurance policy</rdfs:label>
+        <rdfs:label xml:lang="en">Issue marine insurance policy</rdfs:label>
+        <rdfs:label xml:lang="tr">Deniz sigorta poliçesinin hazırlatılması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">15</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Issue marine insurance policy</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Deniz sigorta poliçesinin hazırlatılması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities16 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities16">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Appoint custom broker for goods clearance  at port of destination</rdfs:label>
+        <rdfs:label xml:lang="en">Appoint custom broker for goods clearance at port of destination</rdfs:label>
+        <rdfs:label xml:lang="tr">Varış limanında malların çekilmesi için gümrük komisyoncusu belirlenmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">16</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Appoint custom broker for goods clearance  at port of destination</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Varış limanında malların çekilmesi için gümrük komisyoncusu belirlenmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities17 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities17">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Clear goods at port of destination</rdfs:label>
+        <rdfs:label xml:lang="en">Clear goods at port of destination</rdfs:label>
+        <rdfs:label xml:lang="tr">Malların varış limanında gümrükten çekilmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">17</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Clear goods at port of destination and pay all taxes, duties and levies</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Malların varış limanında gümrükten çekilmesi, tüm vergi, resim ve harçların ödenmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities18 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities18">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Coordinate land transportation to project site and cover all related expenses</rdfs:label>
+        <rdfs:label xml:lang="en">Coordinate land transportation to project site</rdfs:label>
+        <rdfs:label xml:lang="tr">Proje alanına karayolu nakliyesinin koordinasyonu</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">18</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Coordinate land transportation to project site and cover all related expenses</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Proje alanına karayolu nakliyesinin koordinasyonu ve ilgili tüm giderlerin karşılanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities19 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities19">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Guard the safety of equipment at all times</rdfs:label>
+        <rdfs:label xml:lang="en">Guard the safety of equipment at all times</rdfs:label>
+        <rdfs:label xml:lang="tr">Ekipmanın güvenliğinin daima gözetilmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">19</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Guard the safety of equipment at all times</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Ekipmanın güvenliğinin daima gözetilmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities2"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Soil survey – suitability for development</rdfs:label>
+        <rdfs:label xml:lang="en">Soil survey – suitability for development</rdfs:label>
+        <rdfs:label xml:lang="tr">Toprak ekspertizi – ıslaha uygunluk</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Soil survey – suitability for development</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Toprak ekspertizi – ıslaha uygunluk</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities20 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities20">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Digging the deep wells and develop each well</rdfs:label>
+        <rdfs:label xml:lang="en">Digging the deep wells and develop each well</rdfs:label>
+        <rdfs:label xml:lang="tr">Derin kuyuların kazılması ve her bir kuyunun ıslahı</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">20</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Digging the deep wells and develop each well</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Derin kuyuların kazılması ve her bir kuyunun ıslahı</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities21 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities21">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Mark the area, block, roads, drainage waterways by a survey team</rdfs:label>
+        <rdfs:label xml:lang="en">Mark the area, block, roads, drainage waterways by a survey team</rdfs:label>
+        <rdfs:label xml:lang="tr">Alanın, bloğun, yolların, drenaj su yollarının bir ekspertiz ekibince işaretlenmesi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">21</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Mark the area, block, roads, drainage waterways by a survey team</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Alanın, bloğun, yolların, drenaj su yollarının bir ekspertiz ekibince işaretlenmesi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities22 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities22">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Land preparation for sub surface drip irrigation installation per Netafim guidelines</rdfs:label>
+        <rdfs:label xml:lang="en">Land preparation for sub surface drip irrigation installation</rdfs:label>
+        <rdfs:label xml:lang="tr">Toprakaltı damla sulama sistemi montajı için arazinin hazırlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">22</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Land preparation for sub surface drip irrigation installation per Netafim guidelines</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Toprakaltı damla sulama sistemi montajının Netafim yönergelerine uygun biçimde gerçekleştirilmesi için arazinin hazırlanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities23 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities23">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Coordinate the required labor and machinery (including local materials) for the installation works and cover all related expenses</rdfs:label>
+        <rdfs:label xml:lang="en">Coordinate the required labor and machinery</rdfs:label>
+        <rdfs:label xml:lang="tr">Montaj için gerekli işgücü ve makinelerin ayarlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">23</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Coordinate the required labor and machinery (including local materials) for the installation works and cover all related expenses</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Montaj çalışmaları için gerekli işgücü ve makinelerin (yerelden temin edilecek malzemeler dahil) koordinasyonu ve ilgili tüm giderlerin karşılanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities24 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities24">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Install the irrigation system components</rdfs:label>
+        <rdfs:label xml:lang="en">Install the irrigation system components</rdfs:label>
+        <rdfs:label xml:lang="tr">Sulama sistemi montajı</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">24</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Install the irrigation system components – well pump, head control, control panel, pipelines and dripperlines per general common practices and Netafim&apos;s particular guidelines.</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Sulama sistemi bileşenlerinin (pompa, filtre ünitesi, otomasyon, boru hatları ve damlama boruları) genel uygulamaları ve Netafim'in özel yönergelerine uygun biçimde montajı.</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities25 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities25">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Commission the systems block by block per general common practices</rdfs:label>
+        <rdfs:label xml:lang="en">Commission the systems block by block per general common practices</rdfs:label>
+        <rdfs:label xml:lang="tr">Sistemlerin genel uygulamalarına uygun biçimde blok blok devreye alınması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">25</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Commission the systems block by block per general common practices and Netafim&apos;s particular guidelines (Certificate of Acceptance).</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Sistemlerin genel uygulamaları ve Netafim'in özel yönergelerine uygun biçimde blok blok devreye alınması (Kabul Belgesi).</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities26 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities26">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Netafim supervisor</rdfs:label>
+        <rdfs:label xml:lang="en">Netafim supervisor</rdfs:label>
+        <rdfs:label xml:lang="tr">Netafim süpervizörünün</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">26</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">A Netafim supervisor to assist in installation as per contract commitments.</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Bir Netafim süpervizörünün sözleşme taahhütlerine uygun biçimde montaja yardımcı olması.</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities27 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities27">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Produce &quot;As Made&quot; maps</rdfs:label>
+        <rdfs:label xml:lang="en">Produce &quot;As Made&quot; maps</rdfs:label>
+        <rdfs:label xml:lang="tr">&quot;Bitmiş Durum&quot; haritalarının hazırlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">27</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Produce &quot;As Made&quot; maps</rdfs:comment>
+        <rdfs:comment xml:lang="tr">&quot;Bitmiş Durum&quot; haritalarının hazırlanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities3"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities3 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Define block borders, drainage waterways, roads</rdfs:label>
+        <rdfs:label xml:lang="en">Define block borders, drainage waterways, roads</rdfs:label>
+        <rdfs:label xml:lang="tr">Blok sınırları, drenaj su yolları ve yolların tanımlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Define block borders, drainage waterways, roads</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Blok sınırları, drenaj su yolları ve yolların tanımlanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities4 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities4">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Detailed design of the irrigation system</rdfs:label>
+        <rdfs:label xml:lang="en">Detailed design of the irrigation system</rdfs:label>
+        <rdfs:label xml:lang="tr">Sulama sisteminin ayrıntılı dizaynı</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Detailed design of the irrigation system – issue Bill of Materials &amp; system layout maps</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Sulama sisteminin ayrıntılı dizaynı – Malzeme Listesi ve sistem yerleşim haritalarının hazırlanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities5 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities5">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Peak water consumption for design</rdfs:label>
+        <rdfs:label xml:lang="en">Peak water consumption for design</rdfs:label>
+        <rdfs:label xml:lang="tr">Dizayn için en yüksek su tüketimi</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Seller</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Peak water consumption for design</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Dizayn için en yüksek su tüketimi</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities6 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities6">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Deep well water</rdfs:label>
+        <rdfs:label xml:lang="en">Deep well water</rdfs:label>
+        <rdfs:label xml:lang="tr">Derin kuyu suyu</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Deep well water – suitability for drip irrigation (quality &amp; volume)</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Derin kuyu suyu – damla sulamaya uygunluk (kalite &amp; hacim)</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities7 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities7">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Provide adequate power lines &amp; transformers</rdfs:label>
+        <rdfs:label xml:lang="en">Provide adequate power lines &amp; transformers</rdfs:label>
+        <rdfs:label xml:lang="tr">Yeterli düzeyde enerji hattı ve transformatör sağlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Provide adequate power lines &amp; transformers (distance less than 20-meters from control panel)</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Yeterli düzeyde enerji hattı ve transformatör sağlanması (kumanda paneline mesafe 20 metreden az)</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities8 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities8">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Plan the time schedules for block development and planting</rdfs:label>
+        <rdfs:label xml:lang="en">Plan the time schedules for block development and planting</rdfs:label>
+        <rdfs:label xml:lang="tr">Parsel kullanımının ve ekimin zamansal olarak planlanması</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Plan the time schedules for block development and planting</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Parsel kullanımının ve ekimin zamansal olarak planlanması</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zResponsibilities9 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zResponsibilities9">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">Obtain all local permits</rdfs:label>
+        <rdfs:label xml:lang="en">Obtain all local permits</rdfs:label>
+        <rdfs:label xml:lang="tr">tüm yerel izinlerin alınması.</rdfs:label>
+		<ps:defaultValue rdf:datatype="&xsd;string">Buyer</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">9</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">false</ps:readOnly>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <rdfs:comment xml:lang="en">Obtain all local permits for land development, water rights, power lines, labor employment, import equipment, and any other required permit.</rdfs:comment>
+        <rdfs:comment xml:lang="tr">Arazi kullanımı, su kullanımı, enerji hatları, işçi çalıştırma, ekipman ithali vb. tüm yerel izinlerin alınması.</rdfs:comment>
+        <ps:group rdf:resource="&ase;QuoteAdditionalAttributes-Responsibilities1"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Buyer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Seller</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#itemHeaderTotalDiscount -->
+
+    <owl:DatatypeProperty rdf:about="&as;itemHeaderTotalDiscount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderTotalDiscount)
+  WHERE {
+    ?subject as:itemHeaderAdditionalPrice ?ap .
+    ?subject as:itemHeaderTotalPrice ?tp .
+    ?subject as:itemHeaderPrice ?hp .
+    ?subject as:itemHeaderQuantity ?cq .
+    ?salesItem as:includesItemHeaderPriceItem ?subject .
+    ?salesItem as:salesItemOptional ?co .
+    BIND ( IF (?co, xsd:decimal(?tp - (?hp + ?ap) * ?cq), xsd:decimal(0))  as ?val )
+  }
+    </ps:sparql>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#quoteId -->
+
+    <rdf:Description rdf:about="&as;quoteId">
+        <ps:sparql rdf:datatype="&xsd;string">
+      select ?subject ?quoteId where {
+      {
+      select ?subject ?quoteId where {
+      ?subject rdf:type as:Quote.
+      ?subject ps:objectExternalId ?quoteId
+      }
+      }
+      union
+      {
+      select ?subject (concat(&quot;CPQ-MG-&quot;, ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 5, &quot;0&quot;)) as ?quoteId) where { }
+      }
+      }
+      limit 1
+    </ps:sparql>
+        <rdfs:subPropertyOf rdf:resource="&ps;storedMaterialization"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#InfieldMasterData -->
+
+    <owl:Class rdf:about="&ase;InfieldMasterData">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+        <rdfs:subClassOf rdf:resource="&ps;Cached"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#SubmainMasterData -->
+
+    <owl:Class rdf:about="&ase;SubmainMasterData">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+        <rdfs:subClassOf rdf:resource="&ps;Cached"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DC-01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;DC-01">
+        <rdf:type rdf:resource="&as;DistributionChannel"/>
+        <rdfs:label xml:lang="en">01 EXPORT</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">01</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">01</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">01</as:objectERPId>
+        <ps:objectName rdf:datatype="&xsd;string">DC-01</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DC-02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;DC-02">
+        <rdf:type rdf:resource="&as;DistributionChannel"/>
+        <rdfs:label xml:lang="en">Distribution Channel 02</rdfs:label>
+        <as:objectERPId rdf:datatype="&xsd;string">02</as:objectERPId>
+        <ps:objectId rdf:datatype="&xsd;string">02</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">02</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">DC-02</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Div-01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Div-01">
+        <rdf:type rdf:resource="&as;Division"/>
+        <rdfs:label xml:lang="en">01 general</rdfs:label>
+        <as:objectERPId rdf:datatype="&xsd;string">01</as:objectERPId>
+        <ps:objectId rdf:datatype="&xsd;string">01</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">01</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Div-01</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Payment_TBD -->
+
+    <owl:NamedIndividual rdf:about="&ai;Payment_TBD">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="en">To be defined</rdfs:label>
+        <rdfs:label xml:lang="tr">Tanımlanacak</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TBD</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">TBD</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">To be defined</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SDT-ZCPQ -->
+
+    <owl:NamedIndividual rdf:about="&ai;SDT-ZCPQ">
+        <rdf:type rdf:resource="&as;SalesDocumentType"/>
+        <ps:objectName rdf:datatype="&xsd;string">ZCPQ</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">ZCPQ</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ZCPQ</ps:objectExternalId>
+        <as:objectERPId rdf:datatype="&xsd;string">ZCPQ</as:objectERPId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuoteAdditionalAttributes-Responsibilities1 -->
+
+    <owl:NamedIndividual rdf:about="&ase;QuoteAdditionalAttributes-Responsibilities1">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Responsibilities Planning &amp; Design</rdfs:label>
+		<rdfs:label xml:lang="tr">Proje Kabulleri</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">11</ps:groupCode>
+        <ps:objectName rdf:datatype="&xsd;string">Quote Additional Attributes - Responsibilities1</ps:objectName>
+        <ps:groupDescription rdf:datatype="&xsd;string">Responsibilities Planning &amp; Design</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuoteAdditionalAttributes-Responsibilities2 -->
+
+    <owl:NamedIndividual rdf:about="&ase;QuoteAdditionalAttributes-Responsibilities2">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Responsibilities Procurement &amp; Shipment</rdfs:label>
+		<rdfs:label xml:lang="tr">Tedarik ve Sevkiyat</rdfs:label>
+        <ps:groupCode rdf:datatype="&xsd;string">12</ps:groupCode>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">Quote Additional Attributes - Responsibilities2</ps:objectName>
+        <ps:groupDescription rdf:datatype="&xsd;string">Responsibilities Procurement &amp; Shipment</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuoteAdditionalAttributes-Responsibilities3 -->
+
+    <owl:NamedIndividual rdf:about="&ase;QuoteAdditionalAttributes-Responsibilities3">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Responsibilities Execution</rdfs:label>
+		<rdfs:label xml:lang="tr">Yükümlülükler</rdfs:label>
+        <ps:groupCode rdf:datatype="&xsd;string">13</ps:groupCode>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">Quote Additional Attributes - Responsibilities3</ps:objectName>
+        <ps:groupDescription rdf:datatype="&xsd;string">Responsibilities Execution</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#SIBLINGPRICEITEM -->
+
+    <owl:NamedIndividual rdf:about="&ase;SIBLINGPRICEITEM">
+        <rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+        <rdfs:label xml:lang="en">SIBLINGPRICEITEM</rdfs:label>
+        <ps:sparqlDefault rdf:datatype="&xsd;string">
+CONSTRUCT {
+   ?ihpi ase:itemHeaderAccessoryPrice ?np .
+   ?ihpi ase:itemHeaderTotalPrice ?totalp.
+   ?ihpi ase:itemHeaderUnitPrice ?aup.
+}
+WHERE
+{
+   {
+      SELECT ?si (sum(?pr1) as ?pr2)
+      WHERE {
+         {  ?si as:isProduct pci:AccessoryInfield }
+		 UNION
+         {  ?si as:isProduct pci:AccessoryInfield1 }
+         UNION
+         {  ?si as:isProduct pci:AccessorySubmain }
+		 UNION
+         {  ?si as:isProduct pci:AccessorySubmain1 }
+		 UNION
+         {  ?si as:isProduct pci:AccessorySubmain2 }
+		 UNION
+         {  ?si as:isProduct pci:AccessorySubmain3 }
+         UNION
+         {  ?si as:isProduct pci:AccessoryMainline }
+         UNION
+         {  ?si as:isProduct pci:AccessoryHeadcontrol }
+         UNION
+         {  ?si as:isProduct pci:AccessoryFertigation }
+         UNION
+         {  ?si as:isProduct pci:AccessoryPumpingStation }
+		 UNION
+         {  ?si as:isProduct pci:AccessoryPumpingStation1 }
+         UNION
+         {  ?si as:isProduct pci:AccessoryManifolds }
+         UNION
+         {  ?si as:isProduct pci:AccessoryInfieldHeadwork }
+         UNION
+         {  ?si as:isProduct pci:AccessoryFiltration }
+
+         ?si as:salesItemIncludedBy ?parent.
+         ?children as:salesItemIncludedBy ?parent .
+         ?children as:includesItemHeaderPriceItem ?priceItem .
+         ?priceItem as:includesPriceItem ?pi .
+         ?pi as:hasPriceItemType ?pt .
+         ?pt as:objectERPId ?ptid .
+     ?pt ps:objectName ?name .
+         FILTER ( ?ptid = &quot;KUMU&quot; || ?name = &quot;ManualCost&quot;) .
+         Optional{?pi as:priceItemBaseAmount ?pb.}
+         Optional{?pi as:priceItemTargetAmount ?pta}
+         Bind(IF(BOUND(?pta),?pta,IF(BOUND(?pb), ?pb,0))as ?pr1)
+         FILTER (?children != ?si)
+      } GROUP BY ?si
+   }
+   ?si as:includesItemHeaderPriceItem ?ihpi .
+   Optional{
+      ?ihpi as:itemHeaderQuantity ?am.
+   }
+
+   BIND (0 as ?aup)
+   BIND (If (BOUND(?am), ?pr2 * ?am /100, 0) as ?np)
+   BIND (If (BOUND(?np), ?pr2 + ?np, ?pr2) as ?totalp)
+   }
+    </ps:sparqlDefault>
+        <ps:sequenceID rdf:datatype="&xsd;int">90000</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SIBLINGPRICEITEM</ps:objectName>
+        <ps:objectExternalId rdf:datatype="&xsd;string">SIBLINGPRICEITEM</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">SIBLINGPRICEITEM</ps:objectId>
+        <ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+        <ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+        <ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&as;documentHeaderPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderPrice)
+  WHERE {
+    ?subject as:documentHeaderPriceAfterItemDiscount ?qp .
+    ?subject as:documentHeaderDiscount ?qd .
+    BIND (xsd:decimal(xsd:decimal(?qp)*xsd:decimal(100-?qd)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productSpec">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityWeightedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?opportunityWeightedVolume)
+  WHERE {
+    ?subject as:opportunityVolume ?vol .
+    ?subject as:opportunityChanceofSuccess ?prop .
+    BIND (xsd:decimal(xsd:decimal(?vol)*xsd:decimal(?prop)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderAfterConfigItemDiscount)
+  WHERE
+  {
+    ?subject as:includesSalesItem ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:itemHeaderTotalPrice ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;includesBOM">
+        <ps:ignoreForEnrichment rdf:datatype="&xsd;boolean">true</ps:ignoreForEnrichment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;hasDivision">
+        <ps:defaultValue rdf:resource="&ai;Div-01"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configItemError">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT DISTINCT ?subject ?configItemError
+WHERE {
+   {
+      SELECT ?subject   WHERE {
+         ?_activeAttribute ps:mandatory true.
+         ?_activeAttribute rdfs:domain ?kbType .
+         FILTER EXISTS {
+            ?subject rdf:type ?kbType .
+            FILTER NOT EXISTS { ?subject ?_activeAttribute ?val } .
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject   WHERE {
+         ?subject as:configItemIncludedBy ?salesItem .
+         FILTER EXISTS {
+            ?_activeAttribute ps:dynamicAttributeMandatory true.
+            ?subject ps:includesDynamicAttribute ?_activeAttribute .
+            FILTER NOT EXISTS { ?_activeAttribute ps:dynamicAttributeHidden true. }
+            FILTER NOT EXISTS { ?_activeAttribute ps:usesSymbolicValue ?val. }
+            ?_activeAttribute rdf:type ps:DynamicSymbolicAttribute.
+         }
+      }  LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject  WHERE {
+         ?subject as:configItemIncludedBy ?salesItem .
+         FILTER EXISTS {
+            ?_activeAttribute ps:dynamicAttributeMandatory true.
+            ?subject ps:includesDynamicAttribute ?_activeAttribute .
+            FILTER NOT EXISTS { ?_activeAttribute ps:dynamicAttributeHidden ?true.}
+            FILTER NOT EXISTS { ?_activeAttribute ps:dynamicDataAttributeValue ?val. }
+            FILTER NOT EXISTS { ?_activeAttribute rdf:type ps:DynamicSymbolicAttribute }
+         }
+      } LIMIT 1
+   }
+
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:manualPressureMaxError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:manualPressureMinError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:submainFVNpcError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:highestPointError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:numberOfValvesPerShiftError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:lowestPointError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:grossAreaError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:headControlFlowAreaError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:wrongMaterialError true.
+         }
+      } LIMIT 1
+   }
+   UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:valvesSeriesError true.
+         }
+      } LIMIT 1
+   }
+    UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:fxnClass3Error true.
+         }
+      } LIMIT 1
+   }  UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:wrongMaterialFlexnetError true.
+         }
+      } LIMIT 1
+   }UNION
+   {
+      SELECT ?subject WHERE {
+         ?subject as:configItemIncludedBy ?salesItem.
+         FILTER EXISTS {
+            ?subject pcs:irrigationTimeError true.
+         }
+      } LIMIT 1
+   }
+   BIND (true as ?configItemError )
+
+}</ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productIsOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productConfigurable">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesDocumentVersion">
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderTotalDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderPrice">
+        <ps:sparql rdf:datatype="&xsd;string">
+SELECT ?subject ?itemHeaderPrice
+WHERE {
+   OPTIONAL {
+      ?subject ase:itemHeaderSubPrice1 ?subValue1 .
+   }
+   OPTIONAL {
+      ?subject ase:itemHeaderSubPrice ?subValue .
+   }
+   OPTIONAL {
+      ?subject ase:itemHeaderAccessoryPrice ?subValue2 .
+   }
+   BIND(IF(BOUND(?subValue1),?subValue1,0) AS ?v1)
+   BIND(IF(BOUND(?subValue),?subValue,0) AS ?v0)
+   BIND(IF(BOUND(?subValue2),?subValue2,0) AS ?v2)
+
+   BIND(xsd:decimal(?v0 + ?v1 +?v2) AS ?itemHeaderPrice)
+}
+  </ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configItemErrorText">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?configItemErrorText
+WHERE{
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?subject as:configItemError ?configError .
+   ?subject pcs:manualPressureMaxError ?error1 .
+   ?subject pcs:manualPressureMinError ?error2 .
+   ?subject pcs:submainFVNpcError ?error4 .
+   ?subject pcs:lowestPointError ?error5 .
+   ?subject pcs:highestPointError ?error6 .
+   ?subject pcs:grossAreaError ?error7 .
+   ?subject pcs:numberOfValvesPerShiftError ?error8 .
+   ?subject pcs:wrongMaterialError ?error9 .
+   ?subject pcs:valvesSeriesError ?error10 .
+   ?subject pcs:fxnClass3Error ?error11 .
+   ?subject pcs:wrongMaterialFlexnetError ?error12 .
+   ?subject pcs:irrigationTimeError ?error13.
+   ?subject pcs:headControlFlowAreaError ?error14 .
+   ?subject pcs:infieldDirectionError ?error15.
+   ?subject pcs:infieldSubmainError ?error16.											 
+   
+   BIND(IF(?configError &amp;&amp; !(
+            ?error1 || ?error2 || ?error4 || ?error5 || ?error6 || ?error7 || ?error8 || ?error9 || ?error10 || ?error11 || ?error12 || ?error13 || ?error14 || ?error15 || ?error16
+      ),xsd:string(&quot;model.configItemError&quot;),&quot; &quot;) AS ?configErrorText)
+ 
+   ?subject pcs:manualPressureMaxErrorText ?manualPressureMaxErrorText .
+   ?subject pcs:manualPressureMinErrorText ?manualPressureMinErrorText .
+   ?subject pcs:submainFVNpcErrorText ?submainFVNpcErrorText .
+   ?subject pcs:lowestPointErrorText ?lowestPointErrorText .
+   ?subject pcs:highestPointErrorText ?highestPointErrorText .
+   ?subject pcs:grossAreaErrorText ?grossAreaErrorText .
+   ?subject pcs:numberOfValvesPerShiftErrorText ?numberOfValvesPerShiftErrorText .
+   ?subject pcs:wrongMaterialErrorText ?wrongMaterialErrorText .
+   ?subject pcs:valvesSeriesErrorText ?valvesSeriesErrorText .
+   ?subject pcs:fxnClass3ErrorText ?fxnClass3ErrorText .
+   ?subject pcs:wrongMaterialFlexnetErrorText ?wrongMaterialFlexnetErrorText .
+   ?subject pcs:irrigationTimeErrorText ?irrigationTimeErrorText.
+   ?subject pcs:headControlFlowAreaErrorText ?headControlFlowAreaErrorText .
+   ?subject pcs:infieldDirectionErrorText ?directionErrorText.
+   ?subject pcs:infieldSubmainErrorText ?submainErrorText.
+
+   BIND(afn:strjoin(&quot; | &quot;,
+         ?manualPressureMaxErrorText,
+         ?manualPressureMinErrorText,
+         ?submainFVNpcErrorText,
+         ?lowestPointErrorText,
+         ?highestPointErrorText,
+         ?grossAreaErrorText,
+         ?numberOfValvesPerShiftErrorText,
+         ?wrongMaterialErrorText,
+         ?valvesSeriesErrorText,
+         ?fxnClass3ErrorText,
+         ?configErrorText,
+         ?wrongMaterialFlexnetErrorText,
+         ?irrigationTimeErrorText,
+         ?headControlFlowAreaErrorText,
+         ?directionErrorText,
+         ?submainErrorText
+      ) AS ?configItemErrorText)
+   
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderUnitPrice">
+        <ps:sparql rdf:datatype="&xsd;string">
+    SELECT ?subject (?val as ?itemHeaderUnitPrice)
+  WHERE {
+    ?subject as:itemHeaderTotalPrice ?hp .
+    ?subject as:itemHeaderQuantity ?cq .
+    ?salesItem as:includesItemHeaderPriceItem ?subject .
+    BIND (  xsd:decimal(?hp) / xsd:decimal(?cq) as ?val )
+  }
+  </ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;hasPaymentTerms">
+        <ps:defaultValue rdf:resource="&ai;Payment_TBD"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productRating">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderTotalPrice">
+        <ps:sparql rdf:datatype="&xsd;string">
+SELECT ?subject ?itemHeaderTotalPrice
+WHERE {
+   ?subject as:itemHeaderPrice ?ihp.
+   ?subject as:itemHeaderDiscount ?d.
+   OPTIONAL {?subject as:itemHeaderAbsoluteValue ?abs.}
+   BIND(IF (!BOUND(?abs) || ?abs=0, xsd:decimal(?ihp * (1-?d/100)  ),xsd:decimal(?abs * (1-?d/100))) AS ?itemHeaderTotalPrice)
+}
+
+  </ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ase;zListPriceHeader1">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?val) as ?zListPriceHeader1)
+  WHERE {
+
+    ?subject rdf:type as:Quote .
+    ?subject as:includesSalesItem+ ?si .
+    ?si as:salesItemOptional true .
+    ?si as:includesItemHeaderPriceItem ?ihpi .
+  ?ihpi as:includesPriceItem ?pi .
+  ?pi as:hasPriceItemType ?pt .
+  OPTIONAL{
+  ?pt as:objectERPId &apos;KUMU&apos; .
+}  OPTIONAL{
+  ?pt as:objectERPId &apos;YPQU&apos; .
+}
+OPTIONAL{
+  ?pt ps:objectName &apos;ManualCost&apos; .
+}
+OPTIONAL{
+  ?pt ps:objectId &apos;PRODD&apos; .
+}
+    {
+      SELECT DISTINCT ?pi ?val
+      WHERE
+      {
+             ?pi as:priceItemTargetAmount ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+   } GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderQuantity">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">1.0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterItemDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderPriceAfterItemDiscount)
+  WHERE
+  {
+   ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q rdf:type ps:ActiveObject .
+    ?q as:includesSalesItem ?si .
+    ?si as:includesItemHeaderPriceItem ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:itemHeaderTotalPrice ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  } group by ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?salesItemError
+  where {
+  ?subject as:includesConfigItem ?config .
+  ?config as:configItemError ?configItemError .
+  ?config pcs:manualPressureMaxError ?manualPressureMaxError.
+
+   BIND (?manualPressureMaxError ||?configItemError as ?salesItemError)
+
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;includesBOMEntry">
+        <ps:ignoreForEnrichment rdf:datatype="&xsd;boolean">true</ps:ignoreForEnrichment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbVersion">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscountLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">true</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;groupHidden">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderMargin">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderMargin)
+  WHERE {
+    ?subject as:itemHeaderUnitPrice ?cp .
+    ?subject as:itemHeaderCost ?cc .
+    BIND ( (xsd:decimal(?cp) - xsd:decimal(?cc)) / xsd:decimal(?cc) * 100  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDescription">
+        <ps:hidden rdf:datatype="&xsd;string">false</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&pcs;metalProcessToolingCost">
+        <as:costingRelevantSequence rdf:datatype="&xsd;int">5</as:costingRelevantSequence>
+        <as:costingRelevant rdf:datatype="&xsd;boolean">true</as:costingRelevant>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbType">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderAdditionalPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <as:costingRelevant rdf:datatype="&xsd;boolean">true</as:costingRelevant>
+        <as:costingRelevantSequence>25</as:costingRelevantSequence>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;hasSalesDocumentType">
+        <ps:defaultValue rdf:resource="&ai;SDT-ZCPQ"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productOptionsPrice">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderListPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderListPrice)
+  WHERE
+  {
+    ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem+ ?si .
+    ?si as:includesItemHeaderPriceItem ?headerPriceItem .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?headerPriceItem as:itemHeaderQuantity ?cq .
+             ?headerPriceItem as:itemHeaderPrice ?cp .
+             BIND (xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq))  AS ?val)
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productATPSchedule">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscontAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterExchangeRate">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?documentHeaderPriceAfterExchangeRate)
+            WHERE{
+                    ?subject as:documentHeaderPrice ?price.
+                    ?subject as:documentHeaderPriceItemIncludedBy ?quote.
+                    OPTIONAL{
+                        ?quote as:includeExchangeRateSalesDocument ?rate .
+                        ?quote as:hasBaseCurrency ?baseCurrency .
+                        ?quote as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:exchangeRate ?rateValue .   }
+                        BIND ( IF ( EXISTS {
+                        ?quote as:includeExchangeRateSalesDocument ?rate .
+                        ?quote as:hasBaseCurrency ?baseCurrency .
+                        ?quote as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                             },
+                        xsd:decimal(?price * ?rateValue), ?price ) AS ?val )
+    }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityChanceofSuccess">
+        <ps:defaultValue rdf:datatype="&xsd;int">50</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteReportTitle">
+        <ps:defaultValue xml:lang="de">Angebot</ps:defaultValue>
+        <ps:defaultValue xml:lang="en">Quote</ps:defaultValue>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

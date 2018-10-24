@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/security/security-implementation.owl#"
+    xml:base="http://www.inmindcomputing.com/security/security-implementation.owl"
+    xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+    xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+    xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+    xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/security/security-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl"/>
+    </owl:Ontology>
+
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+    -->
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#C5209540 -->
+
+    <owl:NamedIndividual rdf:about="&ai;C5209540">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Elmar Voigtländer</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">C5209540</ps:businessTypeShortText>
+        <as:personFirstName rdf:datatype="&xsd;string">Elmar</as:personFirstName>
+        <as:personEmail rdf:datatype="&xsd;string">Elmar.Voigtlaender@inmindcomputing.com</as:personEmail>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personLastName rdf:datatype="&xsd;string">Voigtländer</as:personLastName>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Gebietsbeauftragter01</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GB01</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">GB01@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Gebietsbeauftragter01</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Gebietsbeauftragter02</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GB02</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">GB02@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Gebietsbeauftragter02</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Gebietsbeauftragter03</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GB03</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">GB03@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Gebietsbeauftragter03</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#P1940098925 -->
+
+    <owl:NamedIndividual rdf:about="&ai;P1940098925">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Alexander Peukert</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personFirstName rdf:datatype="&xsd;string">Alexander</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1940098925</ps:businessTypeShortText>
+        <as:personLastName rdf:datatype="&xsd;string">Peukert</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personEmail rdf:datatype="&xsd;string">alexander.peukert@inmindcomputing.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#P1940677369 -->
+
+    <owl:NamedIndividual rdf:about="&ai;P1940677369">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Jan-Peter Oeser</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personFirstName rdf:datatype="&xsd;string">Jan-Peter</as:personFirstName>
+        <as:personEmail rdf:datatype="&xsd;string">Jan-Peter.Oeser@inmindcomputing.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Oeser</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1940677369</ps:businessTypeShortText>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PMHardware -->
+
+    <owl:NamedIndividual rdf:about="&ai;PMHardware">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">PMHardware</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string">Jason</as:personFirstName>
+        <as:personLastName rdf:datatype="&xsd;string">Mcghee</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PMHardware</ps:businessTypeShortText>
+        <as:personPosition rdf:datatype="&xsd;string">PRODUCT MANAGER</as:personPosition>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PMSoftware -->
+
+    <owl:NamedIndividual rdf:about="&ai;PMSoftware">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">PMSoftware</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">Heigl</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Kelly</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PMSoftware</ps:businessTypeShortText>
+        <as:personPosition rdf:datatype="&xsd;string">PRODUCT MANAGER</as:personPosition>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PMSubscription -->
+
+    <owl:NamedIndividual rdf:about="&ai;PMSubscription">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">PMSubscription</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">Bhardwaj</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Dhaval</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PMSubscription</ps:businessTypeShortText>
+        <as:personPosition rdf:datatype="&xsd;string">PRODUCT MANAGER</as:personPosition>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Regionalleiter01</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL01</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">RL01@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Regionalleiter01</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MANAGER</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Regionalleiter02</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL02</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">RL02@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Regionalleiter02</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MANAGER</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Regionalleiter03</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL03</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">RL03@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Regionalleiter03</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MANAGER</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#S0010572091 -->
+
+    <owl:NamedIndividual rdf:about="&ai;S0010572091">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Tobias Hammerschmidt</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">Hammerschmidt</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">S0010572091</ps:businessTypeShortText>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Tobias</as:personFirstName>
+        <as:personEmail rdf:datatype="&xsd;string">tobias.hammerschmidt@inmindcomputing.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#S0011073996 -->
+
+    <owl:NamedIndividual rdf:about="&ai;S0011073996">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Mirko Fellner</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">Fellner</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">Mirko</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">S0011073996</ps:businessTypeShortText>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MANAGER</as:personPosition>
+        <as:personEmail rdf:datatype="&xsd;string">mirko.fellner@inmindcomputing.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:includesPerson rdf:resource="&ai;P1940098925"/>
+        <as:includesPerson rdf:resource="&ai;S0010572091"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USSalesvp -->
+
+    <owl:NamedIndividual rdf:about="&ai;USSalesvp">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesvp</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">9818665578</as:personPhone>
+        <as:personFirstName rdf:datatype="&xsd;string">Chrisitan</as:personFirstName>
+        <as:personLastName rdf:datatype="&xsd;string">Cuske</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES VP</as:personPosition>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USSalesvp</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_VP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#VL01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;VL01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Vertriebsleiter01</rdfs:label>
+        <as:personFirstName rdf:datatype="&xsd;string"></as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personPosition rdf:datatype="&xsd;string">SALES VP</as:personPosition>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">VL01</ps:businessTypeShortText>
+        <as:personEmail rdf:datatype="&xsd;string">VL01@meiller.com</as:personEmail>
+        <as:personLastName rdf:datatype="&xsd;string">Vertriebsleiter01</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_VP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#admin -->
+
+    <owl:NamedIndividual rdf:about="&ai;admin">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">admin</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string"> Crowe</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">ADMINISTRATOR</as:personPosition>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:personFirstName rdf:datatype="&xsd;string">Max</as:personFirstName>
+        <as:userPassword rdf:datatype="&xsd;string">8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">admin</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#P1594869777 -->
+
+    <owl:NamedIndividual rdf:about="&sec;P1594869777">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">P1594869777</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1594869777</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#P1627887583 -->
+
+    <owl:NamedIndividual rdf:about="&sec;P1627887583">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">P1627887583</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1627887583</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#P1632306452 -->
+
+    <owl:NamedIndividual rdf:about="&sec;P1632306452">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">P1632306452</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1632306452</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#P1694537717 -->
+
+    <owl:NamedIndividual rdf:about="&sec;P1694537717">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">P1694537717</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1694537717</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#P1731176523 -->
+
+    <owl:NamedIndividual rdf:about="&sec;P1731176523">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">P1731176523</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">P1731176523</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_ADMIN -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_ADMIN">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ADMIN</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">19</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_ADMIN</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ADMIN"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleWrite rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_MARKETING -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_MARKETING">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">ROLE_MARKETING</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">23</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_MARKETING</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_MARKETING"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_ROOT -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_ROOT">
+        <rdf:type rdf:resource="&as;Role"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_ROOT</ps:businessTypeShortText>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_VP"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_MARKETING"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_MGR -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_MGR">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">SALES MGR</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">7</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_MGR</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&as;ROLE_APPROVAL"/>
+        <as:hasRoleWrite rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_MARKETING"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_OPS -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_OPS">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">SALES OPS</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">11</as:roleAuthority>
+        <rdfs:comment rdf:datatype="&xsd;string">Create Sales Order</rdfs:comment>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_OPS</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_VP"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_MARKETING"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_REP -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_REP">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">SALES REP</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">13</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_REP</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_MARKETING"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_VP -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_VP">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">SALES VP</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">17</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_VP</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&as;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:hasRoleWrite rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_MARKETING"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_USER -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_USER">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label rdf:datatype="&xsd;string">USER</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">2</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_USER</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#S0010410294 -->
+
+    <owl:NamedIndividual rdf:about="&sec;S0010410294">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">S0010410294</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">S0010410294</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#S0010411390 -->
+
+    <owl:NamedIndividual rdf:about="&sec;S0010411390">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">S0010411390</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">S0010411390</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#Salesops -->
+
+    <owl:NamedIndividual rdf:about="&sec;Salesops">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Salesops</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Salesops</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_OPS"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#USMarketingrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;USMarketingrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USMarketingrep01</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <as:personPhone rdf:datatype="&xsd;string">9818664409</as:personPhone>
+        <as:personGender rdf:datatype="&xsd;string">FEMALE</as:personGender>
+        <as:personPosition rdf:datatype="&xsd;string">Marketing REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">MarketingRep</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USMarketingrep01</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:personEmail rdf:datatype="&xsd;string">swemon.aung@inmindcomputing.de</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_MARKETING"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#USSalesman -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesman">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesman</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">87221541</as:personPhone>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:personLastName rdf:datatype="&xsd;string">Manager</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES MANAGER</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Sales</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USSalesman</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:personEmail rdf:datatype="&xsd;string">lee.thiamchye@inmindcomputing.de</as:personEmail>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#USSalesrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesrep01</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <as:personPhone rdf:datatype="&xsd;string">9818664409</as:personPhone>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Salesrep</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USSalesrep01</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:personEmail rdf:datatype="&xsd;string">lee.thiamchye@inmindcomputing.de</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#USSalesrep02 -->
+
+    <owl:NamedIndividual rdf:about="&sec;USSalesrep02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">USSalesrep02</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">02</as:personLastName>
+        <as:personPhone rdf:datatype="&xsd;string">123456</as:personPhone>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Salesrep</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USSalesrep02</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;English"/>
+        <as:personIncludedBy rdf:resource="&ai;IMCAG"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#desalesrep01 -->
+
+    <owl:NamedIndividual rdf:about="&sec;desalesrep01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="en">desalesrep01</rdfs:label>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <as:personPosition rdf:datatype="&xsd;string">SALES REP</as:personPosition>
+        <as:personFirstName rdf:datatype="&xsd;string">Salesrep</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">desalesrep01</ps:businessTypeShortText>
+        <as:userPassword rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

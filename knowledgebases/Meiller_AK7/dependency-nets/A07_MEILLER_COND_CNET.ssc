@@ -1,0 +1,155 @@
+constraintNet A07_MEILLER_COND_CNET {
+  constraints
+
+	A07_TABLES
+//	PRODUCTLISTPRICE	
+}
+constraint A07_TABLES{
+	objects ?O is_a(300)CRM_AK07
+		
+	restrictions
+        ?O.MEILLER_MOD = ?O.A07MOD,		
+		table TYP_MODELL (
+			TYP = ?O.domain TYP,
+			MODELL = ?O.domain MODELL,
+			A07MOD = ?O.domain A07MOD,
+			PRODUCTIMAGE = ?O.domain PRODUCTIMAGE
+//			PRODUCTLISTPRICE = ?O.domain PRODUCTLISTPRICE
+		),
+		table A07MSS (
+			A07MSS = ?O.domain A07MSS,
+			A07STE = ?O.domain A07STE
+		),
+		table A07PRE (
+			A07PRE = ?O.domain A07PRE,
+			A07SIC = ?O.domain A07SIC
+		),
+		table A07BOD (
+			A07BOD = ?O.domain A07BOD,
+			A07SIC = ?O.domain A07SIC
+		),
+		table A07ANL_MOD (
+			A07ANL = ?O.domain A07ANL,
+			A07MOD = ?O.domain A07MOD
+		),
+		table A07ANL (
+			A07ANL = ?O.domain A07ANL,
+			A07STK = ?O.domain A07STK
+		),
+		table A07EIN (
+			A07EIN = ?O.domain A07EIN,
+			A07STE = ?O.domain A07STE
+		),
+		table A07ATT (
+			A07ATT = ?O.domain A07ATT,
+			A07STE = ?O.domain A07STE
+		),
+		table A07BED (
+			A07BED = ?O.domain A07BED,
+			A07STE = ?O.domain A07STE
+		),
+		table A07HAS (
+			A07HAS = ?O.domain A07HAS,
+			A07FZG = ?O.domain A07FZG,
+			A07STE = ?O.domain A07STE
+		),
+		table A07MKO (
+			A07MKO = ?O.domain A07MKO,
+			A07KOT = ?O.domain A07KOT
+		),
+		table A07STK_MOD (
+			A07STK = ?O.domain A07STK,
+			A07MOD = ?O.domain A07MOD
+		),
+		table A07HKI_MOD (
+			A07HKI = ?O.domain A07HKI,
+			A07MOD = ?O.domain A07MOD
+		),
+		table A07ASR_MOD (
+			A07ASR = ?O.domain A07ASR,
+			A07MOD = ?O.domain A07MOD
+		),
+		table A07MSV (
+			A07MSV = ?O.domain A07MSV,
+			A07SSV = ?O.domain A07SSV
+		),
+		table A07KON (
+			A07KOS = ?O.domain A07KOS,
+			A07KON = ?O.domain A07KON
+		),
+		table A07KOS (
+			A07KOS = ?O.domain A07KOS,
+			A07KOH = ?O.domain A07KOH
+		),
+		table A07KOH (
+			A07KON = ?O.domain A07KON,
+			A07KOH = ?O.domain A07KOH
+		),
+// Farbtabelle
+		table A07AFA (
+			A07AFA = ?O.domain A07AFA,
+			A07LAQ = ?O.domain A07LAQ,
+			A07FCO = ?O.domain A07FCO,
+			A07FTO = ?O.domain A07FTO
+		),
+		table A07LAQ (
+			A07LAQ = ?O.domain A07LAQ,
+			A07LAA = ?O.domain A07LAA
+		),
+		table A07LLO (
+			A07LLO = ?O.domain A07LLO,
+			A07MON = ?O.domain A07MON,
+			A07LAA = ?O.domain A07LAA
+		),
+		table A07VLO (
+			A07VLO = ?O.domain A07VLO,
+			A07MON = ?O.domain A07MON,
+			A07LAA = ?O.domain A07LAA
+		),
+		table A07TFR (
+			A07TFR = ?O.domain A07TFR,
+			A07MON = ?O.domain A07MON
+		),
+		table A07WER (
+			A07WER = ?O.domain A07WER,
+			A07MON = ?O.domain A07MON
+		)
+	inferences:
+		?O.domain TYP, ?O.domain MODELL, ?O.domain A07MOD,
+		?O.domain PRODUCTIMAGE,
+		?O.MEILLER_MOD,
+//			?O.domain PRODUCTLISTPRICE
+		?O.domain A07PRE,
+		?O.domain A07BOD,
+		?O.domain A07ANL,
+		?O.domain A07SIC,
+		?O.domain A07STK,
+		?O.domain A07STE,
+		?O.domain A07MSS,
+		?O.domain A07EIN,
+		?O.domain A07ATT,
+		?O.domain A07BED,
+		?O.domain A07HAS,
+		?O.domain A07FZG,
+		?O.domain A07MKO,
+		?O.domain A07KOT,
+		?O.domain A07STK,
+		?O.domain A07HKI,
+		?O.domain A07ASR,
+		?O.domain A07MSV,
+		?O.domain A07SSV,
+		?O.domain A07KOS,
+		?O.domain A07KON,
+		?O.domain A07KOH,
+		?O.domain A07AFA,
+		?O.domain A07LAQ,
+		?O.domain A07FCO,
+		?O.domain A07FTO,
+		?O.domain A07LLO,
+		?O.domain A07VLO,
+		?O.domain A07MON,
+		?O.domain A07LAA,
+		?O.domain A07TFR,
+		?O.domain A07WER
+}
+

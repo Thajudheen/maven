@@ -1,0 +1,54 @@
+class ENTERPRISE_ROUTER {
+	name "Enterprise Router"
+  	characteristics
+	    MODEL required,
+	    REGULATORY_DOMAIN required,
+	    AP_COUNT required ,
+	    PORT_DEFAULT_ADDONS required defaultValues (1), 
+	    PORT_ADDITIONAL_ADDONS required defaultValues (0),
+	    REDUNDANT_PSU required,
+	    MOUNTING_OPTION required,
+	    COMMENTS,
+	    POWER_CHORD required,
+	    PRODUCTIMAGE required invisible,
+	    PRODUCTLISTPRICE noinput invisible defaultValues(1500),
+	    PRODUCTPRICE noinput invisible,
+	    HLP_VIS invisible,
+	    PRICE_AGGR noinput invisible,
+	    CONFIGURATIONINSIGHT invisible	    
+}
+
+class MAINTENANCE {
+	name "Maintenance Contract"
+	characteristics
+		CONTRACT_SUPPORT_TYPE required,
+		CONTRACT_SERVICE_TERM required,
+		PRODUCTCONFIGURABLE defaultValues ('TRUE') invisible,
+		PRODUCTPRICE noinput invisible , 
+}
+
+class POWER_CHORD {
+	characteristics
+		PRODUCTCONFIGURABLE defaultValues ('FALSE') invisible,
+		PRODUCTLISTPRICE noinput invisible defaultValues(20),
+		PRODUCTPRICE noinput invisible defaultValues(20),
+}
+
+
+class FIBER_CONNECTOR {
+	name "Fiber Optic Connector"
+	characteristics
+		PRODUCTCONFIGURABLE defaultValues ('FALSE') invisible,
+		PRODUCTLISTPRICE noinput invisible defaultValues(25),
+		PRODUCTPRICE noinput invisible defaultValues(25),		
+}
+
+class MAINT_EXT {
+	name "Maintenance Ext"
+	characteristics
+		PRODUCTCONFIGURABLE defaultValues ('FALSE') invisible,
+		PRODUCTLISTPRICE noinput invisible defaultValues(25),
+		PRODUCTPRICE noinput invisible defaultValues(25),		
+}
+
+

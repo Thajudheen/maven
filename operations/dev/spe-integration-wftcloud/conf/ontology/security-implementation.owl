@@ -1,0 +1,3514 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/security/security-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/security/security-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#4process -->
+
+    <owl:NamedIndividual rdf:about="&ai;4process">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>4process</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName></as:personLastName>
+        <as:personFirstName>4process</as:personFirstName>
+        <as:personPhone>0</as:personPhone>
+        <ps:businessTypeShortText>4process</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail></as:personEmail>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#66a4d0f743264b6ab87fd168b4033e1d -->
+
+    <owl:NamedIndividual rdf:about="&ai;66a4d0f743264b6ab87fd168b4033e1d">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Mysterium</as:addressCity>
+        <ps:businessTypeId>66a4d0f743264b6ab87fd168b4033e1d</ps:businessTypeId>
+        <as:addressStreet>Musterhausenerstr 4</as:addressStreet>
+        <as:addressZip>77782</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AYIYIILO -->
+
+    <owl:NamedIndividual rdf:about="&ai;AYIYIILO">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>AYIYIILO</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (89) 1487-1572</as:personPhone>
+        <as:personPosition>Key Account Manager</as:personPosition>
+        <ps:businessTypeShortText>AYIYIILO</ps:businessTypeShortText>
+        <as:personLastName>Ayiyi</as:personLastName>
+        <as:personFirstName>Ilona</as:personFirstName>
+        <as:personEmail>ilona.ayiyi@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;AYIYIILO-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AYIYIILO-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;AYIYIILO-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <ps:businessTypeShortText>AYIYIILO-ADDRESS</ps:businessTypeShortText>
+        <as:addressCity>München</as:addressCity>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressIncludedBy rdf:resource="&ai;AYIYIILO"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AddressMeiller -->
+
+    <owl:NamedIndividual rdf:about="&ai;AddressMeiller">
+        <rdf:type rdf:resource="&as;Address"/>
+        <rdfs:label xml:lang="de">AddressMEILLER</rdfs:label>
+        <rdfs:label xml:lang="en">AddressMEILLER</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">MEILLER ADDRESS</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BERNHARTMIC -->
+
+    <owl:NamedIndividual rdf:about="&ai;BERNHARTMIC">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>BERNHARTMIC</rdfs:label>
+        <as:personLastName>Bernhart</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>Michael</as:personFirstName>
+        <ps:businessTypeShortText>BERNHARTMIC</ps:businessTypeShortText>
+        <as:personEmail>michael.bernhart@meiller.com</as:personEmail>
+        <as:personPhone>+49 (5131) 4437925</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;BERNHARTMIC-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BERNHARTMIC-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;BERNHARTMIC-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Garbsen</as:addressCity>
+        <as:addressZip>30826</as:addressZip>
+        <as:addressStreet>Röhrsgasse 3</as:addressStreet>
+        <ps:businessTypeShortText>BERNHARTMIC-ADDRESS</ps:businessTypeShortText>
+        <as:addressIncludedBy rdf:resource="&ai;BERNHARTMIC"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BOEHMERDAN -->
+
+    <owl:NamedIndividual rdf:about="&ai;BOEHMERDAN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>BOEHMERDAN</rdfs:label>
+        <as:personFirstName>Daniel</as:personFirstName>
+        <as:personEmail>daniel.boehmer@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-1500</as:personPhone>
+        <as:personLastName>Böhmer</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <ps:businessTypeShortText>BOEHMERDAN</ps:businessTypeShortText>
+        <as:personPosition>Managing Board</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;BOEHMERDAN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BOEHMERDAN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;BOEHMERDAN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>BOEHMERDAN-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressIncludedBy rdf:resource="&ai;BOEHMERDAN"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BRAUNROB -->
+
+    <owl:NamedIndividual rdf:about="&ai;BRAUNROB">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>BRAUNROB</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Braun</as:personLastName>
+        <as:personPhone>+49 (89) 1487-1508</as:personPhone>
+        <as:personEmail>robert.braun@meiller.com</as:personEmail>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personFirstName>Robert</as:personFirstName>
+        <ps:businessTypeShortText>BRAUNROB</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;BRAUNROB-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BRAUNROB-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;BRAUNROB-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <ps:businessTypeShortText>BRAUNROB-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <as:addressIncludedBy rdf:resource="&ai;BRAUNROB"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BRUESERGER -->
+
+    <owl:NamedIndividual rdf:about="&ai;BRUESERGER">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>BRUESERGER</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (6400) 9594 990</as:personPhone>
+        <as:personEmail>gero.brueser@meiller.com</as:personEmail>
+        <as:personFirstName>Gero</as:personFirstName>
+        <as:personLastName>Brüser</as:personLastName>
+        <ps:businessTypeShortText>BRUESERGER</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;BRUESERGER-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BRUESERGER-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;BRUESERGER-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>35325</as:addressZip>
+        <as:addressCity>Mücke Groß-Eichen</as:addressCity>
+        <ps:businessTypeShortText>BRUESERGER-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Ecke 5</as:addressStreet>
+        <as:addressIncludedBy rdf:resource="&ai;BRUESERGER"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BRUNNERHAN -->
+
+    <owl:NamedIndividual rdf:about="&ai;BRUNNERHAN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>BRUNNERHAN</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>hans.brunner@meiller.com</as:personEmail>
+        <as:personLastName>Brunner</as:personLastName>
+        <as:personFirstName>Hans</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>+49 (89) 1487-1509</as:personPhone>
+        <ps:businessTypeShortText>BRUNNERHAN</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;BRUNNERHAN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BRUNNERHAN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;BRUNNERHAN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <ps:businessTypeShortText>BRUNNERHAN-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressIncludedBy rdf:resource="&ai;BRUNNERHAN"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DAHMMAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;DAHMMAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>DAHMMAR</rdfs:label>
+        <as:personFirstName>Markus</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <ps:businessTypeShortText>DAHMMAR</ps:businessTypeShortText>
+        <as:personEmail>markus.dahm@meiller.com</as:personEmail>
+        <as:personLastName>Dahm</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (89) 1487-1477</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;DAHMMAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DAHMMAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;DAHMMAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>DAHMMAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <as:addressIncludedBy rdf:resource="&ai;DAHMMAR"/>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DETLEFSSTE -->
+
+    <owl:NamedIndividual rdf:about="&ai;DETLEFSSTE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>DETLEFSSTE</rdfs:label>
+        <as:personEmail>stefan.detlefs@meiller.com</as:personEmail>
+        <as:personPhone>+49 (30) 347991-11</as:personPhone>
+        <ps:businessTypeShortText>DETLEFSSTE</ps:businessTypeShortText>
+        <as:personFirstName>Stefan</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Detlefs</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;DETLEFSSTE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DETLEFSSTE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;DETLEFSSTE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>DETLEFSSTE-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Dovestrasse 1</as:addressStreet>
+        <as:addressCity>Berlin</as:addressCity>
+        <as:addressZip>10587</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;DETLEFSSTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DICHTLSTE -->
+
+    <owl:NamedIndividual rdf:about="&ai;DICHTLSTE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>DICHTLSTE</rdfs:label>
+        <as:personEmail>stephan.dichtl@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-1312</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <ps:businessTypeShortText>DICHTLSTE</ps:businessTypeShortText>
+        <as:personLastName>Dichtl</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personFirstName>Stephan</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;DICHTLSTE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DICHTLSTE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;DICHTLSTE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>DICHTLSTE-ADDRESS</ps:businessTypeShortText>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;DICHTLSTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DIERSTEIMAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;DIERSTEIMAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>DIERSTEIMAR</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Dierstein</as:personLastName>
+        <as:personPhone>+49 (6826) 8176 356</as:personPhone>
+        <as:personEmail>marco.dierstein@meiller.com</as:personEmail>
+        <as:personFirstName>Marco</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <ps:businessTypeShortText>DIERSTEIMAR</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;DIERSTEIMAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DIERSTEIMAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;DIERSTEIMAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>DIERSTEIMAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Saar-Pfalz-Str. 132</as:addressStreet>
+        <as:addressCity>Bexbach</as:addressCity>
+        <as:addressZip>66450</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;DIERSTEIMAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DIPPOLDOLI -->
+
+    <owl:NamedIndividual rdf:about="&ai;DIPPOLDOLI">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>DIPPOLDOLI</rdfs:label>
+        <as:personPhone>+49 (89) 1487-1510</as:personPhone>
+        <as:personFirstName>Oliver</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Dippold</as:personLastName>
+        <ps:businessTypeShortText>DIPPOLDOLI</ps:businessTypeShortText>
+        <as:personEmail>oliver.dippold@meiller.com</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;DIPPOLDOLI-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DIPPOLDOLI-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;DIPPOLDOLI-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>DIPPOLDOLI-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;DIPPOLDOLI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EGGERELI -->
+
+    <owl:NamedIndividual rdf:about="&ai;EGGERELI">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>EGGERELI</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>elisabeth.egger@meiller.com</as:personEmail>
+        <as:personFirstName>Elisabeth</as:personFirstName>
+        <ps:businessTypeShortText>EGGERELI</ps:businessTypeShortText>
+        <as:personLastName>Egger</as:personLastName>
+        <as:personPhone>+49 (89) 1487 1972</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;EGGERELI-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EGGERELI-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;EGGERELI-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>EGGERELI-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;EGGERELI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EICHELDIMIC -->
+
+    <owl:NamedIndividual rdf:about="&ai;EICHELDIMIC">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>EICHELDIMIC</rdfs:label>
+        <as:personFirstName>???</as:personFirstName>
+        <as:personLastName>???</as:personLastName>
+        <as:personPhone>0</as:personPhone>
+        <ps:businessTypeShortText>EICHELDIMIC</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personEmail>???</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EICHELDIMIC-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;EICHELDIMIC-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>EICHELDIMIC-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <as:addressZip>80997</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;EICHELDIMIC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EICHNERPET -->
+
+    <owl:NamedIndividual rdf:about="&ai;EICHNERPET">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>EICHNERPET</rdfs:label>
+        <ps:businessTypeShortText>EICHNERPET</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (911) 32175-04</as:personPhone>
+        <as:personLastName>Eichner</as:personLastName>
+        <as:personFirstName>Peter</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personEmail>peter.eichner@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;EICHNERPET-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EICHNERPET-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;EICHNERPET-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>EICHNERPET-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>90431</as:addressZip>
+        <as:addressCity>Nürnberg</as:addressCity>
+        <as:addressStreet>Witschelstrasse 69</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;EICHNERPET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FLEISCHMSTE -->
+
+    <owl:NamedIndividual rdf:about="&ai;FLEISCHMSTE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>FLEISCHMSTE</rdfs:label>
+        <ps:businessTypeShortText>FLEISCHMSTE</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>+49 (89) 1487-1255</as:personPhone>
+        <as:personFirstName>Stefan</as:personFirstName>
+        <as:personEmail>stefan.fleischmann@meiller.com</as:personEmail>
+        <as:personLastName>Fleischmann</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;FLEISCHMSTE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FLEISCHMSTE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;FLEISCHMSTE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>FLEISCHMSTE-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;FLEISCHMSTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Gebietsbeauftragter01</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>max.mustermann@web.de</as:personEmail>
+        <as:personFirstName>Max</as:personFirstName>
+        <ps:businessTypeShortText>GB01</ps:businessTypeShortText>
+        <as:personPhone>09818664409</as:personPhone>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Musterman</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;66a4d0f743264b6ab87fd168b4033e1d"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:personIncludedBy rdf:resource="http://www.inmindcomputing.com/applicion/application-implementation.owl#Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Gebietsbeauftragter02</rdfs:label>
+        <as:personEmail>???</as:personEmail>
+        <as:personFirstName>???</as:personFirstName>
+        <as:personLastName>???</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <ps:businessTypeShortText>GB02</ps:businessTypeShortText>
+        <as:personPhone>9818664410</as:personPhone>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Gebietsbeauftragter03</rdfs:label>
+        <as:personEmail>???</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>???</as:personLastName>
+        <ps:businessTypeShortText>GB03</ps:businessTypeShortText>
+        <as:personFirstName>???</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>9818664411</as:personPhone>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 1</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">27</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM01</ps:businessTypeShortText>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 2</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">02</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">28</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM02</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 3</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">03</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">29</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM03</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM04">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 4</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">04</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">30</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM04</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM05 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM05">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 5</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">05</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">31</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM05</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM06 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM06">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 6</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">06</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">32</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM06</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM07 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM07">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 7</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">07</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">33</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM07</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM08 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM08">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 8</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">08</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">34</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM08</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM09 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM09">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 9</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">09</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">35</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM09</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBM10 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBM10">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Mitte 10</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">10</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">36</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBM</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBM10</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 1</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">17</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN01</ps:businessTypeShortText>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 2</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">02</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">18</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN02</ps:businessTypeShortText>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 3</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">03</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">19</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN03</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN04">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 4</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">04</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">20</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN04</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN05 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN05">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 5</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">05</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">21</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN05</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN06 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN06">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 6</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">06</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">22</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN06</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN07 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN07">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 7</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">07</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">23</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN07</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN08 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN08">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 8</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">08</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">24</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN08</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN09 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN09">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 9</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">09</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">25</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN09</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBN10 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBN10">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Nord 10</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">10</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">26</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBN</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBN10</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 1</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">47</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS01</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 2</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">02</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">48</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS02</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 3</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">03</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">49</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS03</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS04">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 4</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">04</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">50</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS04</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS05 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS05">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 5</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">05</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">51</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS05</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS06 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS06">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 6</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">06</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">52</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS06</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS07 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS07">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 7</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">07</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">53</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS07</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS08 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS08">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 8</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">08</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">54</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS08</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS09 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS09">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 9</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">09</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">55</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS09</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBS10 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBS10">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-Süd 10</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">10</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">56</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBS</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBS10</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 1</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">01</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">37</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW01</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 2</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">02</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">38</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW02</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 3</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">03</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">39</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW03</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW04">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 4</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">04</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">40</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW04</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW05 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW05">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 5</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">05</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">41</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW05</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW06 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW06">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 6</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">05</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">42</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW06</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW07 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW07">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 7</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">07</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">43</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW07</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW08 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW08">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 8</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">08</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">44</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW08</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW09 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW09">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 9</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">09</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">45</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW09</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GBW10 -->
+
+    <owl:NamedIndividual rdf:about="&ai;GBW10">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rolle GB-West 10</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <as:personLastName rdf:datatype="&xsd;string">10</as:personLastName>
+        <ps:businessTypeId rdf:datatype="&xsd;string">46</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">GBW</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">GBW10</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GEBHARTWOL -->
+
+    <owl:NamedIndividual rdf:about="&ai;GEBHARTWOL">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>GEBHARTWOL</rdfs:label>
+        <ps:businessTypeShortText>GEBHARTWOL</ps:businessTypeShortText>
+        <as:personFirstName>Wolfgang</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>wolfgang.gebhart@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-1567</as:personPhone>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Gebhart</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;GEBHARTWOL-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GEBHARTWOL-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;GEBHARTWOL-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>GEBHARTWOL-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;GEBHARTWOL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HADZIMUREDN -->
+
+    <owl:NamedIndividual rdf:about="&ai;HADZIMUREDN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>HADZIMUREDN</rdfs:label>
+        <as:personEmail>edna.hadzimuratovic@meiller.com</as:personEmail>
+        <as:personLastName>Hadzimuratovic</as:personLastName>
+        <ps:businessTypeShortText>HADZIMUREDN</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personFirstName>Edna</as:personFirstName>
+        <as:personPhone>+49 (89) 1487-1760</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;HADZIMUREDN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HADZIMUREDN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;HADZIMUREDN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>HADZIMUREDN-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;HADZIMUREDN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HENSELTOR -->
+
+    <owl:NamedIndividual rdf:about="&ai;HENSELTOR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>HENSELTOR</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personFirstName>Torsten</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Hensel</as:personLastName>
+        <as:personEmail>torsten.hensel@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-1754</as:personPhone>
+        <ps:businessTypeShortText>HENSELTOR</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;HENSELTOR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HENSELTOR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;HENSELTOR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>HENSELTOR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;HENSELTOR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HILGERNIK -->
+
+    <owl:NamedIndividual rdf:about="&ai;HILGERNIK">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>HILGERNIK</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Hilger</as:personLastName>
+        <as:personFirstName>Nikolaus</as:personFirstName>
+        <as:personEmail>nikolaus.hilger@meiller.com</as:personEmail>
+        <ps:businessTypeShortText>HILGERNIK</ps:businessTypeShortText>
+        <as:personPhone>+49 (89) 1487-1478</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;HILGERNIK-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HILGERNIK-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;HILGERNIK-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>HILGERNIK-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;HILGERNIK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HOFFMANNMON -->
+
+    <owl:NamedIndividual rdf:about="&ai;HOFFMANNMON">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>HOFFMANNMON</rdfs:label>
+        <ps:businessTypeShortText>HOFFMANNMON</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>monika.hoffmann@meiller.com</as:personEmail>
+        <as:personLastName>Hoffmann</as:personLastName>
+        <as:personPhone>+49 (89) 1487-1745</as:personPhone>
+        <as:personFirstName>Monika</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;HOFFMANNMON-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HOFFMANNMON-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;HOFFMANNMON-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>HOFFMANNMON-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;HOFFMANNMON"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HOLMJOE -->
+
+    <owl:NamedIndividual rdf:about="&ai;HOLMJOE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>HOLMJOE</rdfs:label>
+        <as:personPhone>+49 (451) 2907588</as:personPhone>
+        <as:personEmail>joerg.holm@meiller.com</as:personEmail>
+        <ps:businessTypeShortText>HOLMJOE</ps:businessTypeShortText>
+        <as:personLastName>Holm</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personFirstName>Jörg</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;HOLMJOE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HOLMJOE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;HOLMJOE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Lübeck</as:addressCity>
+        <ps:businessTypeShortText>HOLMJOE-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Travemünder Allee 23 a</as:addressStreet>
+        <as:addressZip>23568</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;HOLMJOE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HUEBSCHAXE -->
+
+    <owl:NamedIndividual rdf:about="&ai;HUEBSCHAXE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>HUEBSCHAXE</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (721) 94324-40</as:personPhone>
+        <as:personFirstName>Axel</as:personFirstName>
+        <ps:businessTypeShortText>HUEBSCHAXE</ps:businessTypeShortText>
+        <as:personEmail>axel.huebsch@meiller.com</as:personEmail>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Hübsch</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;HUEBSCHAXE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HUEBSCHAXE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;HUEBSCHAXE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>76227</as:addressZip>
+        <ps:businessTypeShortText>HUEBSCHAXE-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Wachhausstrasse 5</as:addressStreet>
+        <as:addressCity>Karlsruhe</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;HUEBSCHAXE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#INMIND -->
+
+    <owl:NamedIndividual rdf:about="&ai;INMIND">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>INMIND</rdfs:label>
+        <ps:businessTypeShortText>INMIND</ps:businessTypeShortText>
+        <as:personLastName>Admin</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>0</as:personPhone>
+        <as:personFirstName>InMind</as:personFirstName>
+        <as:personEmail></as:personEmail>
+        <as:personPosition>ADMIN</as:personPosition>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KHRALAMOVINN -->
+
+    <owl:NamedIndividual rdf:about="&ai;KHRALAMOVINN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>KHRALAMOVINN</rdfs:label>
+        <ps:businessTypeShortText>KHRALAMOVINN</ps:businessTypeShortText>
+        <as:personEmail>inna.kharlamova@meiller.com</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>Inna</as:personFirstName>
+        <as:personLastName>Kharlamova</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>+49 (89) 1487-1552</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;KHRALAMOVINN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KHRALAMOVINN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;KHRALAMOVINN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>KHRALAMOVINN-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;KHRALAMOVINN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KOEHLERALE -->
+
+    <owl:NamedIndividual rdf:about="&ai;KOEHLERALE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>KOEHLERALE</rdfs:label>
+        <as:personEmail>alexander.koehler@meiller.com</as:personEmail>
+        <as:personFirstName>Alexander</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Köhler</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (89) 1487-1749</as:personPhone>
+        <ps:businessTypeShortText>KOEHLERALE</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;KOEHLERALE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KOEHLERALE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;KOEHLERALE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>KOEHLERALE-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;KOEHLERALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KRAKEULR -->
+
+    <owl:NamedIndividual rdf:about="&ai;KRAKEULR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>KRAKEULR</rdfs:label>
+        <as:personPhone>+49 (2102) 7009-32</as:personPhone>
+        <as:personLastName>Krake</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>Ulrich</as:personFirstName>
+        <ps:businessTypeShortText>KRAKEULR</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personEmail>ulrich.krake@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;KRAKEULR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KRAKEULR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;KRAKEULR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Sandstrasse 57</as:addressStreet>
+        <as:addressCity>Ratingen</as:addressCity>
+        <as:addressZip>40878</as:addressZip>
+        <ps:businessTypeShortText>KRAKEULR-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;KRAKEULR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KUPIESTHO -->
+
+    <owl:NamedIndividual rdf:about="&ai;KUPIESTHO">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>KUPIESTHO</rdfs:label>
+        <ps:businessTypeShortText>KUPIESTHO</ps:businessTypeShortText>
+        <as:personLastName>Kupies</as:personLastName>
+        <as:personFirstName>Thorsten</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (234) 9585666</as:personPhone>
+        <as:personEmail>thorsten.kupies@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;KUPIESTHO-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KUPIESTHO-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;KUPIESTHO-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>KUPIESTHO-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>44795</as:addressZip>
+        <as:addressCity>Bochum</as:addressCity>
+        <as:addressStreet>Wasserstrasse 400</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;KUPIESTHO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LANGFELDBER -->
+
+    <owl:NamedIndividual rdf:about="&ai;LANGFELDBER">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>LANGFELDBER</rdfs:label>
+        <ps:businessTypeShortText>LANGFELDBER</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Langfeldt</as:personLastName>
+        <as:personFirstName>Berco</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (3381) 208850</as:personPhone>
+        <as:personEmail>berco.langfeld@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;LANGFELDBER-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LANGFELDBER-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;LANGFELDBER-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Beetzsee</as:addressCity>
+        <as:addressStreet>Nelkenweg 1</as:addressStreet>
+        <as:addressZip>14778</as:addressZip>
+        <ps:businessTypeShortText>LANGFELDBER-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;LANGFELDBER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LANGMAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;LANGMAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>LANGMAR</rdfs:label>
+        <as:personPhone>+49 (89) 1487-1750</as:personPhone>
+        <as:personFirstName>Markus</as:personFirstName>
+        <as:personEmail>markus.lang@meiller.com</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Lang</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <ps:businessTypeShortText>LANGMAR</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;LANGMAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LANGMAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;LANGMAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>LANGMAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;LANGMAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LIEBLERELV -->
+
+    <owl:NamedIndividual rdf:about="&ai;LIEBLERELV">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>LIEBLERELV</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (89) 1487-1506</as:personPhone>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personFirstName>Elvira</as:personFirstName>
+        <ps:businessTypeShortText>LIEBLERELV</ps:businessTypeShortText>
+        <as:personEmail>elvira.liebler@meiller.com</as:personEmail>
+        <as:personLastName>Liebler</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;LIEBLERELV-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LIEBLERELV-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;LIEBLERELV-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>LIEBLERELV-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;LIEBLERELV"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LOTZERVOL -->
+
+    <owl:NamedIndividual rdf:about="&ai;LOTZERVOL">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>LOTZERVOL</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personEmail>volker.lotzer@meiller.com</as:personEmail>
+        <ps:businessTypeShortText>LOTZERVOL</ps:businessTypeShortText>
+        <as:personFirstName>Volker</as:personFirstName>
+        <as:personLastName>Lotzer</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (7571) 7489973</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;LOTZERVOL-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LOTZERVOL-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;LOTZERVOL-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>72517</as:addressZip>
+        <as:addressCity>Sigmaringendorf</as:addressCity>
+        <as:addressStreet>Erlenweg 2</as:addressStreet>
+        <ps:businessTypeShortText>LOTZERVOL-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;LOTZERVOL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MARTINTHO -->
+
+    <owl:NamedIndividual rdf:about="&ai;MARTINTHO">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>MARTINTHO</rdfs:label>
+        <as:personPhone>+49 (341) 90457-14</as:personPhone>
+        <as:personLastName>Martin</as:personLastName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personEmail>thomas.martin@meiller.com</as:personEmail>
+        <ps:businessTypeShortText>MARTINTHO</ps:businessTypeShortText>
+        <as:personFirstName>Thomas</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;MARTINTHO-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MARTINTHO-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;MARTINTHO-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>MARTINTHO-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>04159</as:addressZip>
+        <as:addressCity>Leipzig</as:addressCity>
+        <as:addressStreet>Georg-Schumann-Strasse 319</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;MARTINTHO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MEYERFLO -->
+
+    <owl:NamedIndividual rdf:about="&ai;MEYERFLO">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>MEYERFLO</rdfs:label>
+        <as:personEmail>florian.meyer@meiller.com</as:personEmail>
+        <as:personPosition>SALES REP</as:personPosition>
+        <ps:businessTypeShortText>MEYERFLO</ps:businessTypeShortText>
+        <as:personPhone>+49 (89) 1487-1503</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Meyer</as:personLastName>
+        <as:personFirstName>Florian</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;MEYERFLO-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MEYERFLO-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;MEYERFLO-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>MEYERFLO-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;MEYERFLO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MF -->
+
+    <owl:NamedIndividual rdf:about="&ai;MF">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>MF</rdfs:label>
+        <as:personPhone>015174502210</as:personPhone>
+        <as:personEmail>mirko.fellner@inmindcomputing.de</as:personEmail>
+        <as:personFirstName>Mirko</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <ps:businessTypeShortText>MF</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Fellner</as:personLastName>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MOHRHAN -->
+
+    <owl:NamedIndividual rdf:about="&ai;MOHRHAN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>MOHRHAN</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>+49 (421) 8775610</as:personPhone>
+        <as:personFirstName>Hans-Ulrich</as:personFirstName>
+        <as:personLastName>Mohr</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>hans.ulrich.mohr@meiller.com</as:personEmail>
+        <ps:businessTypeShortText>MOHRHAN</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;MOHRHAN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MOHRHAN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;MOHRHAN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>MOHRHAN-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Leher Heerstrasse 56-60</as:addressStreet>
+        <as:addressCity>Bremen</as:addressCity>
+        <as:addressZip>28359</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;MOHRHAN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MUELLERBHAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;MUELLERBHAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>MUELLERBHAR</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Müller-Bardey</as:personLastName>
+        <as:personEmail>hartwig.mueller.bardey@meiller.com</as:personEmail>
+        <as:personFirstName>Hartwig</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>+49 (2241) 232296</as:personPhone>
+        <ps:businessTypeShortText>MUELLERBHAR</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;MUELLERBHAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MUELLERBHAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;MUELLERBHAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>53842</as:addressZip>
+        <ps:businessTypeShortText>MUELLERBHAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Lärchenweg 21</as:addressStreet>
+        <as:addressCity>Troisdorf</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;MUELLERBHAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NEGRIROB -->
+
+    <owl:NamedIndividual rdf:about="&ai;NEGRIROB">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>NEGRIROB</rdfs:label>
+        <as:personPhone>+49 (89) 1487-1505</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Negri</as:personLastName>
+        <ps:businessTypeShortText>NEGRIROB</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personEmail>roberta.negri@meiller.com</as:personEmail>
+        <as:personFirstName>Roberta</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;NEGRIROB-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NEGRIROB-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;NEGRIROB-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <ps:businessTypeShortText>NEGRIROB-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;NEGRIROB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NESTLERMIK -->
+
+    <owl:NamedIndividual rdf:about="&ai;NESTLERMIK">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>NESTLERMIK</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Nestler</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (341) 90457-13</as:personPhone>
+        <ps:businessTypeShortText>NESTLERMIK</ps:businessTypeShortText>
+        <as:personEmail>mike.nestler@meiller.com</as:personEmail>
+        <as:personFirstName>Mike</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;NESTLERMIK-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NESTLERMIK-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;NESTLERMIK-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>NESTLERMIK-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>04159</as:addressZip>
+        <as:addressCity>Leipzig</as:addressCity>
+        <as:addressStreet>Georg-Schumann-Strasse 319</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;NESTLERMIK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NISSENTHO -->
+
+    <owl:NamedIndividual rdf:about="&ai;NISSENTHO">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>NISSENTHO</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (40) 60558947</as:personPhone>
+        <as:personFirstName>Thore</as:personFirstName>
+        <ps:businessTypeShortText>NISSENTHO</ps:businessTypeShortText>
+        <as:personLastName>Nissen</as:personLastName>
+        <as:personEmail>thore.nissen@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;NISSENTHO-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NISSENTHO-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;NISSENTHO-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Hamburg</as:addressCity>
+        <ps:businessTypeShortText>NISSENTHO-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>22177</as:addressZip>
+        <as:addressStreet>Bramfelder Chausee 41</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;NISSENTHO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#OTTOAND -->
+
+    <owl:NamedIndividual rdf:about="&ai;OTTOAND">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>OTTOAND</rdfs:label>
+        <as:personLastName>Otto</as:personLastName>
+        <as:personEmail>andreas.otto@meiller.com</as:personEmail>
+        <as:personFirstName>Andreas</as:personFirstName>
+        <as:personPhone>+49 (2571) 581655</as:personPhone>
+        <ps:businessTypeShortText>OTTOAND</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;OTTOAND-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#OTTOAND-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;OTTOAND-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Greven</as:addressCity>
+        <as:addressStreet>Am Voßkotten 32 a</as:addressStreet>
+        <ps:businessTypeShortText>OTTOAND-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>48268</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;OTTOAND"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PIDUKWOL -->
+
+    <owl:NamedIndividual rdf:about="&ai;PIDUKWOL">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>PIDUKWOL</rdfs:label>
+        <ps:businessTypeShortText>PIDUKWOL</ps:businessTypeShortText>
+        <as:personPosition>SALES MANAGER</as:personPosition>
+        <as:personFirstName>Wolfgang</as:personFirstName>
+        <as:personLastName>Piduk</as:personLastName>
+        <as:personPhone>+49 (2102) 7009-22</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>wolfgang.piduk@meiller.com</as:personEmail>
+        <as:includesAddress rdf:resource="&ai;PIDUKWOL-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PIDUKWOL-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;PIDUKWOL-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>40878</as:addressZip>
+        <as:addressCity>Ratingen</as:addressCity>
+        <as:addressStreet>Sandstrasse 57</as:addressStreet>
+        <ps:businessTypeShortText>PIDUKWOL-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;PIDUKWOL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PRAUTZSCHAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;PRAUTZSCHAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>PRAUTZSCHAR</rdfs:label>
+        <as:personFirstName>Harald</as:personFirstName>
+        <as:personLastName>Prautzsch</as:personLastName>
+        <ps:businessTypeShortText>PRAUTZSCHAR</ps:businessTypeShortText>
+        <as:personEmail>harald.prautzsch@meiller.com</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (4203) 748911</as:personPhone>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;PRAUTZSCHAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PRAUTZSCHAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;PRAUTZSCHAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>28844</as:addressZip>
+        <ps:businessTypeShortText>PRAUTZSCHAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Heckenweg 13</as:addressStreet>
+        <as:addressCity>Weyhe</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;PRAUTZSCHAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Regionalleiter01</rdfs:label>
+        <as:personPhone>9818664414</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>???</as:personEmail>
+        <as:personLastName>???</as:personLastName>
+        <as:personPosition>SALES MANAGER</as:personPosition>
+        <as:personFirstName>???</as:personFirstName>
+        <ps:businessTypeShortText>RL01</ps:businessTypeShortText>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Regionalleiter02</rdfs:label>
+        <as:personPosition>SALES MANAGER</as:personPosition>
+        <as:personFirstName>???</as:personFirstName>
+        <as:personPhone>9818664415</as:personPhone>
+        <as:personEmail>???</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>???</as:personLastName>
+        <ps:businessTypeShortText>RL02</ps:businessTypeShortText>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Regionalleiter03</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES MANAGER</as:personPosition>
+        <as:personPhone>9818664416</as:personPhone>
+        <ps:businessTypeShortText>RL03</ps:businessTypeShortText>
+        <as:personEmail>???</as:personEmail>
+        <as:personFirstName>???</as:personFirstName>
+        <as:personLastName>???</as:personLastName>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL04">
+        <rdf:type rdf:resource="&as;User"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL04</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL_MIDDLE -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL_MIDDLE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">RL MIDDLE</rdfs:label>
+        <rdfs:label xml:lang="en">RL MIDDLE</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">09</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">MIDDLE</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">RL</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL MIDDLE</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL_NORTH -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL_NORTH">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">RL NORTH</rdfs:label>
+        <rdfs:label xml:lang="en">RL NORTH</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">08</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">NORTH</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">RL</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL NORTH</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL_SOUTH -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL_SOUTH">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">RL SOUTH</rdfs:label>
+        <rdfs:label xml:lang="en">RL SOUTH</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">11</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">RL</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL SOUTH</ps:businessTypeShortText>
+        <as:personLastName rdf:datatype="&xsd;string">SOUTH</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RL_WEST -->
+
+    <owl:NamedIndividual rdf:about="&ai;RL_WEST">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">RL WEST</rdfs:label>
+        <rdfs:label xml:lang="en">RL WEST</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">10</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">RL</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RL WEST</ps:businessTypeShortText>
+        <as:personLastName rdf:datatype="&xsd;string">WEST</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROBLESJOR -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROBLESJOR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>ROBLESJOR</rdfs:label>
+        <ps:businessTypeShortText>ROBLESJOR</ps:businessTypeShortText>
+        <as:personFirstName>???</as:personFirstName>
+        <as:personPhone>0</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>???</as:personLastName>
+        <as:personEmail>???</as:personEmail>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;ROBLESJOR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROBLESJOR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROBLESJOR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>ROBLESJOR-ADDRESS</ps:businessTypeShortText>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressZip>80997</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;ROBLESJOR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROMBERGALE -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROMBERGALE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>ROMBERGALE</rdfs:label>
+        <ps:businessTypeShortText>ROMBERGALE</ps:businessTypeShortText>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Romberg</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPhone>+49 (89) 1487-1582</as:personPhone>
+        <as:personEmail>alexander.romberg@meiller.com</as:personEmail>
+        <as:personFirstName>Alexander</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;ROMBERGALE-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROMBERGALE-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROMBERGALE-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <ps:businessTypeShortText>ROMBERGALE-ADDRESS</ps:businessTypeShortText>
+        <as:addressCity>München</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;ROMBERGALE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROMBERGEMAN -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROMBERGEMAN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>ROMBERGEMAN</rdfs:label>
+        <as:personPhone>+49 (89) 1487-1524</as:personPhone>
+        <as:personLastName>Romberger</as:personLastName>
+        <as:personEmail>manuela.romberger@meiller.com</as:personEmail>
+        <ps:businessTypeShortText>ROMBERGEMAN</ps:businessTypeShortText>
+        <as:personFirstName>Manuela</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;ROMBERGEMAN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROMBERGEMAN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROMBERGEMAN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>ROMBERGEMAN-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;ROMBERGEMAN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SCHEIBMAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;SCHEIBMAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>SCHEIBMAR</rdfs:label>
+        <as:personEmail>markus.scheib@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-1570</as:personPhone>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:userPassword>-</as:userPassword>
+        <as:personLastName>Scheib</as:personLastName>
+        <ps:businessTypeShortText>SCHEIBMAR</ps:businessTypeShortText>
+        <as:personFirstName>Markus</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;SCHEIBMAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SCHEIBMAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;SCHEIBMAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>SCHEIBMAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressCity>München</as:addressCity>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;SCHEIBMAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SCHOENSEB -->
+
+    <owl:NamedIndividual rdf:about="&ai;SCHOENSEB">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>SCHOENSEB</rdfs:label>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>Sebastian</as:personFirstName>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personLastName>Schön</as:personLastName>
+        <ps:businessTypeShortText>SCHOENSEB</ps:businessTypeShortText>
+        <as:personEmail>sebastian.schoen@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-1504</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;SCHOENSEB-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SCHOENSEB-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;SCHOENSEB-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressZip>80997</as:addressZip>
+        <ps:businessTypeShortText>SCHOENSEB-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;SCHOENSEB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SIGLPET -->
+
+    <owl:NamedIndividual rdf:about="&ai;SIGLPET">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>SIGLPET</rdfs:label>
+        <ps:businessTypeShortText>SIGLPET</ps:businessTypeShortText>
+        <as:personPhone>+49 (89) 1487-1511</as:personPhone>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>Petra</as:personFirstName>
+        <as:personLastName>Sigl</as:personLastName>
+        <as:personEmail>petra.sigl@meiller.com</as:personEmail>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;SIGLPET-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;FEMALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SIGLPET-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;SIGLPET-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>SIGLPET-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;SIGLPET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SOFRADOM -->
+
+    <owl:NamedIndividual rdf:about="&ai;SOFRADOM">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>SOFRADOM</rdfs:label>
+        <as:personLastName>Sofra</as:personLastName>
+        <ps:businessTypeShortText>SOFRADOM</ps:businessTypeShortText>
+        <as:personEmail>domenico.sofra@meiller.com</as:personEmail>
+        <as:personPhone>+49 (89) 1487-2074</as:personPhone>
+        <as:personFirstName>Domenico</as:personFirstName>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;SOFRADOM-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SOFRADOM-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;SOFRADOM-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>SOFRADOM-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;SOFRADOM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#STADLERMAR -->
+
+    <owl:NamedIndividual rdf:about="&ai;STADLERMAR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>STADLERMAR</rdfs:label>
+        <as:personEmail>martin.stadler@meiller.com</as:personEmail>
+        <as:personLastName>Stadler</as:personLastName>
+        <as:personFirstName>Martin</as:personFirstName>
+        <ps:businessTypeShortText>STADLERMAR</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:personPhone>+49 (8064) 2389772</as:personPhone>
+        <as:includesAddress rdf:resource="&ai;STADLERMAR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#STADLERMAR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;STADLERMAR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>Bad Feilnbach</as:addressCity>
+        <as:addressZip>83075</as:addressZip>
+        <ps:businessTypeShortText>STADLERMAR-ADDRESS</ps:businessTypeShortText>
+        <as:addressStreet>Nußbaumweg 16</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;STADLERMAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#STEINHAN -->
+
+    <owl:NamedIndividual rdf:about="&ai;STEINHAN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>STEINHAN</rdfs:label>
+        <as:personFirstName>Hans-Georg</as:personFirstName>
+        <as:personLastName>Stein</as:personLastName>
+        <as:personPhone>+49 (731) 40195-60</as:personPhone>
+        <ps:businessTypeShortText>STEINHAN</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personEmail>hans.georg.stein@meiller.com</as:personEmail>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;STEINHAN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#STEINHAN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;STEINHAN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>STEINHAN-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>89079</as:addressZip>
+        <as:addressCity>Ulm</as:addressCity>
+        <as:addressStreet>Graf-Arco-Strasse 4 4</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;STEINHAN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_AM -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_AM">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER AM</rdfs:label>
+        <rdfs:label xml:lang="en">USER AM</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">02</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AM</ps:businessTypeShortText>
+        <as:personLastName rdf:datatype="&xsd;string">AM</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_AM01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_AM01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER AM 01</rdfs:label>
+        <rdfs:label xml:lang="en">USER AM 01</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">03</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">AM 01</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AM01</ps:businessTypeShortText>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_AM02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_AM02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER AM 02</rdfs:label>
+        <rdfs:label xml:lang="en">USER AM 02</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">04</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">AM 02</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">AM02</ps:businessTypeShortText>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_GF -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_GF">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER GF</rdfs:label>
+        <rdfs:label xml:lang="en">USER GF</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">01</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">GF</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USER GF</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_GK -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_GK">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER GK</rdfs:label>
+        <rdfs:label xml:lang="en">USER GK</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">05</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">GK</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USER GK</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_KAM -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_KAM">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER KAM</rdfs:label>
+        <rdfs:label xml:lang="en">USER KAM</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">06</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">KAM</ps:businessTypeShortText>
+        <as:personLastName rdf:datatype="&xsd;string">KAM</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_KAM01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_KAM01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER KAM 01</rdfs:label>
+        <rdfs:label xml:lang="en">USER KAM 01</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">12</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">KAM 01</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">KAM01</ps:businessTypeShortText>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_KAM02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_KAM02">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER KAM 02</rdfs:label>
+        <rdfs:label xml:lang="en">USER KAM 02</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">13</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">KAM 02</as:personLastName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">KAM02</ps:businessTypeShortText>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_KAM03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_KAM03">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER KAM 03</rdfs:label>
+        <rdfs:label xml:lang="en">USER KAM 03</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">14</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">KAM 03</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USER KAM 03</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_KAM04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_KAM04">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER KAM 04</rdfs:label>
+        <rdfs:label xml:lang="en">USER KAM 04</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">15</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">KAM 04</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USER KAM 04</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_KAM05 -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_KAM05">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER KAM 05</rdfs:label>
+        <rdfs:label xml:lang="en">USER KAM 05</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">16</ps:businessTypeId>
+        <as:personLastName rdf:datatype="&xsd;string">KAM 05</as:personLastName>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USER KAM 05</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USER_VL -->
+
+    <owl:NamedIndividual rdf:about="&ai;USER_VL">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label xml:lang="de">USER VL</rdfs:label>
+        <rdfs:label xml:lang="en">USER VL</rdfs:label>
+        <as:userPassword rdf:datatype="&xsd;string">-</as:userPassword>
+        <ps:businessTypeId rdf:datatype="&xsd;string">07</ps:businessTypeId>
+        <as:personFirstName rdf:datatype="&xsd;string">USER</as:personFirstName>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USER VL</ps:businessTypeShortText>
+        <as:personLastName rdf:datatype="&xsd;string">VL</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#VL01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;VL01">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>Vertriebsleiter01</rdfs:label>
+        <as:personEmail>???</as:personEmail>
+        <as:personLastName>???</as:personLastName>
+        <as:personPosition>SALES VP</as:personPosition>
+        <as:personPhone>9818664479</as:personPhone>
+        <ps:businessTypeShortText>VL01</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>???</as:personFirstName>
+        <as:hasLanguage rdf:resource="&ai;German"/>
+        <as:personIncludedBy rdf:resource="&ai;Meiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#WEINMANNCHR -->
+
+    <owl:NamedIndividual rdf:about="&ai;WEINMANNCHR">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>WEINMANNCHR</rdfs:label>
+        <as:personEmail>christian.weinmann@meiller.com</as:personEmail>
+        <as:personLastName>Weinmann</as:personLastName>
+        <as:personFirstName>Christian</as:personFirstName>
+        <as:personPhone>+49 (89) 1487-1720</as:personPhone>
+        <ps:businessTypeShortText>WEINMANNCHR</ps:businessTypeShortText>
+        <as:userPassword>-</as:userPassword>
+        <as:personPosition>SALES REP</as:personPosition>
+        <as:includesAddress rdf:resource="&ai;WEINMANNCHR-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#WEINMANNCHR-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;WEINMANNCHR-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <ps:businessTypeShortText>WEINMANNCHR-ADDRESS</ps:businessTypeShortText>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;WEINMANNCHR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#WIEDEMANJEN -->
+
+    <owl:NamedIndividual rdf:about="&ai;WIEDEMANJEN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>WIEDEMANJEN</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <ps:businessTypeShortText>WIEDEMANJEN</ps:businessTypeShortText>
+        <as:personPhone>+49 (341) 90457-11</as:personPhone>
+        <as:personEmail>jens.wiedemann@meiller.com</as:personEmail>
+        <as:personLastName>Wiedemann</as:personLastName>
+        <as:userPassword>-</as:userPassword>
+        <as:personFirstName>Jens</as:personFirstName>
+        <as:includesAddress rdf:resource="&ai;WIEDEMANJEN-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#WIEDEMANJEN-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;WIEDEMANJEN-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <ps:businessTypeShortText>WIEDEMANJEN-ADDRESS</ps:businessTypeShortText>
+        <as:addressCity>Leipzig</as:addressCity>
+        <as:addressZip>04159</as:addressZip>
+        <as:addressStreet>Georg-Schumann-Strasse 319</as:addressStreet>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;WIEDEMANJEN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#WIMMERJOH -->
+
+    <owl:NamedIndividual rdf:about="&ai;WIMMERJOH">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label>WIMMERJOH</rdfs:label>
+        <as:personPosition>SALES REP</as:personPosition>
+        <ps:businessTypeShortText>WIMMERJOH</ps:businessTypeShortText>
+        <as:personPhone>+49 (89) 1487-2020</as:personPhone>
+        <as:personLastName>Wimmer</as:personLastName>
+        <as:personFirstName>Johann</as:personFirstName>
+        <as:personEmail>johann.wimmer@meiller.com</as:personEmail>
+        <as:userPassword>-</as:userPassword>
+        <as:includesAddress rdf:resource="&ai;WIMMERJOH-ADDRESS"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#WIMMERJOH-ADDRESS -->
+
+    <owl:NamedIndividual rdf:about="&ai;WIMMERJOH-ADDRESS">
+        <rdf:type rdf:resource="&as;Address"/>
+        <as:addressCity>München</as:addressCity>
+        <as:addressZip>80997</as:addressZip>
+        <as:addressStreet>Untermenzinger Str. 1</as:addressStreet>
+        <ps:businessTypeShortText>WIMMERJOH-ADDRESS</ps:businessTypeShortText>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:addressIncludedBy rdf:resource="&ai;WIMMERJOH"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#admin -->
+
+    <owl:NamedIndividual rdf:about="&ai;admin">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdfs:label rdf:datatype="&xsd;string">admin</rdfs:label>
+        <rdfs:label>admin</rdfs:label>
+        <as:personPhone rdf:datatype="&xsd;string">9818664480</as:personPhone>
+        <as:personFirstName rdf:datatype="&xsd;string">ADMIN</as:personFirstName>
+        <as:personPosition rdf:datatype="&xsd;string">ADMINISTRATOR</as:personPosition>
+        <as:personGender rdf:datatype="&xsd;string">MALE</as:personGender>
+        <as:personLastName rdf:datatype="&xsd;string">USER</as:personLastName>
+        <as:userPassword rdf:datatype="&xsd;string">admin</as:userPassword>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">admin</ps:businessTypeShortText>
+        <as:personPosition>ADMINISTRATOR</as:personPosition>
+        <ps:businessTypeShortText>admin</ps:businessTypeShortText>
+        <as:userPassword>admin</as:userPassword>
+        <as:personFirstName>ADMIN</as:personFirstName>
+        <as:personPhone>9818664480</as:personPhone>
+        <as:personLastName>USER</as:personLastName>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasGender rdf:resource="&as;MALE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+     
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_ADMIN -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_ADMIN">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Administrator</rdfs:label>
+        <rdfs:label xml:lang="en">Administrator</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">14</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">59</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_ADMIN</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_ADMIN"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleWrite rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_AL -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_AL">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">ROLE AM</rdfs:label>
+        <rdfs:label xml:lang="en">Account Management</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">02</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">47</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_AL</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_GB_MITTE"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_GB_NORD"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_GB_SUED"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_GB_WEST"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_GK"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_KAM"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_RL_MITTE"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_RL_NORD"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_RL_SUED"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_RL_WEST"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_APPROVAL -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_APPROVAL">
+        <rdf:type rdf:resource="&as;Role"/>
+        <as:roleAuthority rdf:datatype="&xsd;int">3</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_APPROVAL</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_GB_MITTE -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_GB_MITTE">
+        <rdf:type rdf:resource="&as;Role"/>
+        <as:roleAuthority rdf:datatype="&xsd;int">11</as:roleAuthority>
+        <ps:businessTypeId rdf:datatype="&xsd;string">11</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_GB_MITTE</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_GB_NORD -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_GB_NORD">
+        <rdf:type rdf:resource="&as;Role"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">10</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">13</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_GB_NORD</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_GB_SUED -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_GB_SUED">
+        <rdf:type rdf:resource="&as;Role"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">13</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">5</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_GB_SUED</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_GB_WEST -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_GB_WEST">
+        <rdf:type rdf:resource="&as;Role"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">12</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">7</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_GB_WEST</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_GF -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_GF">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Geschäftsführung</rdfs:label>
+        <rdfs:label xml:lang="en">Board of Management</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">01</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">53</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_GF</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GK"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_GK -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_GK">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">ROLE GK</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE GK</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">03</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">43</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_GK</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_MITTE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_NORD"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_SUED"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_KAM -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_KAM">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">ROLE KAM</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE KAM</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">04</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">41</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_KAM</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_READER -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_READER">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">ROLE_READER</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE_READER</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">19</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">79</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_READER</ps:businessTypeShortText>
+        <rdfs:comment rdf:datatype="&xsd;string">Read only</rdfs:comment>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_NON_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_HOME_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_OPS"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_RL_MITTE -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_RL_MITTE">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Regionalleiter Mitte</rdfs:label>
+        <rdfs:label xml:lang="en">Role Manager ( Middle Region )</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string"></ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">23</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_RL_MITTE</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_RL_NORD -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_RL_NORD">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Regionalleiter Nord</rdfs:label>
+        <rdfs:label xml:lang="en">Role Manager ( North Region )</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">06</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">29</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_RL_NORD</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_RL_SUED -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_RL_SUED">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Regionalleiter Süd</rdfs:label>
+        <rdfs:label xml:lang="en">Role Manager ( South Region )</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">09</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">17</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_RL_SUED</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_RL_WEST -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_RL_WEST">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Regionalleiter West</rdfs:label>
+        <rdfs:label xml:lang="en">Role Manager ( West Region )</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">08</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">19</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_RL_WEST</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_ROOT -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_ROOT">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">ROLE ROOT</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE ROOT</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_ROOT</ps:businessTypeShortText>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GF"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_MGR -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_MGR">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Regionalleiter</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE SALES MANAGER</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">16</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">67</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_MGR</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleWrite rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_REP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_OPS -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_OPS">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">ROLE_SALES_OPS</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE_SALES_OPS</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">18</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">73</as:roleAuthority>
+        <rdfs:comment rdf:datatype="&xsd;string">Create Sales Order</rdfs:comment>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_OPS</ps:businessTypeShortText>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_OPS"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_OPS"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_OPS"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_OPS"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_OPS"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_MGR"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_SALES_REP"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+        <as:hasRoleRead rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_SALES_REP -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_SALES_REP">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Gebietsbeauftragter</rdfs:label>
+        <rdfs:label xml:lang="en">Role Sales Rep</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">17</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">71</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_SALES_REP</ps:businessTypeShortText>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_REP"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_APPROVAL"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_USER -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_USER">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Nutzer</rdfs:label>
+        <rdfs:label xml:lang="en">User</rdfs:label>
+        <as:roleAuthority rdf:datatype="&xsd;int">2</as:roleAuthority>
+        <ps:businessTypeId rdf:datatype="&xsd;string">62</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_USER</ps:businessTypeShortText>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_HOME_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_USER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/security-implementation.owl#ROLE_VL -->
+
+    <owl:NamedIndividual rdf:about="&sec;ROLE_VL">
+        <rdf:type rdf:resource="&as;Role"/>
+        <rdfs:label xml:lang="de">Vertriebsleitung</rdfs:label>
+        <rdfs:label xml:lang="en">ROLE VL</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">05</ps:businessTypeId>
+        <as:roleAuthority rdf:datatype="&xsd;int">31</as:roleAuthority>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">ROLE_VL</ps:businessTypeShortText>
+        <as:includesAddress rdf:resource="&ai;AddressMeiller"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_ACCEPTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_APPROVED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_COMPLETED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_OPEN_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_PROCESS_REJECTED_SALES_MGR"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_QUOTE_ACTION"/>
+        <as:hasUiProfile rdf:resource="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ROLE_SALES_WITHDRAW"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_APPROVAL"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_MITTE"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_NORD"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_SUED"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

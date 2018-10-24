@@ -1,0 +1,279 @@
+constraintNet ENTERPRISE_ROUTER_CNET {
+  constraints
+    BILD_CS
+    //,DEFAULT_PORTS_VIS_CS
+    //,ADDITIONAL_PORTS_VIS_CS
+    ,CSTIC_VIS_CS
+    ,CREATE_CONTRACT
+    ,CREATE_POWER_CHORD
+    ,AGGR_2_PP
+    ,MAINTENANCE_PRICE_CS
+    ,INSIGHT_CS
+    ,REGION_POWER_CHORD
+    ,CREATE_MAINT
+//    ,ARUBA_PRICE_CS
+}
+
+constraint AGGR_2_PP {
+	objects ?O is_a(300)ENTERPRISE_ROUTER
+	
+	restrictions:
+		?O.PRODUCTPRICE = ?O.PRICE_AGGR
+	
+	 inferences
+	 ?O.PRODUCTPRICE
+}
+
+constraint REGION_POWER_CHORD{
+objects ?O is_a(300)ENTERPRISE_ROUTER
+		
+		restrictions
+		
+		table REGION_POWER_CHORD (
+			REGULATORY_DOMAIN = ?O.domain REGULATORY_DOMAIN
+			,POWER_CHORD = ?O.domain POWER_CHORD	
+)
+
+		inferences:
+			?O.domain REGULATORY_DOMAIN, ?O.domain POWER_CHORD 
+
+
+}
+
+constraint BILD_CS {
+	objects ?O is_a(300)ENTERPRISE_ROUTER
+	
+	condition:
+		?O.MODEL specified
+	
+	restrictions:
+		?O.PRODUCTIMAGE = 'R1000.jpg'
+			if ?O.MODEL = 'R1000'
+		,?O.PRODUCTIMAGE = 'R2000.jpg'
+			if ?O.MODEL = 'R2000'
+		,?O.PRODUCTIMAGE = 'X4000.jpg'
+			if ?O.MODEL = 'X4000'
+		
+	inferences:
+		?O.PRODUCTIMAGE
+}
+
+//constraint DEFAULT_PORTS_VIS_CS {
+//	objects
+//		?O is_a(300)ENTERPRISE_ROUTER
+//	
+//	condition:
+//		?O.PORT_DEFAULT_ADDONS specified
+//		
+//	restrictions:
+//		?O.invisible PORT0_DEFAULT_ADDON
+//			if ?O.PORT_DEFAULT_ADDONS < 1
+//		,?O.invisible PORT1_DEFAULT_ADDON
+//			if ?O.PORT_DEFAULT_ADDONS < 2
+//			
+//	inferences:
+//		?O.invisible PORT0_DEFAULT_ADDON
+//		,?O.invisible PORT1_DEFAULT_ADDON
+//		
+//}
+
+//constraint ADDITIONAL_PORTS_VIS_CS {
+//	objects
+//		?O is_a(300)ARUBA_SERIES_S
+//	
+//	condition:
+//		?O.PORT_ADDITIONAL_ADDONS specified
+//		
+//	restrictions:
+//		?O.invisible PORT0_ADDITIONAL_ADDON
+//			if ?O.PORT_ADDITIONAL_ADDONS < 1
+//		,?O.invisible PORT1_ADDITIONAL_ADDON
+//			if ?O.PORT_ADDITIONAL_ADDONS < 2
+//		,?O.invisible PORT2_ADDITIONAL_ADDON
+//			if ?O.PORT_ADDITIONAL_ADDONS < 3
+//		,?O.invisible PORT3_ADDITIONAL_ADDON
+//			if ?O.PORT_ADDITIONAL_ADDONS < 4
+//			
+//	inferences:
+//		?O.invisible PORT0_ADDITIONAL_ADDON
+//		,?O.invisible PORT1_ADDITIONAL_ADDON
+//		,?O.invisible PORT2_ADDITIONAL_ADDON
+//		,?O.invisible PORT3_ADDITIONAL_ADDON		
+//}
+
+constraint CSTIC_VIS_CS {
+	objects
+		?O is_a(300)ENTERPRISE_ROUTER
+	
+	condition:
+		?O.HLP_VIS = 0
+		
+	restrictions:
+		?O.invisible PORT_DEFAULT_ADDONS, 
+	    ?O.invisible PORT_ADDITIONAL_ADDONS,
+//	    ?O.invisible PORT0_DEFAULT_ADDON, 
+//	    ?O.invisible PORT1_DEFAULT_ADDON, 
+	    ?O.invisible REDUNDANT_PSU,
+	    ?O.invisible MOUNTING_OPTION,
+	    ?O.invisible COMMENTS,
+	    ?O.invisible POWER_CHORD
+	    
+	inferences:
+		?O.invisible PORT_DEFAULT_ADDONS, 
+	    ?O.invisible PORT_ADDITIONAL_ADDONS,
+//	    ?O.invisible PORT0_DEFAULT_ADDON, 
+//	    ?O.invisible PORT1_DEFAULT_ADDON, 
+	    ?O.invisible REDUNDANT_PSU,
+	    ?O.invisible MOUNTING_OPTION,
+	    ?O.invisible COMMENTS,
+	    ?O.invisible POWER_CHORD
+}
+
+
+constraint CREATE_CONTRACT {
+	objects
+		?O is_object(material) (300) (nr=ENTERPRISE_ROUTER)
+	
+	condition:
+		?O.MODEL specified
+	
+	restrictions:
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr=MAINTENANCE)
+			//with CONTRACT_NAME = ?O.MODEL || '_CONTRACT'
+		) 
+}
+
+
+constraint CREATE_MAINT {
+	objects
+		?S is_object(material) (300) (nr=MAINTENANCE)
+	
+	condition:
+		?S.CONTRACT_SUPPORT_TYPE specified
+	
+	restrictions:
+	    has_part(
+			?S, 
+			pos_type= (material)(300)(nr=MAINT_EXT)
+		) 		
+}
+
+constraint CREATE_POWER_CHORD {
+	objects
+		?O is_object(material) (300) (nr=ENTERPRISE_ROUTER)
+	
+	condition:
+		?O.POWER_CHORD specified
+	
+	restrictions:
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_ARG')
+		) if ?O.POWER_CHORD = 'PC_AC_ARG',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_AUS')
+		) if ?O.POWER_CHORD = 'PC_AC_AUS',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_BR')
+		) if ?O.POWER_CHORD = 'PC_AC_BR',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_CHN')
+		) if ?O.POWER_CHORD = 'PC_AC_CHN',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_DEN')
+		) if ?O.POWER_CHORD = 'PC_AC_DEN',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_EC')
+		) if ?O.POWER_CHORD = 'PC_AC_EC',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_IN')
+		) if ?O.POWER_CHORD = 'PC_AC_IN',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_IS')
+		) if ?O.POWER_CHORD = 'PC_AC_IS',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_IT')
+		) if ?O.POWER_CHORD = 'PC_AC_IT',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_JPN')
+		) if ?O.POWER_CHORD = 'PC_AC_JPN',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_KOR')
+		) if ?O.POWER_CHORD = 'PC_AC_KOR',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_LA')
+		) if ?O.POWER_CHORD = 'PC_AC_LA',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_SWI')
+		) if ?O.POWER_CHORD = 'PC_AC_SWI',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_UK')
+		) if ?O.POWER_CHORD = 'PC_AC_UK',
+		
+		has_part(
+			?O, 
+			pos_type=(material)(300)(nr='PC_AC_ZA')
+		) if ?O.POWER_CHORD = 'PC_AC_ZA'
+		
+}
+
+
+constraint MAINTENANCE_PRICE_CS {
+	objects
+		?C is_a (300) MAINTENANCE
+	restrictions
+		table MAINTENANCE_PRICE (
+			CONTRACT_SERVICE_TERM = ?C.CONTRACT_SERVICE_TERM,
+			CONTRACT_SUPPORT_TYPE = ?C.CONTRACT_SUPPORT_TYPE,
+			PRODUCTPRICE = ?C.PRODUCTPRICE
+		)
+	inferences
+		?C.PRODUCTPRICE
+}
+
+constraint INSIGHT_CS {
+	objects
+		?O is_object(material) (300) (nr=ENTERPRISE_ROUTER)
+	condition:
+		?O.MODEL specified and
+	    ?O.REGULATORY_DOMAIN specified and
+	    ?O.AP_COUNT specified and
+	    ?O.PORT_DEFAULT_ADDONS specified and 
+	    ?O.PORT_ADDITIONAL_ADDONS specified and
+	    ?O.REDUNDANT_PSU  specified and
+	    ?O.MOUNTING_OPTION  specified and
+	    ?O.POWER_CHORD  specified and
+	    ?O.PRODUCTIMAGE  specified
+	 restrictions:
+	 	?O.CONFIGURATIONINSIGHT = 'MESSAGE1'
+	 inferences:
+	 ?O.CONFIGURATIONINSIGHT
+}

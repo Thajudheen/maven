@@ -1,0 +1,53 @@
+<project default="main" xmlns:ac="antlib:net.sf.antcontrib">
+
+  <target name="main">
+    <ac:foreach target="install" param="ui5jar">
+      <path>
+        <fileset dir="./target/repository/plugins" casesensitive="yes">
+          <include name="**/*.jar" />
+        </fileset>
+      </path>
+    </ac:foreach>
+  </target>
+
+  <target name="install">
+
+    <echo message="ui5 jar: ${ui5jar}" />
+
+    <!-- derive maven GAV information -->
+    <ac:propertyregex property="ui5.groupId" input="${ui5jar}" regexp=".*[\\/](.*)\.(.*)\_([\.0-9]+)\.jar"
+      select="\1" casesensitive="false" />
+    <echo message="ui5 groupId: ${ui5.groupId}" />
+    <ac:propertyregex property="ui5.artifactId" input="${ui5jar}" regexp=".*[\\/](.*)\.(.*)\_([\.0-9]+)\.jar"
+      select="\2" casesensitive="false" />
+    <echo message="ui5 artifactId: ${ui5.artifactId}" />
+    <ac:propertyregex property="ui5.version" input="${ui5jar}" regexp=".*[\\/](.*)\.(.*)\_([\.0-9]+)\.jar"
+      select="\3" casesensitive="false" />
+    <echo message="ui5 version: ${ui5.version}" />
+
+    <!-- install to target repository -->
+    <property environment="env" />
+    <path id="classpath">
+      <fileset dir="${maven.home}/boot">
+        <include name="plexus-classworlds-*.jar" />
+      </fileset>
+    </path>
+    <property name="mvn.mainclass" value="org.codehaus.plexus.classworlds.launcher.Launcher" />
+
+    <java classname="${mvn.mainclass}" classpathref="classpath" fork="true" failonerror="true">
+      <jvmarg value="-Dclassworlds.conf=${maven.home}/bin/m2.conf" />
+      <jvmarg value="-Dmaven.home=${maven.home}" />
+      <jvmarg value="-DlocalRepositoryPath=${mvn.targetRepo}" />
+      <jvmarg value="-DcreateChecksum=true" />
+      <jvmarg value="-Dfile=${ui5jar}" />
+      <jvmarg value="-DgroupId=${ui5.groupId}" />
+      <jvmarg value="-DartifactId=${ui5.artifactId}" />
+      <jvmarg value="-Dversion=${ui5.version}" />
+      <jvmarg value="-Dpackaging=jar" />
+      <jvmarg value="-Dmaven.multiModuleProjectDirectory=${maven.home}" />
+      <arg value="install:install-file" />
+    </java>
+
+  </target>
+
+</project>

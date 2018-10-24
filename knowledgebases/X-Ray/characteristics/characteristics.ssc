@@ -1,0 +1,68 @@
+characteristic XRAY_STRENGTH {
+  names EN "XRay Strength", DE "XRay Strength" longNames EN "XRay machine offered by us", DE "XRay machine offered by us"
+  textLength 15
+  restrictable 
+  caseSensitive
+    values
+	"TYPE1" names DE "Low", EN "Low" longNames EN "Low power XRay useful for kids. Used in medical industry in pediatrics.", DE "Low power XRay useful for kids. Used in medical industry in pediatrics",
+	"TYPE2" names DE "Med", EN "Med" longNames EN "Medium power XRay useful for dental check ups. Used in medical industry in Dentistry.", DE "Medium power XRay useful for dental check ups. Used in medical industry in Dentistry.",
+	"TYPE3" names DE "High", EN "High" longNames EN "High power XRay useful for all medical check ups. Used in medical industry in Hospitals.", DE "High power XRay useful for all medical check ups. Used in medical industry in Hospitals.",
+	"TYPE4" names DE "Extreme", EN "Extreme" longNames EN "High power XRay useful only for research purpose.", DE "High power XRay useful only for research purpose.",
+}
+
+
+characteristic XRAY_PANEL_TYPE {
+  names EN "XRay Panel", DE "XRay Panel" longNames EN "XRay Panel", DE "XRay Panel"
+  textLength 15
+  restrictable 
+  caseSensitive
+    values
+	"P1" names DE "Normal", EN "Normal" longNames EN "Normal Panel Type useful for normal work.", DE "Normal Panel Type useful for normal work.",
+	"P2" names DE "Deluxe", EN "Deluxe" longNames EN "Deluxe Panel Type useful for precision work.", DE "Deluxe Panel Type useful for precision work.",
+}
+
+
+characteristic XRAY_PANEL_SIZE {
+  names EN "XRay Panel Size", DE "XRay Panel Size" longNames EN "XRay Panel Size", DE "XRay Panel Size"
+  textLength 15
+  restrictable 
+  caseSensitive
+    values
+	"S1" names DE "17 Inch", EN "17 Inch" longNames EN "Normal Size", DE "Normal Size",
+	"S2" names DE "21 Inch", EN "21 Inch" longNames EN "Industrial Large", DE "Industrial large",
+}
+
+
+
+characteristic XRAY_STRENGTH_PRICE	{ 
+	names EN "XRAY STRENGTH PRICE",	DE "XRAY STRENGTH PRICE" 
+	numericLength 15 decimalPlaces 2	
+}
+
+
+
+
+characteristic PRODUCTIMAGE{
+    names EN "Picture", DE "Bild"
+    textLength 15
+    caseSensitive
+    restrictable
+}
+
+characteristic PRODUCTPRICE {
+	names EN "Product Price", DE "Produktpreis" 
+	numericLength 15 decimalPlaces 2
+}
+
+characteristic PRODUCTLISTPRICE {
+	names EN "Product list price", DE "Produktlistenpreis"
+	numericLength 15 decimalPlaces 2
+}
+
+
+characteristic XRAY_PRICEAGGR {
+	names EN "XRAY PRICE AGGR", DE "XRAY PRICE AGGR"
+	numericLength 15 decimalPlaces 2
+	specialFunction aggregating
+}
+

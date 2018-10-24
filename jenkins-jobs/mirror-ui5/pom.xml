@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.imc</groupId>
+  <artifactId>mirror-ui5</artifactId>
+  <version>0.0.1</version>
+
+  <packaging>pom</packaging>
+
+  <properties>
+    <tycho-version>0.23.1</tycho-version>
+    <!-- define on cmd line -->
+    <!-- <mvn.targetRepo></mvn.targetRepo> -->
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>sap-nwc-tools</id>
+      <url>https://tools.hana.ondemand.com/mars</url>
+      <layout>p2</layout>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-p2-extras-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <execution>
+            <id>mirror-ui5</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>mirror</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <source>
+            <repository>
+              <url>https://tools.hana.ondemand.com/mars</url>
+              <layout>p2</layout>
+            </repository>
+          </source>
+          <ius>
+            <iu>
+              <id>com.sap.ui5.runtime.feature.feature.group</id>
+            </iu>
+            <iu>
+              <id>com.sap.ui5.uilib.feature.feature.group</id>
+            </iu>
+          </ius>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <ant antfile="build.xml" />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>ant-contrib</groupId>
+            <artifactId>ant-contrib</artifactId>
+            <version>1.0b3</version>
+            <exclusions>
+              <exclusion>
+                <groupId>ant</groupId>
+                <artifactId>ant</artifactId>
+              </exclusion>
+            </exclusions>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant-nodeps</artifactId>
+            <version>1.8.1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

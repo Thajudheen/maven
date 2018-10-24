@@ -1,0 +1,54 @@
+ruleNet XRAY_RNET {
+  rules
+	BASE_PRICE,
+    XRAY_1_PRICE,
+    XRAY_2_PRICE,
+    XRAY_3_PRICE,
+    XRAY_4_PRICE
+
+}
+
+rule BASE_PRICE {
+  	objects: 
+    	?O is_a (300)XRAY
+	body:
+		then increment: ?O.XRAY_PRICEAGGR by ?O.PRODUCTLISTPRICE		
+}
+
+
+rule XRAY_1_PRICE {
+  	objects: 
+    	?O is_a (300)XRAY
+    condition:
+    	?O.XRAY_STRENGTH = 'TYPE1'
+	body:
+		then increment: ?O.XRAY_PRICEAGGR by 50
+}
+
+rule XRAY_2_PRICE {
+  	objects: 
+    	?O is_a (300)XRAY
+    condition:
+    	?O.XRAY_STRENGTH = 'TYPE2'
+	body:
+		then increment: ?O.XRAY_PRICEAGGR by 75
+}
+
+rule XRAY_3_PRICE {
+  	objects: 
+    	?O is_a (300)XRAY
+    condition:
+    	?O.XRAY_STRENGTH = 'TYPE3'
+	body:
+		then increment: ?O.XRAY_PRICEAGGR by 100
+}
+
+rule XRAY_4_PRICE {
+  	objects: 
+    	?O is_a (300)XRAY
+    condition:
+    	?O.XRAY_STRENGTH = 'TYPE4'
+	body:
+		then increment: ?O.XRAY_PRICEAGGR by 110
+}
+

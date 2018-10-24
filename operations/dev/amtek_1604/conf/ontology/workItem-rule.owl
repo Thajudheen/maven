@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/workItem-rule.owl#"
+     xml:base="http://www.inmindcomputing.com/application/workItem-rule.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2014, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#Opportunity -->
+
+    <rdf:Description rdf:about="&as;Opportunity">
+        <owl:disjointWith rdf:resource="&as;Quoteable"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#Quote -->
+
+    <rdf:Description rdf:about="&as;Quote">
+        <owl:disjointWith rdf:resource="&as;SalesCart"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#Quoteable -->
+
+    <rdf:Description rdf:about="&as;Quoteable"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SalesCart -->
+
+    <rdf:Description rdf:about="&as;SalesCart"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SalesDocument -->
+
+    <rdf:Description rdf:about="&as;SalesDocument">
+        <owl:disjointWith rdf:resource="&ps;Dependent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#Dependent -->
+
+    <rdf:Description rdf:about="&ps;Dependent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&as;WorkItem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">route</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">submit</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;containsCreator"/>
+                        <owl:someValuesFrom rdf:resource="&as;ActiveUser"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;containsUser"/>
+                        <owl:someValuesFrom rdf:resource="&as;ActiveUser"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatus"/>
+                <owl:someValuesFrom rdf:resource="&as;OpenSalesDocumentStatus"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&as;ActiveApprovalGate"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;ApprovalGate"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;Role"/>
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&as;hasRole"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&as;ActiveUser"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&as;WorkItem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">approve</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">reject</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasApprovalGate"/>
+                <owl:someValuesFrom rdf:resource="&as;ActiveApprovalGate"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&as;WorkItem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">accepted</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">rejected</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">withdraw</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;containsCreator"/>
+                <owl:someValuesFrom rdf:resource="&as;ActiveUser"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatus"/>
+                <owl:someValuesFrom rdf:resource="&as;ApprovedSalesDocumentStatus"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&as;ActiveUser"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;User"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;userActive"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                <owl:hasValue rdf:datatype="&xsd;string">withdraw</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;containsCreator"/>
+                <owl:someValuesFrom rdf:resource="&as;ActiveUser"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatus"/>
+                <owl:someValuesFrom rdf:resource="&as;WithdrawSalesDocumentStatus"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&as;WorkItem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;salesDocumentAllowedActions"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">withdraw</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;containsUserSent"/>
+                <owl:someValuesFrom rdf:resource="&as;ActiveUser"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatus"/>
+                <owl:someValuesFrom rdf:resource="&as;OpenSalesDocumentStatus"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

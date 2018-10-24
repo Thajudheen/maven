@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+<!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+<!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+<!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+<!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+<!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-implementation.owl#"
+		xml:base="http://www.inmindcomputing.com/application/application-implementation.owl#"
+		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+		xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+		xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+		xmlns:owl="http://www.w3.org/2002/07/owl#"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+		xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+	<owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-implementation.owl">
+		<owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl"/>
+		<owl:imports rdf:resource="http://www.inmindcomputing.com/application/scenario/scenario-config-implementation.owl"/>
+		<owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/product-generated-implementation.owl"/>
+	</owl:Ontology>
+	
+	
+	 <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ProductSyncTask -->
+
+     <!--<owl:NamedIndividual rdf:about="&ai;ProductSyncTask">
+        <rdf:type rdf:resource="&as;PlatformTask"/>
+        <as:cronExpression rdf:datatype="&xsd;string">0 0 * * * *</as:cronExpression>
+        <as:taskResource rdf:datatype="&xsd;string">classpath:/tasks/productSync.groovy</as:taskResource>
+        <ps:objectId rdf:datatype="&xsd;string">ProductSyncTask</ps:objectId>
+        <rdfs:label xml:lang="en">ProductSyncTask</rdfs:label>
+    </owl:NamedIndividual>
+-->
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_REP_GER -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_REP_GER">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Sales Rep</rdfs:label>
+				<rdfs:label xml:lang="en">Sales Rep Germany</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">11</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE SALES REP GER</ps:objectName>
+			<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+	</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_REP_SE -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_REP_SE">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Sales Rep</rdfs:label>
+				<rdfs:label xml:lang="en">Sales Rep Sweden</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">11</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE SALES REP SE</ps:objectName>
+			<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+	</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_COM_OP_GER -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_COM_OP_GER">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Sales Commercial Operations</rdfs:label>
+				<rdfs:label xml:lang="en">Sales Director Commercial Germany</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">14</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE SALES COMMERCIAL OP GER</ps:objectName>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+		<as:hasAccessToDataOf rdf:resource="&ai;ROLE_SALES_REP_GER"/>
+		</owl:NamedIndividual>
+
+
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_COM_OP_SE -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_COM_OP_SE">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Sales Commercial Operations</rdfs:label>
+				<rdfs:label xml:lang="en">Sales Director Commercial Sweden</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">14</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE SALES COMMERCIAL OP SE</ps:objectName>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+		<as:hasAccessToDataOf rdf:resource="&ai;ROLE_SALES_REP_SE"/>
+		</owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_MGMT_GER -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_MGMT_GER">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Sales Mgmt</rdfs:label>
+				<rdfs:label xml:lang="en">Sales Mgmt Germany</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">12</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE SALES MGMT GER</ps:objectName>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+		<as:hasAccessToDataOf rdf:resource="&ai;ROLE_SALES_COM_OP_GER"/>
+		</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_MGMT_SE -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_MGMT_SE">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Regional Sales Mgmt</rdfs:label>
+				<rdfs:label xml:lang="en">Regional Sales Mgmt Sweden</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">12</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE REGIONAL SALES MGMT GER</ps:objectName>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+		<as:hasAccessToDataOf rdf:resource="&ai;ROLE_SALES_COM_OP_SE"/>
+		</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_DIRECTOR_GER -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_DIRECTOR_GER">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Sales Director</rdfs:label>
+				<rdfs:label xml:lang="en">Sales Director Germany</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">13</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE SALES DIRECTOR GER</ps:objectName>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+		<as:hasAccessToDataOf rdf:resource="&ai;ROLE_SALES_MGMT_GER"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROLE_SALES_DIRECTOR_SE -->
+
+		<owl:NamedIndividual rdf:about="&ai;ROLE_SALES_DIRECTOR_SE">
+				<rdf:type rdf:resource="&as;Role"/>
+				<rdfs:label rdf:datatype="&xsd;string">Managing Director</rdfs:label>
+				<rdfs:label xml:lang="en">Managing Director Sweden</rdfs:label>
+				<as:roleAuthority rdf:datatype="&xsd;int">13</as:roleAuthority>
+				<ps:objectName rdf:datatype="&xsd;string">ROLE MANAGING SALES DIRECTOR SE</ps:objectName>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_COMPLETED"/>
+		<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&ai;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasPermission rdf:resource="&as;CREATEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;DELETEQUOTEPERMISSION"/>
+				<as:hasPermission rdf:resource="&as;UPDATEPERMISSION"/>
+		<as:hasAccessToDataOf rdf:resource="&ai;ROLE_SALES_MGMT_SE"/>
+		</owl:NamedIndividual>
+
+
+		<!-- http://www.inmindcomputing.com/application/application-implementation.owl#CPQUSER1 -->
+
+		<owl:NamedIndividual rdf:about="&ai;CPQUSER1">
+				<rdf:type rdf:resource="&as;User"/>
+				<rdfs:label xml:lang="en">CPQUSER1</rdfs:label>
+				<ps:objectName rdf:datatype="&xsd;string">CPQUSER1</ps:objectName>
+				<as:userReceiveTeamCollaborationEmail rdf:datatype="&xsd;boolean">false</as:userReceiveTeamCollaborationEmail>
+				<as:userReceiveRoutingEmail rdf:datatype="&xsd;boolean">false</as:userReceiveRoutingEmail>
+				<as:userReceiveApprovalEmail rdf:datatype="&xsd;boolean">true</as:userReceiveApprovalEmail>
+				<as:userReceiveEmail rdf:datatype="&xsd;boolean">true</as:userReceiveEmail>
+				<ps:objectExternalId>-</ps:objectExternalId>
+				<as:containsCompany rdf:resource="&ai;Z_Example_CompanyEIN"/>
+				<as:hasLanguage rdf:resource="&ai;English"/>
+				<as:includesUserPassword rdf:resource="&ai;PwdCPQUSER1"/>
+				<as:hasRole rdf:resource="&ai;ROLE_SALES_REP_GER"/>
+				<as:includesPerson rdf:resource="&ai;CPQUSER1-Person"/>
+				<as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+		</owl:NamedIndividual>
+
+	<!-- &ai;PwdCPQUSER1 -->
+
+	<owl:NamedIndividual rdf:about="&ai;PwdCPQUSER1">
+		<rdf:type rdf:resource="&as;UserPassword"/>
+		<ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+		<as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+	</owl:NamedIndividual>
+
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#CPQUSER1-Person -->
+
+		<owl:NamedIndividual rdf:about="&ai;CPQUSER1-Person">
+				<rdf:type rdf:resource="&as;Person"/>
+				<rdfs:label>CPQUSER1</rdfs:label>
+				<as:personPhone>+49  11 347 66 21</as:personPhone>
+				<as:personMobile>+49  884 770 472</as:personMobile>
+				<as:personFirstName>CPQ</as:personFirstName>
+				<as:personFax>-</as:personFax>
+				<as:personEmail>CPQUSER1@inmindcloud.com</as:personEmail>
+				<as:personLastName>USER1</as:personLastName>
+				<as:hasGender rdf:resource="&ai;MALE"/>
+		</owl:NamedIndividual>
+
+
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#CPQUSER1-ADDRESS -->
+
+		<owl:NamedIndividual rdf:about="&ai;CPQUSER1-ADDRESS">
+				<rdf:type rdf:resource="&as;Address"/>
+				<as:addressZip>80333</as:addressZip>
+				<as:addressStreet>Theresienstr. 1</as:addressStreet>
+				<as:addressCity>München</as:addressCity>
+				<ps:objectName>CPQUSER1-ADDRESS</ps:objectName>
+				<as:addressIncludedBy rdf:resource="&ai;CPQUSER1-Person"/>
+				<as:hasCountry rdf:resource="&ai;DE"/>
+		</owl:NamedIndividual>
+
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#CPQUSER2 -->
+
+		<owl:NamedIndividual rdf:about="&ai;CPQUSER2">
+				<rdf:type rdf:resource="&as;User"/>
+				<rdfs:label xml:lang="en">CPQUSER2</rdfs:label>
+				<ps:objectName rdf:datatype="&xsd;string">CPQUSER2</ps:objectName>
+				<as:userReceiveTeamCollaborationEmail rdf:datatype="&xsd;boolean">false</as:userReceiveTeamCollaborationEmail>
+				<as:userReceiveRoutingEmail rdf:datatype="&xsd;boolean">false</as:userReceiveRoutingEmail>
+				<as:userReceiveApprovalEmail rdf:datatype="&xsd;boolean">true</as:userReceiveApprovalEmail>
+				<as:userReceiveEmail rdf:datatype="&xsd;boolean">true</as:userReceiveEmail>
+				<ps:objectExternalId>-</ps:objectExternalId>
+				<as:containsCompany rdf:resource="&ai;Z_Example_CompanyEIN"/>
+				<as:hasLanguage rdf:resource="&ai;English"/>
+				<as:includesUserPassword rdf:resource="&ai;PwdCPQUSER2"/>
+				<as:hasRole rdf:resource="&ai;ROLE_SALES_REP_SE"/>
+				<as:includesPerson rdf:resource="&ai;CPQUSER2-Person"/>
+				<as:hasUserStatus rdf:resource="&as;USERACTIVE"/>
+		</owl:NamedIndividual>
+
+	<!-- &ai;PwdCPQUSER2 -->
+
+	<owl:NamedIndividual rdf:about="&ai;PwdCPQUSER2">
+		<rdf:type rdf:resource="&as;UserPassword"/>
+		<ps:objectName rdf:datatype="&xsd;string">c598203581040f62b32d0d9c64555333e5ae42dc82878ed73644bc2abf3dbdde</ps:objectName>
+		<as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+	</owl:NamedIndividual>
+
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#CPQUSER2-Person -->
+
+		<owl:NamedIndividual rdf:about="&ai;CPQUSER2-Person">
+				<rdf:type rdf:resource="&as;Person"/>
+				<rdfs:label>CPQUSER2</rdfs:label>
+				<as:personPhone>+49  11 347 66 21</as:personPhone>
+				<as:personMobile>+49  884 770 472</as:personMobile>
+				<as:personFirstName>CPQ</as:personFirstName>
+				<as:personFax>-</as:personFax>
+				<as:personEmail>CPQUSER2@inmindcloud.com</as:personEmail>
+				<as:personLastName>USER2</as:personLastName>
+				<as:hasGender rdf:resource="&ai;MALE"/>
+		</owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#CPQUSER2-ADDRESS -->
+
+		<owl:NamedIndividual rdf:about="&ai;CPQUSER2-ADDRESS">
+				<rdf:type rdf:resource="&as;Address"/>
+				<as:addressZip>80333</as:addressZip>
+				<as:addressStreet>Theresienstr. 1</as:addressStreet>
+				<as:addressCity>München</as:addressCity>
+				<ps:objectName>CPQUSER2-ADDRESS</ps:objectName>
+				<as:addressIncludedBy rdf:resource="&ai;CPQUSER2-Person"/>
+				<as:hasCountry rdf:resource="&ai;SE"/>
+		</owl:NamedIndividual>
+
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#Z_Example_Country-->
+
+	<owl:NamedIndividual rdf:about="&ai;Z_Example_Country">
+		<rdf:type rdf:resource="&as;Country"/>
+		<rdfs:label xml:lang="de">Z_Example_Country</rdfs:label>
+		<rdfs:label xml:lang="en">Z_Example_Country</rdfs:label>
+		<ps:objectDateOfCreation rdf:datatype="&xsd;dateTime">2016-01-12T12:18:28.668Z</ps:objectDateOfCreation>
+		<ps:objectExternalId rdf:datatype="&xsd;string">PN</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">PN</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Country</ps:objectName>
+		<as:hasRegion rdf:resource="&ai;Z_Example_Region"/>
+	</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#Z_Example_CompanyEIN -->
+
+	<owl:NamedIndividual rdf:about="&ai;Z_Example_CompanyEIN">
+		<rdf:type rdf:resource="&as;Company"/>
+		<rdfs:label xml:lang="en">Z Engineering Inc.</rdfs:label>
+		<as:companyAbbreviation rdf:datatype="&xsd;string">EIN</as:companyAbbreviation>
+		<ps:objectName rdf:datatype="&xsd;string">Z Engineering Inc.</ps:objectName>
+		<rdfs:comment xml:lang="de">Z Engineering Inc.</rdfs:comment>
+		<as:includesAddress rdf:resource="&ai;Z_Example_AddressEIN"/>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#Z_Example_AddressEIN -->
+
+	<owl:NamedIndividual rdf:about="&ai;Z_Example_AddressEIN">
+		<rdf:type rdf:resource="&as;Address"/>
+		<rdfs:label xml:lang="en">AddressEIN</rdfs:label>
+		<as:addressPhone rdf:datatype="&xsd;string">+1 (341) 12878613 40</as:addressPhone>
+		<as:addressZip rdf:datatype="&xsd;string">90005</as:addressZip>
+		<ps:objectName rdf:datatype="&xsd;string">AddressEIN</ps:objectName>
+		<as:addressCity rdf:datatype="&xsd;string">Los Angeles</as:addressCity>
+		<as:addressStreet rdf:datatype="&xsd;string">Rock Street 15</as:addressStreet>
+		<as:addressEmail rdf:datatype="&xsd;string">info@ein.com</as:addressEmail>
+		<as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+		<as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+		<as:addressBillTo rdf:datatype="&xsd;boolean">true</as:addressBillTo>
+		<as:hasCountry rdf:resource="&ai;Z_Example_Country"/>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#Z_Example_Region -->
+
+	<owl:NamedIndividual rdf:about="&ai;Z_Example_Region">
+		<rdf:type rdf:resource="&as;Region"/>
+		<rdfs:label xml:lang="de">Z_Example_Region</rdfs:label>
+		<rdfs:label xml:lang="en">Z_Example_Region</rdfs:label>
+		<ps:objectId rdf:datatype="&xsd;string">Z_Example_Region</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Region</ps:objectName>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#Important -->
+
+	<owl:NamedIndividual rdf:about="&ai;Z_Example_Tag">
+		<rdf:type rdf:resource="&as;Tag"/>
+		<rdfs:label xml:lang="de">wichtig</rdfs:label>
+		<rdfs:label xml:lang="en">Important</rdfs:label>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Tag</ps:objectName>
+	</owl:NamedIndividual>
+
+	
+	
+		<!-- http://www.inmindcomputing.com/application/application-implementation.owl#Quote-PDF -->
+
+    <owl:NamedIndividual rdf:about="&ai;Quote-PDF">
+        <rdf:type rdf:resource="&as;ProposalReportTemplate"/>
+        <rdfs:label xml:lang="de">Quote</rdfs:label>
+        <rdfs:label xml:lang="en">Quote</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">quote</ps:objectName>
+        <as:isDefault rdf:datatype="&xsd;boolean">true</as:isDefault>
+    </owl:NamedIndividual>
+
+	 <rdf:Description rdf:about="&as;SettingExportCRMQuoteCustomFieldNamespaceUrl">
+        <as:settingValueString rdf:datatype="&xsd;string">http://sap.com/xi/AP/CustomerExtension/BYD/A2DAO</as:settingValueString>
+    </rdf:Description>
+	<rdf:Description rdf:about="&as;SettingExportCRMQuoteCustomFieldPrefix">
+        <as:settingValueString rdf:datatype="&xsd;string">xi0</as:settingValueString>
+    </rdf:Description>
+	
+	<rdf:Description rdf:about="&as;SettingImportQuoteProductUsingExternalId">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </rdf:Description>
+	
+	<rdf:Description rdf:about="&as;SettingUseDisplayMatNoFromBAPIForObjectName">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </rdf:Description>
+	
+	
+	<rdf:Description rdf:about="&ai;UI_APP_DEFAULT">
+        <as:uiProfileHide rdf:datatype="&xsd;string">id_company_text</as:uiProfileHide>
+    </rdf:Description>
+	
+	
+	
+	<!-- http://www.inmindcomputing.com/application/application-implementation.owl#ProductChapter -->
+
+	<owl:NamedIndividual rdf:about="&ai;ProductChapter">
+		<rdf:type rdf:resource="&as;Product"/>
+		<rdfs:label xml:lang="de">Chapter</rdfs:label>
+		<rdfs:label xml:lang="en">Chapter</rdfs:label>
+		<as:hasProductStatus rdf:resource="&as;ProductActive"/>
+		<ps:objectId rdf:datatype="&xsd;string">ChapterProduct</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Chapter</ps:objectName>
+		<as:productExportToCRM rdf:datatype="&xsd;boolean">false</as:productExportToCRM>
+		<as:productExportToERP rdf:datatype="&xsd;boolean">false</as:productExportToERP>
+	</owl:NamedIndividual>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

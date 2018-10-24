@@ -1,0 +1,981 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/application-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#RFI -->
+
+    <owl:NamedIndividual rdf:about="&as;RFI">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">RFI</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RFI</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#RFP -->
+
+    <owl:NamedIndividual rdf:about="&as;RFP">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">RFP</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RFP</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#RFQ -->
+
+    <owl:NamedIndividual rdf:about="&as;RFQ">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">RFQ</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RFQ</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AT -->
+
+    <owl:NamedIndividual rdf:about="&ai;AT">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Österreich</rdfs:label>
+        <rdfs:label xml:lang="en">Austria</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">AT</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">AT</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Austria</ps:businessTypeShortText>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Base -->
+
+    <owl:NamedIndividual rdf:about="&ai;Base">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Base</rdfs:label>
+        <rdfs:label xml:lang="en">Base</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">0</ps:sequenceID>
+        <ps:groupDescription rdf:datatype="&xsd;string">Base</ps:groupDescription>
+        <ps:groupCode rdf:datatype="&xsd;string">_97</ps:groupCode>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Category1 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Category1">
+        <rdf:type rdf:resource="&as;SalesCategory"/>
+        <rdfs:label xml:lang="de">Aussicht für Produktverkäufe</rdfs:label>
+        <rdfs:label xml:lang="en">Prospect for product sales</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">0023</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">0023</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Prospect for product sales</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Category2 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Category2">
+        <rdf:type rdf:resource="&as;SalesCategory"/>
+        <rdfs:label xml:lang="de">Aussicht für Service</rdfs:label>
+        <rdfs:label xml:lang="en">Prospect for service</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">0024</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">0024</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Prospect for service</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Category3 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Category3">
+        <rdf:type rdf:resource="&as;SalesCategory"/>
+        <rdfs:label xml:lang="de">Aussicht für die Ausbildung</rdfs:label>
+        <rdfs:label xml:lang="en">Prospect for training </rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">0025</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">0025</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Prospect for training</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Category4 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Category4">
+        <rdf:type rdf:resource="&as;SalesCategory"/>
+        <rdfs:label xml:lang="de">Perspektive für Beratung</rdfs:label>
+        <rdfs:label xml:lang="en">Prospect for consulting</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">0026</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">0026</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Prospect for consulting</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DC-10 -->
+
+    <owl:NamedIndividual rdf:about="&ai;DC-10">
+        <rdf:type rdf:resource="&as;DistributionChannel"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">10</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">10</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">DC-10</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DE -->
+
+    <owl:NamedIndividual rdf:about="&ai;DE">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Deutschland</rdfs:label>
+        <rdfs:label xml:lang="en">Germany</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">DE</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">DE</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Germany</ps:businessTypeShortText>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Default -->
+
+    <owl:NamedIndividual rdf:about="&ai;Default">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Bild</rdfs:label>
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:groupDescription rdf:datatype="&xsd;string">Default</ps:groupDescription>
+        <ps:groupCode rdf:datatype="&xsd;string">_99</ps:groupCode>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Div-10 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Div-00">
+        <rdf:type rdf:resource="&as;Division"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">00</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">00</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">00</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ECCSys-0 -->
+
+    <owl:NamedIndividual rdf:about="&ai;ECCSys-0">
+        <rdf:type rdf:resource="&as;ECCSystem"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Main ECC system</ps:businessTypeShortText>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-10"/>
+        <as:hasDivision rdf:resource="&ai;Div-00"/>
+        <as:hasPlant rdf:resource="&ai;Plant-1000"/>
+        <as:hasSalesDocumentType rdf:resource="&ai;SDT-TA"/>
+        <as:hasSalesOrderType rdf:resource="&ai;SOT-SalesOrder"/>
+        <as:hasSalesOrg rdf:resource="&ai;SalesOrg-1000"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EMEA -->
+
+    <owl:NamedIndividual rdf:about="&ai;EMEA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label rdf:datatype="&xsd;string">EMEA</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">EMEA</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">EMEA</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EUR -->
+
+    <owl:NamedIndividual rdf:about="&ai;EUR">
+        <rdf:type rdf:resource="&as;Currency"/>
+        <rdfs:label xml:lang="de">Euro</rdfs:label>
+        <rdfs:label xml:lang="en">Euro</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">EUR</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">EUR</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Euro</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Each -->
+
+    <owl:NamedIndividual rdf:about="&ai;Each">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">jeder</rdfs:label>
+        <rdfs:label xml:lang="en">Each</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">EA</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">EA</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Each</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#English -->
+
+    <owl:NamedIndividual rdf:about="&ai;English">
+        <rdf:type rdf:resource="&as;Language"/>
+        <rdfs:label xml:lang="de">Englisch</rdfs:label>
+        <rdfs:label xml:lang="en">English</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">English</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">en</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Extra -->
+
+    <owl:NamedIndividual rdf:about="&ai;Extra">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Extra</rdfs:label>
+        <rdfs:label xml:lang="en">Extra</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupDescription rdf:datatype="&xsd;string">Extra</ps:groupDescription>
+        <ps:groupCode rdf:datatype="&xsd;string">_98</ps:groupCode>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#German -->
+
+    <owl:NamedIndividual rdf:about="&ai;German">
+        <rdf:type rdf:resource="&as;Language"/>
+        <rdfs:label xml:lang="de">Deutsch</rdfs:label>
+        <rdfs:label xml:lang="en">German</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">German</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">de</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ISource-Z01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;ISource-Z01">
+        <rdf:type rdf:resource="&as;Source"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Meiller-Website (Newsletter)</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z01</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z01</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ISource-Z02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;ISource-Z02">
+        <rdf:type rdf:resource="&as;Source"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Messe</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z02</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z02</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ISource-Z03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;ISource-Z03">
+        <rdf:type rdf:resource="&as;Source"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Kampagne</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z03</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z03</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ISource-Z04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;ISource-Z04">
+        <rdf:type rdf:resource="&as;Source"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Anfrage</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z04</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z04</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ITelecom -->
+
+    <owl:NamedIndividual rdf:about="&ai;ITelecom">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Telekommunikation</rdfs:label>
+        <rdfs:label xml:lang="en">Telecommunications</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">64.2C</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">64.2C</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">TELECOMMUNICATIONS</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IUtilities -->
+
+    <owl:NamedIndividual rdf:about="&ai;IUtilities">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Versorgungswirtschaft</rdfs:label>
+        <rdfs:label xml:lang="en">Utilities</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">22</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">22</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Utilities</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IWholesales -->
+
+    <owl:NamedIndividual rdf:about="&ai;IWholesales">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Großhandel</rdfs:label>
+        <rdfs:label xml:lang="en">Wholesales Trade</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">42</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">42</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Wholesales Trade</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-21 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-21">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Bergbau</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">21</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">21</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Mining</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-22 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-22">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Versorger</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">22</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">22</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Supplier</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-23 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-23">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Baugewerbe</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">23</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">23</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Construction</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z01 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z01">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Entsorger</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Disposer</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z01</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z01</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z02 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z02">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Spedition und Transportdienstleister</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Haulage Contractor and Transport Services Provider</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z02</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z02</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z03 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z03">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Finanzierung und Leasing</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Funding and Leasing</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z03</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z03</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z04 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z04">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">öffentliche Auftraggeber</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Contracting Entity</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z04</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z04</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z05 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z05">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Fahrzeugbau</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Vehicle Construction</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z05</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z05</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z06 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z06">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Vermietung</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Renting</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z06</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z06</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z07 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z07">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Fahrzeughandel</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Automotive Trade</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z07</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z07</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Industry-Z99 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Industry-Z99">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Sonstige</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Others</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">Z99</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">Z99</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KG -->
+
+    <owl:NamedIndividual rdf:about="&ai;KG">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">Kilogramm</rdfs:label>
+        <rdfs:label xml:lang="en">Kilogram</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">KG</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">KG</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Kilogram</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Meiller -->
+
+    <owl:NamedIndividual rdf:about="&ai;Meiller">
+        <rdf:type rdf:resource="&as;Company"/>
+        <rdfs:label xml:lang="en">F. X. Meiller GmbH &amp; Co. KG</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">F. X. Meiller GmbH &amp; Co. KG</ps:businessTypeShortText>
+        <as:enterpriseImage rdf:datatype="&xsd;string">logo.png</as:enterpriseImage>
+        <as:includesAddress rdf:resource="&ai;PostalAddressMeiller"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NA -->
+
+    <owl:NamedIndividual rdf:about="&ai;NA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Nordamerika</rdfs:label>
+        <rdfs:label xml:lang="en">North America</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">NA</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">NA</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NL -->
+
+    <owl:NamedIndividual rdf:about="&ai;NL">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Niederlande</rdfs:label>
+        <rdfs:label xml:lang="en">Netherlands</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">NL</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">NL</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Netherlands</ps:businessTypeShortText>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Piece -->
+
+    <owl:NamedIndividual rdf:about="&ai;Piece">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">Stück</rdfs:label>
+        <rdfs:label xml:lang="en">Piece</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Piece</ps:businessTypeShortText>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">ST</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ST</ps:businessTypeId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Plant-1000 -->
+
+    <owl:NamedIndividual rdf:about="&ai;Plant-1000">
+        <rdf:type rdf:resource="&as;Plant"/>
+        <ps:businessTypeId rdf:datatype="&xsd;string">1000</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">1000</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Plant-1000</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PostalAddressMeiller -->
+
+    <owl:NamedIndividual rdf:about="&ai;PostalAddressMeiller">
+        <rdf:type rdf:resource="&as;Address"/>
+        <rdfs:label xml:lang="en">PostalAddressMeiller</rdfs:label>
+        <as:addressPhone rdf:datatype="&xsd;string">+49 89 1487-0</as:addressPhone>
+        <as:addressZip rdf:datatype="&xsd;string">D-80975</as:addressZip>
+        <as:addressCity rdf:datatype="&xsd;string">München</as:addressCity>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PostalAddressMeiller</ps:businessTypeShortText>
+        <as:addressStreet rdf:datatype="&xsd;string">Postfach 50 05 20 .</as:addressStreet>
+        <as:addressEmail rdf:datatype="&xsd;string">info@meiller.com</as:addressEmail>
+        <as:addressBillTo rdf:datatype="&xsd;boolean">true</as:addressBillTo>
+        <as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+        <as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROW -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROW">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Rest der Welt</rdfs:label>
+        <rdfs:label xml:lang="en">Rest of World</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">ROW</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Rest of World</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#RootCompany -->
+
+    <owl:NamedIndividual rdf:about="&ai;RootCompany">
+        <rdf:type rdf:resource="&as;Company"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">RootCompany</ps:businessTypeShortText>
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+        <as:hasCompany rdf:resource="&ai;Meiller"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SDT-TA -->
+
+    <owl:NamedIndividual rdf:about="&ai;SDT-TA">
+        <rdf:type rdf:resource="&as;SalesDocumentType"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">TA</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">TA</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">TA</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SOT-SalesOrder -->
+
+    <owl:NamedIndividual rdf:about="&ai;SOT-SalesOrder">
+        <rdf:type rdf:resource="&as;SalesOrderType"/>
+        <as:bapiCreate rdf:datatype="&xsd;string">BAPI_SALESORDER_CREATEFROMDAT2</as:bapiCreate>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Sales Order</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesCycle1 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesCycle1">
+        <rdf:type rdf:resource="&as;SalesCycle"/>
+        <rdfs:label xml:lang="de">identifizieren Gelegenheit</rdfs:label>
+        <rdfs:label xml:lang="en">Identify opportunity</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">001</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">001</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Identify opportunity</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesCycle2 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesCycle2">
+        <rdf:type rdf:resource="&as;SalesCycle"/>
+        <rdfs:label xml:lang="de">qualifizieren Sie Gelegenheit</rdfs:label>
+        <rdfs:label xml:lang="en">Qualify opportunity</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">002</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">002</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Qualify opportunity</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesCycle3 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesCycle3">
+        <rdf:type rdf:resource="&as;SalesCycle"/>
+        <rdfs:label xml:lang="de">Entwickeln Value Proposition</rdfs:label>
+        <rdfs:label xml:lang="en">Develop value proposition</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">003</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">003</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Develop value proposition</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesCycle4 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesCycle4">
+        <rdf:type rdf:resource="&as;SalesCycle"/>
+        <rdfs:label xml:lang="de">Angebot</rdfs:label>
+        <rdfs:label xml:lang="en">Quotation</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">004</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">004</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Quotation</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesCycle5 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesCycle5">
+        <rdf:type rdf:resource="&as;SalesCycle"/>
+        <rdfs:label xml:lang="de">Entscheidung</rdfs:label>
+        <rdfs:label xml:lang="en">Decision</rdfs:label>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">005</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">005</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Decision</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesCycle6 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesCycle6">
+        <rdf:type rdf:resource="&as;SalesCycle"/>
+        <rdfs:label xml:lang="de">verschließen</rdfs:label>
+        <rdfs:label xml:lang="en">Close</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">006</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">006</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Close</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SalesOrg-1000 -->
+
+    <owl:NamedIndividual rdf:about="&ai;SalesOrg-1000">
+        <rdf:type rdf:resource="&as;SalesOrg"/>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">1000</ps:businessTypeExternalId>
+        <ps:businessTypeId rdf:datatype="&xsd;string">1000</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">SalesOrg-1000</ps:businessTypeShortText>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-01"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-02"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-10"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-20"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-30"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z1"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z2"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z3"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z4"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z5"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z6"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z7"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z8"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-Z9"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-ZA"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-ZB"/>
+        <as:hasDistributionChannel rdf:resource="&ai;DC-ZV"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsAccountCreate -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsAccountCreate">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsAccountCreate</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables account creation</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.accountCreate</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsAccountDelete -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsAccountDelete">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsAccountDelete</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables account deletion</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.accountDelete</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsIncoTermsEnabled -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsIncoTermsEnabled">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsIncoTermsEnabled</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables quote inco terms</ps:businessTypeShortText>
+        <as:settingValue rdf:datatype="&xsd;boolean">false</as:settingValue>
+        <as:settingKey rdf:datatype="&xsd;string">setting.incoTermsEnabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsOpportunityCreate -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsOpportunityCreate">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsOpportunityCreate</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables opportunity creation</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opportunityCreate</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsOpportunityDelete -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsOpportunityDelete">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsOpportunityDelete</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables opportunity deletion</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opportunityDelete</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsOpportunityTab -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsOpportunityTab">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsOpportunityTab</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables opportunity tab</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opportunityTab</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsPaymentTermsEnabled -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsPaymentTermsEnabled">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsPaymentTermsEnabled</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables quote payment terms</ps:businessTypeShortText>
+        <as:settingValue rdf:datatype="&xsd;boolean">false</as:settingValue>
+        <as:settingKey rdf:datatype="&xsd;string">setting.paymentTermsEnabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsProductCreate -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsProductCreate">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsProductCreate</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables product creation</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.productCreate</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsProductDelete -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsProductDelete">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsProductDelete</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables product deletion</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.productDelete</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteATPCheck -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteATPCheck">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteATPCheck</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables quote ATP check button</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteATPCheck</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteCount -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteCount">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteCount</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">0</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The count of the number of quotes in the system. For quoteId generation</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteCount</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteDiscount -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteDiscount">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteDiscount</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables quote discount</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.documentHeaderDiscount</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteId -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteId">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteId</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;string">${count:5}</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The format for the generation of quote IDs. Current supported parameters: count, date, ver</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteId</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsReportPrintAll -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsReportPrintAll">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label xml:lang="en">SettingsReportPrintAll</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Determines whether a given product&apos;s BDAs with no value will be printed in a Jasper report.</ps:businessTypeShortText>
+        <as:settingValue rdf:datatype="&xsd;boolean">false</as:settingValue>
+        <as:settingKey rdf:datatype="&xsd;string">setting.reportPrintAll</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsReportShortTextPrint -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsReportShortTextPrint">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <as:settingValue rdf:datatype="&xsd;string">A04MOP</as:settingValue>
+        <as:settingValue rdf:datatype="&xsd;string">A07MOP</as:settingValue>
+        <as:settingValue rdf:datatype="&xsd;string">A10MOP</as:settingValue>
+        <as:settingValue rdf:datatype="&xsd;string">A12MOP</as:settingValue>
+        <as:settingValue rdf:datatype="&xsd;string">A16MOP</as:settingValue>
+        <as:settingKey rdf:datatype="&xsd;string">setting.reportShortTextPrint</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsShippingTypeEnabled -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsShippingTypeEnabled">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsShippingTypeEnabled</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Enables/disables quote shipping type selection</ps:businessTypeShortText>
+        <as:settingValue rdf:datatype="&xsd;boolean">false</as:settingValue>
+        <as:settingKey rdf:datatype="&xsd;string">setting.shippingTypeEnabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#US -->
+
+    <owl:NamedIndividual rdf:about="&ai;US">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">USA</rdfs:label>
+        <rdfs:label xml:lang="en">USA</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">US</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">US</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">USA</ps:businessTypeShortText>
+        <as:hasRegion rdf:resource="&ai;NA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USD -->
+
+    <owl:NamedIndividual rdf:about="&ai;USD">
+        <rdf:type rdf:resource="&as;Currency"/>
+        <rdfs:label xml:lang="de">US Dollar</rdfs:label>
+        <rdfs:label xml:lang="en">US Dollar</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">US Dollar</ps:businessTypeShortText>
+        <ps:businessTypeId rdf:datatype="&xsd;string">USD</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">USD</ps:businessTypeExternalId>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

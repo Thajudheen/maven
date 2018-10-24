@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Responsibilities" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<subDataset name="Table Dataset 1" uuid="ea15733c-b63d-4a7f-80a2-845e9c95a5e2">
+		<parameter name="CMIS" class="java.lang.String"/>
+		<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<subDataset name="Table Dataset 2" uuid="7e4d6992-089d-4de0-b116-dab93bf90c6f">
+		<parameter name="CMIS" class="java.lang.String"/>
+		<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<pageHeader>
+		<band height="157" splitType="Stretch">
+			<image hAlign="Right">
+				<reportElement x="68" y="20" width="456" height="33" uuid="fbc97aca-b155-4ba7-8a71-c8ab0621ca53">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/logo_pdf.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement positionType="Float" x="24" y="72" width="164" height="19" forecolor="#000000" uuid="72c39075-01c9-41f4-8f5c-04a300dd915d">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Calibri" size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{quote.responsibilities.heading}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table" x="24" y="91" width="500" height="20" isRemoveLineWhenBlank="true" uuid="63617392-92b5-4461-93d3-b98a48f3ded5"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Table Dataset 2" uuid="d54d6c0b-74bc-4500-bdb9-8c815089b057">
+						<datasetParameter name="CMIS">
+							<datasetParameterExpression><![CDATA[$P{CMIS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Quote">
+							<datasetParameterExpression><![CDATA[$P{Quote}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="500" uuid="da29d82b-fa3e-4668-8f1d-c7bf86b94645">
+						<jr:columnHeader height="241" rowSpan="1">
+							<box>
+								<pen lineWidth="0.25"/>
+								<topPen lineWidth="0.25"/>
+								<leftPen lineWidth="0.25"/>
+								<bottomPen lineWidth="0.25"/>
+								<rightPen lineWidth="0.25"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="31" y="27" width="280" height="16" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="5652364c-1cd5-4dac-b967-622a9364aa01">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.explain}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Left" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="13" y="30" width="18" height="10" isRemoveLineWhenBlank="true" uuid="c23c1e95-6000-4dc8-ad3c-bcbcf6c1abd6"/>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField>
+								<reportElement x="13" y="44" width="111" height="18" forecolor="#000000" uuid="911aa143-504c-4962-829f-43482a2a93e4">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.planning}]]></textFieldExpression>
+							</textField>
+							<line>
+								<reportElement x="0" y="24" width="500" height="1" uuid="078c7482-91fc-4b10-bfce-40e8366d8f8f"/>
+							</line>
+							<textField>
+								<reportElement x="13" y="3" width="111" height="16" forecolor="#000000" uuid="f6a72d7e-3fe5-4709-a7d6-a4a6b0873b4a">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.description}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="334" y="3" width="76" height="16" forecolor="#000000" uuid="bb24393d-f376-4c38-ab71-591ffd3a95ce">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Calibri" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.seller}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="410" y="3" width="78" height="16" forecolor="#000000" uuid="32b4b957-c32d-438c-95a6-c033778bb236">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Calibri" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.buyer}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="61" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="73a004c2-3870-46e9-a074-8a095c71f713">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.1}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="66" width="43" height="10" isRemoveLineWhenBlank="true" uuid="774dff75-29dc-4551-a827-5d6f1d977450">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="66" width="72" height="10" isRemoveLineWhenBlank="true" uuid="3142f7f6-b2fc-4b6f-8558-04bea92cb2c7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities1").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="81" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="25020004-8ab7-4b70-97aa-51e5fe97473c">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.2}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="86" width="43" height="10" isRemoveLineWhenBlank="true" uuid="671a6e5b-309e-4822-9190-6454cd6527f9">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="86" width="72" height="10" isRemoveLineWhenBlank="true" uuid="56f4b32f-204a-48a6-be09-3459b9abfd62">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities2").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="101" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="25020004-8ab7-4b70-97aa-51e5fe97473c">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.3}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="106" width="43" height="10" isRemoveLineWhenBlank="true" uuid="cb4323ca-7566-4ce7-bfd5-3f6c2d19a27d">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="106" width="72" height="10" isRemoveLineWhenBlank="true" uuid="a00966da-c433-49c2-8b9b-5f2444377688">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities3").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="121" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="20ef4d53-2ca8-4f21-aa72-678abebaf33d">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.4}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="126" width="43" height="10" isRemoveLineWhenBlank="true" uuid="13d3f6d9-722f-4f9f-ba9b-6590b7305ddc">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="126" width="72" height="10" isRemoveLineWhenBlank="true" uuid="e6af5f75-400b-4118-b518-6384f1386648">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities4").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="141" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="2c549f7a-d644-4890-8ba0-0e24a0973b26">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.5}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="146" width="43" height="10" isRemoveLineWhenBlank="true" uuid="d693c6e5-c7c0-4ed1-af99-7e5c018c45a7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="146" width="72" height="10" isRemoveLineWhenBlank="true" uuid="6381faed-f775-4c2f-8c73-2147ed848ab9">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities5").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="161" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="27a885dd-1c70-4674-8853-6272c987d193">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.6}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="166" width="43" height="10" isRemoveLineWhenBlank="true" uuid="f3487835-a9fd-4910-bd92-30c9f8ed4ae6">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="166" width="72" height="10" isRemoveLineWhenBlank="true" uuid="5c0e02bc-35ad-4307-abe8-5e3b5daff30f">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities6").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="181" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="00dc9dbd-20af-4185-8b13-c9d9e2b1f6c5">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.7}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="186" width="43" height="10" isRemoveLineWhenBlank="true" uuid="ef16374a-5ab2-47ec-8fa7-b647acaca9d9">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="186" width="72" height="10" isRemoveLineWhenBlank="true" uuid="7dfae3bf-5a3f-4200-aeb5-58767a55e769">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities7").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="201" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="d5e96e6c-75a3-4d2f-8c14-1f2bf1fb2452">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.8}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="207" width="43" height="10" isRemoveLineWhenBlank="true" uuid="77a86932-1732-45aa-8181-2b72a4c5b7b7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="207" width="72" height="10" isRemoveLineWhenBlank="true" uuid="c0270bdf-f3a8-44df-86bc-641ec2575afc">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities8").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="221" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="44611982-9962-49bc-a081-99d84cd81933">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.9}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="226" width="43" height="10" isRemoveLineWhenBlank="true" uuid="bad5718c-02fd-4035-bfeb-9854f7b0e03e">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="226" width="72" height="10" isRemoveLineWhenBlank="true" uuid="c55b3ed0-3465-4680-9d4d-0835957223e0">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities9").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+						</jr:columnHeader>
+						<jr:detailCell height="0" rowSpan="1"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table2" positionType="Float" x="24" y="111" width="500" height="20" isRemoveLineWhenBlank="true" uuid="71a5106b-8dd1-4420-b01d-e054253376a8"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Table Dataset 2" uuid="9fe616ad-aced-4630-878d-66569b395318">
+						<datasetParameter name="CMIS">
+							<datasetParameterExpression><![CDATA[$P{CMIS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Quote">
+							<datasetParameterExpression><![CDATA[$P{Quote}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="500" uuid="979c2aa0-51a5-41e2-8d78-1e8e63eacbfb">
+						<jr:columnHeader height="220" rowSpan="1">
+							<box>
+								<pen lineWidth="0.25"/>
+								<topPen lineWidth="0.25"/>
+								<leftPen lineWidth="0.25"/>
+								<bottomPen lineWidth="0.25"/>
+								<rightPen lineWidth="0.25"/>
+							</box>
+							<textField>
+								<reportElement x="13" y="2" width="111" height="18" forecolor="#000000" uuid="c00a1cc6-dfcf-4e6d-ac5e-5abbe1114e59">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.procurement}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="19" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="a7e5b975-1351-4cfb-b997-c590563912cc">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.10}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="24" width="43" height="10" isRemoveLineWhenBlank="true" uuid="6f603424-9dad-4e35-958b-6986c7cecb10">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="24" width="72" height="10" isRemoveLineWhenBlank="true" uuid="b1b34da5-e83c-417f-97ff-f4deb5ff8600">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities10").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="39" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="849f092d-1765-4417-b18e-339120005203">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.11}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="44" width="43" height="10" isRemoveLineWhenBlank="true" uuid="02595940-9ae2-40e6-9965-d5f7fca59654">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="44" width="72" height="10" isRemoveLineWhenBlank="true" uuid="dc276b4d-f4c7-497b-8528-87d94802c1e0">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities11").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="59" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="7fd9d6c6-d386-4750-86d4-c52ac8982691">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.12}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="64" width="43" height="10" isRemoveLineWhenBlank="true" uuid="bae181dd-eb80-41b4-93c1-ae1c32f8339e">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="64" width="72" height="10" isRemoveLineWhenBlank="true" uuid="e58d6e79-5e4b-4767-b8a2-918229671ae1">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities12").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="79" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="274cb463-c7e3-48e4-86dc-947c598d421d">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.13}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="84" width="43" height="10" isRemoveLineWhenBlank="true" uuid="649a9754-ed50-450f-a69f-04ca6373c529">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="84" width="72" height="10" isRemoveLineWhenBlank="true" uuid="8f064a0a-9cdc-42d3-896d-905fa28f007a">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities13").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="99" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="aa8ee3cb-e556-4ada-997d-98fbbdd612dd">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.14}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="104" width="43" height="10" isRemoveLineWhenBlank="true" uuid="228f978a-e5e1-454b-8274-a7ba38d6eec6">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="104" width="72" height="10" isRemoveLineWhenBlank="true" uuid="51c7400e-0ece-471f-9c86-9167d05a673a">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities14").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="119" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="6725bf56-276f-42f2-942c-181cca5b18b9">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.15}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="124" width="43" height="10" isRemoveLineWhenBlank="true" uuid="9b5ffd31-44bd-4496-b6fc-f4d7c14aa6ac">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="124" width="72" height="10" isRemoveLineWhenBlank="true" uuid="26713633-031c-481b-ae66-7a12d1dbcbc8">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities15").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="139" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="7f8baed1-098a-4e30-bb62-d1aad61663bb">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.16}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="144" width="43" height="10" isRemoveLineWhenBlank="true" uuid="48833233-d3e1-403b-ba98-07e7b7d9c59c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="144" width="72" height="10" isRemoveLineWhenBlank="true" uuid="43d75f15-df65-4979-a9bd-a13f776e2977">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities16").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="159" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="32137f82-d9b5-4cb8-a0e8-44040a5d3ccf">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.17}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="165" width="43" height="10" isRemoveLineWhenBlank="true" uuid="04283fb3-00bd-4cb1-859f-2d6e6df65fb7">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="165" width="72" height="10" isRemoveLineWhenBlank="true" uuid="01408bad-f2a6-4d63-b65e-898d1aac4b3c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities17").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="179" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="855a030b-fc46-43f4-87e3-1546e5a8ac25">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.18}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="184" width="43" height="10" isRemoveLineWhenBlank="true" uuid="901a73b4-12cf-4389-98b3-94dd56f5b7d2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="184" width="72" height="10" isRemoveLineWhenBlank="true" uuid="15370654-aceb-4d44-acf6-b59dfa9a7c21">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities18").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="199" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="5b691a8f-0c28-4c89-ae1b-627c50f588a3">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.19}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="204" width="43" height="10" isRemoveLineWhenBlank="true" uuid="ef2ba2c0-a056-4a6b-b49a-69c35c105a37">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="204" width="72" height="10" isRemoveLineWhenBlank="true" uuid="9c42c22e-1b51-494c-a825-847029eae404">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities19").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+						</jr:columnHeader>
+						<jr:detailCell height="1" rowSpan="1"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table2" positionType="Float" x="24" y="131" width="500" height="20" isRemoveLineWhenBlank="true" uuid="b01176da-8a5d-42e3-ba66-087469bc09f4"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Table Dataset 2" uuid="643480b2-0785-4345-a771-64b087dcde08">
+						<datasetParameter name="CMIS">
+							<datasetParameterExpression><![CDATA[$P{CMIS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Quote">
+							<datasetParameterExpression><![CDATA[$P{Quote}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="500" uuid="851232bb-1ce0-4ea4-b0dd-f2f5ec9ecfa6">
+						<jr:columnHeader height="180" rowSpan="1">
+							<box>
+								<pen lineWidth="0.25"/>
+								<topPen lineWidth="0.25"/>
+								<leftPen lineWidth="0.25"/>
+								<bottomPen lineWidth="0.25"/>
+								<rightPen lineWidth="0.25"/>
+							</box>
+							<textField>
+								<reportElement x="13" y="2" width="111" height="18" forecolor="#000000" uuid="f95f4972-2a90-4798-9054-7f0ecb3863e7">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.execution}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="19" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="27e6a832-6a72-484d-988a-82811bf70241">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.20}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="24" width="43" height="10" isRemoveLineWhenBlank="true" uuid="b71736dd-83f0-439f-bf15-497061039643">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="24" width="72" height="10" isRemoveLineWhenBlank="true" uuid="7a7684c4-99b6-44d9-8f31-34633ec4ccfd">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities20").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="39" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="6d7392b4-f288-4acb-be8c-cbe835d9f0ad">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.21}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="44" width="43" height="10" isRemoveLineWhenBlank="true" uuid="127a495a-92aa-4cce-9363-bc93dd78e505">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="44" width="72" height="10" isRemoveLineWhenBlank="true" uuid="3ab43067-6d05-4792-b832-3cbb9f49e382">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities21").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="59" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="f77be461-2173-430b-beef-864ef2d020bc">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.22}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="64" width="43" height="10" isRemoveLineWhenBlank="true" uuid="f9c36ad4-f44c-4cc7-b466-c35dc471e757">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="64" width="72" height="10" isRemoveLineWhenBlank="true" uuid="8da5507e-3a32-4438-8635-63fa5b7a709e">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities22").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="79" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="8b122d4c-e742-43d8-92bf-20b274a6ca1d">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.23}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="84" width="43" height="10" isRemoveLineWhenBlank="true" uuid="4540aed7-f627-46cd-8358-061a9855fd96">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="84" width="72" height="10" isRemoveLineWhenBlank="true" uuid="c3c16cc5-af49-4959-ba2c-cd84728cf14b">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities23").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="99" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="5ef81cd1-bf08-4dfd-b53b-418092782123">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.24}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="104" width="43" height="10" isRemoveLineWhenBlank="true" uuid="7d99f130-15de-4c0b-a786-44e6250284d2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="104" width="72" height="10" isRemoveLineWhenBlank="true" uuid="d3e0174d-9590-4912-a1db-4ae09eed1199">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities24").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="119" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="a4f0f789-1846-4e8c-8698-66d0ab99e590">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.25}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="124" width="43" height="10" isRemoveLineWhenBlank="true" uuid="b92d5d35-da5e-4125-9750-448b5e07f763">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="124" width="72" height="10" isRemoveLineWhenBlank="true" uuid="661b9d30-a81d-43f5-9f82-8a3d353e869c">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities25").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="139" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="43f4a1c5-08da-4b86-a6df-b117736adc17">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.26}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="144" width="43" height="10" isRemoveLineWhenBlank="true" uuid="f3f22a76-0821-4073-be16-574082cb7096">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="144" width="72" height="10" isRemoveLineWhenBlank="true" uuid="57fc186a-5b6f-40f9-8dd5-e39865d1bd2f">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities26").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="13" y="159" width="315" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="99b167a1-3af9-4e86-8c0c-b21e21c854c1">
+									<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()!="null"]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font fontName="Calibri"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{quote.responsibilities.27}]]></textFieldExpression>
+							</textField>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="350" y="165" width="43" height="10" isRemoveLineWhenBlank="true" uuid="75f315e0-2835-475e-900d-00f720e384a2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()=="Seller"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+							<image hAlign="Center" onErrorType="Blank" evaluationTime="Report">
+								<reportElement positionType="Float" x="410" y="165" width="72" height="10" isRemoveLineWhenBlank="true" uuid="f7c2c304-9995-4507-970c-aceedf42d7f2">
+									<printWhenExpression><![CDATA[$P{Quote}.getAttributeValue("zResponsibilities27").toString()=="Buyer"]]></printWhenExpression>
+								</reportElement>
+								<imageExpression><![CDATA[$P{CMIS} + "/logos/included.png"]]></imageExpression>
+							</image>
+						</jr:columnHeader>
+						<jr:detailCell height="1" rowSpan="1"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</pageHeader>
+</jasperReport>

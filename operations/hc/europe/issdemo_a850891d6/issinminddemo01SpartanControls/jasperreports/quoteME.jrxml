@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2016-07-05T19:26:35 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quote" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="21" bottomMargin="21" isSummaryNewPage="true" isFloatColumnFooter="true" uuid="bb0d1098-0e3d-4574-89bb-b8d8e056d41c">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="26"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<subDataset name="additionalItemDS" uuid="a7729f67-416f-4b76-b284-39bfe9d6c4b8">
+		<parameter name="additionalItems" class="java.util.Set"/>
+		<parameter name="additionalItemPrice" class="java.util.List"/>
+		<field name="_THIS" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+		<variable name="putAdditionalItemPrice" class="java.lang.String">
+			<variableExpression><![CDATA["";final StringBuilder sb = new java.lang.StringBuilder();
+
+Iterator<?> iterator = ($F{_THIS}.getAttributeLongValue("objectName").values()).iterator();
+while(iterator.hasNext()) { sb.append((String)iterator.next());}
+
+int originalSize = $P{additionalItems}.size();
+$P{additionalItems}.add(sb.toString());
+
+if (originalSize != $P{additionalItems}.size()) {
+		String str = sb.toString().startsWith("<br>")? sb.toString().replaceFirst("<br>", ""): sb.toString();
+		Map individualMap = new HashMap<String, Object>(); individualMap.put("additionItem", str); individualMap.put("price", $F{_THIS}.getAttributeValue("includesPriceItem", "priceItemBaseAmount")); $P{additionalItemPrice}.add(individualMap);
+}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="additionalItemPriceDS" uuid="98baa442-3834-4cab-86e4-221b0fc659a0">
+		<field name="additionItem" class="java.lang.String"/>
+		<field name="price" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="Dataset1" uuid="1de2280b-2577-4a07-a159-10537f048b0c">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.er.platform.datatransferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender", "objectExternalId")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="contactTitleKeyword" class="java.lang.String">
+		<variableExpression><![CDATA[$P{REPORT_LOCALE}.toString().startsWith("de") ? ($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString().equals($V{contactGender})? "geehrter ": ($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString().equals($V{contactGender})? "geehrte " : "geehrte/r ")) : ""]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="146">
+			<frame>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="1" y="-20" width="594" height="160" forecolor="#000000" backcolor="#FFFFFF" uuid="af667362-1b17-4ad8-94af-2c1442c645e0"/>
+				<textField isBlankWhenNull="true">
+					<reportElement key="txtCompanyName" style="baseStyle" x="122" y="2" width="296" height="32" forecolor="#000000" uuid="be225868-bff5-4263-8671-51cb8ad38b31"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rheem Australia Pty Ltd"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="72" width="200" height="15" forecolor="#000000" uuid="9b526856-7c29-4305-9ab8-ec122f9fcb1b"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(Boolean)$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressMain") ? $P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressStreet") : null]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="100" y="87" width="214" height="15" forecolor="#000000" uuid="9b526856-7c29-4305-9ab8-ec122f9fcb1b"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(Boolean)$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressMain") ? $P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressCity") : null ]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="87" width="74" height="15" forecolor="#000000" uuid="9b526856-7c29-4305-9ab8-ec122f9fcb1b"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(Boolean)$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressMain") ? $P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressZip") : null]]></textFieldExpression>
+				</textField>
+				<image scaleImage="FillFrame">
+					<reportElement mode="Opaque" x="26" y="2" width="93" height="32" uuid="42c35252-aac3-435f-80d8-50fbd62b3525"/>
+					<imageExpression><![CDATA[$P{CMIS} + "/logos/rheem.png"]]></imageExpression>
+				</image>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="40" width="180" height="15" forecolor="#000000" uuid="bc661e3e-112f-4593-960f-a8e6740e49f9"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(((GregorianCalendar)$P{Quote}.getAttributeValue("objectDateOfCreation")).getTime())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="25" y="114" width="55" height="15" uuid="1cded3bb-8187-47bc-bfef-2f40d8f6dea6"/>
+					<textElement>
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Attention :"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="txtAccountName" style="baseStyle" x="80" y="114" width="209" height="15" forecolor="#000000" uuid="00cdddd2-ac05-4a16-8bf8-a6d895b9161f"/>
+					<textElement>
+						<font fontName="Arial" size="10" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("quoteContainedBy", "objectName")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="25" y="129" width="141" height="13" uuid="9cafcb78-1c53-4207-897a-f0a975b8518d"/>
+					<textFieldExpression><![CDATA["Phone: 9680 3100"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="25" y="143" width="141" height="13" uuid="49b7e31a-9f75-49b4-a353-da908bd4775a"/>
+					<textFieldExpression><![CDATA["e-mail: David@cmce.com.au"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="57" width="200" height="15" forecolor="#000000" uuid="5ef042b9-9b0d-43fe-8330-4bca664c3dfb"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCompany", "objectName")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="600">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(1))]]></printWhenExpression>
+			<frame>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="1" y="-6" width="594" height="126" forecolor="#000000" backcolor="#FFFFFF" uuid="720b420d-bfcf-422c-a714-caac65159936"/>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="194" y="3" width="223" height="17" uuid="d018a9a7-a785-4d80-b179-d7e6d2cec14c"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["313-317 Pacific Hwy, Asquith"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="32" y="60" width="373" height="20" uuid="0a0108af-92c3-4f53-9076-5af6c7edce85"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Thank you for the opportunity to provide solutions for your hot water requirements."]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="32" y="81" width="373" height="15" uuid="969173b7-a2a6-4df8-ac53-1d86f083ad59">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rheem is Australia's No 1 in commercial water heating."]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="32" y="98" width="373" height="20" uuid="528d132d-b629-4483-a274-2f7db29deacf"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["We have pleasure in submitting the following proposal for your consideration."]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="184" y="20" width="253" height="20" uuid="48b6af05-b3ea-4de9-bac6-6022b85d284d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RHEEM HOT WATER DESIGN RECOMMENDATION"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="158" width="158" height="13" uuid="e12ed13a-b349-4ff6-aa6f-b64d3a14568e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hot Water Plant A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="230" width="158" height="13" uuid="c15ea8f2-ce24-4145-9a37-0cc61422ed31"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hot Water Plant B"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="20" y="290" width="560" height="15" backcolor="#A6A4A4" uuid="c4456142-7223-483e-921b-ac6ed08eca72">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["RHEEM RECOMMENDED SPECIFICATION"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="313" width="168" height="17" uuid="9afae703-684b-46bb-afa6-e17856d0c9b3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["WATER HEATING PLANT :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="334" width="240" height="18" uuid="b5f495c8-91a1-41ac-b780-79257f2f8aa0"/>
+				<textFieldExpression><![CDATA["We propose the following water heating plant:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="355" width="158" height="13" uuid="f90f2984-3ef0-4ea3-a42a-cf22f3ce1f76"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hot Water Plant A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="475" width="507" height="30" uuid="f3435722-95f5-446c-9990-593aadb530c4"/>
+				<textFieldExpression><![CDATA["Providing up to 4115 litres at a 50 C rise over the 1 hour peak period and sized for the peak simultaneous demand in the building."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="507" width="247" height="14" uuid="9619f516-e945-4f22-903f-4cb14063db16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PLANT SPACE inclusive of clearances:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="523" width="440" height="17" uuid="002183a7-e384-4a9c-a088-08d249da2af9"/>
+				<textFieldExpression><![CDATA["1 x Rheem Commpak CPE05NK requires 2.05m(W) x 1.3m(D)x1.8m(H)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="542" width="247" height="14" uuid="3576a188-94ca-4788-a8a9-c0fa1aac937b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BUDGET ESTIMATE:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="557" width="100" height="16" uuid="3b837c13-769f-4c36-aa93-22d0b91bfd37"/>
+				<textFieldExpression><![CDATA["$24,357 excl GST"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="138" width="158" height="16" uuid="0ac4331f-b8de-4391-b0b2-9b25dec060dc"/>
+				<textFieldExpression><![CDATA["This project consists of 2 zones:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="120" width="158" height="18" uuid="dbfe6a46-23e3-401f-840e-75d02c4efda0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PROJECT DETAILS"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="180" width="225" height="40" uuid="1ce4f613-9c07-4bb5-a1bd-af61d564a886"/>
+				<textElement markup="html">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[<li>7x1 Bed Apartment(s)</li>
+<li>25x2 Bedroom Apartment(s) w/Ensuite</li>
+<li>8x3 Bedroom Apartment(s) w/Ensuite</li>
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="250" width="148" height="30" uuid="26c9c5f3-7218-4987-8ae1-83533eed13f0"/>
+				<textElement markup="html">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[<li>4x1 Bed Apartment(s)</li>
+<li>23x2 Bedroom Apartment(s) w/Ensuite</li>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="368" width="460" height="102" uuid="76d02c5a-01da-4f0b-8bb0-41410e34e4cc"/>
+				<text><![CDATA[1x Rheem Commpak model CPE05NK (external) inclusive of: 
+
+- 5xRheem 6 star commercial continuous flow external water heaters factory manifolded on a freestanding frame inline, each heater 205MJ/hr, total 1025MJ/hr 
+- 2x Dual building circulation pumps factory manifolded on the frame
+- digital controller with BAS/BMS connectivity
+- staged operation using temperature sensors and pressure actuation
+- mains pressure hot water delivery]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="800" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="27" y="4" width="100" height="16" uuid="5f0b93e0-3411-439b-b04b-1fe82711c115"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hot Water Plant B"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="126" width="507" height="30" uuid="44f34d49-68ab-4ffd-aafe-90bef699e9a4"/>
+				<textFieldExpression><![CDATA["Providing up to 3290 litres at a 50 C rise over the 1 hour peak period and sized for the peak simultaneous demand in the building."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="160" width="198" height="16" uuid="fabd0be9-44d5-4fb1-8378-e65d45415418"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PLANT SPACE inclusive of clearnces:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="179" width="329" height="19" uuid="1f906963-4d30-4019-972c-df7eaa340e58"/>
+				<textFieldExpression><![CDATA["1xRheem Commpak CPE04NK requires 1.69m(W)x 1.3m(D) x 1.8m(H)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="198" width="198" height="16" uuid="92b26a49-2e0f-45a6-9178-ef6370c1a4a5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BUDGET ESTIMATE:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="216" width="329" height="19" uuid="b5f9aa42-f2c3-41f6-927f-533b5476e719"/>
+				<textFieldExpression><![CDATA["$21,459 excl GST"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="20" y="240" width="559" height="15" backcolor="#A69F9F" uuid="0a5099e6-4c6a-478a-a863-1a9c65755bba">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["ASSUMPTIONS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="264" width="165" height="15" uuid="719c7690-1249-4559-af50-2a647527c3cc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ALLOWANCES:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="286" width="498" height="24" uuid="5010d283-8501-4db5-8a5d-74ef39e243ef"/>
+				<textFieldExpression><![CDATA["We have made the following allowances in determining the plant required to supply the project."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="315" width="94" height="15" uuid="e6f6aac0-80f5-40ff-8b60-2760b2c1e1a8"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Both buildings"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="389" width="222" height="15" uuid="68dca9be-415c-49ea-af11-3089e8925ac6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["HOT WATER CONSUMPTION:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="404" width="280" height="16" uuid="8e00bae8-43a1-479d-8cc3-9aee2ac8683b"/>
+				<textFieldExpression><![CDATA["The estimated hot water consumption for the project is:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="430" width="94" height="20" uuid="c1ead55b-e248-498a-82ee-b7d8e13fef11"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hot Water Plant A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="491" width="94" height="20" uuid="d19755d6-a518-4624-94be-1992c22df388"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hot Water Plant B"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="553" width="521" height="30" uuid="9e5e6f56-3f26-430d-b9c2-e781240acb93"/>
+				<textFieldExpression><![CDATA["We thank you for the opportunity to provide you with this information. If we can be any further assistance please contact the Rheem Commercial Sales Department on 132 552."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="20" width="508" height="100" uuid="95b4f4ec-3724-438e-ba49-ef833b3d66ee"/>
+				<text><![CDATA[1x Rheem Commpak model CPE04NK (external) inclusive of: 
+
+- 4xRheem 6 star commercial continuous flow external water heaters factory manifolded on a freestanding frame inline, each heater 205MJ/hr, total 1025MJ/hr , total 820MJ/hr
+- 2x Dual building circulation pumps factory manifolded on the frame
+- digital controller with BAS/BMS connectivity
+- staged operation using temperature sensors and pressure actuation
+- mains pressure hot water delivery]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="330" width="383" height="50" uuid="804e6a65-046f-49f4-915f-0a690528f441"/>
+				<textElement markup="html"/>
+				<text><![CDATA[<li>1 Bed Apartment - 40 litres per apartment</li>
+<li>2 Bed Apartment w/ensuite  - 75 litres per apartment</li>
+<li>3 Bed Apartment w/ensuite  - 90 litres per apartment</li>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="455" width="279" height="30" uuid="63e080b9-e112-4bce-bf6d-1d07ecd782d9"/>
+				<textElement markup="html"/>
+				<text><![CDATA[<li>2875 litres over a 1 hour peak period</li>
+<li>4312 litres per day</li>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="511" width="280" height="29" uuid="24ca4130-14b7-4914-af34-5696d0a15dd9"/>
+				<textElement markup="html"/>
+				<text><![CDATA[<li>1885 litres over a 1 hour peak period</li>
+<li>2827 litres per day</li>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="591" width="114" height="19" uuid="44e45e6a-afc7-4594-884f-a21d89cd5f7e"/>
+				<text><![CDATA[Yours faithfully,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="660" width="176" height="43" uuid="eecf57b9-ea20-42df-b435-966a6d822697"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bruce Kemmis
+Technical Sales Manager NSW
+Rheem Australia Pty Ltd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="738" width="530" height="44" uuid="fa340d4f-5a8e-4ea4-8b3f-916529e510ed"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[1 Alan Street (PO Box 6), Rydaimere NSW 2116, Australia
+Tel: +61(2) 9684 9100 Fax: +61 (2) 9684 9184]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement mode="Opaque" x="110" y="740" width="43" height="21" uuid="d4f37103-1d61-40b1-962c-3756ab6597ac"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/rheem.png"]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

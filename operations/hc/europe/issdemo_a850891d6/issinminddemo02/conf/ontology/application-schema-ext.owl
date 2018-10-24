@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcloud.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY ase "http://www.inmindcloud.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcloud.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/application/application-schema-ext.owl#"
+     xml:base="http://www.inmindcloud.com/application/application-schema-ext.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:ssc="http://www.inmindcloud.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ai="http://www.inmindcloud.com/application/application-implementation.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ase="http://www.inmindcloud.com/application/application-schema-ext.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcloud.com/application/application-schema-ext.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Computing AG. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcloud.com/application/schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcloud.com/ssc/submodel.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+
+
+      <!-- http://www.inmindcloud.com/application/application-schema-ext.owl#quoteTerms -->
+
+       <owl:DatatypeProperty rdf:about="&ase;quoteTerms">
+            <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+      <rdfs:label xml:lang="de">Quote Terms and Conditions</rdfs:label>
+            <rdfs:label xml:lang="en">Quote Terms and Conditions</rdfs:label>
+            <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+            <rdfs:comment xml:lang="de">&lt;u&gt;${terms.label.title}&lt;/u&gt;&lt;br&gt;&lt;br&gt;${terms.label.prices}:&lt;br&gt;${terms.text.prices}&lt;br&gt;&lt;br&gt;${terms.label.validity}:&lt;br&gt;${terms.text.validity.first}${terms.text.validity.second}&lt;br&gt;&lt;br&gt;${terms.label.msa}:&lt;br&gt;${terms.text.msa}&lt;br&gt;&lt;br&gt;${terms.label.support}:&lt;br&gt;${terms.text.support}&lt;br&gt;&lt;br&gt;${terms.label.scope}:&lt;br&gt;${terms.text.scope}&lt;br&gt;&lt;br&gt;${terms.text.reference.first}&amp;nbsp;${accountName}&amp;nbsp;${terms.text.reference.second}&lt;br&gt;&lt;br&gt;${terms.text.approval}</rdfs:comment>
+            <rdfs:comment xml:lang="en">&lt;b&gt;${terms.text.1}&lt;/b&gt;&lt;br&gt;${terms.text.11}&lt;br&gt;&lt;br&gt;&lt;b&gt;${terms.text.2}&lt;/b&gt;&lt;br&gt;${terms.text.22}&lt;br&gt;</rdfs:comment>
+            <rdfs:comment xml:lang="es">${terms.text.1}&lt;br&gt;${terms.text.11}&lt;br&gt;&lt;br&gt;${terms.text.2}&lt;br&gt;${terms.text.22}&lt;br&gt;&lt;br&gt;${terms.text.3}&lt;br&gt;${terms.text.33}&lt;br&gt;&lt;br&gt;${terms.text.4}&lt;br&gt;${terms.text.44}&lt;br&gt;&lt;br&gt;${terms.text.5}&lt;br&gt;${terms.text.55}&lt;br&gt;</rdfs:comment>
+            <rdfs:domain rdf:resource="&as;Quote"/>
+            <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+            <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/application-schema-ext.owl#quoteTextFinProp1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTextFinProp1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Finanzielles Angebot 1</rdfs:label>
+        <rdfs:label xml:lang="en">Financial Proposal 1</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/application-schema-ext.owl#quoteTextFinProp2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTextFinProp2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Finanzielles Angebot 2</rdfs:label>
+        <rdfs:label xml:lang="en">Financial Proposal 2</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/application-schema-ext.owl#approvalGroup -->
+
+    <owl:DatatypeProperty rdf:about="&ase;approvalGroup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&as;SalesItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+		<rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?approvalGroup
+  WHERE
+  {
+   ?subject as:includesConfigItem ?conf.
+  #BIND("A50" as ?app)
+   ?conf ps:includesDynamicAttribute ?da.
+   ?da ps:isDynamicAttribute ?dx.
+   ?dx rdfs:label "ZVC_APPROBATION_CODE".
+   ?da ps:usesSymbolicValue ?val.
+   ?val as:attributeValueID ?approvalGroup .
+}
+      </ps:sparql>
+    </owl:DatatypeProperty>
+
+
+
+
+
+
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+   <!-- http://www.inmindcloud.com/application/application-schema-ext.owl#quoteIntro -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteIntro">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Einleitung</rdfs:label>
+        <rdfs:label xml:lang="en">Introduction</rdfs:label>
+        <rdfs:comment xml:lang="en">${quote.quoteIntro.text}</rdfs:comment>
+        <rdfs:comment xml:lang="de">${quote.quoteIntro.text}</rdfs:comment>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+    <ps:synchronizeAllowed rdf:datatype="&xsd;boolean">true</ps:synchronizeAllowed>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+
+    <!-- http://www.inmindcloud.com/ssc/submodel.owl#ApplicationField-KUNNR -->
+
+    <owl:NamedIndividual rdf:about="&ssc;ApplicationField-KUNNR">
+        <ssc:valueQuery rdf:datatype="&xsd;string">SELECT DISTINCT ?val WHERE { ?accnt rdf:type as:Account . ?quote as:quoteContainedBy ?accnt . ?accnt as:objectERPId ?val . }</ssc:valueQuery>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/ssc/submodel.owl#ApplicationField-VKORG -->
+
+    <owl:NamedIndividual rdf:about="&ssc;ApplicationField-VKORG">
+        <ssc:valueQuery rdf:datatype="&xsd;string">SELECT DISTINCT ?val WHERE { ?so rdf:type as:SalesOrg . ?quote as:hasSalesOrg ?so . ?so as:objectERPId ?val . }</ssc:valueQuery>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/ssc/submodel.owl#ApplicationField-VTWEG -->
+
+    <owl:NamedIndividual rdf:about="&ssc;ApplicationField-VTWEG">
+        <ssc:valueQuery rdf:datatype="&xsd;string">SELECT DISTINCT ?val WHERE { ?dc rdf:type as:DistributionChannel . ?quote rdf:type as:Quote . ?quote as:hasDistributionChannel ?dc . ?dc as:objectERPId ?val . }</ssc:valueQuery>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/ssc/submodel.owl#ApplicationField-WAERK -->
+
+    <owl:NamedIndividual rdf:about="&ssc;ApplicationField-WAERK">
+        <ssc:valueQuery rdf:datatype="&xsd;string">SELECT DISTINCT ?val WHERE { ?curr rdf:type as:Currency . ?quote as:hasCurrency ?curr . ?curr as:objectERPId ?val . }</ssc:valueQuery>
+    </owl:NamedIndividual>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&as;documentHeaderPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?documentHeaderPrice
+ # WHERE
+ # {
+ #  ?subject as:documentHeaderNetValue ?documentHeaderPrice.
+ #    }
+  WHERE { ?subject ssc:netValue ?val }
+      </ps:sparql>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&as;productSpec">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&as;opportunityWeightedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?opportunityWeightedVolume)
+  WHERE {
+    ?subject as:opportunityVolume ?vol .
+    ?subject as:opportunityChanceofSuccess ?prop .
+    BIND (xsd:decimal(xsd:decimal(?vol)*xsd:decimal(?prop)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderForecastedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?objectVal as ?documentHeaderForecastedVolume)
+  where {
+    ?subject as:hasSalesDocumentStatus ?qs .
+    ?subject as:documentHeaderPrice ?qp .
+     BIND(
+      if( ?qs = as:ACCEPTED, xsd:decimal(?qp)*0.90,
+      if( ?qs = as:APPROVED, xsd:decimal(?qp)*0.25,
+      if( ?qs = as:COMPLETED, xsd:decimal(?qp)*0.10,
+      if( ?qs = as:OPEN, xsd:decimal(?qp)*0.10,
+      0
+        ) ) ) )
+      as
+      ?objectVal
+   ) .
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&as;productIsOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configItemError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?configItemError
+  where {
+    ?subject a as:ConfigItem .
+    ?subject ssc:complete ?isComplete .
+    ?subject ssc:conflicting ?isConflicting .
+    BIND ((!?isComplete || ?isConflicting) as ?configItemError)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productConfigurable">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesDocumentVersion">
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT DISTINCT ?subject (?val as ?itemHeaderPrice)
+      WHERE {
+		?subject as:includesPriceItem ?pi.
+		?pi as:hasPriceItemType ?type.
+		?type as:objectERPId &apos;YLPR&apos;.
+		?pi as:includesTargetAmount ?am.
+		?am as:amountValue ?val
+      }
+      </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderUnitPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?itemHeaderUnitPrice
+  WHERE { ?subject as:itemHeaderNetValue ?val2.
+  ?subject as:itemHeaderQuantity ?q.
+   BIND (?val2 / ?q  as ?itemHeaderUnitPrice) 
+}
+      </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productRating">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderTotalPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderTotalPrice)
+  #WHERE { ?subject as:itemHeaderNetValue ?val }
+  WHERE { ?subject ssc:totalNetValue ?val }
+      </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderQuantity">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">1.0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;priceItemBaseAmount">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterItemDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderPriceAfterItemDiscount)
+  WHERE
+  {
+    ?subject as:includesItemHeaderPriceItem ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:itemHeaderTotalPrice ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  } group by ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?salesItemError
+  where {
+  ?subject as:includesConfigItem ?config .
+  ?config as:configItemError ?salesItemError .
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbVersion">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteId">
+        <ps:sparql rdf:datatype="&xsd;string">
+     select ?quoteId where {
+     {
+      select ?quoteId where {
+         ?s rdf:type as:Quote.
+#         ?s rdf:type ps:ActiveObject.
+         ?s ps:objectExternalId ?quoteId
+      }
+   }
+   union
+   {
+      select ?subject (concat("CPQ", ps:leftPad(ps:sequence("QUOTESEQUENCE"), 5, "0")) as ?quoteId) where { }
+   }
+}
+limit 1
+        </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscountLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">true</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;groupHidden">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDescription">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbType">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderAdditionalPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT DISTINCT ?subject (?val as ?itemHeaderAdditionalPrice)
+  WHERE {
+		?subject as:includesPriceItem ?pi.
+		?pi as:hasPriceItemType ?type.
+		?type as:objectERPId &apos;YMR%&apos;.
+		?pi as:includesBaseAmount ?am.
+		?am as:amountValue ?val
+      }
+    </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productOptionsPrice">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderListPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderListPrice)
+      WHERE
+      {
+      ?subject as:includesSalesItem+ ?c .
+      {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+      ?c as:itemHeaderQuantity ?cq .
+      ?c as:itemHeaderPrice ?cp .
+      BIND (xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq)) AS ?val)
+      }
+      }
+      }
+      GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productATPSchedule">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscontAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteTotalDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?quoteTotalDiscount)
+      WHERE {
+      ?subject as:documentHeaderListPrice ?priceBeforeDiscount .
+      ?subject as:documentHeaderPrice ?priceAfterDiscount .
+      BIND ( ((xsd:decimal(?priceBeforeDiscount) - xsd:decimal(?priceAfterDiscount) ) / xsd:decimal(?priceBeforeDiscount)) *
+      100 AS ?val)
+      }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteReportTitle">
+        <ps:defaultValue xml:lang="de">Angebot</ps:defaultValue>
+        <ps:defaultValue xml:lang="en">Quote</ps:defaultValue>
+    </rdf:Description>
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

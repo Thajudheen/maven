@@ -1,0 +1,675 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+		<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+		<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+		<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+		<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+		<!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+		<!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+		<!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+		<!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+		<!ENTITY uii "http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+		xml:base="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl"
+		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+		xmlns:uii="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+		xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+		xmlns:owl="http://www.w3.org/2002/07/owl#"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+		xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+		<owl:Ontology rdf:about="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl">
+				<owl:imports rdf:resource="http://www.inmindcomputing.com/security/security-implementation.owl"/>
+		</owl:Ontology>
+
+
+
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Individuals
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		-->
+
+
+
+
+		<!-- http://www.inmindcomputing.com/application/application-schema.owl#UI_APP_DEFAULT -->
+
+				<owl:NamedIndividual rdf:about="&as;UI_APP_DEFAULT">
+				<rdf:type rdf:resource="&as;UiProfileFeatureBased"/>
+		<ps:objectName rdf:datatype="&xsd;string">UI_APP_DEFAULT</ps:objectName>
+				<as:hasUiProfile rdf:resource="&uii;UI_APP_DEFAULT_QUOTE"/>
+				</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/application-schema.owl#UI_HIDE_ALL -->
+
+				<owl:NamedIndividual rdf:about="&as;UI_HIDE_ALL">
+				<rdf:type rdf:resource="&as;UiProfile"/>
+		<ps:objectName rdf:datatype="&xsd;string">UI_HIDE_ALL</ps:objectName>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_paneBarItem_products</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_paneBarItem_search</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_shell_searchTool</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_tool_account</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_tool_contact</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_tool_opportunity</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_tool_quote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_accounts</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_accountsOverview</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_admin</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_cockpit</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_contactOverview</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_guidedSelling</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_home</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_inbox</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunity</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_opportunityOverview</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_products</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_productsOverview</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_quotation</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_quotationOverview</as:uiProfileHide>
+				</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_ADMIN -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_ADMIN">
+				<rdf:type rdf:resource="&as;UiProfile"/>
+		<ps:objectName rdf:datatype="&xsd;string">UI_ADMIN</ps:objectName>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_ACTION"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_WITHDRAW"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_APP_DEFAULT_QUOTE -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_APP_DEFAULT_QUOTE">
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<ps:objectName rdf:datatype="&xsd;string">HIDE FEATURE WISE UI ( QUOTE )</ps:objectName>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_downloadLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_uploadLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_label_totalPriceBeforeDisc</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPriceBeforeDisc</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_label_totalPriceBeforeDisc</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_totalPriceBeforeDisc</as:uiProfileHide>
+
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_NON_SALES -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_NON_SALES">
+				<rdf:type rdf:resource="&as;UiProfile"/>
+		<ps:objectName rdf:datatype="&xsd;string">UI_NON_SALES</ps:objectName>
+				<as:hasUiProfile rdf:resource="&as;UI_HIDE_ALL"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES">
+				<rdf:type rdf:resource="&as;UiProfile"/>
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES</ps:objectName>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_productDetails_priceList_createPrice</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_productDetails_priceList_deletePrice</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_productPage_addProduct</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_dropdown_productDetails_header_productStatus</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_group_textField_productDetails_priceList_productPrice</as:uiProfileDisable>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_link_productPage_updateProduct</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_link_settings</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_productDetails_header_productEccId</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_admin</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_volume</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_weightedVolume</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_quotedVolume</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_doe</as:uiProfileHide>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_ACCEPTED"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_APPROVED"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_COMPLETED"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_OPEN"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_REJECTED"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_WON"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_LOST"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_IMPORTED"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_STATUS_SENTTOERP"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase1"/>
+		</owl:NamedIndividual>
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_MARKETING -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_MARKETING">
+				<rdf:type rdf:resource="&as;UiProfile"/>
+		<ps:objectName rdf:datatype="&xsd;string">UI_MARKETING</ps:objectName>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_productDetails_priceList_createPrice</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_productDetails_priceList_deletePrice</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_productPage_addProduct</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_dropdown_productDetails_header_productStatus</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_group_textField_productDetails_priceList_productPrice</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_link_productPage_updateProduct</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_link_settings</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_textfield_productDetails_header_productEccId</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_worksetItem_admin</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_group_button_accountsTable_createOppotunity</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_contactPage_createOpportunity</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_accountDetails_opportunities_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_accountDetails_opportunities_delete</as:uiProfileDisable>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunitiesTable_add_opp</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete_opp</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_volume</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_weightedVolume</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_quotedVolume</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_col_leadView_doe</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_tool_opportunity</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_opp_button_action_submit</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_opp_button_action_withdraw</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_opp_button_action_approve</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_opp_button_action_won</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_opp_button_action_lost</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_opp_button_action_quote</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase1"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase2"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase3"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase4"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase5"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase6"/>
+				<as:hasUiProfile rdf:resource="&uii;UI_SALES_PHASE_SalesPhase7"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_ACTION -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_ACTION">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_ACTION</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+		</owl:NamedIndividual>
+
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_ACCEPTED -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_ACCEPTED">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_ACCEPTED</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_checkAvailability</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportExcel</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_group_column_singleQuoteView_optionalRequiredCheckBox</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_paymentTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_status</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_type</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_comment</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_addLineItem</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_deleteLineItems</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+		</owl:NamedIndividual>
+		
+		
+		
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_SENTTOERP -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_SENTTOERP">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_SENTTOERP</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_checkAvailability</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportExcel</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_group_column_singleQuoteView_optionalRequiredCheckBox</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_paymentTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_status</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_type</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_comment</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_addLineItem</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_deleteLineItems</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;SENTTOERP"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_APPROVED -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_APPROVED">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_APPROVED</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportExcel</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_group_column_singleQuoteView_optionalRequiredCheckBox</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_paymentTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_type</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_comment</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_addLineItem</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_deleteLineItems</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_COMPLETED -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_COMPLETED">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_COMPLETED</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_paymentTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_status</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_type</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_comment</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_addLineItem</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_deleteLineItems</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_OPEN -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_OPEN">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_OPEN</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+				<as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_REJECTED -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_REJECTED">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_REJECTED</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_checkAvailability</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_commissionCheck</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_deleteLineItems</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_editProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportExcel</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_exportQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_linkSAPSalesDoc</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_resetProposal</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_saveQuote</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_tagButton</as:uiProfileHide>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_versionButton</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_component_cistic</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_effectiveDate</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_group_column_singleQuoteView_optionalRequiredCheckBox</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_incoTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_paymentTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_reference</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_status</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_quote_type</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_desc</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteDiscount</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_quoteGlobalTerms</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_singleQuote_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textfield_totalBasePrice</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_addLineItem</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_quoteDetails_lineItems_deleteLineItems</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_WITHDRAW -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_WITHDRAW">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_WITHDRAW</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_singleQuote_currency</as:uiProfileHide>
+		</owl:NamedIndividual>
+
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_WON -->
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_WON">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_WON</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;WON"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_LOST -->
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_LOST">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_LOST</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;LOST"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_STATUS_IMPORTED -->
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_STATUS_IMPORTED">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_STATUS_IMPORTED</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:hasSalesDocumentStatus rdf:resource="&as;IMPORTED"/>
+		</owl:NamedIndividual>
+
+		<!-- New UI Profile for Sales Phases-->
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase1 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase1">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase1</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&as;SalesPhase1"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase2 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase2">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase2</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&as;SalesPhase2"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase3 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase3">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase3</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&ai;SalesPhase3"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase4 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase4">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase4</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&ai;SalesPhase4"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase5 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase5">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase5</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&ai;SalesPhase5"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase6 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase6">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase6</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&ai;SalesPhase6"/>
+		</owl:NamedIndividual>
+
+		<!-- http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#UI_SALES_PHASE_SalesPhase7 -->
+
+		<owl:NamedIndividual rdf:about="&uii;UI_SALES_PHASE_SalesPhase7">
+		<ps:objectName rdf:datatype="&xsd;string">UI_SALES_PHASE_SalesPhase7</ps:objectName>
+				<rdf:type rdf:resource="&as;UiProfile"/>
+				<as:uiProfileHide rdf:datatype="&xsd;string">id_button_opportunityTI_saveOpportunity</as:uiProfileHide>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_ipe_opportunityDetails_header_title</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunitiesTable_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_contact</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_owner</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_source</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_datePicker_opportunityDetails_header_dateOfExpiry</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_salesPhase</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_dropdown_opportunityDetails_header_currency</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textArea_opportunityDetails_header_description</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_textField_opportunityDetails_header_volume</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_rating_opportunityDetails_header_chanceOfSuccess</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_slider_opportunityDetails_header_revenue</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_addQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_quotes_deleteQuote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_add</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_delete</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">id_button_opportunityDetails_products_quote</as:uiProfileDisable>
+				<as:uiProfileDisable rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#demoDone</as:uiProfileDisable>
+				<as:hasSalesPhase rdf:resource="&ai;SalesPhase7"/>
+		</owl:NamedIndividual>
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

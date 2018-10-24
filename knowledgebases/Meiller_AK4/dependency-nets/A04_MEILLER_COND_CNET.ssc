@@ -1,0 +1,150 @@
+constraintNet A04_MEILLER_COND_CNET {
+  constraints
+
+	A04_TABLES
+//	PRODUCTLISTPRICE	
+}
+constraint A04_TABLES{
+	objects ?O is_a(300)CRM_AK04
+		
+	restrictions
+		?O.MEILLER_MOD = ?O.A04MOD,	
+		table TYP_MODELL (
+			TYP = ?O.domain TYP,
+			MODELL = ?O.domain MODELL,
+			A04MOD = ?O.domain A04MOD,
+			PRODUCTIMAGE = ?O.domain PRODUCTIMAGE
+//			PRODUCTLISTPRICE = ?O.domain PRODUCTLISTPRICE
+		),
+		table A04MSS (
+			A04MSS = ?O.domain A04MSS,
+			A04STE = ?O.domain A04STE
+		),
+		table A04MSS_MOD (
+			A04MSS = ?O.domain A04MSS,
+			A04MOD = ?O.domain A04MOD
+		),
+		table A04EIN (
+			A04EIN = ?O.domain A04EIN,
+			A04STE = ?O.domain A04STE
+		),
+		table A04ATT (
+			A04ATT = ?O.domain A04ATT,
+			A04STE = ?O.domain A04STE
+		),
+		table A04BED (
+			A04BED = ?O.domain A04BED,
+			A04STE = ?O.domain A04STE
+		),
+		table A04BED_MOD (
+			A04BED = ?O.domain A04BED,
+			A04MOD = ?O.domain A04MOD
+		),
+		table A04STE_MOD (
+			A04STE = ?O.domain A04STE,
+			A04MOD = ?O.domain A04MOD
+		),
+		table A04DRE_MOD (
+			A04DRE = ?O.domain A04DRE,
+			A04MOD = ?O.domain A04MOD
+		),
+		table A04DRE (
+			A04DRE = ?O.domain A04DRE,
+			A04STE = ?O.domain A04STE
+		),
+		table A04SIC_MOD (
+			A04SIC = ?O.domain A04SIC,
+			A04MOD = ?O.domain A04MOD
+		),
+		table A04HAS (
+			A04HAS = ?O.domain A04HAS,
+			A04FZG = ?O.domain A04FZG,
+			A04STE = ?O.domain A04STE
+		),
+		table A04HAS_MOD (
+			A04HAS = ?O.domain A04HAS,
+			A04MOD = ?O.domain A04MOD
+		),
+		table A04MKO (
+			A04MKO = ?O.domain A04MKO,
+			A04KOT = ?O.domain A04KOT
+		),
+		table A04MSV (
+			A04MSV = ?O.domain A04MSV,
+			A04SSV = ?O.domain A04SSV
+		),
+		table A04KON (
+			A04KOS = ?O.domain A04KOS,
+			A04KON = ?O.domain A04KON
+		),
+		table A04KOS (
+			A04KOS = ?O.domain A04KOS,
+			A04KOH = ?O.domain A04KOH
+		),
+		table A04KOH (
+			A04KON = ?O.domain A04KON,
+			A04KOH = ?O.domain A04KOH
+		),
+// Farbtabelle
+		table A04AFA (
+			A04AFA = ?O.domain A04AFA,
+			A04LAQ = ?O.domain A04LAQ,
+			A04FCO = ?O.domain A04FCO,
+			A04FTO = ?O.domain A04FTO
+		),
+		table A04LAQ (
+			A04LAQ = ?O.domain A04LAQ,
+			A04LAA = ?O.domain A04LAA
+		),
+		table A04LLO (
+			A04LLO = ?O.domain A04LLO,
+			A04MON = ?O.domain A04MON,
+			A04LAA = ?O.domain A04LAA
+		),
+		table A04VLO (
+			A04VLO = ?O.domain A04VLO,
+			A04MON = ?O.domain A04MON,
+			A04LAA = ?O.domain A04LAA
+		),
+		table A04TFR (
+			A04TFR = ?O.domain A04TFR,
+			A04MON = ?O.domain A04MON
+		),
+		table A04WER (
+			A04WER = ?O.domain A04WER,
+			A04MON = ?O.domain A04MON
+		)
+	inferences:
+		?O.domain TYP, ?O.domain MODELL, ?O.domain A04MOD,
+		?O.domain PRODUCTIMAGE,
+		?O.MEILLER_MOD,
+//			?O.domain PRODUCTLISTPRICE
+		?O.domain A04EIN,
+		?O.domain A04STE,
+		?O.domain A04DRE,
+		?O.domain A04SIC,
+		?O.domain A04MSS,
+		?O.domain A04EIN,
+		?O.domain A04ATT,
+		?O.domain A04BED,
+		?O.domain A04HAS,
+		?O.domain A04FZG,
+		?O.domain A04MKO,
+		?O.domain A04KOT,
+		?O.domain A04MSV,
+		?O.domain A04SSV,
+		?O.domain A04KOS,
+		?O.domain A04KON,
+		?O.domain A04KOH,
+		?O.domain A04AFA,
+		?O.domain A04LAQ,
+		?O.domain A04FCO,
+		?O.domain A04FTO,
+		?O.domain A04LLO,
+		?O.domain A04VLO,
+		?O.domain A04MON,
+		?O.domain A04LAA,
+		?O.domain A04TFR,
+		?O.domain A04WER
+}
+

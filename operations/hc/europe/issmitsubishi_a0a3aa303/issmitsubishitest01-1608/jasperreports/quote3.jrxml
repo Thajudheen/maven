@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nestedStructure" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ac55398-62bf-47ae-b583-3e12c6eb0b88">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="nestedSalesItemDS" uuid="59eba17f-d5e7-4c22-a95f-64f00626f933">
+		<parameter name="parentSalesItemID" class="java.lang.String"/>
+		<field name="SalesItem" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<subDataset name="dataset1" uuid="ebed0bf2-9b90-4fc6-911b-fda220524716">
+		<field name="_THIS" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<subDataset name="scheduleLineItemDS" uuid="0cc34440-cc13-4023-bfed-c9231b944ac5">
+		<field name="_THIS" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<variable name="salesItemID" class="java.lang.String">
+		<variableExpression><![CDATA[(((BusinessObjectDTO)$F{SalesItem}).instance.getUriAsString())]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="393">
+			<textField>
+				<reportElement x="152" y="15" width="281" height="20" uuid="2ee7d818-8871-4976-a05c-b497886ad08a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasSalesDocumentType", "objectName")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="57" width="281" height="20" uuid="76c386fb-0983-4783-b4a5-f74241f5a073"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasSalesOrg", "objectName")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="99" width="281" height="20" uuid="296d8bbf-3cce-4715-8d67-d21c04407c3f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasDistributionChannel", "objectName")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="142" width="281" height="20" uuid="aeb7c99c-8826-45bb-ace3-03f30ceb194a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasDivision", "objectName")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="186" width="281" height="20" uuid="e1eab015-31d4-4031-818e-579ac81d4751"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasIncoTerms", "objectName")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="230" width="281" height="20" uuid="f848fc5b-84cb-4abc-94e5-9b05dca76e46"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("hasPaymentTerms", "objectName")]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="20" y="253" width="513" height="140" uuid="30ea9a28-46ee-4b1d-a4df-4f16d47ca39b"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dataset1" uuid="fa2d9ec4-5b6b-432a-96d7-2cbce648c124">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{Quote}.getAttributeValues("definesPartnerFunctionRecord"))]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="d729c926-264e-490c-a679-8126099eeae6">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8738f6cd-1ccf-45e5-bddd-bc0e2744347d"/>
+								<textFieldExpression><![CDATA[$F{_THIS}.getAttributeValue("hasPartnerFunction", "objectName")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="141" uuid="ddc41932-554f-4a76-96c9-bc658ed65438">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="141" height="20" uuid="d2da2fc1-86f0-4655-a57a-77427b06d504"/>
+								<textFieldExpression><![CDATA[$F{_THIS}.getAttributeValue("linksPartner", "includesPerson", "personLastName") ]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="351" uuid="fd5b5a01-2f7e-4781-9462-45e28659bd33">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="207" height="20" uuid="f2789596-61b1-46e6-b300-4d40309406ee"/>
+								<textFieldExpression><![CDATA[$F{_THIS}.getAttributeValue("linksPartner", "includesPerson", "personFirstName")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9ba88f68-20d2-4277-b0fe-2a9c79ccb60f">
+						<jr:tableHeader height="30" rowSpan="1"/>
+						<jr:tableFooter height="30" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1"/>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="33b0c05c-e399-4382-948a-6a3194cf1cf9"/>
+								<textFieldExpression><![CDATA[$F{_THIS}.getAttributeValue("linksPartner", "includesPerson", "personMail")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+	<detail>
+		<band height="238" splitType="Stretch">
+			<printWhenExpression><![CDATA[(((BusinessObjectDTO)$P{Quote}).instance.getUriAsString()).equals(((BusinessObject)$F{SalesItem}.getAttributeValue("salesItemIncludedBy")).getUriAsString())]]></printWhenExpression>
+			<textField>
+				<reportElement positionType="Float" x="20" y="214" width="281" height="20" uuid="a8b4091f-d067-44a6-b6ae-62a20662f481"/>
+				<textFieldExpression><![CDATA["end..."]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="20" y="50" width="513" height="140" uuid="4d3ba5ec-106c-4546-87ac-d58ae6f653e9"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="nestedSalesItemDS" uuid="b1c830e2-59a5-40ea-8cb0-0de2abace7ed">
+						<datasetParameter name="parentSalesItemID">
+							<datasetParameterExpression><![CDATA[(((BusinessObjectDTO)$F{SalesItem}).instance.getUriAsString())]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRMapCollectionDataSource)$P{REPORT_DATA_SOURCE}).cloneDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="504" uuid="d2165cf9-b1c9-4182-bf34-9cc3dbcbe160">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a18ce792-c406-43b7-84f8-305b09290b36"/>
+								<text><![CDATA[SalesItem]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="504" height="30" isRemoveLineWhenBlank="true" uuid="5e85b135-84eb-43b8-bc00-cd02f110453b">
+									<printWhenExpression><![CDATA[$P{parentSalesItemID}.equals(((BusinessObject)$F{SalesItem}.getAttributeValue("salesItemIncludedBy")).getUriAsString())]]></printWhenExpression>
+								</reportElement>
+								<textFieldExpression><![CDATA[$F{SalesItem}.getAttributeValue("salesItemPosition")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement x="20" y="16" width="281" height="20" uuid="8777e494-76ad-407d-9bb6-1bbd3af064ea"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SalesItem}.getAttributeValue("salesItemPosition")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="154">
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="20" y="14" width="513" height="140" uuid="a9388612-5a25-4c1e-9f90-69340ef8663b"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="scheduleLineItemDS" uuid="17b82baa-2879-4f8b-b643-e9ba6040bd1a">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{SalesItem}.getAttributeValues("definesScheduleLineItem"))]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="d43a9eca-64ef-4fc9-8cbd-699791be61e9">
+						<jr:tableHeader style="table 3_TH" height="30"/>
+						<jr:tableFooter style="table 3_TH" height="30"/>
+						<jr:columnHeader style="table 3_CH" height="30"/>
+						<jr:columnFooter style="table 3_CH" height="30"/>
+						<jr:detailCell style="table 3_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="4c030bd3-59d2-48b2-a1bb-832d3d2216c0"/>
+								<textFieldExpression><![CDATA[$F{_THIS}.getAttributeValue("scheduleLineItemConfirmedQuantity")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="1cad8d7d-f50f-4a16-8975-e1c42afaba57">
+						<jr:tableHeader style="table 3_TH" height="30"/>
+						<jr:tableFooter style="table 3_TH" height="30"/>
+						<jr:columnHeader style="table 3_CH" height="30"/>
+						<jr:columnFooter style="table 3_CH" height="30"/>
+						<jr:detailCell style="table 3_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="231b5c22-6231-4699-a12f-1f6a3333eb90"/>
+								<textFieldExpression><![CDATA[((GregorianCalendar)$F{_THIS}.getAttributeValue("scheduleLineItemRequiredTime")).getTime()]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="12773116-fc82-42ca-9162-fbe0b635b78a">
+						<jr:tableHeader style="table 3_TH" height="30"/>
+						<jr:tableFooter style="table 3_TH" height="30"/>
+						<jr:columnHeader style="table 3_CH" height="30"/>
+						<jr:columnFooter style="table 3_CH" height="30"/>
+						<jr:detailCell style="table 3_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="79374ff3-2cba-4b1b-bda4-0fe716444ee9"/>
+								<textFieldExpression><![CDATA[$F{_THIS}.getAttributeValue("scheduleLineItemRequiredTime")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c4896837-ca51-48e7-bf12-5eb4e2bc7ef8">
+						<jr:tableHeader style="table 3_TH" height="30"/>
+						<jr:tableFooter style="table 3_TH" height="30"/>
+						<jr:columnHeader style="table 3_CH" height="30"/>
+						<jr:columnFooter style="table 3_CH" height="30"/>
+						<jr:detailCell style="table 3_TD" height="20"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

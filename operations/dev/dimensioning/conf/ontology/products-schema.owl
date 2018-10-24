@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Computing AG. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+    </owl:Ontology>
+
+     <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#defaultValue -->
+
+    <owl:AnnotationProperty rdf:about="&ps;defaultValue"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#enumerable -->
+
+    <owl:AnnotationProperty rdf:about="&ps;enumerable"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#group -->
+
+    <owl:AnnotationProperty rdf:about="&ps;group"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#groupCode -->
+
+    <owl:AnnotationProperty rdf:about="&ps;groupCode"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#groupDescription -->
+
+    <owl:AnnotationProperty rdf:about="&ps;groupDescription"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#mandatory -->
+
+    <owl:AnnotationProperty rdf:about="&ps;mandatory"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#objectName -->
+
+    <owl:AnnotationProperty rdf:about="&ps;objectName"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#sequenceID -->
+
+    <owl:AnnotationProperty rdf:about="&ps;sequenceID"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_BB-CROSS-SECTION -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_BB-CROSS-SECTION">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Busbar Size [ n x mm x mm]</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_5x150x10"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_FREQUENCY -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_FREQUENCY">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">LV-SB-MF_FREQUENCY</rdfs:label>
+        <rdfs:label xml:lang="en">Frequency [HZ]</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_FREQUENCY_50HZ"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_FREQUENCY"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_IBB -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_IBB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Busbar Rating [A]</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_6300"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_ICW -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_ICW">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Icw [kA] / 400V</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_65"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_ICW"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_IP -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_IP">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Ingress Protection</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP30"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_IP"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_POLE -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_POLE">
+        <rdfs:label xml:lang="en">Poles</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_3POLE"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_POLE"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#hasLV-SB-MF_VOLTAGE -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasLV-SB-MF_VOLTAGE">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Voltage [V]</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:defaultValue rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_400"/>
+        <ps:group rdf:resource="&pcs;GroupLV-SB-MF"/>
+        <rdfs:domain rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <rdfs:range rdf:resource="&pcs;LV-SB-MF_VOLTAGE"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#has -->
+
+    <owl:ObjectProperty rdf:about="&ps;has"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#Group -->
+
+    <owl:Class rdf:about="&as;Group"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#KnowledgeBase -->
+
+    <owl:Class rdf:about="&as;KnowledgeBase"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF-KB -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF-KB">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_BB-CROSS-SECTION -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_BB-CROSS-SECTION">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_FREQUENCY -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_FREQUENCY">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_IBB -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_IBB">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_ICW -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_ICW">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_IP -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_IP">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_POLE -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_POLE">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#LV-SB-MF_VOLTAGE -->
+
+    <owl:Class rdf:about="&pcs;LV-SB-MF_VOLTAGE">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#Attribution -->
+
+    <owl:Class rdf:about="&ps;Attribution"/>
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

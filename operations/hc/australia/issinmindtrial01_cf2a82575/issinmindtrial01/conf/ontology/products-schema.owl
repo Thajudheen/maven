@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY sec "http://www.inmindcloud.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcloud.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcloud.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcloud.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/application/products/products-schema.owl#"
+     xml:base="http://www.inmindcloud.com/application/products/products-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcloud.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcloud.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcloud.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcloud.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcloud.com/application/products/products-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind cloud AG. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcloud.com/application/schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#hasRouterType -->
+
+    <owl:ObjectProperty rdf:about="&pcs;hasRouterType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Typ</rdfs:label>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;NetworkEquipment"/>
+        <rdfs:range rdf:resource="&pcs;RouterType"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#enterpriseRouterAttributes -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;enterpriseRouterAttributes">
+        <rdfs:domain rdf:resource="&pcs;NetworkEquipment"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erAccessPoints -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erAccessPoints">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Zugriffspunkte</rdfs:label>
+        <rdfs:label xml:lang="en">Access Points</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;integer">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;integer">2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;integer">3</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erAdditionalPorts -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erAdditionalPorts">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Zusätzliche Zugriffspunkte</rdfs:label>
+        <rdfs:label xml:lang="en">Additional Ports</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;int">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;integer">0</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;integer">1</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;integer">2</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;integer">3</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erComments -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erComments">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Kommentar</rdfs:label>
+        <rdfs:label xml:lang="en">Comment</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erDefaultPorts -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erDefaultPorts">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Standard Zugriffspunkte</rdfs:label>
+        <rdfs:label xml:lang="en">Default Ports</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;integer">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;integer">2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;integer">3</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erMounting -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erMounting">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Anbringung</rdfs:label>
+        <rdfs:label xml:lang="en">Mounting</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Rack</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Wall</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erPSU -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erPSU">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Zusätzliche Stromversorgung</rdfs:label>
+        <rdfs:label xml:lang="en">Additional PSU</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">false</ps:mandatory>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erPowerCord -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erPowerCord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Stromkabel (Land)</rdfs:label>
+        <rdfs:label xml:lang="en">AC Power Cord</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">9</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">ARG</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">AUS</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">CHN</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">EC</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">IN</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">IT</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">JPN</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">NA</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                        <rdf:first rdf:datatype="&xsd;string">SWI</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                <rdf:first rdf:datatype="&xsd;string">UK</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                        <rdf:first rdf:datatype="&xsd;string">ZA</rdf:first>
+                                                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#erRegion -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;erRegion">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Region</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;enterpriseRouterAttributes"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">APJ</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">EMEA</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">NA</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#othersData -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;othersData">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#othersLongText -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;othersLongText">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Langtext</rdfs:label>
+        <rdfs:label xml:lang="en">Long Text</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Others"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;othersData"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#othersPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;othersPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Preis</rdfs:label>
+        <rdfs:label xml:lang="en">Price</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Others"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;othersData"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#othersShortText -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;othersShortText">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Name</rdfs:label>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:defaultValue rdf:datatype="&xsd;string">Item</ps:defaultValue>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Others"/>
+        <rdfs:subPropertyOf rdf:resource="&pcs;othersData"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#routerPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;routerPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?routerPrice)
+ WHERE {
+  ?subject as:isProduct ?p .
+  ?subject as:includesPriceItem ?price .
+  ?p as:productContainedBy pci:NetworkEquipment .
+  OPTIONAL {?price as:priceItemBaseAmount ?plp .}
+  OPTIONAL {?subject pcs:hasRouterType ?type .}
+  OPTIONAL {?type pcs:routerTypeCost ?cost .}
+   BIND (
+       IF(
+        NOT EXISTS {?price as:priceItemBaseAmount ?plp},
+        xsd:decimal(0),
+        IF (
+         NOT EXISTS {?type pcs:routerTypeCost ?cost .},
+   ?plp,
+   xsd:decimal(?cost)*?plp
+        )
+       ) AS ?val
+    )
+ }</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;NetworkEquipment"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#routerTypeCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;routerTypeCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&pcs;RouterType"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#serverExpandable -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;serverExpandable">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Erweiterungsplatz</rdfs:label>
+        <rdfs:label xml:lang="en">Expansion slot</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Server"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Advanced -->
+
+    <owl:Class rdf:about="&pcs;Advanced">
+        <rdfs:subClassOf rdf:resource="&pcs;DimensionData"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#ComputerHardware -->
+
+    <owl:Class rdf:about="&pcs;ComputerHardware">
+        <rdfs:label rdf:datatype="&xsd;string">Computer Hardware</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#DimensionData -->
+
+    <owl:Class rdf:about="&pcs;DimensionData">
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Essentials -->
+
+    <owl:Class rdf:about="&pcs;Essentials">
+        <rdfs:subClassOf rdf:resource="&pcs;DimensionData"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#NetworkEquipment -->
+
+    <owl:Class rdf:about="&pcs;NetworkEquipment">
+        <rdfs:label rdf:datatype="&xsd;string">Network Equipment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&pcs;Networks"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Networks -->
+
+    <owl:Class rdf:about="&pcs;Networks">
+        <rdfs:label rdf:datatype="&xsd;string">Networks</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&pcs;ComputerHardware"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Others -->
+
+    <owl:Class rdf:about="&pcs;Others">
+        <rdfs:label rdf:datatype="&xsd;string">Others</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#RouterType -->
+
+    <owl:Class rdf:about="&pcs;RouterType">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+        <rdfs:subClassOf rdf:resource="&ps;Cached"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Server -->
+
+    <owl:Class rdf:about="&pcs;Server">
+        <rdfs:label rdf:datatype="&xsd;string">Server</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&pcs;Servers"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#ServerEquipment -->
+
+    <owl:Class rdf:about="&pcs;ServerEquipment">
+        <rdfs:label rdf:datatype="&xsd;string">Server Equipment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&pcs;Servers"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Servers -->
+
+    <owl:Class rdf:about="&pcs;Servers">
+        <rdfs:label rdf:datatype="&xsd;string">Servers</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&pcs;ComputerHardware"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Service -->
+
+    <owl:Class rdf:about="&pcs;Service">
+        <rdfs:label rdf:datatype="&xsd;string">Service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

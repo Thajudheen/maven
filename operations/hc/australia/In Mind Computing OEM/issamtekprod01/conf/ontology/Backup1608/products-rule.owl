@@ -1,0 +1,562 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-rule.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-rule.owl"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-rule.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-rule.owl#linksType -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/products/products-rule.owl#linksType">
+        <rdfs:subPropertyOf rdf:resource="&ps;links"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ColdForgingProcess-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#ColdForgingProcess-KB">
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;Assembly-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#DieCastingProcess-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#DieCastingProcess-KB">
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;Assembly-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MasterPart-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MasterPart-KB">
+        <owl:disjointWith rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB"/>
+        <owl:disjointWith rdf:resource="&pcs;Subcon-KB"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB1 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB1">
+        <owl:disjointWith rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB2"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB2 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB2"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#Process-KB">
+        <owl:disjointWith rdf:resource="&pcs;Part-KB"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasePart-KB">
+        <owl:disjointWith rdf:resource="&pcs;Subcon-KB"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom rdf:resource="&as;SalesItem"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB">
+        <owl:disjointWith rdf:resource="&pcs;PurchasedPartOther-KB"/>
+        <owl:disjointWith rdf:resource="&pcs;PurchasedPlasticPart-KB"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#SoftToolProcess-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#SoftToolProcess-KB">
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;Assembly-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB1"/>
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB2"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&pcs;Others"/>
+        <owl:disjointWith rdf:resource="&pcs;Part-KB"/>
+        <owl:disjointWith rdf:resource="&pcs;Tooling-MRB-KB"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom rdf:resource="&as;SalesItem"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB1 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB1">
+        <owl:disjointWith rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB2"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB2 -->
+
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB2">
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom rdf:resource="&pcs;Assembly-KB"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Assembly-KB -->
+
+    <rdf:Description rdf:about="&pcs;Assembly-KB">
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB"/>
+                                                            <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#StampingProcess-KB1"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#MetalStamping-KB -->
+
+    <rdf:Description rdf:about="&pcs;MetalStamping-KB">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB1"/>
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#MetalStamping-KB2"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SalesItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="&pcs;Assembly-KB"/>
+                                                            <rdf:Description rdf:about="&pcs;AssemblyProcess-KB"/>
+                                                            <rdf:Description rdf:about="&pcs;PurchasedPartOther-KB"/>
+                                                            <rdf:Description rdf:about="&pcs;PurchasedPlasticPart-KB"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Others -->
+
+    <rdf:Description rdf:about="&pcs;Others">
+        <owl:disjointWith rdf:resource="&pcs;Part-KB"/>
+        <owl:disjointWith rdf:resource="&pcs;Tooling-MRB-KB"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Part-KB -->
+
+    <rdf:Description rdf:about="&pcs;Part-KB"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPartOther-KB -->
+
+    <rdf:Description rdf:about="&pcs;PurchasedPartOther-KB"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedPlasticPart-KB -->
+
+    <rdf:Description rdf:about="&pcs;PurchasedPlasticPart-KB"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Subcon-KB -->
+
+    <rdf:Description rdf:about="&pcs;Subcon-KB">
+        <rdfs:subClassOf rdf:resource="&pcs;MRBNonMFG-KB"/>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesSalesItem"/>
+                                <owl:someValuesFrom rdf:resource="&as;SalesItem"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;configItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemIncludedBy"/>
+                                <owl:someValuesFrom rdf:resource="&as;Quote"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#Tooling-MRB-KB -->
+
+    <rdf:Description rdf:about="&pcs;Tooling-MRB-KB"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

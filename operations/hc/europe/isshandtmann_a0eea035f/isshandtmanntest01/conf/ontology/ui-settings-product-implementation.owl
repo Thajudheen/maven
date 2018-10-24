@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY uii "http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#" >
+    <!ENTITY uip "http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#"
+     xmlns:uii="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+     xmlns:uip="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl">
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">PROFILE_SALES</ps:businessTypeShortText>
+        <as:hasAttributeProfile rdf:resource="&uip;PROFILE_SALES_ACCEPTED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;PROFILE_SALES_APPROVED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;PROFILE_SALES_COMPLETED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;PROFILE_SALES_OPEN"/>
+        <as:hasAttributeProfile rdf:resource="&uip;PROFILE_SALES_REJECTED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_ACCEPTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_ACCEPTED">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_APPROVED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_APPROVED">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_COMPLETED">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_OPEN">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+        <as:hasAttributeProfile rdf:resource="&uip;SUBPROFILE_SALES_OPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#PROFILE_SALES_REJECTED -->
+
+    <owl:NamedIndividual rdf:about="&uip;PROFILE_SALES_REJECTED">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+        <as:hasAttributeProfile rdf:resource="&uip;SUBPROFILE_SALES_NONOPEN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_SALES_NONOPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_SALES_NONOPEN">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:attributeProfileReadOnlyBo rdf:datatype="&xsd;string">http://www.inmindcomputing.com/application/application-schema-ext.owl#QuoteAdditionalAttributes</as:attributeProfileReadOnlyBo>
+        <as:hasSalesDocumentStatus rdf:resource="&as;ACCEPTED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;REJECTED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#SUBPROFILE_SALES_OPEN -->
+
+    <owl:NamedIndividual rdf:about="&uip;SUBPROFILE_SALES_OPEN">
+        <rdf:type rdf:resource="&as;AttributeProfile"/>
+        <as:hasSalesDocumentStatus rdf:resource="&as;OPEN"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

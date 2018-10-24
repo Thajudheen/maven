@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2016-06-23T17:16:11 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.er.platform.datatransferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.er.platform.model.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcomputing.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="600" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="17" y="-1" width="462" height="50" uuid="06a01974-f471-404c-b562-e0ef1603c213"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/alrostamani.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="23" y="120" width="497" height="460" uuid="6f768250-9385-40c9-9f30-b52bdff7ace3"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[<li>Department of E Government UAQ to provide required power space and cooling for the
+newly proposed appliances in the environment.</li>
+<li>We are assuming that Department of E Government UAQ will provide the policies and
+exception for the Projects.</li>
+<li>Network IP address scheme document to be provided by Department of E Government UAQ
+during the Planning phase of the project.</li>
+<li>DEPARTMENT OF E GOVERNMENT UAQ to ensure that proper access passes to the
+Datacenter/Implementation site is available at all times without any restrictions. Any delay in
+access would result in addition to time towards the Project completion date.</li>
+<li> DEPARTMENT OF E GOVERNMENT UAQ to provide the basic infrastructure for
+implementation, like proper remote connectivity and internet access to project site.
+Any changes in the Windows Directory Group Policies will be out of scope of Project deployment.</li>
+<li>Any product license for dependent products like SQL Server, OS will be out of scope.
+The physical installation, configuration, testing and support of any product out of mentioned
+Project and associated solution in the proposal.</li>
+<li>The installation, configuration and testing of the operating system, application or database
+software components item which are out of our BOQ.</li>
+<li>Supply and installation of additional component out of the proposed BOQ.</li>
+<li>Any type of code/script development activity on top of the out of box solution from Project.</li>
+<li>Hardware implementation and installation would be carried out on a one time basis based on
+DEPARTMENT OF E GOVERNMENT UAQ’s datacenter/site location. Any change of location or
+movement of Hardware would be considered as a Change request.</li>
+<li>Project Time Lines are prepared and submitted under the assumption that the Network
+infrastructure is ready and does not require any configuration during/after the Hardware
+implementation. Network IP address scheme document to be provided by DEPARTMENT OF E
+GOVERNMENT UAQ during the Planning phase of the project</li>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="96" width="111" height="24" uuid="9aabc753-d036-4b62-8bc8-dd27f163ccef"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assumptions ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="29" width="396" height="12" uuid="63759428-b4ec-4ea0-940c-bed69c930089">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tel: +9714 4287557 Fax: +9714 4250507 Email: arc@alrostamanigroup.ae]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="16" width="291" height="12" uuid="0d66119c-a8f7-49a2-bf74-7445894e1bdc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Al Rostamani Communications PO BOX 30420]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="13" width="551" height="1" forecolor="#BEE6FD" uuid="f22fef7f-26b0-4b42-8efa-5c3b56ae9f14">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</line>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textFieldCurrentPage" x="31" y="0" width="150" height="13" isRemoveLineWhenBlank="true" forecolor="#333333" backcolor="#FFFFFF" uuid="f2982c07-1fd7-4b52-83ae-fa71c82b1791"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page.page}+" "+$V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="175" height="13" uuid="57860e41-78e4-4e6c-8e71-813006171bf4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" markup="html"/>
+				<textFieldExpression><![CDATA["ARC Response to RFP " + (($P{Quote}.getAttributeValue("quoteReference") == null) ? "":$P{Quote}.getAttributeValue("quoteReference"))]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

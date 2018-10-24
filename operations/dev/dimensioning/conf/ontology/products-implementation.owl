@@ -1,0 +1,634 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY products-schema-process "http://www.inmindcomputing.com/application/products/products-schema-process.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+    <!ENTITY products-schema-knowledgebase "http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-implementation.owl"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:products-schema-process="http://www.inmindcomputing.com/application/products/products-schema-process.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:products-schema-knowledgebase="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl">
+        <rdfs:comment>Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:versionInfo>0.3</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+    </owl:Ontology>
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#hasProductStatus -->
+
+    <owl:AnnotationProperty rdf:about="&as;hasProductStatus"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#hasUnitofMeasure -->
+
+    <owl:AnnotationProperty rdf:about="&as;hasUnitofMeasure"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#includesKnowledgeBase -->
+
+    <owl:AnnotationProperty rdf:about="&as;includesKnowledgeBase"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#kbType -->
+
+    <owl:AnnotationProperty rdf:about="&as;kbType"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#productBOMAllowed -->
+
+    <owl:AnnotationProperty rdf:about="&as;productBOMAllowed"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#productCategoryContainedBy -->
+
+    <owl:AnnotationProperty rdf:about="&as;productCategoryContainedBy"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#productConfigurable -->
+
+    <owl:AnnotationProperty rdf:about="&as;productConfigurable"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#productContainedBy -->
+
+    <owl:AnnotationProperty rdf:about="&as;productContainedBy"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#productDiscountAllowed -->
+
+    <owl:AnnotationProperty rdf:about="&as;productDiscountAllowed"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#productIsOptional -->
+
+    <owl:AnnotationProperty rdf:about="&as;productIsOptional"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#objectId -->
+
+    <owl:AnnotationProperty rdf:about="&ps;objectId"/>
+
+
+
+
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#LV-SB-MF -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#LV-SB-MF">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">MF Switchboard</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">LV-SB-MF</ps:objectName>
+        <as:productBOMAllowed rdf:datatype="&xsd;boolean">true</as:productBOMAllowed>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productDiscountAllowed rdf:datatype="&xsd;boolean">true</as:productDiscountAllowed>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:hasUnitofMeasure rdf:resource="http://www.inmindcomputing.com/application/application-implementation.owl#Piece"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesKnowledgeBase rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#LV-SB-MF-KB"/>
+        <as:productContainedBy rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl#SwitchboardCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#LV-SB-MF-KB -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#LV-SB-MF-KB">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF-KB"/>
+        <as:kbType rdf:datatype="&xsd;string">IMC</as:kbType>
+        <ps:objectName rdf:datatype="&xsd;string">LV-SB-MF-KB</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">LV-SB-MF-KB</ps:objectId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SwitchboardCategory -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SwitchboardCategory">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="en">SwitchboardCategory</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">SwitchboardCategory</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">SwitchboardCategory</ps:objectName>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+     <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_3POLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_3POLE">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_POLE"/>
+        <rdfs:label xml:lang="de"></rdfs:label>
+        <rdfs:label xml:lang="en">3 Pole</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_3POLE</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_4POLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_4POLE">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_POLE"/>
+        <rdfs:label xml:lang="de"></rdfs:label>
+        <rdfs:label xml:lang="en">4 Pole</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_4POLE</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_1250 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_1250">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">1250</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">9</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_1250</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_1600 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_1600">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">1600</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_1600</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_2000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_2000">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">2000</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_2000</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_250 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_250">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">250</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">12</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_250</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_2500 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_2500">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">2500</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_2500</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_3000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_3000">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">3000</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_3000</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_3200 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_3200">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">3200</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_3200</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_400 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_400">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">400</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_400</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_4000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_4000">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">4000</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_4000</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_5000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_5000">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">5000</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_5000</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_630 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_630">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">630</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_630</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_6300 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_RATING_6300">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IBB"/>
+        <rdfs:label xml:lang="en">6300</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_RATING_6300</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x20x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x20x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">1 x 20 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_1x20x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x30x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x30x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">1 x 30 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_1x30x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x50x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x50x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">1 x 50 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_1x50x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x85x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_1x85x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">1 x 85 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_1x85x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_2x55x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_2x55x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">2 x 55x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_2x55x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_2x70x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_2x70x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">2 x 70 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_2x70x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_2x85x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_2x85x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">2 x 85 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_2x85x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_3x100x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_3x100x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">3 x 100 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">9</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_3x100x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_3x120x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_3x120x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">3 x 120 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_3x120x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_3x85x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_3x85x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">3 x 85 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_3x85x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_5x100x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_5x100x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">5 x 100 x 10</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_5x100x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_5x150x10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_BUSBAR_SIZE_5x150x10">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_BB-CROSS-SECTION"/>
+        <rdfs:label xml:lang="en">5 x 150 x 10 </rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">12</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_BUSBAR_SIZE_5x150x10</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_FREQUENCY_50HZ -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_FREQUENCY_50HZ">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_FREQUENCY"/>
+        <rdfs:label xml:lang="en">50 HZ</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_FREQUENCY_50HZ</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_FREQUENCY_60HZ -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_FREQUENCY_60HZ">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_FREQUENCY"/>
+        <rdfs:label xml:lang="en">60 HZ</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_FREQUENCY_60HZ</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_100 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_100">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_ICW"/>
+        <rdfs:label xml:lang="en">100 kA</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_ICW_100</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_120 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_120">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_ICW"/>
+        <rdfs:label xml:lang="en">120 kA</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_ICW_120</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_65 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_65">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_ICW"/>
+        <rdfs:label xml:lang="en">65 kA</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_ICW_65</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_85 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_ICW_85">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_ICW"/>
+        <rdfs:label xml:lang="en">85 kA</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_ICW_85</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP30 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP30">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IP"/>
+        <rdfs:label xml:lang="en">IP30</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_IP30</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP32 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP32">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IP"/>
+        <rdfs:label xml:lang="en">IP32</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_IP32</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP54 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_IP54">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_IP"/>
+        <rdfs:label xml:lang="en">IP54</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_IP54</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_1000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_1000">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_VOLTAGE"/>
+        <rdfs:label xml:lang="en">1000 V</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_Operating_Voltage_1000</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_400 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_400">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_VOLTAGE"/>
+        <rdfs:label xml:lang="en">400 V</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_Operating_Voltage_400</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_600 -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl#SB_Operating_Voltage_600">
+        <rdf:type rdf:resource="&pcs;LV-SB-MF_VOLTAGE"/>
+        <rdfs:label xml:lang="en">600 V</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">SB_Operating_Voltage_600</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#GroupLV-SB-MF -->
+
+    <owl:NamedIndividual rdf:about="&pcs;GroupLV-SB-MF">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">MF Switchboard</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">1</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">LV-SB-MF</ps:groupDescription>
+    </owl:NamedIndividual>
+
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

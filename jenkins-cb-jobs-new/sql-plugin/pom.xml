@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <theHost>hana.ondemand.com</theHost>
+    <UserName>P1943193055</UserName>
+    <MyPassword>Enter@mun76</MyPassword> 
+    <DBpassword>Thisismyhana@123</DBpassword>
+   <!-- <MyAccount>a8799585d</MyAccount> -->
+    <!--inmind cloud OEM account used for bind-db : when Database in another subaccount (same global account): -->
+    <AnotherSubAccount>a8799585d</AnotherSubAccount> 
+    <!-- DB account -->
+    <MyDBaccount>a8799585d</MyDBaccount>
+    <!-- sub account - trail -->
+    <MySubAccount>a6b6979fd</MySubAccount>
+    <ToAccount>a6b6979fd</ToAccount>
+    <MyApplication>isssapdemo02</MyApplication>
+    <theSize>pro</theSize>  	 
+    <MySource>sam-0.0.2-SNAPSHOT</MySource>
+       <databaseUser>ISSSAPDEMO02</databaseUser>
+    <dbId>jle</dbId>
+      <databasePass>7esperErAJ3kuvep</databasePass>
+    <Permission>TUNNEL,BINDING</Permission>
+    <All>all</All>
+    
+    
+      	    </properties> 
+  
+     
+      <dependencies>          
+          <dependency>
+            <groupId>com.sap.cloud.db.jdbc</groupId>
+                 <artifactId>ngdbc</artifactId>
+                  <version>2.2.16</version>                     
+            <type>jar</type> 
+            <scope>runtime</scope>          
+                    </dependency>
+        </dependencies>
+  
+  <profiles>
+     <profile>
+    <id>mojo-sql</id>
+      <activation>
+         <property>
+             <name>env</name>
+              <value>sql-cmd</value>
+           </property>
+      </activation>
+         <build>
+           <plugins>             
+          <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+             <artifactId>sql-maven-plugin</artifactId>
+           <version>1.5</version> 
+         
+            
+            <configuration>
+            <driver>com.sap.cloud.db.jdbc.Driver</driver> 
+          <url>jdbc:sap://localhost:30015</url>
+          <username>${UserName}</username>
+         <password>${DBpassword}</password> 
+          </configuration>  
+            <executions>
+          <execution>
+              <goals>
+              <goal>execute</goal>
+            </goals>
+          <configuration>   
+              <sqlCommand>CREATE USER ISSSAPDEMO02 PASSWORD Password123</sqlCommand>
+            </configuration>
+          </execution>
+        </executions>
+           </plugin>              
+             
+      </plugins>
+</build>
+</profile>
+    </profiles>
+</project>

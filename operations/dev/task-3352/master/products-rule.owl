@@ -1,0 +1,575 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-rule.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-rule.owl"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-rule.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#complementary -->
+
+    <owl:ObjectProperty rdf:about="&as;complementary"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#hasProduct -->
+
+    <owl:ObjectProperty rdf:about="&as;hasProduct"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#includesBOMItem -->
+
+    <owl:ObjectProperty rdf:about="&as;includesBOMItem"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#includesConfigItem -->
+
+    <owl:ObjectProperty rdf:about="&as;includesConfigItem"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#salesItemError -->
+
+    <owl:DatatypeProperty rdf:about="&as;salesItemError"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#cubicleHeight -->
+
+    <rdf:Description rdf:about="&pcs;cubicleHeight">
+        <rdfs:subPropertyOf rdf:resource="&pcs;cubicleWidth"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#BackLight -->
+
+    <owl:NamedIndividual rdf:about="&pci;BackLight"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FrontLight -->
+
+    <owl:NamedIndividual rdf:about="&pci;FrontLight"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;complementary"/>
+                <owl:hasValue rdf:resource="&pci;Flexi100"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&pci;Easy400A"/>
+                </owl:oneOf>
+            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&as;isProduct"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;salesItemError"/>
+                                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&pcs;breakerMode"/>
+                                <owl:hasValue rdf:datatype="&xsd;string">Analyzer</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;FOPSKIT-Level1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorFOPKit"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;CABLIGHTING"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorCabLightening"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;APCK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorAPCK"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;SBK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorSBK"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;TAK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorTAK"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;FOPS"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorFOP"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;MSK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorMSK"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;RBK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorRBK"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;CABLIGHTINGBACK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorCabLighteningBack"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasProduct"/>
+                <owl:hasValue rdf:resource="&pci;CWK"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;excavatorCWK"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;hasProduct"/>
+                        <owl:hasValue rdf:resource="&pci;BackLight"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;hasProduct"/>
+                        <owl:hasValue rdf:resource="&pci;FrontLight"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;BOMItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;bomItemIncludedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesItem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;includesConfigItem"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;ConfigItem"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&pcs;lightType"/>
+                                                <owl:hasValue rdf:datatype="&xsd;string">Front and Back Cabin Light</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

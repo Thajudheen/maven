@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/security/security-rule.owl#"
+     xml:base="http://www.inmindcomputing.com/security/security-rule.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/security/security-rule.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/security/security-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#containsCreator -->
+
+    <owl:ObjectProperty rdf:about="&as;containsCreator"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#containsUser -->
+
+    <owl:ObjectProperty rdf:about="&as;containsUser"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#containsUserSent -->
+
+    <owl:ObjectProperty rdf:about="&as;containsUserSent"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#hasRole -->
+
+    <owl:ObjectProperty rdf:about="&as;hasRole"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#userPermission -->
+
+    <owl:DatatypeProperty rdf:about="&as;userPermission"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SalesDocument -->
+
+    <owl:Class rdf:about="&as;SalesDocument"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#User -->
+
+    <rdf:Description rdf:about="&as;User">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                <owl:hasValue rdf:datatype="&xsd;string">SPARQL</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                <owl:hasValue rdf:datatype="&xsd;string">DELETE</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;User"/>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="&as;containsCreator"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="&as;SalesDocument"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="&as;containsOwner"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="&as;SalesDocument"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">CREATE</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">READ</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">UPDATE</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;User"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&sec;ROLE_PROJECT_AHIL"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_MGR_HUIZHOU"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_REP_HATL"/>
+                            <rdf:Description rdf:about="&sec;ROLE_PROGRAM_SALES_IPT"/>
+                            <rdf:Description rdf:about="&sec;ROLE_PROJECT_IPT"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_REP_AHIL"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_REP_IPT"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_MGR_AHIL"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_GLOBAL"/>
+                            <rdf:Description rdf:about="&sec;ROLE_SALES_MGR_HATL"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">READ</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">UPDATE</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;User"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;Role"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasAccessToDataOfHierarchy"/>
+                                <owl:hasValue rdf:resource="&sec;ROLE_USER_AMTEK"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&as;containsUserSent"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;SalesDocument"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                <owl:hasValue rdf:datatype="&xsd;string">ADMIN</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;User"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&sec;ROLE_ADMIN_HUIZHOU"/>
+                            <rdf:Description rdf:about="&sec;ROLE_ADMIN"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">READ</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;grantedPermission"/>
+                        <owl:hasValue rdf:datatype="&xsd;string">UPDATE</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;User"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;Role"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasAccessToDataOfHierarchy"/>
+                                <owl:hasValue rdf:resource="&sec;ROLE_USER_AMTEK"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&as;containsUser"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;SalesDocument"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

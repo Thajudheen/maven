@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-03-07T16:18:38 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="com.imc.datamodel.BusinessObject"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<subDataset name="Dataset1" uuid="a8933551-482b-47e3-9ef6-17ce768cf118">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Dataset2" uuid="b096bf7d-40e1-4e0f-a7d3-8bad1c1f965b">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.imc.datamodel.transferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.imc.datamodel.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcloud.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="180" y="0" width="199" height="100" uuid="e4d5bceb-b881-454f-8637-865ab9964ba5"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/reportlogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="46">
+			<staticText>
+				<reportElement x="40" y="14" width="450" height="32" uuid="5347a739-a604-47ff-b5a2-3b15256a0e55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Technical data for our products in our offer]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="262">
+			<printWhenExpression><![CDATA["LV-SB-MF".equals($F{SalesItem}.getAttributeValue("isProduct", "objectERPId") )]]></printWhenExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="37" width="331" height="20" isRemoveLineWhenBlank="true" uuid="f6b960d2-a3b6-4727-bea3-f6594e29572d"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("RATED_OPERATIONAL_VOLTAGE_UE")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" x="410" y="37" width="140" height="20" isRemoveLineWhenBlank="true" uuid="10f6c327-1d67-4236-bcfc-a1d3de7ebeea"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("RATED_OPERATIONAL_VOLTAGE_UE")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="57" width="331" height="20" isRemoveLineWhenBlank="true" uuid="d5b400dc-d0f3-4f4a-a602-c2a058a5922b"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("CONTROL_VOLTAGE_RATING")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="77" width="331" height="20" isRemoveLineWhenBlank="true" uuid="5ca7d364-212e-4635-89ba-45162bffba99"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV-CUBICLE_FORM")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="97" width="331" height="20" isRemoveLineWhenBlank="true" uuid="e110842d-3422-41e1-9136-b8f3e508cdd9"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("DEGREE_OF_PROTECTION_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="117" width="331" height="20" isRemoveLineWhenBlank="true" uuid="cc9d4754-3cae-4859-9798-25bbadde199b"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("RATED_FREQUENCY")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="137" width="331" height="20" isRemoveLineWhenBlank="true" uuid="097fb505-59af-4b0e-842c-d999874fcdf2"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV-SB-MF_BBSYSTEM_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="157" width="331" height="20" isRemoveLineWhenBlank="true" uuid="aadff8ae-f76f-4a6a-be5a-96b708f8a311"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV_CUBICLE_HBB_I_YD")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="177" width="331" height="20" isRemoveLineWhenBlank="true" uuid="2e75e9ce-2f89-4cf4-93fc-ff1d842121f9"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV-SB-MF_INCOM_CABLE_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="197" width="331" height="20" isRemoveLineWhenBlank="true" uuid="3749c2d0-7044-475b-abad-c830f10053b3"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV-SB-MF_OUT_CABLE_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="217" width="331" height="20" isRemoveLineWhenBlank="true" uuid="bde39e20-5847-4ad5-8cdb-b66034476e1c"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV-SB-MF_THICKENS _U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="44" y="237" width="331" height="20" isRemoveLineWhenBlank="true" uuid="abeef549-c1d8-495d-b98c-11f62a8fe3ca"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDALabel("LV-SB-MF_COLOR_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="57" width="140" height="20" isRemoveLineWhenBlank="true" uuid="d305dd6c-d574-4a74-9d66-99bcff37fdc3"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("CONTROL_VOLTAGE_RATING")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="77" width="140" height="20" isRemoveLineWhenBlank="true" uuid="0dd099ba-302e-4625-978b-33e87bd5c020"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV-CUBICLE_FORM")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="97" width="140" height="20" isRemoveLineWhenBlank="true" uuid="6fdaf3b7-787d-4ac5-b087-d95fea594fec"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("DEGREE_OF_PROTECTION_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="117" width="140" height="20" isRemoveLineWhenBlank="true" uuid="c3f7f52d-da99-4e4c-91f5-9916a43f6630"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("RATED_FREQUENCY")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="137" width="140" height="20" isRemoveLineWhenBlank="true" uuid="17d78eab-c0e3-4006-8012-99b1a480e15e"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV-SB-MF_BBSYSTEM_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="157" width="140" height="20" isRemoveLineWhenBlank="true" uuid="8652eec7-a12f-4522-a45e-e0769a05cea9"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV_CUBICLE_HBB_I_YD")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="177" width="140" height="20" isRemoveLineWhenBlank="true" uuid="eda0dfcf-f6d7-434d-878a-f8de50dcca22"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV-SB-MF_INCOM_CABLE_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="197" width="140" height="20" isRemoveLineWhenBlank="true" uuid="36679d75-a5a6-4b02-98d0-bf93c1b4c8c9"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV-SB-MF_OUT_CABLE_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="217" width="140" height="20" isRemoveLineWhenBlank="true" uuid="9b2a11b1-fc04-47ec-9999-83f1f41bdf1d"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV-SB-MF_THICKENS _U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="237" width="140" height="20" isRemoveLineWhenBlank="true" uuid="bf11afa7-495c-4c8d-af30-c0e39f452c09"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((com.imc.datamodel.transferobjects.BusinessObjectDTO)$F{SalesItem}.getAttributeValue("includesConfigItem")).getDAValue("LV-SB-MF_COLOR_U")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="25" y="14" width="331" height="20" isRemoveLineWhenBlank="true" uuid="66948677-da62-40a5-a1bd-3e8c0f448c57"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SalesItem}.getAttributeValue("objectName")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="55" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

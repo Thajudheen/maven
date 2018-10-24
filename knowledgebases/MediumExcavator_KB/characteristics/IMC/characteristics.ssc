@@ -1,0 +1,449 @@
+characteristic EXCAVATOR_TYPE {
+  names EN "Type", DE "Typ"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+    "CAB" names EN "Cabin", DE "Fahrerhaus",
+    "CANOPY" names EN "Canopy", DE "Sonnendach"
+}
+characteristic DIPPER {
+  names EN "Dipper", DE "Schaufel"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+    "LONG" names EN "Long dipper stick", DE "Lange Schaufel",
+    "STANDARD" names EN "Standard dipper stick", DE "Standard Schaufel"
+}
+
+characteristic ATTACHMENTS {
+  names EN "Attachments", DE "Anbauten"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "NONE" names EN "None", DE "Keine",
+    "SHH" names EN "Small Hydraulic Hammer", DE "Kleiner Hydraulikhammer",
+    "BHH" names EN "Big Hydraulic Hammer", DE "Großer Hydraulikhammer"
+}
+characteristic SEAT {
+  names EN "Seat", DE "Sitz"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "STANDARD" names EN "Standard", DE "Standard",
+  "AIRCUSHIONED" names EN "Aircushioned seat", DE "Luftgepolstert",
+   }
+   characteristic MIRROR {
+  names EN "Mirror", DE "Spiegel"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "STANDARD" names EN "Interior Mirror", DE "Innenspiegel",
+  "EXTMIRROR" names EN "Exterior and Interior", DE "Innen und Aussenspiegel",
+   }
+characteristic OVERLOAD_SYSTEM {
+  names EN "Overload System", DE "Lastsystem"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "STANDARD" names EN "Standard", DE "Standard",
+  "GERMANY" names EN "Germany", DE "Deutschland",
+   "FRANCE" names EN "France", DE "Frankreich",
+    "ADVANCED" names EN "Advanced", DE "Advanced",
+   }
+
+characteristic OIL{
+names EN "Hydraulics Oil", DE "Hydraulik Öl"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "STANDARD" names EN "Standard", DE "Standard",
+  "BIO" names EN "Bio Panolin", DE "Bio Panolin",
+}
+
+characteristic PAINTING{
+names EN "Painting", DE "Lackierung"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "STANDARD" names EN "Standard yellow", DE "Standard Gelb",
+  "BODY_CUSTOM" names EN "Body Custom", DE "Spezial Lackierung Fzg.",
+"CABIN_CUSTOM" names EN "Special Cabin", DE "Spezial Kabine",
+
+
+}
+characteristic CUSTOMPAINTING{
+names EN "Custom Painting", DE "Speziallackierung"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "RED" names EN "Red", DE "Rot",
+  "BLACK" names EN "Black", DE "Schwarz",
+"GREY" names EN "Grey", DE "Grau",
+
+
+}
+characteristic COUNTERWEIGHT		{
+names EN "Counterweight", DE "Balastgewicht"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+  "NO" names EN "No", DE "Nein",
+  "Yes" names EN "Yes", DE "Ja",
+}
+//Cabin
+//
+//    Cabling for radio incl. aerial and speakers
+//    Cabling for cab lighting and flashing beacon
+
+//Cab lighting front and rear
+//Idle speed autom. operation
+//Counterweight
+//Electrical refueling pump
+//Electrical refueling pump
+//+Proportional control (aux. Hyd.)
+//+Overload system Advanced
+//+Addit. piping for grapple
+//+3rd control circuit
+//Pilot circuit Powertilt
+//
+//CABIN
+//Tiltable cabin, cabin heating, side sliding window, top swings back, windscreen wiper and washing system, covered cab interior, cabin complies with the current ROPS, TOPS and FOPS* regulations
+//Cabling for radio incl. aerial and speakers
+//Cabling for cab lighting and flashing beacon
+//Air conditioning system
+//Air cushioned seat
+//Radio
+//
+//Hydraulics
+//
+//    3rd control circiut (proport.)
+//    Biological oil Panolin
+//    BP-Biohyd SE46
+//    Flat faced couplers
+//    Proportional control (aux. hyd)
+//    Addit. piping for grapple
+//    Overload valve for auxiliary hydraulic
+//    Overload system Germany
+//    Overload system France
+//    Prepar. hydraulic QH-system (EASY LOCK)
+//    Pilot circuit Powertilt
+//
+//Painting
+//
+//    Special paint 1 RAL for parts in yellow only
+//    Special paint 1 non RAL for parts in yellow only
+//    Special paint cabin RAL, RAL colours only
+//
+//Miscellaneous
+//
+//    Vertical Digging System (VDS)
+//    Steeltrack (400 mm)
+//    Cab lighting front
+//    Cab lighting front and rear
+//    Electrical refuelling pump
+//    Flashing beacon
+//    Automatic idling
+//    Driving signal
+//    Counterweight: + 300 kg
+//    Long dipperstick (+ 250 mm)
+//    Central lubrication system
+//    Security 24 (2,000 h) Warranty extension to 24 months or 2,000 operation hours
+//    Security 36 (3,000 h) Warranty extension to 36 months or 3,000 operation hours
+//    Drive interlock KAT
+//
+//Packages
+//
+//    Mirror package
+//    Exterior mirror right and left
+//    Comfort package
+//    Air conditioning plant, refuelling pump, radio, mirror package, cab lighting front and rear
+//
+//
+//FOPS (Level I or II) compliant only when fitted with additional protective guard, available as a factory-installed option or as a retrofit kit. 
+
+
+
+
+// the regulatory domain ... simple input type choice
+characteristic REGULATORY_DOMAIN {
+  names EN "Region", DE "Region"
+  textLength 20
+  restrictable
+  caseSensitive
+  values
+    "US",
+    "EMEA",
+    "REST"
+}
+
+// the count of AP (do not know what this means) ... simple input type num
+characteristic AP_COUNT {
+  names EN "Access Points",
+  DE "Zugriffspunkte"
+  numericLength 6 decimalPlaces 0
+  values
+    1,
+    2,
+    3  
+  
+}
+
+/** 
+ * port default additions ... choice of number of ports. Depending in the number of such ports, other special port
+ * type cstics will be become visible.
+ *
+ * default means, there are 2 ports available which can be get a "small" set of conditions
+ * 
+ * Max number is 2
+ * this cstic will be contained in a contraint/rule
+**/
+characteristic PORT_DEFAULT_ADDONS {
+  names EN "Default Ports",
+  DE "Default Ports"
+  numericLength 1 decimalPlaces 0
+  restrictable
+  values
+    1,
+    2
+}
+
+/** 
+ * port additional additions ... choice of number of ports. Depending in the number of such ports, other special port
+ * type cstics will be become visible.
+ *
+ * addition means, there are 4 ports available which can be get a "big" set of conditions
+ * 
+ * Max number is 4
+ * this cstic will be contained in a contraint/rule
+**/
+characteristic PORT_ADDITIONAL_ADDONS {
+  names EN "Additional Ports",
+  DE "Zusätzliche Ports"
+  numericLength 1 decimalPlaces 0
+  restrictable
+  values
+  	0,	//value added to demonstrate invisiblility of all sub-cstics
+    1,
+    2,
+    3,
+    4
+}
+
+characteristic PORT0_DEFAULT_ADDON {
+  name "Default Port 0" longName "Port 0 (Combo 10/100/1000 or SFP)"
+  textLength 10
+  restrictable
+  values
+    "SFP-SX",
+    "SFP-LX"
+}
+
+characteristic PORT1_DEFAULT_ADDON {
+  name "Default Port 1" longName "Port 1 (Combo 10/100/1000 or SFP)"
+  textLength 10
+  values
+    "SFP-SX",
+    "SFP-LX"
+}
+
+characteristic PORT0_ADDITIONAL_ADDON {
+  names EN "Additional Port 2", DE "Zusätzlicher Port 2" longName "Port 2 (GbE/10GbE SFP/SFP +)"
+  textLength 20
+  restrictable
+  values
+    "SFP-10GE-SR",
+    "SFP-10GE-LR",
+    "SFP-10GE-LRM",
+    "SFP-SX",
+    "SFP-LX",
+    "SFP-TX",
+    "DAC-50CM",
+    "DAC-1M"
+}
+
+characteristic PORT1_ADDITIONAL_ADDON {
+  names EN "Additional Port 3", DE "Zusätzlicher Port 3" longName "Port 3 (GbE/10GbE SFP/SFP +)"
+  textLength 20
+  restrictable
+  values
+    "SFP-10GE-SR",
+    "SFP-10GE-LR",
+    "SFP-10GE-LRM",
+    "SFP-SX",
+    "SFP-LX",
+    "SFP-TX",
+    "DAC-50CM",
+    "DAC-1M"
+}
+
+characteristic PORT2_ADDITIONAL_ADDON {
+  names EN "Additional Port 4", DE "Zusätzlicher Port 4" longName "Port 4 (GbE/10GbE SFP/SFP +)"
+  textLength 20
+  restrictable
+  values
+    "SFP-10GE-SR",
+    "SFP-10GE-LR",
+    "SFP-10GE-LRM",
+    "SFP-SX",
+    "SFP-LX",
+    "SFP-TX",
+    "DAC-50CM",
+    "DAC-1M"
+}
+
+characteristic PORT3_ADDITIONAL_ADDON {
+  names EN "Additional Port 5", DE "Zusätzlicher Port 5" longName "Port 5 (GbE/10GbE SFP/SFP +)"
+  textLength 20
+  restrictable
+  values
+    "SFP-10GE-SR",
+    "SFP-10GE-LR",
+    "SFP-10GE-LRM",
+    "SFP-SX",
+    "SFP-LX",
+    "SFP-TX",
+    "DAC-50CM",
+    "DAC-1M"
+}
+
+characteristic REDUNDANT_PSU {
+  names EN "Additional PSU", DE "Zusätzliche PSU"
+  textLength 3
+  restrictable
+  caseSensitive
+  values 
+   "YES" names EN "YES", DE "Ja",
+   "NO" names EN "NO", DE "Nein"
+}
+
+characteristic MOUNTING_OPTION {
+  names EN "Mounting", DE "Anbringung"
+  textLength 20
+  restrictable
+  values
+    "WALL" names EN "WALL" , DE "Wand",
+    "RACK" names EN "RACK", DE "Rack"   
+}
+
+characteristic COMMENTS {
+  names EN "Comments", DE "Kommentare"
+  textLength 30
+  caseSensitive
+}
+
+characteristic PRODUCTIMAGE{
+    names EN "Picture", DE "Bild"
+    textLength 10
+    caseSensitive
+    restrictable
+    values
+      "CABIN.jpg", 
+      "CANOPY.jpg"
+    
+}
+
+characteristic PRODUCTPRICE {
+	names EN "Product Price", DE "Produktpreis"
+	numericLength 15 decimalPlaces 2
+}
+
+characteristic PRODUCTLISTPRICE {
+	names EN "Product list price", DE "Produktlistenpreis"
+	numericLength 15 decimalPlaces 2
+}
+
+characteristic CONTRACT_NAME{
+	names EN "Service contract", DE "Service Vertrag"
+	textLength 15
+}
+
+characteristic CONTRACT_SUPPORT_TYPE{
+	names EN "Warranty Type", DE "Garantie Art"
+	textLength 30
+	restrictable
+	caseSensitive
+	values
+		"V2" names EN "Extended", DE "Erweitert" longNames EN 'Extended',DE 'Erweitert', 
+		"V1" names EN "Standard", DE "Standard" longNames EN 'Standard', DE 'Standard'
+}
+
+characteristic CONTRACT_SERVICE_TERM {
+  names EN "Period", DE "Dauer"
+  textLength 30
+  restrictable
+  caseSensitive
+  values
+    "1" names EN "1yr", DE "1J",
+    "2" names EN "2yr", DE "2J",
+    "3" names EN "3yr", DE "3J",
+}
+
+characteristic CONTRACT_CHANNEL_DISCOUNT {
+  names EN "Channel Discount", DE "Vertriebskanal Discount"
+  textLength 30
+  restrictable
+  caseSensitive
+  values
+    "DIRECT_RESELLER" names EN "Direct Reseller(10% Discount)", DE "Verkäufer (10% Discount)",
+    "DIRECT_END_CUST" names EN "Direct To End Customer", DE "Endkunde"
+}
+
+
+// the model variant ... simple input type choice
+characteristic MODEL {
+  names EN "Model Type", DE "Modeltyp"
+  textLength 5
+  restrictable
+  values
+    "R1000",
+    "R2000",
+    "X4000"
+}
+
+characteristic POWER_CHORD {
+	names EN "AC Power Cord", DE "Stecker"
+	textLength 30
+	restrictable
+	values
+		"PC_AC_ARG" names EN "AC Power Cord (Argentina)", DE "AC Stecker (Argentinien)" longNames EN "AC Power Cord (Argentina, 220V AC, 10A, 2M, BL)", DE "AC Stecker (Argentinien, 220V AC, 10A, 2M, BL)",
+		"PC_AC_AUS" names EN "AC Power Cord (Australia)",  DE "AC Stecker (Australien)" longNames EN "AC Power Cord (Australian Version)",DE "AC Stecker (Australische Version)",
+		"PC_AC_BR" names EN "AC Power Cord (Brazil)",  DE "AC Stecker (Brasilien)" longNames EN "AC Power Cord (Brazil Version)",DE "AC Stecker (Brasilianische Version)",
+		"PC_AC_CHN" names EN "AC Power Cord (China)",  DE "AC Stecker (China)" longNames EN "AC Power Cord (Chinese Version)",DE "AC Stecker (Chinesische Version)",
+		"PC_AC_DEN" names EN "AC Power Cord (Denmark)",DE "AC Stecker (Dänemark)" longNames EN "AC Power Cord (Denmark, 220V AC, 10A, 2M)", DE "AC Power Cord (Dänemark, 220V AC, 10A, 2M)",
+		"PC_AC_EC" names EN "AC Power Cord (Europe)",DE "AC Stecker (Europa)" longNames EN "AC Power Cord (Continental European / Schuko Version)", DE "AC Power Cord (Continental European / Schuko Version)",
+		"PC_AC_IN" names EN "AC Power Cord (India)", DE "AC Stecker (Indien)" longNames EN "AC Power Cord (India Version)",DE "AC Stecker (Indische Version)",
+		"PC_AC_IS" names EN "AC Power Cord (Israel)", DE "AC Stecker (Israel)" longNames EN "AC Power Cord (Israel, 250V AC, 10A, 2M, BL)",DE "AC Stecker (Israel, 250V AC, 10A, 2M, BL)",
+		"PC_AC_IT" names EN "AC Power Cord (Italy)", DE "AC Stecker (Italien)" longNames EN "AC Power Cord (Italian Version)",DE "AC Stecker (Italienische Version)",
+		"PC_AC_JPN" names EN "AC Power Cord (Japan)", DE "AC Stecker (Japan)" longNames EN "AC Power Cord (Japanese Version)",DE "AC Stecker (Indische Version)",
+		"PC_AC_KOR" names EN "AC Power Cord (Korea)", DE "AC Stecker (Korea)" longNames EN "AC Power Cord (Korea Version)",DE "AC Stecker (Koreanische Version)",
+		"PC_AC_LA" names EN "AC Power Cord (North America)", DE "AC Stecker (Nordamerika)" longNames EN "AC Power Cord (North America 2 Prong Version)", DE "AC Stecker (Nordamerika 2 Prong Version)",
+		"PC_AC_SWI" names EN "AC Power Cord (Switzerland)",DE "AC Stecker (Schweiz)"  longNames EN "AC Power Cord (Switzerland, 220V AC, 10A, 2M)",DE "AC Stecker (Schweiz, 220V AC, 10A, 2M)",
+		"PC_AC_UK" names EN "AC Power Cord (UK)", DE "AC Stecker (UK)" longNames EN "AC Power Cord (UK Version)",DE "AC Stecker (UK Version)",
+		"PC_AC_ZA" names EN "AC Power Cord (South Africa)", DE "AC Stecker (Südafrika)" longNames EN "AC Power Cord (South Africa, 250V AC, 10A, 2M, BL)",DE "AC Stecker (Süd Afrika, 250V AC, 10A, 2M, BL)",
+}
+
+characteristic HLP_VIS {
+	numericLength 1
+	specialFunction aggregating
+}
+
+characteristic PRICE_AGGR {
+	numericLength 8 decimalPlaces 2
+	specialFunction aggregating
+}
+
+characteristic CONFIGURATIONINSIGHT {
+	textLength 30
+	values
+		"MESSAGE1" name "Fiber Connector" longNames EN "Consider Selling Fiber Optic Connector", DE "Beachten Sie auch den Fiber Optic Connector zu verkaufen"
+}

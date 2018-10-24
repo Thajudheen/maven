@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+		<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+		<!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+		<!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+		<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+		<!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+		<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+		<!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+		<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+		<!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+		<!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+		<!ENTITY sec "http://www.inmindcloud.com/security/security-implementation.owl#" >
+		<!ENTITY wi "http://www.inmindcloud.com/application/workItem-implementation.owl#" >
+		<!ENTITY ai "http://www.inmindcloud.dev.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/application/workItem-implementation.owl#"
+		 xml:base="http://www.inmindcloud.com/application/workItem-implementation.owl"
+		 xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+		 xmlns:wi="http://www.inmindcloud.com/application/workItem-implementation.owl#"
+		 xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+		 xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+		 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		 xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+		 xmlns:ai="http://www.inmindcloud.dev.com/application/application-implementation.owl#"
+		 xmlns:sec="http://www.inmindcloud.com/security/security-implementation.owl#"
+		 xmlns:owl="http://www.w3.org/2002/07/owl#"
+		 xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		 xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+		 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		 xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+		<owl:Ontology rdf:about="http://www.inmindcloud.com/application/workItem-implementation.owl">
+				<owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+				<rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2014, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+				<owl:imports rdf:resource="http://www.inmindcloud.com/application/application-rule.owl"/>
+		</owl:Ontology>
+
+
+
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Individuals
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		 -->
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingOppPriority_High -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingOppPriority_High">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_High</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">50000</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a very high priority workItem</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.opp.priority.high</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingOppPriority_Low -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingOppPriority_Low">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_Low</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">100</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a medium priority workItem</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.opp.priority.low</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingOppPriority_Mid -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingOppPriority_Mid">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_Mid</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">10000</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a high priority workItem</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.opp.priority.mid</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingQuoteApproval_Enable -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingQuoteApproval_Enable">
+				<rdf:type rdf:resource="&as;SettingBoolean"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_Enable</rdfs:label>
+				<ps:objectName rdf:datatype="&xsd;string">Whether to enable quote approval flow.</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.approval.quote.enabled</as:settingKey>
+				<as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingQuoteApproval_High -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingQuoteApproval_High">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_High</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">40</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The discount limit which anything above requires a Sales VP approval.</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.approval.quote.discount.high</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingQuoteApproval_Low -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingQuoteApproval_Low">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_Low</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">10</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The discount limit which anything above requires a Sales Manager approval.</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.approval.quote.discount.low</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingQuotePriority_High -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingQuotePriority_High">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_High</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">50000</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a very high priority workItem</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.quote.priority.high</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingQuotePriority_Low -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingQuotePriority_Low">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_Low</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">100</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a medium priority workItem</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.quote.priority.low</as:settingKey>
+		</owl:NamedIndividual>
+
+
+
+		<!-- http://www.inmindcloud.com/application/workItem-implementation.owl#SettingQuotePriority_Mid -->
+
+		<owl:NamedIndividual rdf:about="&wi;SettingQuotePriority_Mid">
+				<rdf:type rdf:resource="&as;SettingNumeric"/>
+				<rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_Mid</rdfs:label>
+				<as:settingValueNumeric rdf:datatype="&xsd;decimal">10000</as:settingValueNumeric>
+				<ps:objectName rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a high priority workItem</ps:objectName>
+				<as:settingKey rdf:datatype="&xsd;string">setting.quote.priority.mid</as:settingKey>
+		</owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/workItem-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/workItem-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2014, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-rule.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_GK_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_GK_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by board of management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.gm.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-54</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_KAM_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_KAM_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by board of management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.kam.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-54</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+<!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by board of management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.exp.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_MIDDLE_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_MIDDLE_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 52% needs approval from Manager</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.middle.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_MIDDLE_02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_MIDDLE_02">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 54% needs approval from Sales VL</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.middle.02</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-54</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_MIDDLE_03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_MIDDLE_03">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 95% needs approval from Board of Management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.middle.03</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-95</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_NORTH_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_NORTH_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 52% needs approval from Manager</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.north.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_NORTH_02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_NORTH_02">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 53% needs approval from VL</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.north.02</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-54</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_NORTH_03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_NORTH_03">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 95% needs approval from Board of Manager</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.north.03</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-95</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_SOUTH_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_SOUTH_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 52% needs approval from Manager</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.south.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_SOUTH_02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_SOUTH_02">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 54% needs approval from Sales VL</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.south.02</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-54</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_SOUTH_03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_SOUTH_03">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 95% needs approval from Board of Management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.south.03</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-95</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_VL_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_VL_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by board of management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.vl.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-96</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_WEST_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_WEST_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 52% needs approval from Manager</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.west.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_WEST_02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_WEST_02">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 54% needs approval from Sales VL</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.west.02</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-54</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_WEST_03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_WEST_03">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">Discount above 95% needs approval from Board of Management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.west.03</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-95</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_MIDDLE -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_MIDDLE">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_MIDDLE</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( MIDDLE )</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_MITTE"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_MIDDLE_RL_VL_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_MIDDLE_RL_VL_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_MIDDLE_RL_VL_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( MIDDLE )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_MIDDLE_RL_VL_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_MITTE"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_MIDDLE_RL_VL_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_MIDDLE_RL_VL_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_MIDDLE_RL_VL_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_MIDDLE_RL_VL_MGT_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_MIDDLE_RL_VL_MGT_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_MIDDLE_RL_VL_MGT_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( MIDDLE )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_MIDDLE_RL_VL_MGT_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_MITTE"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_MIDDLE_RL_VL_MGT_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_MIDDLE_RL_VL_MGT_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_MIDDLE_RL_VL_MGT_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_MIDDLE_RL_VL_MGT_L03"/>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_MIDDLE_RL_VL_MGT_L03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_MIDDLE_RL_VL_MGT_L03">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_MIDDLE_RL_VL_MGT_L03</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_NORTH -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_NORTH">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( North )</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_NORD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_NORTH_RL_VL_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_NORTH_RL_VL_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH_RL_VL_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( North )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_NORTH_RL_VL_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_NORD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_NORTH_RL_VL_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_NORTH_RL_VL_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH_RL_VL_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_NORTH_RL_VL_MGT_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_NORTH_RL_VL_MGT_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH_RL_VL_MGT_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( North )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_NORTH_RL_VL_MGT_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_NORD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_NORTH_RL_VL_MGT_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_NORTH_RL_VL_MGT_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH_RL_VL_MGT_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_NORTH_RL_VL_MGT_L03"/>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_NORTH_RL_VL_MGT_L03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_NORTH_RL_VL_MGT_L03">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH_RL_VL_MGT_L03</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_SOUTH -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_SOUTH">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_SOUTH</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( South )</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_SUED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_SOUTH_RL_VL_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_SOUTH_RL_VL_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_SOUTH_RL_VL_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( South )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_SOUTH_RL_VL_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_SUED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_SOUTH_RL_VL_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_SOUTH_RL_VL_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_NORTH_RL_VL_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_SOUTH_RL_VL_MGT_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_SOUTH_RL_VL_MGT_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_SOUTH_RL_VL_MGT_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( South )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_SOUTH_RL_VL_MGT_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_SUED"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_SOUTH_RL_VL_MGT_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_SOUTH_RL_VL_MGT_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_SOUTH_RL_VL_MGT_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_SOUTH_RL_VL_MGT_L03"/>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_SOUTH_RL_VL_MGT_L03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_SOUTH_RL_VL_MGT_L03">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_SOUTH_RL_VL_MGT_L03</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_WEST -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_WEST">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_WEST</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( WEST )</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_WEST_RL_VL_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_WEST_RL_VL_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_WEST_RL_VL_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( WEST )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_WEST_RL_VL_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_WEST_RL_VL_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_WEST_RL_VL_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_WEST_RL_VL_L02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_WEST_RL_VL_MGT_L01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_WEST_RL_VL_MGT_L01">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_WEST_RL_VL_MGT_L01</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales Manager ( WEST )</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_WEST_RL_VL_MGT_L02"/>
+        <as:hasRole rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_WEST_RL_VL_MGT_L02 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_WEST_RL_VL_MGT_L02">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_WEST_RL_VL_MGT_LL02</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Sales VL</ps:objectName>
+        <as:hasApprovalGate rdf:resource="&wi;QuoteApproval_GB_WEST_RL_VL_MGT_L03"/>
+        <as:hasRole rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GB_WEST_RL_VL_MGT_L03 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GB_WEST_RL_VL_MGT_L03">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GB_WEST_RL_VL_MGT_L03</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_GK -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_GK">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_GK</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_KAM -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_KAM">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_KAM</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_VL -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_VL">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_VL</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Approval : Board of Mgt</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppApproval_Low -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppApproval_Low">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppApproval_Low</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">The opportunity volume limit which anything above would require a Sales Manager approval.</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.opp.vol.low</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">1000</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppPriority_Low -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppPriority_Low">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_Low</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a medium priority workItem</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opp.priority.low</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">100</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_CZ_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_CZ_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by VL CZ</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.expcz.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP_CZ -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP_CZ">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP_CZ</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">VL CZ</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL_CZ"/>
+    </owl:NamedIndividual>
+
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_PL_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_PL_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by board of management</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.exppl.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP_PL -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP_PL">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP_PL</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">VL PL</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL_PL"/>
+    </owl:NamedIndividual>
+
+     <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_AUT_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_AUT_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by GF AUT</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.expaut.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP_AUT -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP_AUT">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP_AUT</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">GF AUT</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF_AUT"/>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_AUT_R_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_AUT_R_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by GF AUT</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.expautr.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP_AUT_R -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP_AUT_R">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP_AUT_R</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">GF AUT</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_GF_AUT"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_FR_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_FR_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by VL FR</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.expfr.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP_FR -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP_FR">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP_FR</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">VL FR</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL_FR"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QUOTE_DISCOUNT_EXP_RU_01 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QUOTE_DISCOUNT_EXP_RU_01">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <ps:objectName rdf:datatype="&xsd;string">The quote need to be approved by VL RU</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.expru.01</as:settingKey>
+        <as:settingValueNumeric rdf:datatype="&xsd;decimal">-52</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+  <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_EXP_RU -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_EXP_RU">
+        <rdf:type rdf:resource="&as;ApprovalGate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_EXP_RU</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">VL RU</ps:objectName>
+        <as:hasRole rdf:resource="&sec;ROLE_VL_RU"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

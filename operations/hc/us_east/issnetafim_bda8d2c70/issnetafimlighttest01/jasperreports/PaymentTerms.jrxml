@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-25T19:04:32 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Responsibilities" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<subDataset name="Table Dataset 1" uuid="ea15733c-b63d-4a7f-80a2-845e9c95a5e2">
+		<parameter name="CMIS" class="java.lang.String"/>
+		<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<subDataset name="Table Dataset 2" uuid="7e4d6992-089d-4de0-b116-dab93bf90c6f">
+		<parameter name="CMIS" class="java.lang.String"/>
+		<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	</subDataset>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="31" y="22" width="498" height="18" forecolor="#00457C" backcolor="#BDB8B3" uuid="a854bd7f-f8fd-487d-befa-8a45e25d6f1f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{quote.paymentterms.heading}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RealSize" vAlign="Bottom">
+				<reportElement x="32" y="-10" width="497" height="64" uuid="d60c09ca-330e-457e-92ab-ee2aaa1756c9"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/HeaderPaymentTerms.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="527" splitType="Stretch">
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="30" y="30" width="496" height="60" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="4ccd1832-a1f9-4740-996e-848f738055d8">
+					<property name="ShowOutOfBoundContent" value="false"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineColor="#BDB8B3"/>
+				</box>
+				<textField isStretchWithOverflow="true">
+					<reportElement key="" positionType="Float" stretchType="RelativeToTallestObject" x="8" y="8" width="468" height="41" isPrintWhenDetailOverflows="true" uuid="ba032710-a133-4e19-8ad5-bff548ac61f2"/>
+					<textElement markup="html">
+						<font fontName="Universe"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("quotePaymentTerms")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="50">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textFieldCurrentPage" x="0" y="6" width="114" height="13" isRemoveLineWhenBlank="true" forecolor="#848A8F" backcolor="#FFFFFF" uuid="6d78baad-5d3f-4b8b-8782-2131e0ff6c5a"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Universe" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page.page}+" "+$V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="0" width="400" height="1" forecolor="#000000" uuid="18540a5f-d431-485f-a4e1-404e4ba1245a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<image hAlign="Right">
+				<reportElement x="390" y="1" width="166" height="33" uuid="79d7d6e4-61e2-44f5-b5c1-d9a0666149e0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/logo_pdf.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

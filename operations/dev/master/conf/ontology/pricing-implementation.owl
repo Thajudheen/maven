@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY platform-schema "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY application-schema "http://www.inmindcloud.com/application/schema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/application/pricing-schema.owl#"
+     xml:base="http://www.inmindcloud.com/application/pricing-schema.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:platform-schema="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:application-schema="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcloud.com/application/schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcloud.com/application/schema.owl#PricingScheme -->
+
+    <owl:Class rdf:about="&application-schema;PricingScheme"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_Cost -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_Cost">
+        <rdf:type rdf:resource="&application-schema;PriceItemType"/>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Cost</platform-schema:objectName>
+        <application-schema:hasPriceItemTypeCategory rdf:resource="&application-schema;PriceItemTypeManual"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_GrossProfit -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_GrossProfit">
+        <rdf:type rdf:resource="&application-schema;PriceItemType"/>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Gross Profit</platform-schema:objectName>
+        <application-schema:hasPriceItemTypeCategory rdf:resource="&application-schema;PriceItemTypeSubTotal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_MarginPercent -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_MarginPercent">
+        <rdf:type rdf:resource="&application-schema;PriceItemType"/>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Margin</platform-schema:objectName>
+        <application-schema:hasPriceItemTypeCategory rdf:resource="&application-schema;PriceItemTypeSubTotal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_MarkupPercent -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_MarkupPercent">
+        <rdf:type rdf:resource="&application-schema;PriceItemType"/>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Markup %</platform-schema:objectName>
+        <application-schema:hasPriceItemTypeCategory rdf:resource="&application-schema;PriceItemTypeSubTotal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_Revenue -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_Revenue">
+        <rdf:type rdf:resource="&application-schema;PriceItemType"/>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Revenue</platform-schema:objectName>
+        <application-schema:hasPriceItemTypeCategory rdf:resource="&application-schema;PriceItemTypeManual"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PricingScheme2_Margin -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingScheme2_Margin">
+        <rdf:type rdf:resource="&application-schema;PricingScheme"/>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Margin Calculation Scheme</platform-schema:objectName>
+        <application-schema:hasPricingSchemeStatus rdf:resource="&application-schema;PRICING_SCHEME_INACTIVE"/>
+        <application-schema:includesPricingStep rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep21_Cost"/>
+        <application-schema:includesPricingStep rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep22_Revenue"/>
+        <application-schema:includesPricingStep rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep23_GrossProfit"/>
+        <application-schema:includesPricingStep rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep24_MarginPercent"/>
+        <application-schema:includesPricingStep rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep25_MarkupPercent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep21_Cost -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep21_Cost">
+        <rdf:type rdf:resource="&application-schema;PricingStep"/>
+        <application-schema:pricingStepSequenceId rdf:datatype="&xsd;int">1</application-schema:pricingStepSequenceId>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Cost</platform-schema:objectName>
+        <application-schema:hasRecordType rdf:resource="&application-schema;RecordType_Price"/>
+        <application-schema:hasPriceItemType rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_Cost"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep22_Revenue -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep22_Revenue">
+        <rdf:type rdf:resource="&application-schema;PricingStep"/>
+        <application-schema:pricingStepSequenceId rdf:datatype="&xsd;int">2</application-schema:pricingStepSequenceId>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Revenue</platform-schema:objectName>
+        <application-schema:hasRecordType rdf:resource="&application-schema;RecordType_Price"/>
+        <application-schema:hasPriceItemType rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_Revenue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep23_GrossProfit -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep23_GrossProfit">
+        <rdf:type rdf:resource="&application-schema;PricingStep"/>
+        <application-schema:pricingStepSequenceId rdf:datatype="&xsd;int">3</application-schema:pricingStepSequenceId>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Gross Profit</platform-schema:objectName>
+        <application-schema:arithmeticExpression rdf:datatype="&xsd;string">PricingStep.2 - PricingStep.1</application-schema:arithmeticExpression>
+        <application-schema:hasRecordType rdf:resource="&application-schema;RecordType_Price"/>
+        <application-schema:hasPriceItemType rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_GrossProfit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep24_MarginPercent -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep24_MarginPercent">
+        <rdf:type rdf:resource="&application-schema;PricingStep"/>
+        <application-schema:arithmeticExpression rdf:datatype="&xsd;string">( PricingStep.3 / PricingStep.2 ) * 100</application-schema:arithmeticExpression>
+        <application-schema:pricingStepSequenceId rdf:datatype="&xsd;int">4</application-schema:pricingStepSequenceId>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Margin Percent</platform-schema:objectName>
+        <application-schema:hasRecordType rdf:resource="&application-schema;RecordType_Percent"/>
+        <application-schema:hasPriceItemType rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_MarginPercent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep25_MarkupPercent -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcloud.com/application/pricing-implementation.owl#PricingStep25_MarkupPercent">
+        <rdf:type rdf:resource="&application-schema;PricingStep"/>
+        <application-schema:arithmeticExpression rdf:datatype="&xsd;string">( PricingStep.3 / PricingStep.1 ) * 100</application-schema:arithmeticExpression>
+        <application-schema:pricingStepSequenceId rdf:datatype="&xsd;int">5</application-schema:pricingStepSequenceId>
+        <platform-schema:objectName rdf:datatype="&xsd;string">Markup Percent</platform-schema:objectName>
+        <application-schema:hasRecordType rdf:resource="&application-schema;RecordType_Percent"/>
+        <application-schema:hasPriceItemType rdf:resource="http://www.inmindcloud.com/application/pricing-implementation.owl#PriceItemType_MarkupPercent"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

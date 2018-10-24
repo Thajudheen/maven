@@ -1,0 +1,691 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/workItem-rule.owl#"
+     xml:base="http://www.inmindcomputing.com/application/workItem-rule.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2014, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-implementation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#definesSubStage -->
+
+    <rdf:Description rdf:about="&as;definesSubStage">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;isInitialSubStage"/>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&as;hasStage"/>
+            </rdf:Description>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#definesSubStageUser -->
+
+    <rdf:Description rdf:about="&as;definesSubStageUser">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;definesSubStage"/>
+            <rdf:Description rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveUserSubStage"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#hasSalesDocumentAction -->
+
+    <rdf:Description rdf:about="&as;hasSalesDocumentAction">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveCreatorSalesDocument"/>
+            <rdf:Description rdf:about="&as;hasStageActive"/>
+            <rdf:Description rdf:about="&as;hasSalesDocumentAction"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;definesSubStageUser"/>
+            <rdf:Description rdf:about="&as;hasSalesDocumentAction"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#hasSalesDocumentStatus -->
+
+    <rdf:Description rdf:about="&as;hasSalesDocumentStatus">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;hasStageActive"/>
+            <rdf:Description rdf:about="&as;hasSalesDocumentStatus"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#isInitialSubStage -->
+
+    <owl:ObjectProperty rdf:about="&as;isInitialSubStage">
+        <rdfs:domain rdf:resource="&as;SubStage"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;is"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveCreatorSalesDocument -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveCreatorSalesDocument">
+        <rdfs:subPropertyOf rdf:resource="&ps;is"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveStageSalesDocument -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveStageSalesDocument">
+        <rdfs:domain rdf:resource="&as;SalesDocument"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;is"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveUserSubStage -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveUserSubStage">
+        <rdfs:domain rdf:resource="&as;SubStage"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;is"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#StageAccepted -->
+
+    <rdf:Description rdf:about="&as;StageAccepted">
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOrder"/>
+        <as:hasStage rdf:resource="&wi;StageOrdered"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#StageOppOpen -->
+
+    <rdf:Description rdf:about="&as;StageOppOpen">
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppSubmit"/>
+        <as:hasStage rdf:resource="&wi;StageOppCompleted"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppSubmit -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppSubmit"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOrder -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOrder"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOppCompleted -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOppCompleted"/>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOrdered -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOrdered"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatusUser"/>
+                <owl:hasValue rdf:resource="&as;OPEN"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SubStage"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;subStageCompleted"/>
+                                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:hasValue rdf:resource="&as;StageOpen"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;workItemActive"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;SalesDocument"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                <owl:someValuesFrom rdf:resource="&as;SubStage"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentAction"/>
+                <owl:someValuesFrom rdf:resource="&as;SalesDocumentAction"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:hasValue rdf:resource="&as;StageCompleted"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;workItemSent"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;WorkItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SubStage"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;subStageCompleted"/>
+                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:hasValue rdf:resource="&as;StageOpen"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSubStageTemplate"/>
+                <owl:hasValue rdf:resource="&wi;QuoteApproval_B1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;includesCreator"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;User"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasRoleDirect"/>
+                                <owl:hasValue rdf:resource="&sec;ROLE_SALES_REP"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:hasValue rdf:resource="&as;StageCompleted"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;workItemActive"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;WorkItem"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveCreatorSalesDocument"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;workItemActive"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;SalesDocument"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;SubStage"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&as;subStageCompleted"/>
+                                                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatus"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&as;IMPORTED"/>
+                                            <rdf:Description rdf:about="&as;APPROVED"/>
+                                            <rdf:Description rdf:about="&as;OPEN"/>
+                                            <rdf:Description rdf:about="&as;QUOTED"/>
+                                            <rdf:Description rdf:about="&as;COMPLETED"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                        <owl:hasValue rdf:resource="&as;StageOpen"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatusUser"/>
+                <owl:hasValue rdf:resource="&as;APPROVED"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SubStage"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasSalesDocumentActionSelected"/>
+                                <owl:hasValue rdf:resource="&as;ActionApprove"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:someValuesFrom rdf:resource="&as;Stage"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveUserSubStage"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;SubStage"/>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;hasRoleDirect"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&as;Role"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&as;hasRoleDirect"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&as;User"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&as;userActive"/>
+                                                        <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&as;includesUser"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&as;User"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&as;userActive"/>
+                                        <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;subStageActive"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;SubStage"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&as;definesSubStageUser"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SalesDocument"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasSalesDocumentAction"/>
+                                <owl:someValuesFrom rdf:resource="&as;SalesDocumentAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                                <owl:hasValue rdf:resource="&as;StageCompleted"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;stageCompleted"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Stage"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStage"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;Stage"/>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&as;stageActive"/>
+                                        <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&as;stageCompleted"/>
+                                        <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                                    </owl:Restriction>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatusUser"/>
+                <owl:hasValue rdf:resource="&as;REJECTED"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SubStage"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;hasSalesDocumentActionSelected"/>
+                                <owl:hasValue rdf:resource="&as;ActionReject"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:someValuesFrom rdf:resource="&as;Stage"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;isInitialSubStage"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;SubStage"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;subStageStart"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;stageActive"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Stage"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&as;hasStageActive"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;SalesDocument"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&as;WorkItemQuote"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;StageOpen"/>
+                            <rdf:Description rdf:about="&as;StageApproved"/>
+                            <rdf:Description rdf:about="&as;StageCompleted"/>
+                            <rdf:Description rdf:about="&as;StageAccepted"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasSalesDocumentStatusUser"/>
+                <owl:hasValue rdf:resource="&as;COMPLETED"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Quote"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;definesSubStageUser"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;SubStage"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;subStageCompleted"/>
+                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:hasValue rdf:resource="&as;StageOpen"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl#isActiveCreatorSalesDocument"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;SalesDocument"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;includesCreator"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&as;User"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&as;userActive"/>
+                                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&as;WorkItemOpportunity"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&as;Opportunity"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&as;hasStageActive"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&wi;StageOppCompleted"/>
+                            <rdf:Description rdf:about="&wi;StageOppQuoted"/>
+                            <rdf:Description rdf:about="&wi;StageOppApproved"/>
+                            <rdf:Description rdf:about="&as;StageOppOpen"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

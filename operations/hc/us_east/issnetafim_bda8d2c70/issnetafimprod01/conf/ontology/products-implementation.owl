@@ -1,0 +1,812 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl">
+        <owl:versionInfo>0.3</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/product-generated-implementation.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryCategory -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryCategory"/>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryFertigation -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryFertigation">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryFertigation</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">12</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryFertigation</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryFertigation</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999000]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryFiltration -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryFiltration">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryFiltration</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">7</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryFiltration</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryFiltration</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999001]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryHeadcontrol -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryHeadcontrol">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryHeadcontrol</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">7</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryHeadcontrol</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryHeadcontrol</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999002]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryInfield -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryInfield">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryInfield</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">1.5</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryInfield</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryInfield</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999003]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+	
+	
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryInfield1 -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryInfield1">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryInfield</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">1.5</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryInfield</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryInfield</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999013]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryInfieldHeadwork -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryInfieldHeadwork">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryInfieldHeadwork</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">5</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryInfieldHeadwork</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryInfieldHeadwork</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999004]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryMainline -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryMainline">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryMainline</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">25</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryMainline</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryMainline</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999005]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryManifolds -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryManifolds">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryManifolds</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">15</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryManifolds</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryManifolds</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999006]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryPumpingStation -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryPumpingStation">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryPumpingStation</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">7</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryPumpingStation</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryPumpingStation</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999007]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessoryPumpingStation1 -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessoryPumpingStation1">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessoryPumpingStation</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">7</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AccessoryPumpingStation</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AccessoryPumpingStation</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999017]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+	
+	
+	
+	
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessorySubmain -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessorySubmain">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessorySubmain</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">25</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessorySubmain</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessorySubmain</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999008]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+	
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessorySubmain1 -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessorySubmain1">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessorySubmain</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">25</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessorySubmain</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessorySubmain</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[999999990018]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+	
+	
+	
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessorySubmain2 -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessorySubmain2">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessorySubmain</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">25</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessorySubmain</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessorySubmain</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[999999990028]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+	
+	
+	
+	<!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AccessorySubmain3 -->
+
+    <owl:NamedIndividual rdf:about="&pci;AccessorySubmain3">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">AccessorySubmain</rdfs:label>
+        <rdfs:label xml:lang="tr">Aksesuarlar</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productDiscount rdf:datatype="&xsd;decimal">25</as:productDiscount>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AccessorySubmain</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AccessorySubmain</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[999999990038]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:linksEditablePriceItemType rdf:resource="&ai;AccessoryPriceItemType"/>
+        <as:hasUnitofMeasure rdf:resource="&ai;AccPercentage"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+	
+	
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AfterSalesManagment -->
+
+    <owl:NamedIndividual rdf:about="&pci;AfterSalesManagment">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">After Sales Managment</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">AfterSalesManagment</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">AfterSalesManagment</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[9]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#AirTransportation -->
+
+    <owl:NamedIndividual rdf:about="&pci;AirTransportation">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Air Transportation</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">AirTransportation</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AirTransportation</ps:objectName>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Commissionning -->
+
+    <owl:NamedIndividual rdf:about="&pci;Commissionning">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Commissionning</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">Commissionning</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Commissionning</ps:objectName>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#DUMMY -->
+
+    <owl:NamedIndividual rdf:about="&pci;DUMMY">
+        <rdf:type rdf:resource="&ps;DynamicSymbolicAttribute"/>
+        <ps:dynamicAttributeHidden rdf:datatype="&xsd;boolean">true</ps:dynamicAttributeHidden>
+        <ps:isDynamicAttribute rdf:resource="&pci;DUMMY"/>
+        <ps:includesAttributeRange rdf:resource="&pci;DUMMY_RANGE"/>
+        <ps:usesSymbolicValue rdf:resource="&pci;DUMMY_VALUE_B"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#DUMMY_RANGE -->
+
+    <owl:NamedIndividual rdf:about="&pci;DUMMY_RANGE">
+        <rdf:type rdf:resource="&ps;SymbolicAttributeRange"/>
+        <ps:includesSymbolicValue rdf:resource="&pci;DUMMY_VALUE_A"/>
+        <ps:includesSymbolicValue rdf:resource="&pci;DUMMY_VALUE_B"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#DUMMY_VALUE_A -->
+
+    <owl:NamedIndividual rdf:about="&pci;DUMMY_VALUE_A">
+        <rdf:type rdf:resource="&ps;SymbolicValue"/>
+        <ps:isSymbolicValue rdf:resource="&pci;DUMMY_VALUE_A"/>
+        <as:usesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Hydrant_Section_Concentrated"/>
+        <as:usesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Hydrant_Section_Scattered"/>
+        <as:usesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Mainline_Section_Concentrated"/>
+        <as:usesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Mainline_Section_Scattered"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#DUMMY_VALUE_B -->
+
+    <owl:NamedIndividual rdf:about="&pci;DUMMY_VALUE_B">
+        <rdf:type rdf:resource="&ps;SymbolicValue"/>
+        <ps:isSymbolicValue rdf:resource="&pci;DUMMY_VALUE_B"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#DetailedDesignBOM -->
+
+    <owl:NamedIndividual rdf:about="&pci;DetailedDesignBOM">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Detailed Design and BOM</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">DetailedDesignBOM</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">DetailedDesignBOM</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[8]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#FinancialExpenses -->
+
+    <owl:NamedIndividual rdf:about="&pci;FinancialExpenses">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Financial Expenses</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">FinancialExpenses</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">FinancialExpenses</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[7]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Installation -->
+
+    <owl:NamedIndividual rdf:about="&pci;Installation">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Installation</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">Installation</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">Installation</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[5]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#LandTransportation -->
+
+    <owl:NamedIndividual rdf:about="&pci;LandTransportation">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Land Transportation</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">LandTransportation</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">LandTransportation</ps:objectId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#LegalExpenses -->
+
+    <owl:NamedIndividual rdf:about="&pci;LegalExpenses">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Legal Expenses</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">LegalExpenses</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[6]</as:objectERPId>
+        <ps:objectName rdf:datatype="&xsd;string">LegalExpenses</ps:objectName>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine-KB -->
+
+    <rdf:Description rdf:about="&pci;MainLine-KB">
+        <pcs:mainLineHyScaMinInitPressureShort rdf:datatype="&xsd;decimal">0</pcs:mainLineHyScaMinInitPressureShort>
+        <pcs:mainLineMainMinInitPressureDown rdf:datatype="&xsd;decimal">0</pcs:mainLineMainMinInitPressureDown>
+        <pcs:mainLineHyScaMinInitPressureLong rdf:datatype="&xsd;decimal">0</pcs:mainLineHyScaMinInitPressureLong>
+        <ps:includesDynamicAttribute rdf:resource="&pci;DUMMY"/>
+        <as:includesBOM rdf:resource="&pci;MainLine_BOM"/>
+    </rdf:Description>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine_BOM -->
+
+    <owl:NamedIndividual rdf:about="&pci;MainLine_BOM">
+        <rdf:type rdf:resource="&as;BOM"/>
+        <as:includesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Dimensioning"/>
+        <as:includesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Hydrant_Section_Concentrated"/>
+        <as:includesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Hydrant_Section_Scattered"/>
+        <as:includesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Mainline_Section_Concentrated"/>
+        <as:includesBOMEntry rdf:resource="&pci;MainLine_BOM_Entry_Mainline_Section_Scattered"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine_BOM_Entry_Dimensioning -->
+
+    <owl:NamedIndividual rdf:about="&pci;MainLine_BOM_Entry_Dimensioning">
+        <rdf:type rdf:resource="&as;BOMEntry"/>
+        <as:hasProduct rdf:resource="&pci;MainlineDimensioning"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine_BOM_Entry_Hydrant_Section_Concentrated -->
+
+    <owl:NamedIndividual rdf:about="&pci;MainLine_BOM_Entry_Hydrant_Section_Concentrated">
+        <rdf:type rdf:resource="&as;BOMEntry"/>
+        <as:hasProduct rdf:resource="&pci;HydrantSectionConcentrated"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine_BOM_Entry_Hydrant_Section_Scattered -->
+
+    <owl:NamedIndividual rdf:about="&pci;MainLine_BOM_Entry_Hydrant_Section_Scattered">
+        <rdf:type rdf:resource="&as;BOMEntry"/>
+        <as:hasProduct rdf:resource="&pci;HydrantSectionScattered"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine_BOM_Entry_Mainline_Section_Concentrated -->
+
+    <owl:NamedIndividual rdf:about="&pci;MainLine_BOM_Entry_Mainline_Section_Concentrated">
+        <rdf:type rdf:resource="&as;BOMEntry"/>
+        <as:hasProduct rdf:resource="&pci;MainlineSectionConcentrated"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#MainLine_BOM_Entry_Mainline_Section_Scattered -->
+
+    <owl:NamedIndividual rdf:about="&pci;MainLine_BOM_Entry_Mainline_Section_Scattered">
+        <rdf:type rdf:resource="&as;BOMEntry"/>
+        <as:hasProduct rdf:resource="&pci;MainlineSectionScattered"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#OTHERCOSTS -->
+
+    <owl:NamedIndividual rdf:about="&pci;OTHERCOSTS">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Other Costs</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">OTHERCOSTS</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">OTHERCOSTS</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[9]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productBOMAllowed rdf:datatype="&xsd;boolean">true</as:productBOMAllowed>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#ProjectManagement -->
+
+    <owl:NamedIndividual rdf:about="&pci;ProjectManagement">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Project Management</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">ProjectManagement</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">ProjectManagement</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[4]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productBOMAllowed rdf:datatype="&xsd;boolean">true</as:productBOMAllowed>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#ProjectManagementSub -->
+
+    <owl:NamedIndividual rdf:about="&pci;ProjectManagementSub">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Project Management Sub</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">ProjectManagementSub</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">ProjectManagementSub</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#SeaFreight -->
+
+    <owl:NamedIndividual rdf:about="&pci;SeaFreight">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Sea Freight</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">Sea Freight</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Sea Freight</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Supervision -->
+
+    <owl:NamedIndividual rdf:about="&pci;Supervision">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Supervision</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">Supervision</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[3]</as:objectERPId>
+        <ps:objectName rdf:datatype="&xsd;string">Supervision</ps:objectName>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Transportation -->
+
+    <owl:NamedIndividual rdf:about="&pci;Transportation">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Transportation</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectId rdf:datatype="&xsd;string">Transportation</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[2]</as:objectERPId>
+        <ps:objectName rdf:datatype="&xsd;string">Transportation</ps:objectName>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productBOMAllowed rdf:datatype="&xsd;boolean">true</as:productBOMAllowed>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Unexpected -->
+
+    <owl:NamedIndividual rdf:about="&pci;Unexpected">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">Unexpected</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <as:productSequence rdf:datatype="&xsd;int">5</as:productSequence>
+        <ps:objectName rdf:datatype="&xsd;string">Unexpected</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">Unexpected</ps:objectId>
+        <as:objectERPId rdf:datatype="&xsd;string">[1]</as:objectERPId>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:linksEditablePriceItemType rdf:resource="&ai;ManualPriceItemType"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#LocallySuppliedManifold -->
+
+    <owl:NamedIndividual rdf:about="&pci;LocallySuppliedManifold">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="en">LocallySuppliedManifold</rdfs:label>
+        <rdfs:label xml:lang="zh"></rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">LocallySuppliedManifold</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">LocallySuppliedManifold</ps:objectName>
+        <as:objectERPId rdf:datatype="&xsd;string">[99999999009]</as:objectERPId>
+        <as:productClassified rdf:datatype="&xsd;boolean">true</as:productClassified>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:linksProductCategory rdf:resource="&pci;AccessoryCategory"/>
+    </owl:NamedIndividual>
+	
+	
+	
+
+</rdf:RDF>
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
+
+

@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+    <!ENTITY sec "http://www.inmindcloud.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcloud.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcloud.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcloud.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/application/products/products-schema.owl#"
+     xml:base="http://www.inmindcloud.com/application/products/products-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcloud.com/application/workItem-implementation.owl#"
+     xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcloud.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcloud.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcloud.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcloud.com/application/products/products-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcloud.com/application/schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#projectRecommendedRate -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;projectRecommendedRate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Empfohlene Rate pro Tag</rdfs:label>
+        <rdfs:label xml:lang="en">Recommended Daily Rate</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">15</ps:sequenceID>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:defaultValue xml:lang="de">1080 Euro</ps:defaultValue>
+        <ps:defaultValue xml:lang="en">1000USD, 1100 SGD</ps:defaultValue>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Service"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#recommendedDiscountValue -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;recommendedDiscountValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Empfohlener Rabatt</rdfs:label>
+        <rdfs:label xml:lang="en">Recommended Discount Value</rdfs:label>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?recommendedDiscountValue)
+WHERE {
+?subject pcs:subscriptionSeats ?seats
+BIND(IF(?seats &lt; 51 ,xsd:decimal(5),
+
+IF(?seats &lt; 76, xsd:decimal(20),
+
+IF(?seats &lt; 101, xsd:decimal(25),
+
+IF(?seats &lt; 126, xsd:decimal(30),
+
+IF(?seats &lt; 151, xsd:decimal(35),
+
+IF(?seats &lt; 201, xsd:decimal(40),
+
+IF(?seats &lt; 501, xsd:decimal(55), xsd:decimal(60)
+
+
+)))))))
+
+
+ AS ?val)
+}
+
+
+</ps:sparql>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionDeployment -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionDeployment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Deploymentlokation</rdfs:label>
+        <rdfs:label xml:lang="en">Deployment Location</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">15</ps:sequenceID>
+        <ps:hidden rdf:datatype="&xsd;boolean">false</ps:hidden>
+        <ps:printRelevant rdf:datatype="&xsd;boolean">true</ps:printRelevant>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">APJ</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">EMEA</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">US</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionDeploymentPrint -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionDeploymentPrint">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Deploymentlokation drucken</rdfs:label>
+        <rdfs:label xml:lang="en">Print Deployment location</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">16</ps:sequenceID>
+        <ps:hidden rdf:datatype="&xsd;boolean">false</ps:hidden>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:printRelevant rdf:datatype="&xsd;boolean">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionIntegration -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionIntegration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">CRM Integration</rdfs:label>
+        <rdfs:label xml:lang="en">CRM Integration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">12</ps:sequenceID>
+        <ps:defaultValue rdf:datatype="&xsd;string">None</ps:defaultValue>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">SAP Hybris Cloud for Customer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">None</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">Others</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">Salesforce.com</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionPayment -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionPayment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Zahlungsintervall</rdfs:label>
+        <rdfs:label xml:lang="en">Payment Interval</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:printRelevant rdf:datatype="&xsd;string">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Annual</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Monthly</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionSeats -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionSeats">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Seats (zur Rabattberechnung)</rdfs:label>
+        <rdfs:label xml:lang="en">Seats (for Discount calculation)</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:printRelevant rdf:datatype="&xsd;string">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionStart -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionStart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Start der Vertragslaufzeit</rdfs:label>
+        <rdfs:label xml:lang="en">Subscription Start</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:printRelevant rdf:datatype="&xsd;string">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionStartPrint -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionStartPrint">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Start der Vertragslaufzeit Drucken</rdfs:label>
+        <rdfs:label xml:lang="en">Subscription Start Print</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:printRelevant rdf:datatype="&xsd;boolean">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionYears -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionYears">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Vertragslaufzeit</rdfs:label>
+        <rdfs:label xml:lang="en">Subscription Duration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+        <ps:enumerable rdf:datatype="&xsd;boolean">true</ps:enumerable>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:printRelevant rdf:datatype="&xsd;string">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;decimal">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;decimal">2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;decimal">3</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;decimal">4</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;decimal">5</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#subscriptionYearsPrint -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;subscriptionYearsPrint">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Vertragsfaufzeit Drucken</rdfs:label>
+        <rdfs:label xml:lang="en">Subscription Duration Print</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:printRelevant rdf:datatype="&xsd;boolean">true</ps:printRelevant>
+        <ps:group rdf:resource="&ai;Base"/>
+        <rdfs:domain rdf:resource="&pcs;Subscription"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Deployment -->
+
+    <owl:Class rdf:about="&pcs;Deployment">
+        <rdfs:subClassOf rdf:resource="&pcs;Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Others -->
+
+    <owl:Class rdf:about="&pcs;Others">
+        <rdfs:label rdf:datatype="&xsd;string">Others</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Service -->
+
+    <owl:Class rdf:about="&pcs;Service">
+        <rdfs:label rdf:datatype="&xsd;string">Service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Software -->
+
+    <owl:Class rdf:about="&pcs;Software">
+        <rdfs:label rdf:datatype="&xsd;string">Software</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&as;KnowledgeBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcloud.com/application/products/products-schema.owl#Subscription -->
+
+    <owl:Class rdf:about="&pcs;Subscription">
+        <rdfs:subClassOf rdf:resource="&pcs;Software"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

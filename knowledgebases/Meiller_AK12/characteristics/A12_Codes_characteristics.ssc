@@ -1,0 +1,308 @@
+// the regulatory domain ... simple input type choice
+characteristic TYP {
+  names EN "Type", DE "Typ"
+  textLength 15
+  restrictable
+  caseSensitive
+  values
+//    "AK 4"
+//    "AK 7",
+//    "AK 10",
+    "AK 12",
+//    "AK 12 B-Line",
+//    "AK 12 E-Line",
+//    "AK 16"
+}
+
+
+// Gruppe = Merkmal
+characteristic GRUPPE {
+  names EN "Group",
+  DE "Gruppe"
+  textLength 15
+  restrictable
+  caseSensitive
+}
+//characteristic GRUPPENNAME {
+//  names EN "Group",
+//  DE "Gruppe"
+//  textLength 100
+//  restrictable
+//  caseSensitive
+//}
+// Code = Wert
+characteristic CODE {
+  names EN "Code",
+  DE "Kode"
+  textLength 15
+  restrictable
+  caseSensitive
+}
+//characteristic CODENAME {
+//  names EN "Code description",
+//  DE "Kode Bezeichnung"
+//  textLength 30
+//  restrictable
+//  caseSensitive
+//}
+characteristic MEILLER_MOD {
+	names DE "Meiller-AK-Verkaufsbez"
+	status prepared
+	textLength 8 restrictable
+	values
+		"A12MOD01"
+		names DE "AK 12 ML"
+		longNames DE
+		"Typ AK 12 ML\n\nLadebrücke 3730 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- in starrer Ausführung\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- 2 doppeltwirkende Einkolben-Zylinder für die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße und\n  Hauptarme im Fahrerhaus",
+		"A12MOD02"
+		names DE "AK 12 MT"
+		longNames DE
+		"Typ AK 12 MT\n\nLadebrücke 3730 mm\n\nAufbau allgemein:\n\n - mit Ladungssicherungs-Zertifikat des TÜV-Nord\n - schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n   möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n   Werkzeugkästen etc.)\n - GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- in teleskopierbarer Ausführung\n- Teleskop-Ausleger zur optimalen Führung und Selbstzentrierung\n  aus einteiligem 6-Kantprofil gefertigt\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n- Hydraulische Gleichlaufsteuerung der Teleskop-Ausleger\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die Teleskop-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, Teleskop-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD03"
+		names DE "AK 12 MTG"
+		longNames DE
+		"Typ AK 12 MTG\n\nLadebrücke 3730 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- in teleskopierbarer Ausführung\n- Teleskop-Ausleger zur optimalen Führung und Selbstzentrierung\n  aus einteiligem 6-Kantprofil gefertigt\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n- Hydraulische Gleichlaufsteuerung der Teleskop-Ausleger\n- TG-Ausleger inkl. Alu-Abdeckblech\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die Teleskop-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, Teleskop-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD04"
+		names DE "AK 12 MZ"
+		longNames DE
+		"Typ AK 12 MZ\n\nLadebrücke 3730 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- Tragarme in Z-Ausführung mit Zusatzausleger\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die Z-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, Z-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD05"
+		names DE "AK 12 MZA"
+		longNames DE
+		"Typ AK 12 MZA\n\nLadebrücke 3730 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- Tragarme in ZA-Ausführung mit Zusatzausleger gedreht\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die ZA-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, ZA-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD06"
+		names DE "AK 12 LT"
+		longNames DE
+		"Typ AK 12 LT\n\nLadebrücke 4400 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- in teleskopierbarer Ausführung\n- Teleskop-Ausleger zur optimalen Führung und Selbstzentrierung\n  aus einteiligem 6-Kantprofil gefertigt\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n- Hydraulische Gleichlaufsteuerung der Teleskop-Ausleger\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die Teleskop-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, Teleskop-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD07"
+		names DE "AK 12 LZ"
+		longNames DE
+		"Typ AK 12 LZ\n\nLadebrücke 4400 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- Tragarme in Z-Ausführung mit Zusatzausleger\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die Z-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, Z-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD08"
+		names DE "AK 12 LZA"
+		longNames DE
+		"Typ AK 12 LZA\n\nLadebrücke 4400 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n  einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- Tragarme in ZA-Ausführung mit Zusatzausleger gedreht\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die ZA-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, ZA-Ausleger und\n  Hauptarme im Fahrerhaus",
+		"A12MOD09"
+		names DE "AK 12 LTG"
+		longNames DE
+		"Typ AK 12 LTG\n\nLadebrücke 4400 mm lang\n\nAufbau allgemein:\n\n- mit Ladungssicherungs-Zertifikat des TÜV-Nord\n- schweißfreie Montage des Aufbaus, sowie von Anbaukomponenten\n  möglich (z.B. Kotflügel, seitlicher Anfahrschutz,\n  Werkzeugkästen etc.)\n- GGVS-Tauglichkeit\n\nLadebrücke:\n\n- Rahmenbauweise, bestehend aus zwei außen liegenden Pressenträgern\n  (mit den Lagerstellen für die Schwenkzylinder), einem vorderen und\n  hinteren Querträger (mit den Drehwellenlagern), die mit den beiden\n  biegesteifen,  einteiligen Längsträgern verschweißt sind\n- Querträger zwischen den Längsträgerprofilen zur zusätzlichen\n  Aussteifung\n- Abstützung mit praxisgerechtem  Stützfuß-Neigungswinkel ermöglicht\n  hohe Standsicherheit bei großer Deichselfreigängigkeit, als\n- einteilige  5-Kantprofile ausgeführt\n- rechtsseitig angeordneter Aufstieg\n- alle hoch belasteten Bauteile aus hochfestem Feinkornbaustahl\n  ausgeführt\n- Zurrösen zur Ladungssicherung nicht genormter Behälter\n\nTragarme:\n\n- in teleskopierbarer Ausführung\n- Teleskop-Ausleger zur optimalen Führung und Selbstzentrierung\n  aus einteiligem 6-Kantprofil gefertigt\n- über Klemmlager demontierbar mit der 3-fach gelagerten Drehwelle\n  verbunden\n  Hydraulische Gleichlaufsteuerung der Teleskop-Ausleger\n- TG-Ausleger inkl. Alu-Abdeckblech\n\nKettengehänge:\n\n- bestehend aus einer schwenk- und pendelbaren Aufhängelasche pro Seite\n- hochfeste Tragketten mit Sicherheits-Aufhängeösen und Verkürzungs-\n  einrichtung,  beide mit Sicherungen gegen unbeabsichtigtes Aushängen\n\nKippeinrichtung:\n\n- mit gesteuerter Sperrklinke, einschließlich Aufsteuerungsmöglichkeit\n  zur Aufnahme von Silobehältern\n- Aufklappsicherung verhindert ein Behälterüberschlagen\n\nHydraulikanlage:\n\n- Hochdruck- und Rücklauffilterung\n- 2 Schwenkpressen als doppeltwirkende Einkolben-Zylinder mit\n  angeschmiedeten Pressenaugen und reibgeschweißten Kolbenstangenaugen\n- je 2 doppeltwirkende Einkolben-Zylinder für die Teleskop-Ausleger\n  und die Abstützung\n- Ölstands- und Verschmutzungsanzeige\n- serienmäßige Überladungs-Kontrollanzeige\n- Steuerschieber mit pneumatischer Vorsteuerung\n- integrierte Druckbegrenzungs- und Lasthalteventile\n- Pneumatikkomponenten, Steuerschieber und Ölbehälter\n- geschützte Verlegung von Hydraulikleitungen\n- Befüllung mit Hydrauliköl (nicht im losen Versand!)\n\nElektroanlage:\n\n- optische Kontrollanzeigen für Stützfüße, Teleskop-Ausleger und\n  Hauptarme im Fahrerhaus"
+}
+characteristic A12KSW {
+	names EN "User product free editable", DE "KSW Produkt überschreibbar"
+	textLength 30 //restrictable
+	caseSensitive
+}
+characteristic A12KSW_PRICE {
+	names EN "User product price (€)", DE "KSW Preis überschreibbar (€)"
+	numericLength 15 decimalPlaces 2 negativeValues
+}
+characteristic A12ROU_PRICE {
+	names EN "Rounding price (€)", DE "Rundungsbetrag (€)"
+	numericLength 15 decimalPlaces 2 negativeValues
+}
+// Modell Typen
+// the model
+characteristic MODELL {
+  names EN "Model",
+  DE "Verkaufsbezeichnung"
+  textLength 15
+  restrictable
+  caseSensitive
+  }
+ // Modell Typen
+characteristic ML {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic MT {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic MTG {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic MZ {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic MZA {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic LT_ {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic LZ {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic LZA {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+characteristic LTG {
+  names EN "Model",
+  DE "Modell"
+  textLength 3
+  restrictable
+  caseSensitive
+}
+
+/** 
+ * Data cstic
+**/
+characteristic DATE {
+	names EN "Date", DE "Datum Gueltigkeit"
+	numericLength 8 decimalPlaces 0
+}
+characteristic DATE_END {
+	names EN "Date", DE "Datum Gueltigkeit"
+	numericLength 8 decimalPlaces 0
+}
+characteristic DEL_TIME {
+	names EN "Delivering time", DE "Lieferzeit"
+	numericLength 3 decimalPlaces 0
+}
+characteristic DEL_TIME_WOU {
+	names EN "Delivering time", DE "Lieferzeit"
+	numericLength 3 decimalPlaces 0
+}
+characteristic DEL_TIME_MOU {
+	names EN "Delivering time with mounting", DE "Lieferzeit mit Montage"
+	numericLength 3 decimalPlaces 0
+}
+characteristic DISC_COND {
+	names EN "Discount condition", DE "Rabatt Kondition"
+  textLength 8 restrictable
+  caseSensitive
+}
+characteristic BASIC_DISCOUT {
+	names EN "Basic Discount", DE "Rabatt Grundgerät"
+	numericLength 3 decimalPlaces 0
+}
+characteristic BASIC_DISCOUNT_PRICE {
+	names EN "Product basic price", DE "Produktpreis Grundgerät"
+	numericLength 15 decimalPlaces 2 negativeValues
+//  restrictable
+}
+characteristic SUM_PRODUCTPRICE {
+	names EN "Product sum price", DE "Produkt Gesamtpreis"
+	numericLength 15 decimalPlaces 2 negativeValues
+//  restrictable
+}
+characteristic SUM_ACCESS_PRICE {
+	names EN "Accessories sum price", DE "Zubehör Gesamtpreis"
+	numericLength 15 decimalPlaces 2 negativeValues
+//  restrictable
+}	
+/** 
+ * genral cstic
+**/
+characteristic COMMENTS {
+  names EN "Comments", DE "Kommentare"
+  textLength 30
+  caseSensitive
+}
+
+characteristic PRODUCTIMAGE{
+    names EN "Picture", DE "Bild"
+    textLength 15
+    caseSensitive
+    restrictable
+}
+
+characteristic PRODUCTPRICE {
+	names EN "Product Price", DE "Produktpreis" 
+	numericLength 15 decimalPlaces 2
+}
+
+characteristic PRODUCTLISTPRICE {
+	names EN "Product list price", DE "Produktlistenpreis"
+	numericLength 15 decimalPlaces 2 negativeValues
+//  restrictable
+}
+characteristic PRODUCTOPTIONSPRICE {
+	names EN "Product list price", DE "Produktlistenpreis"
+	numericLength 15 decimalPlaces 2 negativeValues
+//  restrictable
+}
+characteristic CONTRACT_NAME{
+	names EN "Service contract", DE "Service Vertrag"
+	textLength 15
+}
+
+characteristic CONTRACT_SUPPORT_TYPE{
+	names EN "Maintenance Type", DE "Wartungstyp"
+	textLength 30
+	restrictable
+	caseSensitive
+	values
+		"V2" names EN "Professional", DE "Professional" longNames EN 'Professional',DE 'Professional', 
+		"V1" names EN "Standard", DE "Standard" longNames EN 'Standard', DE 'Standard'
+}
+
+characteristic CONTRACT_SERVICE_TERM {
+  names EN "Maintenance Period", DE "Wartungsdauer"
+  textLength 30
+  restrictable
+  caseSensitive
+  values
+    "1" names EN "1yr", DE "1J",
+    "2" names EN "2yr", DE "2J",
+    "3" names EN "3yr", DE "3J",
+}
+
+characteristic CONTRACT_CHANNEL_DISCOUNT {
+  names EN "Channel Discount", DE "Vertriebskanal Discount"
+  textLength 30
+  restrictable
+  caseSensitive
+  values
+    "DIRECT_RESELLER" names EN "Direct Reseller(10% Discount)", DE "Verkäufer (10% Discount)",
+    "DIRECT_END_CUST" names EN "Direct To End Customer", DE "Endkunde"
+}
+
+
+// the model variant ... simple input type choice
+
+characteristic HLP_VIS {
+	numericLength 1
+	specialFunction aggregating
+}
+
+characteristic PRICE_AGGR {
+	numericLength 8 decimalPlaces 2
+	specialFunction aggregating
+}
+
+characteristic CONFIGURATIONINSIGHT {
+	textLength 30
+	values
+		"MESSAGE1" names EN "Meiller Dumper", DE "Meiller Kipper" longNames EN "Consider Selling Meiller Dumper", DE "Beachten Sie auch den Kipper zu verkaufen"
+}

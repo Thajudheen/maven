@@ -1,0 +1,2068 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/application-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.5</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2015, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema-ext.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#APJ -->
+
+    <owl:NamedIndividual rdf:about="&ai;APJ">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Asien-Pazifik und Japan</rdfs:label>
+        <rdfs:label xml:lang="en">Asia Pacific and Japan </rdfs:label>
+        <rdfs:label xml:lang="zh"> 亚太和日本</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">APJ</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">APJ</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AU -->
+
+    <owl:NamedIndividual rdf:about="&ai;AU">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Australia</rdfs:label>
+        <rdfs:label xml:lang="en">Australia</rdfs:label>
+        <rdfs:label xml:lang="zh"> 澳大利亚</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">AU</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">AU</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Australia</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AddressAmtek -->
+
+    <owl:NamedIndividual rdf:about="&ai;AddressAmtek">
+        <rdf:type rdf:resource="&as;Address"/>
+        <rdfs:label xml:lang="en">AddressAmtek</rdfs:label>
+        <as:addressUnitNo rdf:datatype="&xsd;string">#17-01 Central Plaza</as:addressUnitNo>
+        <as:addressPhone rdf:datatype="&xsd;string">(65) 6264 0033</as:addressPhone>
+        <as:addressZip rdf:datatype="&xsd;string">168730 </as:addressZip>
+        <as:addressStreet rdf:datatype="&xsd;string">298 Tiong Bahru Road</as:addressStreet>
+        <ps:objectName rdf:datatype="&xsd;string">Address Interplex</ps:objectName>
+        <as:addressCity rdf:datatype="&xsd;string">Singapore</as:addressCity>
+        <as:addressBillTo rdf:datatype="&xsd;boolean">false</as:addressBillTo>
+        <as:addressEmail rdf:datatype="&xsd;string">info@interplex.com</as:addressEmail>
+        <as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+        <as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+        <as:hasCountry rdf:resource="&ai;SG"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AddressAmtekAHIL -->
+
+    <owl:NamedIndividual rdf:about="&ai;AddressAmtekAHIL">
+        <rdf:type rdf:resource="&as;Address"/>
+        <rdfs:label xml:lang="en">AddressAmtekIHIL</rdfs:label>
+        <as:addressPhone rdf:datatype="&xsd;string">(65) 6264 0033</as:addressPhone>
+        <as:addressZip rdf:datatype="&xsd;string">516006 </as:addressZip>
+        <ps:objectName rdf:datatype="&xsd;string">Address Interplex IHIL</ps:objectName>
+        <as:addressCity rdf:datatype="&xsd;string">Huizhou</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">No.3,Pingnan Road, Pingnan Industrial Park, Xiexia  Huizhou City, Guangdong Province</as:addressStreet>
+        <as:addressBillTo rdf:datatype="&xsd;boolean">false</as:addressBillTo>
+        <as:addressEmail rdf:datatype="&xsd;string">info@interplex.com</as:addressEmail>
+        <as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+        <as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+        <as:hasCountry rdf:resource="&ai;CN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AddressAmtekHATL -->
+
+    <owl:NamedIndividual rdf:about="&ai;AddressAmtekHATL">
+        <rdf:type rdf:resource="&as;Address"/>
+        <rdfs:label xml:lang="en">AddressAmtekHATL</rdfs:label>
+        <as:addressPhone rdf:datatype="&xsd;string">(65) 6264 0033</as:addressPhone>
+        <as:addressZip rdf:datatype="&xsd;string">516006 </as:addressZip>
+        <ps:objectName rdf:datatype="&xsd;string">Address Interplex HITL</ps:objectName>
+        <as:addressCity rdf:datatype="&xsd;string">Huizhou</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">No.3,Pingnan Road, Pingnan Industrial Park, Xiexia  Huizhou City, Guangdong Province</as:addressStreet>
+        <as:addressBillTo rdf:datatype="&xsd;boolean">false</as:addressBillTo>
+        <as:addressEmail rdf:datatype="&xsd;string">info@interplex.com</as:addressEmail>
+        <as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+        <as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+        <as:hasCountry rdf:resource="&ai;CN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AddressAmtekTCC -->
+
+    <owl:NamedIndividual rdf:about="&ai;AddressAmtekTCC">
+        <rdf:type rdf:resource="&as;Address"/>
+        <rdfs:label xml:lang="en">AddressAmtekTCC</rdfs:label>
+        <as:addressPhone rdf:datatype="&xsd;string">(65) 6264 0033</as:addressPhone>
+        <as:addressZip rdf:datatype="&xsd;string">628475 </as:addressZip>
+        <ps:objectName rdf:datatype="&xsd;string">AddressAmtekTCC</ps:objectName>
+        <as:addressCity rdf:datatype="&xsd;string">Suzhou</as:addressCity>
+        <as:addressStreet rdf:datatype="&xsd;string">Suzhou TCC Road</as:addressStreet>
+        <as:addressBillTo rdf:datatype="&xsd;boolean">false</as:addressBillTo>
+        <as:addressEmail rdf:datatype="&xsd;string">info@amtek.com</as:addressEmail>
+        <as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+        <as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+        <as:hasCountry rdf:resource="&ai;CN"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Amtek -->
+
+    <owl:NamedIndividual rdf:about="&ai;Amtek">
+        <rdf:type rdf:resource="&as;Company"/>
+        <rdfs:label xml:lang="en">Interplex Precision Technology (Singapore) Pte. Ltd.</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">IPT</ps:objectId>
+        <as:companyAbbreviation rdf:datatype="&xsd;string">IPT</as:companyAbbreviation>
+        <ps:objectName rdf:datatype="&xsd;string">IPT</ps:objectName>
+        <ps:objectExternalId rdf:datatype="&xsd;string">IPT</ps:objectExternalId>
+        <as:enterpriseImage rdf:datatype="&xsd;string">logo.png</as:enterpriseImage>
+        <as:includesAddress rdf:resource="&ai;AddressAmtek"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AmtekAHIL -->
+
+    <owl:NamedIndividual rdf:about="&ai;AmtekAHIL">
+        <rdf:type rdf:resource="&as;Company"/>
+        <rdfs:label xml:lang="en">Interplex (Huizhou) Industries Ltd (IHIL)</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">IHIL</ps:objectId>
+        <as:companyAbbreviation rdf:datatype="&xsd;string">IHIL</as:companyAbbreviation>
+        <ps:objectExternalId rdf:datatype="&xsd;string">IHIL</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">IHIL</ps:objectName>
+        <as:enterpriseImage rdf:datatype="&xsd;string">logo.png</as:enterpriseImage>
+        <as:includesAddress rdf:resource="&ai;AddressAmtekAHIL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AmtekHATL -->
+
+    <owl:NamedIndividual rdf:about="&ai;AmtekHATL">
+        <rdf:type rdf:resource="&as;Company"/>
+        <rdfs:label xml:lang="en">Interplex Huizhou Technology Ltd (HITL)</rdfs:label>
+        <as:companyAbbreviation rdf:datatype="&xsd;string">HITL</as:companyAbbreviation>
+        <ps:objectName rdf:datatype="&xsd;string">HITL</ps:objectName>
+        <ps:objectExternalId rdf:datatype="&xsd;string">HITL</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">HITL</ps:objectId>
+        <as:enterpriseImage rdf:datatype="&xsd;string">logo.png</as:enterpriseImage>
+        <as:includesAddress rdf:resource="&ai;AddressAmtekHATL"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#AmtekTCC -->
+
+    <owl:NamedIndividual rdf:about="&ai;AmtekTCC">
+        <rdf:type rdf:resource="&as;Company"/>
+        <rdfs:label xml:lang="en">TCC</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Suzhou TCC</ps:objectName>
+        <as:companyAbbreviation rdf:datatype="&xsd;string">TCC</as:companyAbbreviation>
+        <ps:objectId rdf:datatype="&xsd;string">TCC</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TCC</ps:objectExternalId>
+        <as:enterpriseImage rdf:datatype="&xsd;string">logo.png</as:enterpriseImage>
+        <as:includesAddress rdf:resource="&ai;AddressAmtekTCC"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BR -->
+
+    <owl:NamedIndividual rdf:about="&ai;BR">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Brazil</rdfs:label>
+        <rdfs:label xml:lang="en">Brazil</rdfs:label>
+        <rdfs:label xml:lang="zh"> 巴西</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">BR</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">BR</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Brazil</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;REGION_SA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Base -->
+
+    <owl:NamedIndividual rdf:about="&ai;Base">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Base</rdfs:label>
+        <rdfs:label xml:lang="en">Base</rdfs:label>
+        <rdfs:label xml:lang="zh">基本</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">0</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">_97</ps:groupCode>
+        <ps:groupDescription xml:lang="en">Base</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">基本</ps:groupDescription>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#BenchMarking -->
+
+    <owl:NamedIndividual rdf:about="&ai;BenchMarking">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">BenchMarking</rdfs:label>
+        <rdfs:label xml:lang="zh"> 基准测试</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">BM</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">BM</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">BenchMarking</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#CH -->
+
+    <owl:NamedIndividual rdf:about="&ai;CH">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Switzerland</rdfs:label>
+        <rdfs:label xml:lang="en">Switzerland</rdfs:label>
+        <rdfs:label xml:lang="zh"> 瑞士</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">CN</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">CN</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Switzerland</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#CN -->
+
+    <owl:NamedIndividual rdf:about="&ai;CN">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">China</rdfs:label>
+        <rdfs:label xml:lang="en">China</rdfs:label>
+        <rdfs:label xml:lang="zh"> 中国</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">CN</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">CN</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">China</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#CNY -->
+
+    <owl:NamedIndividual rdf:about="&ai;CNY">
+        <rdf:type rdf:resource="&as;Currency"/>
+        <rdfs:label xml:lang="de">RMB</rdfs:label>
+        <rdfs:label xml:lang="en">RMB</rdfs:label>
+        <rdfs:label xml:lang="zh"> 人民币</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">RMB</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">RMB</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">RMB</ps:objectExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#CZ -->
+
+    <owl:NamedIndividual rdf:about="&ai;CZ">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Czech Republic</rdfs:label>
+        <rdfs:label xml:lang="en">Czech Republic</rdfs:label>
+        <rdfs:label xml:lang="zh"> 捷克共和国</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">CZ</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">CZ</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Czech Republic</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#DE -->
+
+    <owl:NamedIndividual rdf:about="&ai;DE">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Germany</rdfs:label>
+        <rdfs:label xml:lang="en">Germany</rdfs:label>
+        <rdfs:label xml:lang="zh"> 德国</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">DE</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">DE</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Germany</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Default -->
+
+    <owl:NamedIndividual rdf:about="&ai;Default">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Bild</rdfs:label>
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+        <rdfs:label xml:lang="zh"> 图片</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:groupDescription rdf:datatype="&xsd;string">Image</ps:groupDescription>
+        <ps:groupCode rdf:datatype="&xsd;string">_99</ps:groupCode>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#EMEA -->
+
+    <owl:NamedIndividual rdf:about="&ai;EMEA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">EMEA</rdfs:label>
+        <rdfs:label xml:lang="en">EMEA</rdfs:label>
+        <rdfs:label xml:lang="zh"> 欧洲中东以及非洲</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">EMEA</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">EMEA</ps:objectId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ER1-SGD-USD -->
+
+    <owl:NamedIndividual rdf:about="&ai;ER1-SGD-USD">
+        <rdf:type rdf:resource="&as;ExchangeRate"/>
+        <rdfs:label rdf:datatype="&xsd;string">SGD to USD Exchange Rate</rdfs:label>
+        <rdfs:label xml:lang="zh">新加坡元对美元汇率 </rdfs:label>
+        <as:exchangeRate rdf:datatype="&xsd;decimal">0.74190</as:exchangeRate>
+        <as:exchangeRateValidTill rdf:datatype="&xsd;dateTime">9999-12-31T00:00:00.000Z</as:exchangeRateValidTill>
+        <ps:objectName rdf:datatype="&xsd;string">Rate SGD-USD</ps:objectName>
+        <as:hasBaseCurrency rdf:resource="&ai;SGD"/>
+        <as:hasTargetCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ER2-SGD-CNY -->
+
+    <owl:NamedIndividual rdf:about="&ai;ER2-SGD-CNY">
+        <rdf:type rdf:resource="&as;ExchangeRate"/>
+        <rdfs:label rdf:datatype="&xsd;string">SGD to CNY Exchange Rate</rdfs:label>
+        <rdfs:label xml:lang="zh">新加坡元对人民币汇率 </rdfs:label>
+        <as:exchangeRate rdf:datatype="&xsd;decimal">4.63917</as:exchangeRate>
+        <as:exchangeRateValidTill rdf:datatype="&xsd;dateTime">9999-12-31T00:00:00.000Z</as:exchangeRateValidTill>
+        <ps:objectName rdf:datatype="&xsd;string">Rate SGD-CNY</ps:objectName>
+        <as:hasTargetCurrency rdf:resource="&ai;CNY"/>
+        <as:hasBaseCurrency rdf:resource="&ai;SGD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ER3-CNY-SGD -->
+
+    <owl:NamedIndividual rdf:about="&ai;ER3-CNY-SGD">
+        <rdf:type rdf:resource="&as;ExchangeRate"/>
+        <rdfs:label rdf:datatype="&xsd;string">CNY to SGD Exchange Rate</rdfs:label>
+        <rdfs:label xml:lang="zh">人民币对新加坡元汇率 </rdfs:label>
+        <as:exchangeRate rdf:datatype="&xsd;decimal">0.215556</as:exchangeRate>
+        <as:exchangeRateValidTill rdf:datatype="&xsd;dateTime">9999-12-31T00:00:00.000Z</as:exchangeRateValidTill>
+        <ps:objectName rdf:datatype="&xsd;string">Rate CNY-SGD</ps:objectName>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+        <as:hasTargetCurrency rdf:resource="&ai;SGD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ER4-USD-SGD -->
+
+    <owl:NamedIndividual rdf:about="&ai;ER4-USD-SGD">
+        <rdf:type rdf:resource="&as;ExchangeRate"/>
+        <rdfs:label rdf:datatype="&xsd;string">USD to SGD Exchange Rate</rdfs:label>
+        <rdfs:label xml:lang="zh">美元对新加坡元汇率 </rdfs:label>
+        <as:exchangeRate rdf:datatype="&xsd;decimal">1.34789</as:exchangeRate>
+        <as:exchangeRateValidTill rdf:datatype="&xsd;dateTime">9999-12-31T00:00:00.000Z</as:exchangeRateValidTill>
+        <ps:objectName rdf:datatype="&xsd;string">Rate USD-SGD</ps:objectName>
+        <as:hasTargetCurrency rdf:resource="&ai;SGD"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ER5-USD-CNY -->
+
+    <owl:NamedIndividual rdf:about="&ai;ER5-USD-CNY">
+        <rdf:type rdf:resource="&as;ExchangeRate"/>
+        <rdfs:label rdf:datatype="&xsd;string">USD to CNY Exchange Rate</rdfs:label>
+        <rdfs:label xml:lang="zh">美元对人民币汇率 </rdfs:label>
+        <as:exchangeRate rdf:datatype="&xsd;decimal">6.25289</as:exchangeRate>
+        <as:exchangeRateValidTill rdf:datatype="&xsd;dateTime">9999-12-31T00:00:00.000Z</as:exchangeRateValidTill>
+        <ps:objectName rdf:datatype="&xsd;string">Rate USD-CNY</ps:objectName>
+        <as:hasTargetCurrency rdf:resource="&ai;CNY"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ER6-CNY-USD -->
+
+    <owl:NamedIndividual rdf:about="&ai;ER6-CNY-USD">
+        <rdf:type rdf:resource="&as;ExchangeRate"/>
+        <rdfs:label rdf:datatype="&xsd;string">CNY to USD Exchange Rate</rdfs:label>
+        <rdfs:label xml:lang="zh">人民币对美元汇率 </rdfs:label>
+        <as:exchangeRate rdf:datatype="&xsd;decimal">0.159926</as:exchangeRate>
+        <as:exchangeRateValidTill rdf:datatype="&xsd;dateTime">9999-12-31T00:00:00.000Z</as:exchangeRateValidTill>
+        <ps:objectName rdf:datatype="&xsd;string">Rate CNY-USD</ps:objectName>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+        <as:hasTargetCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Each -->
+
+    <owl:NamedIndividual rdf:about="&ai;Each">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">jeder</rdfs:label>
+        <rdfs:label xml:lang="en">Each</rdfs:label>
+        <rdfs:label xml:lang="zh">每个 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">EA</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">EA</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Each</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#English -->
+
+    <owl:NamedIndividual rdf:about="&ai;English">
+        <rdf:type rdf:resource="&as;Language"/>
+        <rdfs:label xml:lang="de">Englisch</rdfs:label>
+        <rdfs:label xml:lang="en">English</rdfs:label>
+        <rdfs:label xml:lang="zh">英语 </rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">English</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">en</ps:objectId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FR -->
+
+    <owl:NamedIndividual rdf:about="&ai;FR">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">France</rdfs:label>
+        <rdfs:label xml:lang="en">France</rdfs:label>
+        <rdfs:label xml:lang="zh">法国 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">FR</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">FR</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">France</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY14 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY14">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2013-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2014-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY14</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY15 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY15">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2014-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2015-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY15</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY16 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY16">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2015-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2016-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY16</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY17 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY17">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2016-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2017-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY17</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY18 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY18">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2017-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2018-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY18</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY19 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY19">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2018-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2019-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY19</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#FY20 -->
+
+    <owl:NamedIndividual rdf:about="&ai;FY20">
+        <rdf:type rdf:resource="&as;FiscalPeriod"/>
+        <as:fiscalPeriodStartDate rdf:datatype="&xsd;dateTime">2019-07-01T00:00:00.448Z</as:fiscalPeriodStartDate>
+        <as:fiscalPeriodEndDate rdf:datatype="&xsd;dateTime">2020-06-30T23:59:59.448Z</as:fiscalPeriodEndDate>
+        <ps:objectName rdf:datatype="&xsd;string">FY20</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#GB -->
+
+    <owl:NamedIndividual rdf:about="&ai;GB">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">United Kingdom</rdfs:label>
+        <rdfs:label xml:lang="en">United Kingdom</rdfs:label>
+        <rdfs:label xml:lang="zh">（大不列颠）联合王国 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">GB</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">GB</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">United Kingdom</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HK -->
+
+    <owl:NamedIndividual rdf:about="&ai;HK">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Hong Kong</rdfs:label>
+        <rdfs:label xml:lang="en">Hong Kong</rdfs:label>
+        <rdfs:label xml:lang="zh">香港 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">HK</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">HK</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Hong Kong</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#HU -->
+
+    <owl:NamedIndividual rdf:about="&ai;HU">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Hungary</rdfs:label>
+        <rdfs:label xml:lang="en">Hungary</rdfs:label>
+        <rdfs:label xml:lang="zh">匈牙利 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">HU</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">HU</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Hungary</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IAutomotive -->
+
+    <owl:NamedIndividual rdf:about="&ai;IAutomotive">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Automobil</rdfs:label>
+        <rdfs:label xml:lang="en">Automotive</rdfs:label>
+        <rdfs:label xml:lang="zh">自动化 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">112</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">112</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">AUTOMOTIVE</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IConsumerElectronics -->
+
+    <owl:NamedIndividual rdf:about="&ai;IConsumerElectronics">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Verbrauchsgüter</rdfs:label>
+        <rdfs:label xml:lang="en">Consumer Electronics</rdfs:label>
+        <rdfs:label xml:lang="zh">消费电子产品 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">CE</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">CE</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">CONSUMER ELECTRONICS</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ID -->
+
+    <owl:NamedIndividual rdf:about="&ai;ID">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Indonesia</rdfs:label>
+        <rdfs:label xml:lang="en">Indonesia</rdfs:label>
+        <rdfs:label xml:lang="zh">印度尼西亚 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">ID</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ID</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Indonesia</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IE -->
+
+    <owl:NamedIndividual rdf:about="&ai;IE">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Irland</rdfs:label>
+        <rdfs:label xml:lang="en">Ireland</rdfs:label>
+        <rdfs:label xml:lang="zh">爱尔兰 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">IE</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">IE</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Ireland</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IHealthCare -->
+
+    <owl:NamedIndividual rdf:about="&ai;IHealthCare">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Gesundheit und Sozialhilfe</rdfs:label>
+        <rdfs:label xml:lang="en">Life Sciences &amp; Medical</rdfs:label>
+        <rdfs:label xml:lang="zh">生命科学和医学 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">62</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">62</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Life Sciences &amp; Medical</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IImagingPrinting -->
+
+    <owl:NamedIndividual rdf:about="&ai;IImagingPrinting">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Imaging &amp; Printing</rdfs:label>
+        <rdfs:label xml:lang="en">Imaging &amp; Printing</rdfs:label>
+        <rdfs:label xml:lang="zh">成像和印刷 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">61</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">61</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Imaging &amp; Printing</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IIndustrialProducts -->
+
+    <owl:NamedIndividual rdf:about="&ai;IIndustrialProducts">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Industrial Products</rdfs:label>
+        <rdfs:label xml:lang="en">Industrial Products</rdfs:label>
+        <rdfs:label xml:lang="zh">工业产品 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">72</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">72</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Industrial Products</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IMassStorageDevices -->
+
+    <owl:NamedIndividual rdf:about="&ai;IMassStorageDevices">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Einzelhandel</rdfs:label>
+        <rdfs:label xml:lang="en">Mass Storage Devices</rdfs:label>
+        <rdfs:label xml:lang="zh">大量存储设备 </rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">44</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">44</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Mass Storage Devices</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IN -->
+
+    <owl:NamedIndividual rdf:about="&ai;IN">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">India</rdfs:label>
+        <rdfs:label xml:lang="en">India</rdfs:label>
+        <rdfs:label xml:lang="zh">印度 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">IN</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">IN</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">India</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#INetworkandServers -->
+
+    <owl:NamedIndividual rdf:about="&ai;INetworkandServers">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Herstellung</rdfs:label>
+        <rdfs:label xml:lang="en">Network &amp; Enterprise Servers</rdfs:label>
+        <rdfs:label xml:lang="zh">网络和企业服务器 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">31</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">31</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Networking &amp; Enterprise Servers</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IOthers -->
+
+    <owl:NamedIndividual rdf:about="&ai;IOthers">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">andere Dienstleistungen</rdfs:label>
+        <rdfs:label xml:lang="en">Others</rdfs:label>
+        <rdfs:label xml:lang="zh">其他 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">81</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">81</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Others</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IT-CIF -->
+
+    <owl:NamedIndividual rdf:about="&ai;IT-CIF">
+        <rdf:type rdf:resource="&as;IncoTerms"/>
+        <rdfs:label xml:lang="de">Kosten, Versicherung &amp; Fracht </rdfs:label>
+        <rdfs:label xml:lang="en">Costs, insurance &amp; freight</rdfs:label>
+        <rdfs:label xml:lang="zh">到岸价</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">CIF</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Costs, insurance &amp; freight</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IT-DAP -->
+
+    <owl:NamedIndividual rdf:about="&ai;IT-DAP">
+        <rdf:type rdf:resource="&as;IncoTerms"/>
+        <rdfs:label xml:lang="de">Geliefert benannter Ort</rdfs:label>
+        <rdfs:label xml:lang="en">Delivered at place</rdfs:label>
+        <rdfs:label xml:lang="zh">目的地交货 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">DAP</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Delivered at place</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IT-DDU -->
+
+    <owl:NamedIndividual rdf:about="&ai;IT-DDU">
+        <rdf:type rdf:resource="&as;IncoTerms"/>
+        <rdfs:label xml:lang="de">Geliefert unverzollt</rdfs:label>
+        <rdfs:label xml:lang="en">Delivered Duty Unpaid</rdfs:label>
+        <rdfs:label xml:lang="zh">未完税交货</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">DDU</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Delivered not cleared by cust.</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IT-FCA -->
+
+    <owl:NamedIndividual rdf:about="&ai;IT-FCA">
+        <rdf:type rdf:resource="&as;IncoTerms"/>
+        <rdfs:label xml:lang="de">Frei Frachtführer</rdfs:label>
+        <rdfs:label xml:lang="en">Free freight</rdfs:label>
+        <rdfs:label xml:lang="zh">免运费</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">FCA</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Free freight</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#IT-FOB -->
+
+    <owl:NamedIndividual rdf:about="&ai;IT-FOB">
+        <rdf:type rdf:resource="&as;IncoTerms"/>
+        <rdfs:label xml:lang="de">Frei an Bord</rdfs:label>
+        <rdfs:label xml:lang="en">Free on board</rdfs:label>
+        <rdfs:label xml:lang="zh">船上交货离岸价</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">FOB</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Free on board</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ITelecom -->
+
+    <owl:NamedIndividual rdf:about="&ai;ITelecom">
+        <rdf:type rdf:resource="&as;Industry"/>
+        <rdfs:label xml:lang="de">Telekommunikation</rdfs:label>
+        <rdfs:label xml:lang="en">Telecommunications</rdfs:label>
+        <rdfs:label xml:lang="zh">通讯</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">64.2C</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">64.2C</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">TELECOMMUNICATIONS</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#JP -->
+
+    <owl:NamedIndividual rdf:about="&ai;JP">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Japan</rdfs:label>
+        <rdfs:label xml:lang="en">Japan</rdfs:label>
+        <rdfs:label xml:lang="zh">日本</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">JP</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">JP</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Japan</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KG -->
+
+    <owl:NamedIndividual rdf:about="&ai;KG">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">Kilogramm</rdfs:label>
+        <rdfs:label xml:lang="en">Kilogram</rdfs:label>
+        <rdfs:label xml:lang="zh">千克</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">KG</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">KG</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Kilogram</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#KR -->
+
+    <owl:NamedIndividual rdf:about="&ai;KR">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Korea, Republic of</rdfs:label>
+        <rdfs:label xml:lang="en">Korea, Republic of</rdfs:label>
+        <rdfs:label xml:lang="zh">韩国</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">KR</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">KR</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Korea, Republic of</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#LA -->
+
+    <owl:NamedIndividual rdf:about="&ai;LA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Lateinamerika</rdfs:label>
+        <rdfs:label xml:lang="en">Latin America</rdfs:label>
+        <rdfs:label xml:lang="zh">拉丁美洲</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">LA</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Latin America</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MO -->
+
+    <owl:NamedIndividual rdf:about="&ai;MO">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Macao</rdfs:label>
+        <rdfs:label xml:lang="en">Macao</rdfs:label>
+        <rdfs:label xml:lang="zh"> 澳门</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">MO</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">MO</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Macao</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MX -->
+
+    <owl:NamedIndividual rdf:about="&ai;MX">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Mexico</rdfs:label>
+        <rdfs:label xml:lang="en">Mexico</rdfs:label>
+        <rdfs:label xml:lang="zh"> 墨西哥</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">MX</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">MX</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Mexico</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;REGION_CA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#MY -->
+
+    <owl:NamedIndividual rdf:about="&ai;MY">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Malaysia</rdfs:label>
+        <rdfs:label xml:lang="en">Malaysia</rdfs:label>
+        <rdfs:label xml:lang="zh"> 马来西亚</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">MY</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">MY</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Malaysia</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NA -->
+
+    <owl:NamedIndividual rdf:about="&ai;NA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Nordamerika</rdfs:label>
+        <rdfs:label xml:lang="en">North America</rdfs:label>
+        <rdfs:label xml:lang="zh"> 北美洲</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">NA</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">NA</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#NL -->
+
+    <owl:NamedIndividual rdf:about="&ai;NL">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Netherlands</rdfs:label>
+        <rdfs:label xml:lang="en">Netherlands</rdfs:label>
+        <rdfs:label xml:lang="zh"> 荷兰</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">NL</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">NL</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Netherlands</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PH -->
+
+    <owl:NamedIndividual rdf:about="&ai;PH">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Philippines</rdfs:label>
+        <rdfs:label xml:lang="en">Philippines</rdfs:label>
+        <rdfs:label xml:lang="zh"> 菲律宾</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">PN</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">PN</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Philippines</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PL -->
+
+    <owl:NamedIndividual rdf:about="&ai;PL">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Poland</rdfs:label>
+        <rdfs:label xml:lang="en">Poland</rdfs:label>
+        <rdfs:label xml:lang="zh"> 波兰</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">PL</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">PL</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Poland</ps:objectName>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PR -->
+
+    <owl:NamedIndividual rdf:about="&ai;PR">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Puerto Rico</rdfs:label>
+        <rdfs:label xml:lang="en">Puerto Rico</rdfs:label>
+        <rdfs:label xml:lang="zh"> 波多黎各</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">PR</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">PR</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Puerto Rico</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;ROW"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PT-15 -->
+
+    <owl:NamedIndividual rdf:about="&ai;PT-15">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="en">Cash on delivery</rdfs:label>
+        <rdfs:label xml:lang="zh">貨到付款</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0015</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Cash on delivery</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PT-16 -->
+
+    <owl:NamedIndividual rdf:about="&ai;PT-16">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="en">30days Term</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0016</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">30days Term</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PT-17 -->
+
+    <owl:NamedIndividual rdf:about="&ai;PT-17">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="en">60days Term</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0017</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">60days Term</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#PT-18 -->
+
+    <owl:NamedIndividual rdf:about="&ai;PT-18">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="en">90days Term</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0018</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">90days Term</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Piece -->
+
+    <owl:NamedIndividual rdf:about="&ai;Piece">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">Stück</rdfs:label>
+        <rdfs:label xml:lang="en">Piece</rdfs:label>
+        <rdfs:label xml:lang="zh"> 一个</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Piece</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">ST</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">ST</ps:objectExternalId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Quote-PDF -->
+
+    <owl:NamedIndividual rdf:about="&ai;Quote-PDF">
+        <rdf:type rdf:resource="&as;ProposalReportTemplate"/>
+        <rdfs:label xml:lang="de">Quote</rdfs:label>
+        <rdfs:label xml:lang="en">Quote</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">quote</ps:objectName>
+        <as:isDefault rdf:datatype="&xsd;boolean">true</as:isDefault>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#REGION_CA -->
+
+    <owl:NamedIndividual rdf:about="&ai;REGION_CA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Central America</rdfs:label>
+        <rdfs:label xml:lang="en">Central America</rdfs:label>
+        <rdfs:label xml:lang="zh"> 中美洲</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">CA</ps:objectName>
+        <ps:objectId rdf:datatype="&xsd;string">CA</ps:objectId>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#REGION_SA -->
+
+    <owl:NamedIndividual rdf:about="&ai;REGION_SA">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">South America</rdfs:label>
+        <rdfs:label xml:lang="en">South America</rdfs:label>
+        <rdfs:label xml:lang="zh"> 南美洲</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">SA</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">SA</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#ROW -->
+
+    <owl:NamedIndividual rdf:about="&ai;ROW">
+        <rdf:type rdf:resource="&as;Region"/>
+        <rdfs:label xml:lang="de">Rest der Welt</rdfs:label>
+        <rdfs:label xml:lang="en">Rest of World</rdfs:label>
+        <rdfs:label xml:lang="zh"> 世界其他地方</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">ROW</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Rest of World</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SG -->
+
+    <owl:NamedIndividual rdf:about="&ai;SG">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Singapur</rdfs:label>
+        <rdfs:label xml:lang="en">Singapore</rdfs:label>
+        <rdfs:label xml:lang="zh"> 新加坡</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">SG</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">SG</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Singapore</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;SGD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SGD -->
+
+    <owl:NamedIndividual rdf:about="&ai;SGD">
+        <rdf:type rdf:resource="&as;Currency"/>
+        <rdfs:label xml:lang="de">SGD</rdfs:label>
+        <rdfs:label xml:lang="en">SGD</rdfs:label>
+        <rdfs:label xml:lang="zh"> 新加坡元</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">SGD</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">SGD</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">SGD</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#Services -->
+
+    <owl:NamedIndividual rdf:about="&ai;Services">
+        <rdf:type rdf:resource="&as;UnitofMeasurement"/>
+        <rdfs:label xml:lang="de">Services</rdfs:label>
+        <rdfs:label xml:lang="en">Services</rdfs:label>
+        <rdfs:label xml:lang="zh"> 服务</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">SER</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">SER</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Services</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingOppApproval_Enable -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingOppApproval_Enable">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppApproval_Enable</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Whether to enable opportunity approval flow.</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.approval.opp.enabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingQuoteApproval_Enable -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingQuoteApproval_Enable">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_Enable</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Whether to enable quote approval flow.</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.approval.quote.enabled</as:settingKey>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingQuotePriority_High -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingQuotePriority_High">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_High</rdfs:label>
+        <as:settingValueNumeric rdf:datatype="&xsd;int">50000</as:settingValueNumeric>
+        <ps:objectName rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a very high priority workitem</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quote.priority.high</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingQuotePriority_Low -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingQuotePriority_Low">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_Low</rdfs:label>
+        <as:settingValueNumeric rdf:datatype="&xsd;int">100</as:settingValueNumeric>
+        <ps:objectName rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a medium priority workItem</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quote.priority.low</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingQuotePriority_Mid -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingQuotePriority_Mid">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_Mid</rdfs:label>
+        <as:settingValueNumeric rdf:datatype="&xsd;int">10000</as:settingValueNumeric>
+        <ps:objectName rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a high priority workItem</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quote.priority.mid</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsAccountCreate -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsAccountCreate">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsAccountCreate</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables account creation</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.accountCreate</as:settingKey>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsAccountDelete -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsAccountDelete">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsAccountDelete</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables account deletion</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.accountDelete</as:settingKey>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsIncoTermsEnabled -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsIncoTermsEnabled">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsIncoTermsEnabled</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables quote inco terms</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.incoTermsEnabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsOpportunityCreate -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsOpportunityCreate">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsOpportunityCreate</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables opportunity creation</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opportunityCreate</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsOpportunityDelete -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsOpportunityDelete">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsOpportunityDelete</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables opportunity deletion</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opportunityDelete</as:settingKey>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsOpportunityTab -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsOpportunityTab">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsOpportunityTab</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables opportunity tab</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.opportunityTab</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsPaymentTermsEnabled -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsPaymentTermsEnabled">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsPaymentTermsEnabled</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables quote payment terms</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.paymentTermsEnabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsProductCreate -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsProductCreate">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsProductCreate</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables product creation</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.productCreate</as:settingKey>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsProductDelete -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsProductDelete">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsProductDelete</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables product deletion</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.productDelete</as:settingKey>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteATPCheck -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteATPCheck">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteATPCheck</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables quote ATP check button</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteATPCheck</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteCount -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteCount">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteCount</rdfs:label>
+        <as:settingValueNumeric rdf:datatype="&xsd;int">0</as:settingValueNumeric>
+        <ps:objectName rdf:datatype="&xsd;string">The count of the number of quotes in the system. For quoteId generation</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteCount</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteDiscount -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteDiscount">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteDiscount</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables quote discount</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteDiscount</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsQuoteId -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsQuoteId">
+        <rdf:type rdf:resource="&as;SettingString"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsQuoteId</rdfs:label>
+        <as:settingValueString rdf:datatype="&xsd;string">${count:4}\${siteId:4}\FY${fiscalPeriod:2}\${siteCount:4}
+</as:settingValueString>
+        <ps:objectName rdf:datatype="&xsd;string">The format for the generation of quote IDs. Current supported parameters: count, date, ver</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteId</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsReportPrintAll -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsReportPrintAll">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label xml:lang="en">SettingsReportPrintAll</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Determines whether a given product&apos;s BDAs with no value will be printed in a Jasper report.</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.reportPrintAll</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#SettingsShippingTypeEnabled -->
+
+    <owl:NamedIndividual rdf:about="&ai;SettingsShippingTypeEnabled">
+        <rdf:type rdf:resource="&as;SettingBoolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingsShippingTypeEnabled</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">Enables/disables quote shipping type selection</ps:objectName>
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+        <as:settingKey rdf:datatype="&xsd;string">setting.shippingTypeEnabled</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#TH -->
+
+    <owl:NamedIndividual rdf:about="&ai;TH">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Thailand</rdfs:label>
+        <rdfs:label xml:lang="en">Thailand</rdfs:label>
+        <rdfs:label xml:lang="zh"> 泰国</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TH</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">TH</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Thailand</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#TW -->
+
+    <owl:NamedIndividual rdf:about="&ai;TW">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Taiwan, Province of China</rdfs:label>
+        <rdfs:label xml:lang="en">Taiwan, Province of China</rdfs:label>
+        <rdfs:label xml:lang="zh"> 中国台湾省</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">TW</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">TW</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Taiwan, Province of China</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#US -->
+
+    <owl:NamedIndividual rdf:about="&ai;US">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">USA</rdfs:label>
+        <rdfs:label xml:lang="en">USA</rdfs:label>
+        <rdfs:label xml:lang="zh"> 美国</rdfs:label>
+        <ps:objectExternalId rdf:datatype="&xsd;string">US</ps:objectExternalId>
+        <ps:objectId rdf:datatype="&xsd;string">US</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">USA</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;NA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#USD -->
+
+    <owl:NamedIndividual rdf:about="&ai;USD">
+        <rdf:type rdf:resource="&as;Currency"/>
+        <rdfs:label xml:lang="de">USD</rdfs:label>
+        <rdfs:label xml:lang="en">USD</rdfs:label>
+        <rdfs:label xml:lang="zh"> 美元</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">USD</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">USD</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">USD</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#VG -->
+
+    <owl:NamedIndividual rdf:about="&ai;VG">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Virgin Islands, British</rdfs:label>
+        <rdfs:label xml:lang="en">Virgin Islands, British</rdfs:label>
+        <rdfs:label xml:lang="zh"> 英属维京群岛</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">VG</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">VG</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Virgin Islands, British</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;EMEA"/>
+        <as:hasBaseCurrency rdf:resource="&ai;USD"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#VN -->
+
+    <owl:NamedIndividual rdf:about="&ai;VN">
+        <rdf:type rdf:resource="&as;Country"/>
+        <rdfs:label xml:lang="de">Viet Nam</rdfs:label>
+        <rdfs:label xml:lang="en">Viet Nam</rdfs:label>
+        <rdfs:label xml:lang="zh"> 越南</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">VN</ps:objectId>
+        <ps:objectExternalId rdf:datatype="&xsd;string">VN</ps:objectExternalId>
+        <ps:objectName rdf:datatype="&xsd;string">Viet Nam</ps:objectName>
+        <as:hasRegion rdf:resource="&ai;APJ"/>
+        <as:hasBaseCurrency rdf:resource="&ai;CNY"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-ROLE_SCM_REP_HUIZHOU_PACKAGING -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-ROLE_SCM_REP_HUIZHOU_PACKAGING">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">SCM Packaging Template</rdfs:label>
+        <rdfs:label xml:lang="en">SCM Packaging Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SCM_REP_HUIZHOU_PACKAGING</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-ROLE_SCM_REP_HUIZHOU_PI_SUBCON -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-ROLE_SCM_REP_HUIZHOU_PI_SUBCON">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">SCM PI_SUBCON Template</rdfs:label>
+        <rdfs:label xml:lang="en">SCM PI_SUBCON Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SCM_REP_HUIZHOU_PI_SUBCON</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-ROLE_SCM_REP_HUIZHOU_RAWMAT -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-ROLE_SCM_REP_HUIZHOU_RAWMAT">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">SCM RAWMAT Template</rdfs:label>
+        <rdfs:label xml:lang="en">SCM RAWMAT Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SCM_REP_HUIZHOU_RAWMAT</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-ROLE_SCM_REP_HUIZHOU_TRANSPORT -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-ROLE_SCM_REP_HUIZHOU_TRANSPORT">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">SCM TRANSPORT Template</rdfs:label>
+        <rdfs:label xml:lang="en">SCM TRANSPORT Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SCM_REP_HUIZHOU_TRANSPORT</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-ROLE_TOOLING_MASTERCOPY -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-ROLE_TOOLING_MASTERCOPY">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Tooling Template Master</rdfs:label>
+        <rdfs:label xml:lang="en">Tooling Template Master</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_TOOLING_MASTERCOPY</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-SCM-IPT -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-SCM-IPT">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">SCM IPT Template</rdfs:label>
+        <rdfs:label xml:lang="en">SCM IPT Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SCM_IPT</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-assembly -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-assembly">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Assembly Template</rdfs:label>
+        <rdfs:label xml:lang="en">Assembly Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_ASSEMBLY</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-globalIE -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-globalIE">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">IE Template</rdfs:label>
+        <rdfs:label xml:lang="en">IE Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_IE</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-globalIE-IPT -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-globalIE-IPT">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">IE Template</rdfs:label>
+        <rdfs:label xml:lang="en">IE Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_IE_IPT</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-globalMRB -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-globalMRB">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Sales MRB</rdfs:label>
+        <rdfs:label xml:lang="en">Sales MRB</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SALES</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-globalMRB-IPT -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-globalMRB-IPT">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Sales MRB</rdfs:label>
+        <rdfs:label xml:lang="en">Sales MRB</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SALES_IPT</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-globalSCM -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-globalSCM">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">SCM All Template</rdfs:label>
+        <rdfs:label xml:lang="en">SCM ALL Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_SCM_HUIZHOU</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-plating -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-plating">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Plating Template</rdfs:label>
+        <rdfs:label xml:lang="en">Plating Template</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_PLATING</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-toolingHATL -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-toolingHATL">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Tooling Template HITL</rdfs:label>
+        <rdfs:label xml:lang="en">Tooling Template HITL</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_TOOLING_HATL</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-implementation.owl#template-toolingTCC -->
+
+    <owl:NamedIndividual rdf:about="&ai;template-toolingTCC">
+        <rdf:type rdf:resource="&as;WorkbookTemplate"/>
+        <rdfs:label xml:lang="de">Tooling Template TCC</rdfs:label>
+        <rdfs:label xml:lang="en">Tooling Template TCC</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">template-ROLE_TOOLING_TCC</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#IT-EXW -->
+
+    <owl:NamedIndividual rdf:about="&as;IT-EXW">
+        <rdf:type rdf:resource="&as;IncoTerms"/>
+        <rdfs:label xml:lang="de">Ab Werk</rdfs:label>
+        <rdfs:label xml:lang="en">From plant</rdfs:label>
+        <rdfs:label xml:lang="zh"> 出厂价 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">EXW</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">From plant</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-1 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-1">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">sofort zahlbar ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">Payable immediately Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 立即应付的到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0001</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Payable immediately Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-10 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-10">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">sofort zahlbar ohne Abzug
+Basisdatum am 10. des Folgemonats</rdfs:label>
+        <rdfs:label xml:lang="en">Payable immediately Due net
+Baseline date on 10 of next month</rdfs:label>
+        <rdfs:label xml:lang="zh"> 下一个月10号应付的到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0010</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Payable immediately Due net
+Baseline date on 10 of next month</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-11 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-11">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 10 Tagen 3 % Skonto</rdfs:label>
+        <rdfs:label xml:lang="en">within 10 days 3 % cash discount</rdfs:label>
+        <rdfs:label xml:lang="zh"> 10天之内3%的现金折扣</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0011</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 10 days 3 % cash discount</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-12 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-12">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">sofort zahlbar ohne Abzug
+Basisdatum am 11. des Folgemonats</rdfs:label>
+        <rdfs:label xml:lang="en">Payable immediately Due net
+Baseline date on 11 of next month</rdfs:label>
+        <rdfs:label xml:lang="zh"> 下一个月11号到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0012</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Payable immediately Due net
+Baseline date on 11 of next month</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-13 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-13">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 14 Tagen 3 % Skonto
+innerhalb von 30 Tagen 2 % Skonto
+innerhalb von 45 Tagen ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">within 14 days 3 % cash discount
+within 30 days 2 % cash discount
+within 45 days Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 14天之内3%的现金折扣， 30天之内2%的现金折扣，45天之内到期净值 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0013</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 14 days 3 % cash discount
+within 30 days 2 % cash discount
+within 45 days Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-14 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-14">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 10 Tagen 5 % Skonto</rdfs:label>
+        <rdfs:label xml:lang="en">within 10 days 5 % cash discount</rdfs:label>
+        <rdfs:label xml:lang="zh"> 10天之内5%的现金折扣</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0014</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 10 days 5 % cash discount</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-2 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-2">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 14 Tagen 3 % Skonto
+innerhalb von 30 Tagen 2 % Skonto
+innerhalb von 45 Tagen ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">within 14 days 3 % cash discount
+within 30 days 2 % cash discount
+within 45 days Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 14天之内3%的现金折扣， 30天之内2%的现金折扣，45天之内到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0002</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 14 days 3 % cash discount
+within 30 days 2 % cash discount
+within 45 days Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-3 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-3">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">Bei Rechnungsstellung bis zum 15. des Monats
+innerhalb von 14 Tagen 2 % Skonto
+Rest in 15 Tagen</rdfs:label>
+        <rdfs:label xml:lang="en">For Invoicing up to 15 of Month
+within 14 days 2 % cash discount
+rest in 15 days</rdfs:label>
+        <rdfs:label xml:lang="zh">开票截至日期为当月的15，14天之内2%的现金折扣，剩下的在15天内到期 </rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0003</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">For Invoicing up to 15 of Month
+within 14 days 2 % cash discount rest in 15 days</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-4 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-4">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 14 Tagen 3 % Skonto
+innerhalb von 30 Tagen 1 % Skonto
+innerhalb von 60 Tagen ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">within 14 days 3 % cash discount
+within 30 days 1 % cash discount
+within 60 days Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 14天之内3%的现金折扣， 30天之内1%的现金折扣，60天之内到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0004</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 14 days 3 % cash discount
+within 30 days 1 % cash discount
+within 60 days Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-5 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-5">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 10 Tagen 2 % Skonto
+innerhalb von 30 Tagen 1 % Skonto
+innerhalb von 50 Tagen ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">within 10 days 2 % cash discount
+within 30 days 1 % cash discount
+within 50 days Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 10天之内2%的现金折扣， 30天之内1%的现金折扣，50天之内到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0005</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 10 days 2 % cash discount
+within 30 days 1 % cash discount
+within 50 days Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-6 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-6">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">bis zum Ende des Monats 4 % Skonto
+bis zum 15. des Folgemonats 2 % Skonto
+bis zum 15. in 2 Monaten ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">Before End of the month 4 % cash discount
+Before 15 of the next month 2 % cash discount
+Before 15 in 2 months Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 在当月结束之前4%的现金折扣，在下一个月15之前2%的现金折扣，在2个月后的15之前到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0006</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Before End of the month 4 % cash discount
+Before 15 of the next month ;; 2 % cash discount
+Before 15 in 2 months Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-7 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-7">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">innerhalb von 14 Tagen 4 % Skonto
+innerhalb von 30 Tagen 2 % Skonto
+innerhalb von 60 Tagen ohne Abzug</rdfs:label>
+        <rdfs:label xml:lang="en">within 14 days 4 % cash discount
+within 30 days 2 % cash discount
+within 60 days Due net</rdfs:label>
+        <rdfs:label xml:lang="zh"> 14天之内4%的现金折扣， 30天之内2%的现金折扣，60天之内到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0007</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">within 14 days 4 % cash discount
+within 30 days 2 % cash discount
+within 60 days Due net</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-8 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-8">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">sofort zahlbar ohne Abzug
+Basisdatum am Ende des Monats</rdfs:label>
+        <rdfs:label xml:lang="en">Payable immediately Due net
+Baseline date on End of the month</rdfs:label>
+        <rdfs:label xml:lang="zh">在当月结束之前到期净值</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0008</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Payable immediately Due net
+Baseline date on End of the month</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#PT-9 -->
+
+    <owl:NamedIndividual rdf:about="&as;PT-9">
+        <rdf:type rdf:resource="&as;PaymentTerms"/>
+        <rdfs:label xml:lang="de">sofort zahlbar 2,125 % Skonto
+bei Rechnungsstellung bis zum 15. des Monats</rdfs:label>
+        <rdfs:label xml:lang="en">Payable immediately 2.125 % cash discount
+For Invoicing up to 15 of Month
+</rdfs:label>
+        <rdfs:label xml:lang="zh"> 立即应付2.125%现金折扣到期款， 开票截至日前为当月15号</rdfs:label>
+        <ps:objectId rdf:datatype="&xsd;string">0009</ps:objectId>
+        <ps:objectName rdf:datatype="&xsd;string">Payable immediately 2,125 % cash discount
+For Invoicing up to 15 of Month</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#RFI -->
+
+    <owl:NamedIndividual rdf:about="&as;RFI">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">RFI</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">RFI</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#RFP -->
+
+    <owl:NamedIndividual rdf:about="&as;RFP">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">RFP</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">RFP</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#RFQ -->
+
+    <owl:NamedIndividual rdf:about="&as;RFQ">
+        <rdf:type rdf:resource="&as;QuoteType"/>
+        <rdfs:label xml:lang="en">RFQ</rdfs:label>
+        <ps:objectName rdf:datatype="&xsd;string">RFQ</ps:objectName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SALES_SYSTEM_INSTANCE -->
+
+    <rdf:Description rdf:about="&as;SALES_SYSTEM_INSTANCE">
+        <as:hasDefaultCurrency rdf:resource="&ai;USD"/>
+    </rdf:Description>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsAddNoteEmailEnabled -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsAddNoteEmailEnabled">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsApprovalEmailEnabled -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsApprovalEmailEnabled">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsCreateObjectEmailEnabled -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsCreateObjectEmailEnabled">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsEmailEnabled -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsEmailEnabled">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsEmailToHigherRole -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsEmailToHigherRole">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsGlobalQuoteCount -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsGlobalQuoteCount">
+        <rdf:type rdf:resource="&as;SettingNumeric"/>
+        <as:settingValueNumeric rdf:datatype="&xsd;int">0</as:settingValueNumeric>
+        <ps:objectName rdf:datatype="&xsd;string">The count of the number of quotes in the system. For quoteId generation</ps:objectName>
+        <as:settingKey rdf:datatype="&xsd;string">setting.quoteCount</as:settingKey>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsPrecision -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsPrecision">
+        <as:settingValueNumeric rdf:datatype="&xsd;int">4</as:settingValueNumeric>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsRoutingEmailEnabled -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsRoutingEmailEnabled">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">true</as:settingValueBoolean>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#SettingsUpdateObjectEmailEnabled -->
+
+    <owl:NamedIndividual rdf:about="&as;SettingsUpdateObjectEmailEnabled">
+        <as:settingValueBoolean rdf:datatype="&xsd;boolean">false</as:settingValueBoolean>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xml:base="http://www.inmindcomputing.com/ssc/submodel.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.1</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/platform/platform-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#mapToConditionType -->
+
+    <owl:AnnotationProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#mapToConditionType">
+        <rdfs:subPropertyOf rdf:resource="&ps;businessmetaattribute"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#hasHeaderApplicationField -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#hasHeaderApplicationField">
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#ApplicationField"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingProcedure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#hasHeaderConditionType -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#hasHeaderConditionType">
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingConditionType"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingProcedure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#hasItemConditionType -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#hasItemConditionType">
+        <rdfs:subPropertyOf rdf:resource="&as;has"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingConditionType"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingProcedure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#hasPricingProcedure -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#hasPricingProcedure">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;has"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingProcedure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#includesPricingCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#includesPricingCondition">
+        <rdfs:subPropertyOf rdf:resource="&as;includesPriceItem"/>
+        <rdfs:range rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#applicationFieldName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#applicationFieldName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#ApplicationField"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#calculationType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#calculationType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingConditionType"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#complete -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#complete">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&as;ConfigItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#conditionRateValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#conditionRateValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondition"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#conditionTypeName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#conditionTypeName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondition"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#conflicting -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#conflicting">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&as;ConfigItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#manuallyChanged -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#manuallyChanged">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondition"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#netPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#netPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#netValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#netValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#totalNetValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#totalNetValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#valueQuery -->
+
+    <owl:DatatypeProperty rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#valueQuery">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl#ApplicationField"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#ApplicationField -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#ApplicationField">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondition -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#PricingCondition">
+        <rdfs:subClassOf rdf:resource="&as;PriceItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#PricingConditionType -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#PricingConditionType">
+        <rdfs:subClassOf rdf:resource="&as;PriceItemType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/ssc/submodel.owl#PricingProcedure -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/ssc/submodel.owl#PricingProcedure">
+        <rdfs:subClassOf rdf:resource="&ps;Attribution"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

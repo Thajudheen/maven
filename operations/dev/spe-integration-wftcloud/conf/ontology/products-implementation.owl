@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ssc "http://www.inmindcomputing.com/ssc/submodel.owl#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:ssc="http://www.inmindcomputing.com/ssc/submodel.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/workItem-rule.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#C_PC -->
+
+    <owl:NamedIndividual rdf:about="&pci;C_PC">
+        <rdf:type rdf:resource="&as;Product"/>
+        <rdfs:label xml:lang="de">Campus PC</rdfs:label>
+        <rdfs:label xml:lang="en">Campus PC</rdfs:label>
+        <as:productIdECC rdf:datatype="&xsd;string">C_PC</as:productIdECC>
+        <ps:businessTypeId rdf:datatype="&xsd;string">C_PC</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">C_PC</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Campus PC</ps:businessTypeShortText>
+        <as:productImage rdf:datatype="&xsd;string">box.png</as:productImage>
+        <as:productConfigurable rdf:datatype="&xsd;boolean">true</as:productConfigurable>
+        <as:productIsOptional rdf:datatype="&xsd;boolean">true</as:productIsOptional>
+        <as:hasUnitofMeasure rdf:resource="&ai;Each"/>
+        <as:hasProductStatus rdf:resource="&as;ProductActive"/>
+        <as:includesKnowledgeBase rdf:resource="&ssc;HT_C_PC-5.1-P_C_PC"/>
+        <as:productContainedBy rdf:resource="&pci;Others"/>
+        <as:includesPriceItem rdf:resource="&pci;C_PC-PRICE-DE"/>
+        <as:includesPriceItem rdf:resource="&pci;C_PC-PRICE-US"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Others -->
+
+    <owl:NamedIndividual rdf:about="&pci;Others">
+        <rdf:type rdf:resource="&as;ProductCategory"/>
+        <rdfs:label xml:lang="de">Sonstiges</rdfs:label>
+        <rdfs:label xml:lang="en">Sonstiges</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">OTHERS</ps:businessTypeId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Sonstiges</ps:businessTypeShortText>
+        <as:productCategoryContainedBy rdf:resource="&as;RootProductCategory"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#C_PC-PRICE-DE -->
+
+    <owl:NamedIndividual rdf:about="&pci;C_PC-PRICE-DE">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">C_PC-PRICE-DE</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasCountry rdf:resource="&ai;DE"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#C_PC-PRICE-US -->
+
+    <owl:NamedIndividual rdf:about="&pci;C_PC-PRICE-US">
+        <rdf:type rdf:resource="&as;PriceItem"/>
+        <rdfs:label xml:lang="en">C_PC-PRICE-US</rdfs:label>
+        <as:priceItemBaseAmount rdf:datatype="&xsd;decimal">0</as:priceItemBaseAmount>
+        <as:hasCountry rdf:resource="&ai;US"/>
+        <as:hasBaseCurrency rdf:resource="&ai;EUR"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

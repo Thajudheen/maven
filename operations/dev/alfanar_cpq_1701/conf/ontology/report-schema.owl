@@ -1,0 +1,2442 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY rs "http://www.inmindcomputing.com/application/report-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/report-schema.owl#"
+     xml:base="http://www.inmindcomputing.com/application/report-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rs="http://www.inmindcomputing.com/application/report-schema.owl#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/report-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/platform/platform-schema.owl#dimensionIncludedBy -->
+
+    <owl:ObjectProperty rdf:about="&ps;dimensionIncludedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#activity -->
+
+    <owl:DatatypeProperty rdf:about="&ase;activity">
+        <rdfs:domain rdf:resource="&ase;OpportunityRelevanceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#amount -->
+
+    <owl:DatatypeProperty rdf:about="&ase;amount">
+        <rdfs:comment>Amount of Prospects for the Report
+</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;LeadsCompareLastWeekMonth"/>
+                    <rdf:Description rdf:about="&ase;ProspectsPerRegionData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#calendarYear -->
+
+    <owl:DatatypeProperty rdf:about="&ase;calendarYear">
+        <rdfs:domain rdf:resource="&ase;OpportunityVolumePerCalendarYearData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#docType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;docType">
+        <rdfs:domain rdf:resource="&ase;OpportunitiesVsQuotesPerQuarterData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionNegativeSentiment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionNegativeSentiment">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionPositiveSentiment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionPositiveSentiment">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionProblem -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionProblem">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionRequests -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionRequests">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#fiscalYear -->
+
+    <owl:DatatypeProperty rdf:about="&ase;fiscalYear">
+        <rdfs:domain rdf:resource="&ase;OpportunityVolumePerFiscalYearData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#mood -->
+
+    <owl:DatatypeProperty rdf:about="&ase;mood">
+        <rdfs:domain rdf:resource="&ase;OpportunityRelevanceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#opportunity -->
+
+    <owl:DatatypeProperty rdf:about="&ase;opportunity">
+        <rdfs:comment rdf:datatype="&xsd;string">Opportunity name in data point for report.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityRelevanceData"/>
+                    <rdf:Description rdf:about="&ase;OpportunitySentimentData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#opportunityId -->
+
+    <owl:DatatypeProperty rdf:about="&ase;opportunityId">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunityOpportunitiesPerVolumeData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityRelevanceData"/>
+                    <rdf:Description rdf:about="&ase;OpportunitySentimentData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#price -->
+
+    <owl:DatatypeProperty rdf:about="&ase;price">
+        <rdfs:domain rdf:resource="&ase;QuotesPerPriceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;decimal"/>
+                    <rdf:Description rdf:about="&xsd;string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#productName -->
+
+    <owl:DatatypeProperty rdf:about="&ase;productName">
+        <rdfs:domain rdf:resource="&ase;OpportunityVolumeByProductData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quote -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quote">
+        <rdfs:domain rdf:resource="&ase;QuotesPerPriceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteId -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteId">
+        <rdfs:domain rdf:resource="&ase;QuotesPerPriceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#region -->
+
+    <owl:DatatypeProperty rdf:about="&ase;region">
+        <rdfs:comment>Regions for the Report</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;LeadsCompareLastWeekMonth"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerYearQuarterData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#regionaxis1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;regionaxis1">
+        <rdfs:comment>Regions for the Donut Charts</rdfs:comment>
+        <rdfs:domain rdf:resource="&ase;ProspectsPerRegionData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#salesPhase -->
+
+    <owl:DatatypeProperty rdf:about="&ase;salesPhase">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerYearQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#timeframe -->
+
+    <owl:DatatypeProperty rdf:about="&ase;timeframe">
+        <rdfs:domain rdf:resource="&ase;LeadsCompareLastWeekMonth"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#volume -->
+
+    <owl:DatatypeProperty rdf:about="&ase;volume">
+        <rdfs:comment rdf:datatype="&xsd;string">Volume of opportunity.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+                    <rdf:Description rdf:about="&ase;OpportunitiesVsQuotesPerQuarterData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumeByProductData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerCalendarYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerFiscalYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerYearQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#weightedVolume -->
+
+    <owl:DatatypeProperty rdf:about="&ase;weightedVolume">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunityRelevanceData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerCalendarYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerFiscalYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerYearQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#yearQuarter -->
+
+    <owl:DatatypeProperty rdf:about="&ase;yearQuarter">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunitiesVsQuotesPerQuarterData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerYearQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#Ibltg -->
+
+    <owl:DatatypeProperty rdf:about="&rs;Ibltg">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#Ibltl -->
+
+    <owl:DatatypeProperty rdf:about="&rs;Ibltl">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#Ik1max -->
+
+    <owl:DatatypeProperty rdf:about="&rs;Ik1max">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#Ik2min -->
+
+    <owl:DatatypeProperty rdf:about="&rs;Ik2min">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#Ik3max -->
+
+    <owl:DatatypeProperty rdf:about="&rs;Ik3max">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#IpK -->
+
+    <owl:DatatypeProperty rdf:about="&rs;IpK">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#accountName -->
+
+    <owl:DatatypeProperty rdf:about="&rs;accountName">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#accountProspect -->
+
+    <owl:DatatypeProperty rdf:about="&rs;accountProspect">
+        <rdfs:domain rdf:resource="&rs;NewsletterData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#breakerId -->
+
+    <owl:DatatypeProperty rdf:about="&rs;breakerId">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#country -->
+
+    <owl:DatatypeProperty rdf:about="&rs;country">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#email -->
+
+    <owl:DatatypeProperty rdf:about="&rs;email">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#firstName -->
+
+    <owl:DatatypeProperty rdf:about="&rs;firstName">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#kV -->
+
+    <owl:DatatypeProperty rdf:about="&rs;kV">
+        <rdfs:domain rdf:resource="&rs;DesignData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#lastName -->
+
+    <owl:DatatypeProperty rdf:about="&rs;lastName">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#newsletter -->
+
+    <owl:DatatypeProperty rdf:about="&rs;newsletter">
+        <rdfs:domain rdf:resource="&rs;ContactsData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#owner -->
+
+    <owl:DatatypeProperty rdf:about="&rs;owner">
+        <rdfs:domain rdf:resource="&rs;NewsletterData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#position -->
+
+    <owl:DatatypeProperty rdf:about="&rs;position">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#reportDescription -->
+
+    <owl:DatatypeProperty rdf:about="&rs;reportDescription">
+        <rdfs:domain rdf:resource="&as;AnalyticReport"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#reportFileName -->
+
+    <owl:DatatypeProperty rdf:about="&rs;reportFileName">
+        <rdfs:domain rdf:resource="&as;AnalyticReport"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="&rs;title">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rs;ContactsData"/>
+                    <rdf:Description rdf:about="&rs;NewsletterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitOpportunitiesPerVolumeData -->
+
+    <owl:Class rdf:about="&ase;CockpitOpportunitiesPerVolumeData">
+        <rdfs:subClassOf rdf:resource="&ps;Transient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#LeadsCompareLastWeekMonth -->
+
+    <owl:Class rdf:about="&ase;LeadsCompareLastWeekMonth">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunitiesPerVolumeData -->
+
+    <owl:Class rdf:about="&ase;OpportunitiesPerVolumeData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunitiesVsQuotesPerQuarterData -->
+
+    <owl:Class rdf:about="&ase;OpportunitiesVsQuotesPerQuarterData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityOpportunitiesPerVolumeData -->
+
+    <owl:Class rdf:about="&ase;OpportunityOpportunitiesPerVolumeData">
+        <rdfs:subClassOf rdf:resource="&ps;Transient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityRelevanceData -->
+
+    <owl:Class rdf:about="&ase;OpportunityRelevanceData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunitySentimentData -->
+
+    <owl:Class rdf:about="&ase;OpportunitySentimentData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumeByProductData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumeByProductData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerCalendarYearData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerCalendarYearData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerFiscalYearData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerFiscalYearData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerQuarterData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerQuarterData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerYearQuarterData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerYearQuarterData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#ProspectsPerRegionData -->
+
+    <owl:Class rdf:about="&ase;ProspectsPerRegionData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuotesPerPriceData -->
+
+    <owl:Class rdf:about="&ase;QuotesPerPriceData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#ContactsData -->
+
+    <owl:Class rdf:about="&rs;ContactsData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#DesignData -->
+
+    <owl:Class rdf:about="&rs;DesignData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#NewsletterData -->
+
+    <owl:Class rdf:about="&rs;NewsletterData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportFutureBusiness -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportFutureBusiness">
+        <rdf:type rdf:resource="&as;InactiveReport"/>
+        <rdfs:label xml:lang="en">Future Business (Prospect Network)</rdfs:label>
+        <rdfs:label xml:lang="en">Zukünftiges Geschäft (Interessenten Netzwerk)</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">100</ps:sequenceID>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">DONUT</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs-kb: &lt;http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX xpath-fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX pcst: &lt;http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX swrl: &lt;http://www.w3.org/2003/11/swrl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX swrlb: &lt;http://www.w3.org/2003/11/swrlb#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ase: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+
+CONSTRUCT {
+   ?uuid a ase:ProspectsPerRegionData;
+      ps:orderBy ?vol;
+      a ps:Data;
+      ase:amount ?amount;
+      ase:regionaxis1 ?reg.
+} WHERE {
+   {
+
+
+SELECT (?labelregion AS ?reg )    (COUNT(?person) as ?amount) WHERE {
+{         ?prospect as:hasAccountStatus as:ACTIVE.
+         ?prospect rdf:type as:Account.
+         ?prospect as:accountProspect ?accProsp.
+   ?prospect ps:objectName ?accountname.
+         ?prospect as:includesPerson ?person.
+         ?address as:addressIncludedBy ?prospect.
+         ?address as:addressMain ?mainAd.
+         ?address as:hasCountry ?country.
+         ?country as:hasRegion ?region.
+         ?region ps:objectName ?labelregion.
+         ?person as:personEmail ?email.
+         FILTER (xsd:string(?accProsp) = &quot;true&quot;).
+         FILTER(xsd:string(?mainAd) = &quot;true&quot;).
+
+       ?prospect as:containsOpportunity ?opp.
+        ?opp as:opportunityVolume ?vol.
+?opp as:hasSalesDocumentStatus as:OPEN.
+      FILTER (?vol = 0)
+}   UNION
+      {
+         ?prospect as:hasAccountStatus as:ACTIVE.
+         ?prospect rdf:type as:Account.
+         ?prospect as:accountProspect ?accProsp.
+   ?prospect ps:objectName ?accountname.
+         ?prospect as:includesPerson ?person.
+         ?address as:addressIncludedBy ?prospect.
+         ?address as:addressMain ?mainAd.
+         ?address as:hasCountry ?country.
+         ?country as:hasRegion ?region.
+         ?region ps:objectName ?labelregion.
+         ?person as:personEmail ?email.
+         FILTER (xsd:string(?accProsp) = &quot;true&quot;).
+         FILTER(xsd:string(?mainAd) = &quot;true&quot;).
+      FILTER (NOT EXISTS {?prospect as:containsOpportunity ?opp.})
+   }
+UNION
+{         ?prospect as:hasAccountStatus as:ACTIVE.
+         ?prospect rdf:type as:Account.
+         ?prospect as:accountProspect ?accProsp.
+   ?prospect ps:objectName ?accountname.
+         ?prospect as:includesPerson ?person.
+         ?address as:addressIncludedBy ?prospect.
+         ?address as:addressMain ?mainAd.
+         ?address as:hasCountry ?country.
+         ?country as:hasRegion ?region.
+         ?region ps:objectName ?labelregion.
+         ?person as:personEmail ?email.
+         FILTER (xsd:string(?accProsp) = &quot;true&quot;).
+         FILTER(xsd:string(?mainAd) = &quot;true&quot;).
+
+       ?prospect as:containsOpportunity ?opp.
+
+?opp as:hasSalesDocumentStatus as:OPEN.
+      FILTER (NOT EXISTS {?opp as:opportunityVolume ?vol.})
+}
+   }	GROUP BY ?labelregion
+
+
+  }
+
+
+BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <rdfs:comment>PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs-kb: &lt;http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX xpath-fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX pcst: &lt;http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX swrl: &lt;http://www.w3.org/2003/11/swrl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX swrlb: &lt;http://www.w3.org/2003/11/swrlb#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ase: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+
+CONSTRUCT {
+   ?uuid a ase:ProspectsPerRegionData;
+      ps:orderBy ?vol;
+      a ps:Data;
+      ase:amount ?amount;
+      ase:regionaxis1 ?reg.
+} WHERE {
+   {
+      SELECT (?labelregion AS ?reg )    (COUNT(?person) as ?amount) WHERE {
+         ?prospect as:hasAccountStatus as:ACTIVE.
+         ?prospect rdf:type as:Account.
+         ?prospect as:accountProspect ?accProsp.
+         ?prospect as:includesPerson ?person.
+         ?address as:addressIncludedBy ?prospect.
+         ?address as:addressMain ?mainAd.
+         ?address as:hasCountry ?country.
+         ?country as:hasRegion ?region.
+         ?region ps:objectName ?labelregion.
+         ?person as:personEmail ?email.
+         FILTER (xsd:string(?accProsp) = &quot;true&quot;).
+         FILTER(xsd:string(?mainAd) = &quot;true&quot;).
+         FILTER NOT EXISTS {
+            ?prospect as:containsOpportunity ?opp2.
+            ?opp2 as:hasSalesPhase ai:SalesPhase2.
+         }
+         FILTER NOT EXISTS {
+            ?prospect as:containsOpportunity ?opp.
+            ?opp3 as:hasSalesPhase ai:SalesPhase3.
+         }
+         FILTER NOT EXISTS {
+            ?prospect as:containsOpportunity ?opp7.
+            ?opp7 as:hasSalesPhase ai:SalesPhase7.
+         }
+         FILTER NOT EXISTS {
+            ?prospect as:containsOpportunity ?opp5.
+            ?opp5 as:hasSalesPhase ai:SalesPhase5.
+         }
+         FILTER NOT EXISTS {
+            ?prospect as:containsOpportunity ?opp6.
+            ?opp6 as:hasSalesPhase ai:SalesPhase6.
+         }
+
+      } GROUP BY  ?labelregion
+
+   }
+
+
+BIND(afn:uuid() as ?uuid).
+}</rdfs:comment>
+        <ps:hasDimension rdf:resource="&ase;DimensionRegionAxis1"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureAmount"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityRelevance -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityRelevance">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Relevanz von Verkaufsgelegenheiten</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity Relevance</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">BUBBLE</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunityRelevanceData;
+      a ps:Data;
+      as-ext:mood ?mood;
+      as-ext:weightedVolume ?volumeDec;
+      as-ext:activity ?activity;
+      as-ext:opportunity ?comment ;
+      as-ext:opportunityId ?opportunityId .
+} WHERE {
+   {
+      SELECT ?opportunityId
+      ?comment
+      (MAX(?ovolume) as ?volume)
+      (COUNT(?note) as ?activity)
+      (SUM(?posSentNote) as ?posSentiment)
+      (SUM(?negSentNote) as ?negSentiment)
+      WHERE {
+         SELECT
+         #*
+         ?opportunityId
+         ?comment
+         ?note
+         (MAX(?owvolume) as ?ovolume)
+         (SUM(?positiveAll) as ?posSentNote)
+         (SUM(?negativeAll) as ?negSentNote)
+         WHERE  {
+            ?opp rdf:type as:Opportunity .
+            ?opp ps:objectName ?comment.
+            # for filter
+            ?opp  as:hasSalesDocumentStatus ?status .
+            ?opp  as:hasSalesPhase ?phase .
+            # volume
+            ?opp  as:opportunityWeightedVolume ?owvolume.
+            ?opp as:definesAnnotation ?note .
+
+            OPTIONAL {
+               # positive sentiment
+               ?note as:linksExtractionResult ?extResult .
+               ?extResult as:extractedType ?extType .
+               BIND(IF(?extType = &apos;WeakPositiveSentiment&apos; || ?extType = &apos;StrongPositiveSentiment&apos;, 1, 0) as ?positive)
+               # positive sentiment
+               BIND(IF(?extType = &apos;WeakNegativeSentiment&apos; || ?extType = &apos;StrongNegativeSentiment&apos;, 1, 0) as ?negative)
+            }
+
+            BIND(IF(BOUND(?negative),?negative,0) as ?negativeAll)
+            BIND(IF(BOUND(?positive),?positive,0) as ?positiveAll)
+            BIND(str(?opp) as ?opportunityId).
+            FILTER(?status != as:LOST).
+            FILTER(?status != as:WON).
+            FILTER(?phase != as:SalesPhase1).
+
+         }
+         GROUP BY
+         ?opportunityId
+         ?comment
+         ?note
+      }
+      GROUP BY
+      ?opportunityId
+      ?comment
+     }
+   BIND(afn:uuid() as ?uuid).
+   BIND(xsd:decimal(?volume) as ?volumeDec)
+   BIND(?posSentiment - ?negSentiment as ?mood)
+}    </ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionOpportunity"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureActivity"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureMood"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureWeightedVolumeGroup3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityVolumePerCalendarYear -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityVolumePerCalendarYear">
+        <rdf:type rdf:resource="&as;InactiveReport"/>
+        <rdfs:label xml:lang="de">Verkaufsgelegenheitsvolumen pro Kalenderjahr</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity Volume per Calendar Year</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">LINE</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+      ?uuid a as-ext:OpportunityVolumePerCalendarYearData;
+      ps:orderBy ?year;
+      a ps:Data;
+      as-ext:weightedVolume ?owvolumeSum;
+      as-ext:volume ?ovolumeSum;
+      as-ext:calendarYear ?year.
+} WHERE {
+   {
+      SELECT (SUM(?owvolumedec) as ?owvolumeSum)
+      (SUM(?ovolumedec) as ?ovolumeSum)
+      ?year
+      WHERE {
+         ?opp  rdf:type as:Opportunity .
+         ?opp  as:hasSalesDocumentStatus ?status .
+         ?opp  as:hasSalesPhase ?phase .
+         ?opp  as:opportunityWeightedVolume ?owvolume .
+         ?opp  as:opportunityVolume ?ovolume .
+         ?opp  as:salesDocumentDateOfExpiry ?doexpiry .
+         BIND(xsd:decimal(?ovolume) as ?ovolumedec) .
+         BIND(xsd:decimal(?owvolume) as ?owvolumedec) .
+         BIND(xsd:dateTime(?doexpiry) as ?doexpiryDate) .
+         BIND(str(year(?doexpiryDate)) as ?year)
+         BIND(strafter(str(?phase), &quot;#&quot;) as ?salesPhase).
+         FILTER(?status != as:LOST &amp;&amp; ?status!= as:COMPLETED )
+         FILTER(?phase != as:SalesPhase1)
+      } GROUP BY ?year
+   }
+   BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionCalendarYear"/>
+        <ps:hasDimension rdf:resource="&ase;DimensionSalesPhase"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureWeightedVolumeGroup1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityVolumePerFiscalYear -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityVolumePerFiscalYear">
+        <rdf:type rdf:resource="&as;InactiveReport"/>
+        <rdfs:label xml:lang="de">Verkaufsgelegenheitsvolumen pro Fiskaljahr</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity Volume per Fiscal Year </rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+      ?uuid a as-ext:OpportunityVolumePerFiscalYearData;
+      ps:orderBy ?fiscalYear;
+      a ps:Data;
+      as-ext:weightedVolume ?owvolumeSum;
+      as-ext:volume ?ovolumeSum;
+      as-ext:fiscalYear ?fiscalYear.
+} WHERE {
+
+{
+      SELECT (SUM(?owvolumedec) as ?owvolumeSum)
+      (SUM(?ovolumedec) as ?ovolumeSum)
+       ?fiscalYear
+      WHERE {
+         ?opp  rdf:type as:Opportunity .
+         ?opp  as:hasSalesDocumentStatus ?status .
+         ?opp  as:hasSalesPhase ?phase .
+         ?opp  as:opportunityWeightedVolume ?owvolume .
+         ?opp  as:opportunityVolume ?ovolume .
+         ?opp  as:salesDocumentDateOfExpiry ?doexpiryDate .
+         ?fp   rdf:type as:FiscalPeriod .
+         ?fp   as:fiscalPeriodEndDate ?fpendDate .
+         ?fp   as:fiscalPeriodStartDate ?fpsstartDate .
+
+         BIND(xsd:decimal(?ovolume) as ?ovolumedec) .
+         BIND(xsd:decimal(?owvolume) as ?owvolumedec) .
+
+
+         BIND(strafter(str(?fp), &quot;#&quot;) as ?fiscalYear).
+         BIND(strafter(str(?phase), &quot;#&quot;) as ?salesPhase).
+         FILTER(?doexpiryDate &lt; ?fpendDate &amp;&amp; ?doexpiryDate &gt;= ?fpsstartDate)
+         FILTER(?status != as:LOST)
+         FILTER(?phase != as:SalesPhase1)
+      } GROUP BY ?fiscalYear
+   }
+   BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <ps:preferredReportRepresentation>AREA</ps:preferredReportRepresentation>
+        <ps:hasDimension rdf:resource="&ase;DimensionFiscalYear"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureWeightedVolumeGroup1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityVolumePerProduct -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityVolumePerProduct">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Verkaufsgelegenheitsvolumen mit enthaltenen Produkt</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity Volume Aggregated By Containing Product</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">DONUT</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunityVolumePerYearQuarterData;
+      ps:orderBy ?productName;
+      a ps:Data;
+      as-ext:volume ?ovolumeSum;
+      as-ext:productName ?productName
+} WHERE {
+   {
+      SELECT ?productName (SUM(?ovolumedec) as ?ovolumeSum)   WHERE {
+
+         ?opp as:linksProduct ?product .
+         ?product ps:objectName ?productName .
+         ?opp  rdf:type as:Opportunity .
+         ?opp  as:hasSalesDocumentStatus ?status .
+         ?opp  as:hasSalesPhase ?phase .
+         ?opp  as:opportunityVolume ?ovolume .
+         ?opp  as:salesDocumentDateOfExpiry ?doexpiry .
+         BIND(xsd:decimal(?ovolume) as ?ovolumedec) .
+         FILTER(?status != as:LOST).
+         FILTER(?phase != as:SalesPhase1).
+      }
+      GROUP BY ?productName
+   }
+   BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionProduct"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityVolumePerQuarter -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityVolumePerQuarter">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Verkaufsgelegenheitsvolumen pro Quartal</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity Volume per Quarter</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">AREA</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunityVolumePerYearQuarterData;
+      ps:orderBy ?yearQuarter;
+      a ps:Data;
+      as-ext:volume ?ovolumeSum;
+      as-ext:yearQuarter ?yearQuarter;
+      as-ext:salesPhase ?salesPhase.
+} WHERE {
+   {
+      SELECT (SUM(?ovolumedec) as ?ovolumeSum)
+      ?yearQuarter ?salesPhase
+      WHERE {
+         ?opp  rdf:type as:Opportunity .
+         ?opp  as:hasSalesDocumentStatus ?status .
+         ?opp  as:hasSalesPhase ?phase .
+         ?opp  as:opportunityVolume ?ovolume .
+         ?opp  as:salesDocumentDateOfExpiry ?doexpiry .
+         BIND(xsd:decimal(?ovolume) as ?ovolumedec) .
+         BIND(xsd:dateTime(?doexpiry) as ?doexpiryDate) .
+         BIND(year(?doexpiryDate) as ?year)
+         BIND(month(?doexpiryDate) as ?month)
+         VALUES (?month ?quarter) {
+            (01 &quot; Q1&quot;)
+            (02 &quot; Q1&quot;)
+            (03 &quot; Q1&quot;)
+            (04 &quot; Q2&quot;)
+            (05 &quot; Q2&quot;)
+            (06 &quot; Q2&quot;)
+            (07 &quot; Q3&quot;)
+            (08 &quot; Q3&quot;)
+            (09 &quot; Q3&quot;)
+            (10 &quot; Q4&quot;)
+            (11 &quot; Q4&quot;)
+            (12 &quot; Q4&quot;)
+         }
+         BIND(fn:concat(?year,?quarter) as ?yearQuarter).
+         BIND(strafter(str(?phase), &quot;#&quot;) as ?salesPhase).
+         FILTER(?status != as:LOST).
+         FILTER(?phase != as:SalesPhase1).
+      } GROUP BY  ?yearQuarter ?salesPhase
+   }
+   BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionSalesPhase"/>
+        <ps:hasDimension rdf:resource="&ase;DimensionYearQuarter"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityVsQuoteVolumePerQuarter -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityVsQuoteVolumePerQuarter">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Verkaufsgelegenheits- gegen Angebotsvolumen pro Quartal</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity vs Quote Volume per Quarter</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">AREA</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunitiesVsQuotesPerQuarterData;
+   ps:orderBy ?yearQuarter;
+   a ps:Data;
+   as-ext:volume ?volume;
+   as-ext:docType ?type;
+   as-ext:yearQuarter ?yearQuarter;
+} WHERE {
+  {
+     SELECT (SUM(?volDec) as ?volume)
+     ?yearQuarter ?type
+     WHERE {
+
+      {
+       SELECT ?doc ?vol ?type ?doexpiry {
+        ?doc  as:salesDocumentDateOfExpiry ?doexpiry .
+        ?doc  rdf:type as:Quote .
+        ?doc  as:includesDocumentHeaderPriceItem ?priceItem .
+        ?priceItem as:documentHeaderPrice ?vol .
+        ?doc  as:hasSalesDocumentStatus ?status .
+        BIND(&apos;Quote&apos; as ?type) .
+                                 FILTER(?status != as:LOST
+                                    &amp;&amp; ?status != as:WON
+                                    &amp;&amp; ?status != as:REJECTED
+                                    &amp;&amp; ?status != as:STOPPED
+                                )
+       }
+      } UNION {
+       SELECT ?doc ?vol ?type ?doexpiry {
+        ?doc  as:salesDocumentDateOfExpiry ?doexpiry .
+        ?doc  rdf:type as:Opportunity .
+        ?doc  as:opportunityVolume ?vol .
+        ?doc  as:hasSalesPhase ?phase .
+        ?doc  as:hasSalesDocumentStatus ?status .
+        BIND(&apos;Opportunity (non quoted)&apos;  as ?type) .
+        FILTER(?phase != as:SalesPhase1)
+                FILTER(?status != as:LOST
+          &amp;&amp; ?status != as:WON
+          &amp;&amp; ?status != as:QUOTED
+          &amp;&amp; ?status != as:REJECTED
+          &amp;&amp; ?status != as:STOPPED
+                )
+       }
+      }
+      # common
+
+      BIND(fn:floor(xsd:decimal(?vol)) as ?volDec) .
+
+      BIND(year(?doexpiry) as ?year)
+      BIND(month(?doexpiry) as ?month)
+      VALUES (?month ?quarter) {
+       (01 &quot; Q1&quot;)
+       (02 &quot; Q1&quot;)
+       (03 &quot; Q1&quot;)
+       (04 &quot; Q2&quot;)
+       (05 &quot; Q2&quot;)
+       (06 &quot; Q2&quot;)
+       (07 &quot; Q3&quot;)
+       (08 &quot; Q3&quot;)
+       (09 &quot; Q3&quot;)
+       (10 &quot; Q4&quot;)
+       (11 &quot; Q4&quot;)
+       (12 &quot; Q4&quot;)
+      }
+      BIND(fn:concat(?year,?quarter) as ?yearQuarter)
+     } GROUP BY  ?yearQuarter ?type
+   }
+   BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionDocumentType"/>
+        <ps:hasDimension rdf:resource="&ase;DimensionYearQuarter"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityWeightedVolumePerQuarter -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityWeightedVolumePerQuarter">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Gewichtetes Verkaufsgelegenheitsvolumen pro Quartal</rdfs:label>
+        <rdfs:label xml:lang="en">Weighted Opportunity Volume per Quarter</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">AREA</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunityVolumePerQuarterData;
+      ps:orderBy ?yearQuarter;
+      a ps:Data;
+      as-ext:weightedVolume ?owvolumeSum;
+      as-ext:yearQuarter ?yearQuarter;
+      as-ext:region ?labelregion.
+} WHERE {
+   {
+      SELECT (SUM(?owvolumedec) as ?owvolumeSum)
+      (SUM(?ovolumedec) as ?ovolumeSum)
+      ?yearQuarter ?labelregion
+      WHERE {
+         ?opp  rdf:type as:Opportunity .
+         ?opp  as:hasSalesDocumentStatus ?status .
+         ?opp  as:hasSalesPhase ?phase .
+         ?account as:containsOpportunity ?opp.
+         ?address as:addressIncludedBy ?account.
+         ?address rdf:type as:Address.
+         ?address as:addressMain ?mainAd.
+         ?address as:hasCountry ?country.
+         ?country as:hasRegion ?region.
+         ?region ps:objectName ?labelregion.
+
+
+         ?opp  as:opportunityWeightedVolume ?owvolume .
+         ?opp  as:salesDocumentDateOfExpiry ?doexpiry .
+         BIND(xsd:decimal(?owvolume) as ?owvolumedec) .
+         BIND(xsd:dateTime(?doexpiry) as ?doexpiryDate) .
+         BIND(year(?doexpiryDate) as ?year)
+         BIND(month(?doexpiryDate) as ?month)
+         VALUES (?month ?quarter) {
+            (01 &quot; Q1&quot;)
+            (02 &quot; Q1&quot;)
+            (03 &quot; Q1&quot;)
+            (04 &quot; Q2&quot;)
+            (05 &quot; Q2&quot;)
+            (06 &quot; Q2&quot;)
+            (07 &quot; Q3&quot;)
+            (08 &quot; Q3&quot;)
+            (09 &quot; Q3&quot;)
+            (10 &quot; Q4&quot;)
+            (11 &quot; Q4&quot;)
+            (12 &quot; Q4&quot;)
+         }
+         BIND(fn:concat(?year,?quarter) as ?yearQuarter).
+        # BIND(strafter(str(?phase), &quot;#&quot;) as ?salesPhase).
+         FILTER(?status != as:LOST).
+      FILTER(?phase != as:SalesPhase1).
+       FILTER(xsd:string(?mainAd) = &quot;true&quot;).
+      } GROUP BY  ?yearQuarter ?labelregion
+   }
+   BIND(afn:uuid() as ?uuid).
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionRegion"/>
+        <ps:hasDimension rdf:resource="&ase;DimensionYearQuarter"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureWeightedVolumeGroup1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportOpportunityWithSentiment -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportOpportunityWithSentiment">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Textanalyse Verkaufsgelegenheiten</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity Text Analysis</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ss: &lt;http://www.inmindcomputing.com/ssc/submodel.owl#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunitySentimentData;
+      ps:orderBy ?totalActivity;
+      a ps:Data;
+      as-ext:extractionRequests ?requests;
+      as-ext:extractionProblem ?problem;
+      as-ext:extractionPositiveSentiment ?positive;
+      as-ext:extractionNegativeSentiment ?negative;
+      as-ext:opportunity ?comment ;
+      as-ext:opportunityId ?opportunityId .
+} WHERE {
+   {
+      SELECT ?opportunityId
+             ?comment(COUNT(?extTypeRequest) as ?requests)
+             (COUNT(?extTypePositiv) as ?positive)
+             (COUNT(?extTypeNegative) as ?negative)
+             (COUNT(?extTypeProblem) as ?problem)
+      WHERE {
+         {  ?opp ps:objectName ?comment.
+        ?opp rdf:type as:Opportunity .
+            ?opp as:definesAnnotation ?note .
+            ?opp  as:hasSalesDocumentStatus ?status .
+            ?opp  as:hasSalesPhase ?phase .
+            ?note rdf:type as:Note .
+            ?note as:linksExtractionResult ?extResult .
+            ?extResult as:extractedType ?extTypeRequest .
+            FILTER (?extTypeRequest = &apos;Request&apos; || ?extTypeRequest = &apos;ContactRequest&apos; || ?extTypeRequest = &apos;GeneralRequest&apos;)
+         }
+         UNION
+         {  ?opp ps:objectName ?comment.
+        ?opp rdf:type as:Opportunity .
+            ?opp as:definesAnnotation ?note .
+            ?opp  as:hasSalesDocumentStatus ?status .
+            ?opp  as:hasSalesPhase ?phase .
+            ?note rdf:type as:Note .
+            ?note as:linksExtractionResult ?extResult .
+            ?extResult as:extractedType ?extTypePositiv .
+            FILTER (?extTypePositiv = &apos;WeakPositiveSentiment&apos; || ?extTypePositiv = &apos;StrongPositiveSentiment&apos;)
+         }
+         UNION
+         {  ?opp ps:objectName ?comment.
+        ?opp rdf:type as:Opportunity .
+            ?opp  as:hasSalesDocumentStatus ?status .
+            ?opp  as:hasSalesPhase ?phase .
+            ?opp as:definesAnnotation ?note .
+            ?note rdf:type as:Note .
+            ?note as:linksExtractionResult ?extResult .
+            ?extResult as:extractedType ?extTypeNegative .
+            FILTER (?extTypeNegative = &apos;WeakNegativeSentiment&apos; || ?extTypeNegative = &apos;StrongNegativeSentiment&apos;)
+         }
+         UNION
+         {  ?opp ps:objectName ?comment.
+        ?opp rdf:type as:Opportunity .
+            ?opp  as:hasSalesDocumentStatus ?status .
+            ?opp  as:hasSalesPhase ?phase .
+            ?opp as:definesAnnotation ?note .
+            ?note rdf:type as:Note .
+            ?note as:linksExtractionResult ?extResult .
+            ?extResult as:extractedType ?extTypeProblem .
+            FILTER (?extTypeProblem = &apos;MinorProblem&apos; || ?extTypeProblem = &apos;MajorProblem&apos;)
+         }
+   BIND(str(?opp) as ?opportunityId).
+         FILTER(?status != as:LOST).
+         FILTER(?status != as:WON).
+         FILTER(?phase != as:SalesPhase1).
+      } GROUP BY ?opportunityId  ?comment
+   }
+   BIND(afn:uuid() as ?uuid).
+   BIND(100000 - ?requests - ?positive - ?negative - ?problem as ?totalActivity)
+}</ps:sparql>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">STACKED_VBAR</ps:preferredReportRepresentation>
+        <ps:hasDimension rdf:resource="&ase;DimensionOpportunity"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureExtractionNegative"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureExtractionPositive"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureExtractionProblem"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureExtractionRequests"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportTopOpportunitiesPerVolume -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportTopOpportunitiesPerVolume">
+        <rdf:type rdf:resource="&as;InactiveReport"/>
+        <rdfs:label xml:lang="de">Top Verkaufsgelegenheiten nach Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Top Opportunities per Volume</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+prefix as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+prefix as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunitiesPerVolumeData;
+      ps:orderBy ?orderBy;
+      a ps:Data;
+      as-ext:volume ?vol;
+      as-ext:opportunity ?comment;
+      as-ext:opportunityId ?oppId.
+} WHERE {
+   {
+      SELECT ?opp ?vol ?comment ?oppId
+      WHERE {
+         ?opp a as:Opportunity.
+         ?opp as:opportunityVolume ?vol.
+         ?opp ps:objectName ?comment.
+         ?opp  as:hasSalesDocumentStatus ?status .
+         BIND(str(?opp) as ?oppId).
+
+         FILTER(?status != as:LOST).
+      }
+      ORDER BY DESC(?vol)
+      LIMIT 7
+   }
+   BIND(afn:uuid() as ?uuid).
+   BIND(2147483647 - ?vol as ?orderBy)
+}</ps:sparql>
+        <ps:preferredReportRepresentation>BAR_HORIZONTAL</ps:preferredReportRepresentation>
+        <ps:hasDimension rdf:resource="&ase;DimensionOpportunity"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReportTopQuotesPerPrice -->
+
+    <owl:NamedIndividual rdf:about="&ase;CockpitReportTopQuotesPerPrice">
+        <rdf:type rdf:resource="&as;CockpitReport"/>
+        <rdfs:label xml:lang="de">Top Angebote nach Preis</rdfs:label>
+        <rdfs:label xml:lang="en">Top Quotes per Price</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">BAR_HORIZONTAL</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+prefix as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+prefix as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+CONSTRUCT {
+      ?uuid a as-ext:QuotesPerPriceData;
+            ps:orderBy ?orderBy;
+            a ps:Data;
+            as-ext:price ?vol;
+            as-ext:quote ?comment;
+            as-ext:quoteId ?quoteId.
+} WHERE {
+   {
+      SELECT ?quote ?vol ?comment ?quoteId
+      WHERE {
+         ?quote a as:Quote.
+         ?quote as:includesDocumentHeaderPriceItem ?item.
+         ?item as:documentHeaderPrice ?price.
+         ?quote ps:objectName ?comment.
+         ?quote  as:hasSalesDocumentStatus ?status .
+         BIND(fn:floor(xsd:decimal(?price)) as ?vol).
+         BIND(str(?quote) as ?quoteId).
+    FILTER(?status != as:LOST
+      &amp;&amp; ?status != as:WON
+      &amp;&amp; ?status != as:REJECTED
+      &amp;&amp; ?status != as:STOPPED
+      &amp;&amp; ?status != as:ACCEPTED
+    )
+      }
+      ORDER BY DESC(?vol)
+      LIMIT 7
+   }
+   BIND(afn:uuid() as ?uuid).
+   BIND(2147483647 - ?vol as ?orderBy)
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionQuote"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasurePrice"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionCalendarYear -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionCalendarYear">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Jahr</rdfs:label>
+        <rdfs:label xml:lang="en">Year</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">calendarYear</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionDocumentType -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionDocumentType">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Dokumenttyp</rdfs:label>
+        <rdfs:label xml:lang="en">Document Type</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">docType</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionFiscalYear -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionFiscalYear">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Fiskaljahr</rdfs:label>
+        <rdfs:label xml:lang="en">Fiscal Year</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">fiscalYear</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionOpportunity -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionOpportunity">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Verkaufsgelegenheit</rdfs:label>
+        <rdfs:label xml:lang="en">Opportunity</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:value>opportunity</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionProduct -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionProduct">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Produkt</rdfs:label>
+        <rdfs:label xml:lang="en">Product</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">productName</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionQuote -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionQuote">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Angebot</rdfs:label>
+        <rdfs:label xml:lang="en">Quote</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">quote</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionRegion -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionRegion">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Region</rdfs:label>
+        <rdfs:label xml:lang="en">Region</rdfs:label>
+        <ps:axis rdf:datatype="&xsd;int">2</ps:axis>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">region</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionRegionAxis1 -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionRegionAxis1">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Region</rdfs:label>
+        <rdfs:label xml:lang="en">Region</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">regionaxis1</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionSalesPhase -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionSalesPhase">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Verkaufsphase</rdfs:label>
+        <rdfs:label xml:lang="en">Sales Phase</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">salesPhase</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionTimeFrame -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionTimeFrame">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="en">Timeframe</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">timeframe</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#DimensionYearQuarter -->
+
+    <owl:NamedIndividual rdf:about="&ase;DimensionYearQuarter">
+        <rdf:type rdf:resource="&ps;Dimension"/>
+        <rdfs:label xml:lang="de">Quartal</rdfs:label>
+        <rdfs:label xml:lang="en">Quarter</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">yearQuarter</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureActivity -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureActivity">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="en">Activity</rdfs:label>
+        <rdfs:label xml:lang="en">Aktivität</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:measureGroup rdf:datatype="&xsd;integer">1</ps:measureGroup>
+        <ps:value rdf:datatype="&xsd;string">activity</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureAmount -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureAmount">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Anzahl</rdfs:label>
+        <rdfs:label xml:lang="en">Amount</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">amount</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureExtractionNegative -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureExtractionNegative">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Negative Kommentare</rdfs:label>
+        <rdfs:label xml:lang="en">Negative Sentiment</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">extractionNegativeSentiment</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureExtractionPositive -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureExtractionPositive">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Positive Kommentare</rdfs:label>
+        <rdfs:label xml:lang="en">Positive Sentiment</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">extractionPositiveSentiment</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureExtractionProblem -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureExtractionProblem">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Probleme</rdfs:label>
+        <rdfs:label xml:lang="en">Problems</rdfs:label>
+        <ps:value rdf:datatype="&xsd;string">extractionProblem</ps:value>
+        <ps:sequenceID xml:lang="en">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureExtractionRequests -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureExtractionRequests">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Fordernde Kommentare</rdfs:label>
+        <rdfs:label xml:lang="en">Requests</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">extractionRequests</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureMood -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureMood">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Stimmung</rdfs:label>
+        <rdfs:label xml:lang="en">Mood</rdfs:label>
+        <ps:measureGroup rdf:datatype="&xsd;integer">2</ps:measureGroup>
+        <ps:sequenceID rdf:datatype="&xsd;integer">2</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">mood</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasurePrice -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasurePrice">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Preis</rdfs:label>
+        <rdfs:label xml:lang="en">Price</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">price</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureVolume -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureVolume">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Volume</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:value>volume</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureWeightedVolumeGroup1 -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureWeightedVolumeGroup1">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Gewichtetes Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Weighted Volume</rdfs:label>
+        <ps:measureGroup rdf:datatype="&xsd;integer">1</ps:measureGroup>
+        <ps:sequenceID rdf:datatype="&xsd;integer">3</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">weightedVolume</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureWeightedVolumeGroup3 -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureWeightedVolumeGroup3">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Gewichtetes Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Weighted Volume</rdfs:label>
+        <ps:measureGroup rdf:datatype="&xsd;integer">3</ps:measureGroup>
+        <ps:sequenceID rdf:datatype="&xsd;integer">3</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">weightedVolume</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#MeasureYearQuarter -->
+
+    <owl:NamedIndividual rdf:about="&ase;MeasureYearQuarter">
+        <rdf:type rdf:resource="&ps;Measure"/>
+        <rdfs:label xml:lang="de">Quartal</rdfs:label>
+        <rdfs:label xml:lang="en">Quarter</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+        <ps:value rdf:datatype="&xsd;string">yearQuarter</ps:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityReportTopOpportunitiesPerVolume -->
+
+    <owl:NamedIndividual rdf:about="&ase;OpportunityReportTopOpportunitiesPerVolume">
+        <rdf:type rdf:resource="&as;OpportunityReport"/>
+        <rdfs:label xml:lang="de">Top Verkaufsgelegenheiten nach Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Top Opportunities per Volume</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">BAR_HORIZONTAL</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+prefix as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+prefix as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+CONSTRUCT {
+   ?uuid a as-ext:OpportunitiesPerVolumeData;
+      ps:orderBy ?orderBy;
+      a ps:Data;
+      as-ext:volume ?vol;
+      as-ext:opportunity ?comment;
+      as-ext:opportunityId ?oppId.
+} WHERE {
+   {
+      SELECT ?opp ?vol ?comment ?oppId
+      WHERE {
+         ?opp a as:Opportunity.
+         ?opp as:opportunityVolume ?volume.
+         ?opp ps:objectName ?comment.
+         ?opp  as:hasSalesDocumentStatus ?status .
+         BIND(str(?opp) as ?oppId).
+         BIND(xsd:decimal(?volume) as ?vol).
+    FILTER(?status != as:LOST
+      &amp;&amp; ?status != as:WON
+      &amp;&amp; ?status != as:REJECTED
+      &amp;&amp; ?status != as:STOPPED
+      &amp;&amp; ?status != as:ACCEPTED
+    )
+      }
+      ORDER BY DESC(?vol)
+      LIMIT 7
+   }
+   BIND(afn:uuid() as ?uuid).
+   BIND(2147483647 - ?vol as ?orderBy)
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionOpportunity"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasureVolume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuoteReportTopQuotesPerPrice -->
+
+    <owl:NamedIndividual rdf:about="&ase;QuoteReportTopQuotesPerPrice">
+        <rdf:type rdf:resource="&as;QuoteReport"/>
+        <rdfs:label xml:lang="de">Top Angebote nach Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Top Quotes by Volume</rdfs:label>
+        <ps:preferredReportRepresentation rdf:datatype="&xsd;string">BAR_HORIZONTAL</ps:preferredReportRepresentation>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+prefix as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+prefix as-ext: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+
+CONSTRUCT {
+      ?uuid a as-ext:QuotesPerPriceData;
+            ps:orderBy ?orderBy;
+            a ps:Data;
+            as-ext:price ?vol;
+            as-ext:quote ?comment;
+            as-ext:quoteId ?quoteId.
+} WHERE {
+   {
+      SELECT ?quote ?vol ?comment ?quoteId
+      WHERE {
+         ?quote a as:Quote.
+         ?quote as:includesDocumentHeaderPriceItem ?item.
+         ?item as:documentHeaderPrice ?price.
+         ?quote ps:objectName ?comment.
+         ?quote  as:hasSalesDocumentStatus ?status .
+         BIND(fn:floor(xsd:decimal(?price)) as ?vol).
+         BIND(str(?quote) as ?quoteId).
+    FILTER(?status != as:LOST
+      &amp;&amp; ?status != as:WON
+      &amp;&amp; ?status != as:REJECTED
+      &amp;&amp; ?status != as:STOPPED
+      &amp;&amp; ?status != as:ACCEPTED
+    )
+      }
+      ORDER BY DESC(?vol)
+      LIMIT 7
+   }
+   BIND(afn:uuid() as ?uuid).
+   BIND(2147483647 - ?vol as ?orderBy)
+}</ps:sparql>
+        <ps:hasDimension rdf:resource="&ase;DimensionQuote"/>
+        <ps:hasMeasure rdf:resource="&ase;MeasurePrice"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#AllContactDownloadReport -->
+
+    <owl:NamedIndividual rdf:about="&rs;AllContactDownloadReport">
+        <rdf:type rdf:resource="&as;InactiveReport"/>
+        <rdfs:label xml:lang="de">Alle Kontakte Download</rdfs:label>
+        <rdfs:label xml:lang="en">All Contacts Download</rdfs:label>
+        <reportDescription rdf:datatype="&xsd;string">Download all Contacts from ISS linked to an account.</reportDescription>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs-kb: &lt;http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX xpath-fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX pcst: &lt;http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX swrl: &lt;http://www.w3.org/2003/11/swrl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX pcsm: &lt;http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#&gt;
+PREFIX pcsp: &lt;http://www.inmindcomputing.com/application/products/products-schema-process.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX swrlb: &lt;http://www.w3.org/2003/11/swrlb#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ase: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX rs: &lt;http://www.inmindcomputing.com/application/report-schema.owl#&gt;
+
+CONSTRUCT {
+      ?uuid a rs:ContactsData;
+      a ps:Data;
+      rs:accountName ?accountName;
+    # rs:status ?accountStatusStr;
+    # rs:accountProspect ?accountProspect;
+    # rs:industryName ?industryName;
+      rs:firstName ?cFirstname;
+      rs:lastName ?cLastname;
+      rs:title ?contactTitleStr;
+      ase:region ?labelregion;
+    # rs:mobile ?contactMobile;
+    # rs:phone ?contactPhone;
+    # rs:fax ?contactFax;
+      rs:email ?cEmail;
+      rs:position ?cPosition;
+      rs:newsletter ?accnl;
+
+} WHERE
+{
+  {
+    SELECT ?labelregion ?accountName ?cFirstname ?cLastname ?cEmail ?cPosition ?accnl  ?contactTitleStr WHERE {
+   ?prospect as:hasAccountStatus as:ACTIVE.
+  ?prospect rdf:type as:Account.
+  ?prospect ps:objectName ?accountName.
+   ?prospect as:accountProspect ?acpros.
+  ?prospect as:includesPerson ?person.
+  ?address as:addressIncludedBy ?prospect.
+   ?address rdf:type as:Address.
+  ?address as:addressMain ?admain.
+   ?address as:hasCountry ?country.
+  ?country as:hasRegion ?region.
+    ?person as:hasTitle ?contactTitle .
+  BIND(str(?contactTitle) as ?contactTitleStr) .
+  OPTIONAL {  ?region ps:objectName ?labelregion.}
+ OPTIONAL { ?person as:personFirstName ?cFirstname.}
+OPTIONAL {  ?person as:personLastName ?cLastname.}
+ OPTIONAL {  ?person as:personEmail ?cEmail.}
+
+  OPTIONAL { ?prospect ase:zAccountNewsletterOptOut ?accn. }
+   BIND(xsd:string(?accn) as ?accnl) .
+   OPTIONAL {?person as:personPosition ?cPosition.}
+
+ FILTER (xsd:string(?admain) = &apos;true&apos;).
+
+}GROUP BY ?labelregion ?accountName ?cFirstname ?cLastname ?cEmail ?cPosition ?accnl  ?contactTitleStr
+
+  }
+  BIND(afn:uuid() as ?uuid).
+}
+</ps:sparql>
+        <reportFileName rdf:datatype="&xsd;string">export.account.filename</reportFileName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#DesignDocumentReport -->
+
+    <owl:NamedIndividual rdf:about="&rs;DesignDocumentReport">
+        <rdf:type rdf:resource="&as;AnalyticReport"/>
+        <rdfs:label xml:lang="de"></rdfs:label>
+        <rdfs:label xml:lang="en">Short Circuit Report</rdfs:label>
+        <reportDescription rdf:datatype="&xsd;string">Download Short Circuit Report</reportDescription>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs-kb: &lt;http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX xpath-fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX pcst: &lt;http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX swrl: &lt;http://www.w3.org/2003/11/swrl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX pcsm: &lt;http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#&gt;
+PREFIX pcsp: &lt;http://www.inmindcomputing.com/application/products/products-schema-process.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX swrlb: &lt;http://www.w3.org/2003/11/swrlb#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ase: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX rs: &lt;http://www.inmindcomputing.com/application/report-schema.owl#&gt;
+PREFIX dss: &lt;http://www.inmindcomputing.com/application/design/design-schema.owl#&gt;
+PREFIX dsi: &lt;http://www.inmindcomputing.com/application/design/design-implementation.owl#&gt;
+CONSTRUCT {
+   ?uuid a rs:DesignData;
+      a ps:Data;
+      rs:breakerId ?name;
+      rs:kV ?kv;
+      rs:IpK ?Ipk;
+      rs:Ik3max ?ik3;
+      rs:Ibltg ?Ik1max_phn;
+      rs:Ik1max ?Ik1max_phpen;
+      rs:Ibltl ?dataPointIk1maxph_pe;
+      rs:Ik2min ?dataPointIk2min;
+
+
+} WHERE
+{
+   {
+      Select ?name ?kv ?ik3 ?Ik1max_phn ?Ipk ?Ik1max_phpen ?dataPointIk1maxph_pe ?dataPointIk2min ?s WHERE {
+         ?dd as:includesConfigItem ?cd.
+         ?cd dss:electricalDesignDocumentNominalVoltageLV ?kv.
+         Filter NOT Exists {?s rdf:type &lt;http://www.inmindcomputing.com/application/design/design-schema.owl#BreakerMV&gt; }
+
+         ?s rdf:type dss:DataPoint.
+         ?s as:configItemIncludedBy ?p.
+         ?p rdf:type &lt;http://www.inmindcomputing.com/application/application-schema.owl#DesignElement&gt;.
+         ?p as:designElementIncludedBy+ ?dd.
+         FILTER NOT EXISTS {
+            ?p as:linksDesignElement+ ?denot.
+            ?denot as:isDesignStencil &lt;http://www.inmindcomputing.com/application/design/design-implementation.owl#Transformer&gt;.
+         }
+         ?p ps:objectName ?dsname.
+         ?dd rdf:type &lt;http://www.inmindcomputing.com/application/application-schema.owl#DesignDocument&gt;.
+         OPTIONAL {
+            ?p as:isDesignStencil dsi:Busway.
+            ?compound as:includesDesignElement ?p.
+            ?compound ps:objectName ?dcname}
+         BIND (IF (EXISTS {
+                  ?p as:isDesignStencil dsi:Busway.
+                  ?compound as:includesDesignElement ?p.
+                  ?compound ps:objectName ?dcname.
+               }, ?dcname, ?dsname) AS ?name )
+         ?s dss:dataPointIk3max ?ik3_u .
+         BIND(round(?ik3_u * 1000000)/1000000 AS ?ik3)
+         ?s dss:dataPointMaxAsymShortCircuitCurrent ?Ipk_u.
+         BIND(round(?Ipk_u * 1000000)/1000000 AS ?Ipk)
+         ?s dss:dataPointIk1maxph_n ?Ik1max_phn_u.
+         BIND(round(?Ik1max_phn_u * 1000000)/1000000 AS ?Ik1max_phn)
+         ?s dss:dataPointIk1maxph_pe ?Ik1max_phpen_u.
+         BIND(round(?Ik1max_phpen_u * 1000000)/1000000 AS ?Ik1max_phpen)
+         ?s dss:dataPointIk1maxph_pe ?dataPointIk1maxph_pe_u.
+         BIND(round(?dataPointIk1maxph_pe_u * 1000000)/1000000 AS ?dataPointIk1maxph_pe)
+         ?s dss:dataPointIk2min ?dataPointIk2min_u.
+         BIND(round(?dataPointIk2min_u * 1000000)/1000000 AS ?dataPointIk2min)
+      } GROUP BY ?name ?kv ?ik3 ?Ik1max_phn ?Ik1max_phpen ?Ipk ?dataPointIk1maxph_pe ?dataPointIk2min ?s
+   }
+   BIND(afn:uuid() as ?uuid).
+}
+
+</ps:sparql>
+        <reportFileName rdf:datatype="&xsd;string">export.shortcircuit.filename</reportFileName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/report-schema.owl#NewsletterAnalyticReport -->
+
+    <owl:NamedIndividual rdf:about="&rs;NewsletterAnalyticReport">
+        <rdf:type rdf:resource="&as;InactiveReport"/>
+        <rdfs:label xml:lang="de">Newsletter Contact Details</rdfs:label>
+        <rdfs:label xml:lang="en">Newsletter Contact Details</rdfs:label>
+        <reportDescription rdf:datatype="&xsd;string">Download excel to find out account contact detail&apos;s information.</reportDescription>
+        <ps:sparql rdf:datatype="&xsd;string">PREFIX afn: &lt;http://jena.hpl.hp.com/ARQ/function#&gt;
+PREFIX pci: &lt;http://www.inmindcomputing.com/application/products/products-implementation.owl#&gt;
+PREFIX wi: &lt;http://www.inmindcomputing.com/application/workItem-implementation.owl#&gt;
+PREFIX pcs-kb: &lt;http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#&gt;
+PREFIX as: &lt;http://www.inmindcomputing.com/application/application-schema.owl#&gt;
+PREFIX xpath-fn: &lt;http://www.w3.org/2005/xpath-functions#&gt;
+PREFIX pcst: &lt;http://www.inmindcomputing.com/application/products/products-schema-tooling.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX swrl: &lt;http://www.w3.org/2003/11/swrl#&gt;
+PREFIX ai: &lt;http://www.inmindcomputing.com/application/application-implementation.owl#&gt;
+PREFIX pcs: &lt;http://www.inmindcomputing.com/application/products/products-schema.owl#&gt;
+PREFIX pcsm: &lt;http://www.inmindcomputing.com/application/products/products-schema-metalstamping.owl#&gt;
+PREFIX pcsp: &lt;http://www.inmindcomputing.com/application/products/products-schema-process.owl#&gt;
+PREFIX sec: &lt;http://www.inmindcomputing.com/security/security-implementation.owl#&gt;
+
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX swrlb: &lt;http://www.w3.org/2003/11/swrlb#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ase: &lt;http://www.inmindcomputing.com/application/application-schema-ext.owl#&gt;
+
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ps: &lt;http://www.inmindcomputing.com/platform/platform-schema.owl#&gt;
+PREFIX rs: &lt;http://www.inmindcomputing.com/application/report-schema.owl#&gt;
+
+CONSTRUCT {
+      ?uuid a rs:AccountAnalyticData;
+      a ps:Data;
+      rs:accountName ?accountName;
+    #	rs:status ?accountStatusStr;
+    #	rs:accountProspect ?accountProspect;
+    #	rs:industryName ?industryName;
+      rs:firstName ?cFirstname;
+      rs:lastName ?cLastname;
+      rs:title ?contactTitleStr;
+      ase:region ?labelregion;
+    #	rs:mobile ?contactMobile;
+    #	rs:phone ?contactPhone;
+    #	rs:fax ?contactFax;
+      rs:email ?cEmail;
+      rs:position ?cPosition;
+
+} WHERE
+{
+  {
+    SELECT ?labelregion ?accountName ?cFirstname ?cLastname ?cEmail ?cPosition ?contactTitleStr WHERE {
+   ?prospect as:hasAccountStatus as:ACTIVE.
+  ?prospect rdf:type as:Account.
+  ?prospect ps:objectName ?accountName.
+   ?prospect as:accountProspect ?acpros.
+  ?prospect as:includesPerson ?person.
+  ?address as:addressIncludedBy ?prospect.
+   ?address rdf:type as:Address.
+  ?address as:addressMain ?admain.
+   ?address as:hasCountry ?country.
+  ?country as:hasRegion ?region.
+  ?region ps:objectName ?labelregion.
+  ?person as:personFirstName ?cFirstname.
+  ?person as:personLastName ?cLastname.
+   ?person as:personEmail ?cEmail.
+  OPTIONAL {	?person as:hasTitle ?contactTitle .			BIND(str(?contactTitle) as ?contactTitleStr) .
+  }
+   ?prospect ase:zAccountNewsletterOptOut ?accnl.
+   OPTIONAL {?person as:personPosition ?cPosition.}
+
+ FILTER (xsd:string(?admain) = &apos;true&apos;).
+ FILTER (xsd:string(?accnl) = &apos;false&apos;).
+  FILTER (xsd:string(?acpros) = &apos;true&apos;).
+}GROUP BY ?labelregion ?accountName ?cFirstname ?cLastname ?cEmail ?cPosition ?contactTitleStr
+
+  }
+  BIND(afn:uuid() as ?uuid).
+}
+</ps:sparql>
+        <reportFileName rdf:datatype="&xsd;string">export.account.filename</reportFileName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;CockpitOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;QuotesPerPriceData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;CockpitReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;OpportunityOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;OpportunityReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;OpportunityOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;QuotesPerPriceData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;QuoteReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ps;Dimension"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ps;axis"/>
+                        <owl:hasValue rdf:datatype="&xsd;integer">2</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;DimensionDocumentType"/>
+                    <rdf:Description rdf:about="&ase;DimensionSalesPhase"/>
+                </owl:oneOf>
+            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ps;dimensionIncludedBy"/>
+                <owl:someValuesFrom rdf:resource="&as;CockpitReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;CockpitOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&as;CockpitReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ps;Dimension"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ps;axis"/>
+                        <owl:hasValue rdf:datatype="&xsd;integer">1</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;DimensionFiscalYear"/>
+                    <rdf:Description rdf:about="&ase;DimensionProduct"/>
+                    <rdf:Description rdf:about="&ase;DimensionYearQuarter"/>
+                    <rdf:Description rdf:about="&ase;DimensionCalendarYear"/>
+                </owl:oneOf>
+            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ps;dimensionIncludedBy"/>
+                <owl:someValuesFrom rdf:resource="&as;CockpitReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

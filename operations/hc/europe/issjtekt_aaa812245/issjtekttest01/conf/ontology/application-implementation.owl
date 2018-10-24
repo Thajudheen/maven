@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+<!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+<!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+<!ENTITY ase "http://www.inmindcloud.com/application/application-schema-ext.owl#" >
+<!ENTITY pcs "http://www.inmindcloud.com/application/products/products-schema.owl#" >
+<!ENTITY ai "http://www.inmindcloud.com/application/application-implementation.owl" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/application/application-implementation.owl"
+     xml:base="http://www.inmindcloud.com/application/application-implementation.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ai="http://www.inmindcloud.com/application/application-implementation.owl"
+     xmlns:pcs="http://www.inmindcloud.com/application/products/products-schema.owl#"
+     xmlns:ase="http://www.inmindcloud.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+     xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+	<owl:Ontology rdf:about="http://www.inmindcloud.com/application/application-implementation.owl">
+		<owl:imports rdf:resource="http://www.inmindcloud.com/application/application-schema-ext.owl"/>
+		<owl:imports rdf:resource="http://www.inmindcloud.com/application/scenario/scenario-config-implementation.owl"/>
+		<owl:imports rdf:resource="http://www.inmindcloud.com/application/products/product-generated-implementation.owl"/>
+	</owl:Ontology>
+
+	<!-- &ai;PwdSalesRep1 -->
+	<rdf:Description rdf:about="&ai;#Z_SALESREP01">
+		<as:includesUserPassword rdf:resource="&ai;#PwdSalesRep1"/>
+	</rdf:Description>
+	<owl:NamedIndividual rdf:about="&ai;#PwdSalesRep1">
+		<rdf:type rdf:resource="&as;UserPassword"/>
+		<ps:objectName rdf:datatype="&xsd;string">d9ba27707dee7c56910b4469fcfbc6c198e4d944c0981636babb73bc61c72009</ps:objectName>
+		<as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+	</owl:NamedIndividual>
+	
+	<!-- &ai;PwdSalesVP -->
+	<rdf:Description rdf:about="&ai;#Z_SALESVP">
+		<as:includesUserPassword rdf:resource="&ai;#PwdSalesVP"/>
+	</rdf:Description>
+	<owl:NamedIndividual rdf:about="&ai;#PwdSalesVP">
+		<rdf:type rdf:resource="&as;UserPassword"/>
+		<ps:objectName rdf:datatype="&xsd;string">d9ba27707dee7c56910b4469fcfbc6c198e4d944c0981636babb73bc61c72009</ps:objectName>
+		<as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+	</owl:NamedIndividual>	
+
+
+	<!-- &ai;PwdSalesMgr1 -->
+	<rdf:Description rdf:about="&ai;#Z_SALESMAN01">
+		<as:includesUserPassword rdf:resource="&ai;#PwdSalesMgr1"/>
+	</rdf:Description>
+	<owl:NamedIndividual rdf:about="&ai;#PwdSalesMgr1">
+		<rdf:type rdf:resource="&as;UserPassword"/>
+		<ps:objectName rdf:datatype="&xsd;string">d9ba27707dee7c56910b4469fcfbc6c198e4d944c0981636babb73bc61c72009</ps:objectName>
+		<as:hasUserPasswordStatus rdf:resource="&as;PasswordActive"/>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Each -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_Each">
+		<rdf:type rdf:resource="&as;UnitofMeasurement"/>
+		<rdfs:label xml:lang="de">jeder</rdfs:label>
+		<rdfs:label xml:lang="en">Each</rdfs:label>
+		<ps:objectExternalId rdf:datatype="&xsd;string">EA</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">EA</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Each</ps:objectName>
+	</owl:NamedIndividual>	
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#7772300fa2db4de28fecf70ee3e3c2f7 -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_IncoTerms">
+		<rdf:type rdf:resource="&as;IncoTerms"/>
+		<rdfs:label xml:lang="de">Z Geliefert verzollt</rdfs:label>
+		<rdfs:label xml:lang="en">Z Delivered duty paid</rdfs:label>
+		<ps:objectId rdf:datatype="&xsd;string">DDP</ps:objectId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">DDP</ps:objectExternalId>
+		<ps:objectName rdf:datatype="&xsd;string">Z Example Delivered duty paid</ps:objectName>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_PaymentTerms">
+		<rdf:type rdf:resource="&as;PaymentTerms"/>
+		<rdfs:label xml:lang="de">Z Example: 14 Tage 2 % Skonto, 30 Tage netto</rdfs:label>
+		<rdfs:label xml:lang="en">Z Example: 14 days 2% cash discount, 30 days net</rdfs:label>
+		<ps:objectExternalId rdf:datatype="&xsd;string">1014</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">1014</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Z Example: 14 days 2% cash discount, 30 days net</ps:objectName>
+		<ase:zPaymentTermNoApproval rdf:datatype="&xsd;boolean">true</ase:zPaymentTermNoApproval>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Z_ExampleCountry -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_Country">
+		<rdf:type rdf:resource="&as;Country"/>
+		<rdfs:label xml:lang="de">Z_ExampleCountry</rdfs:label>
+		<rdfs:label xml:lang="en">Z_ExampleCountry</rdfs:label>
+		<ps:objectDateOfCreation rdf:datatype="&xsd;dateTime">2016-01-12T12:18:28.668Z</ps:objectDateOfCreation>
+		<ps:objectExternalId rdf:datatype="&xsd;string">PN</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">PN</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_ExampleCountry</ps:objectName>
+		<as:hasRegion rdf:resource="&ai;#Z_ExampleRegion"/>
+	</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Z_Example_CompanyEIN -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_CompanyEIN">
+		<rdf:type rdf:resource="&as;Company"/>
+		<rdfs:label xml:lang="en">Z Engineering Inc.</rdfs:label>
+		<as:companyAbbreviation rdf:datatype="&xsd;string">EIN</as:companyAbbreviation>
+		<ps:objectName rdf:datatype="&xsd;string">Z Engineering Inc.</ps:objectName>
+		<rdfs:comment xml:lang="de">Z Engineering Inc.</rdfs:comment>
+		<as:includesAddress rdf:resource="&ai;#Z_Example_AddressEIN"/>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Z_Example_AddressEIN -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_AddressEIN">
+		<rdf:type rdf:resource="&as;Address"/>
+		<rdfs:label xml:lang="en">AddressEIN</rdfs:label>
+		<as:addressPhone rdf:datatype="&xsd;string">+1 (341) 12878613 40</as:addressPhone>
+		<as:addressZip rdf:datatype="&xsd;string">90005</as:addressZip>
+		<ps:objectName rdf:datatype="&xsd;string">AddressEIN</ps:objectName>
+		<as:addressCity rdf:datatype="&xsd;string">Los Angeles</as:addressCity>
+		<as:addressStreet rdf:datatype="&xsd;string">Rock Street 15</as:addressStreet>
+		<as:addressEmail rdf:datatype="&xsd;string">info@ein.com</as:addressEmail>
+		<as:addressShipTo rdf:datatype="&xsd;boolean">true</as:addressShipTo>
+		<as:addressMain rdf:datatype="&xsd;boolean">true</as:addressMain>
+		<as:addressBillTo rdf:datatype="&xsd;boolean">true</as:addressBillTo>
+		<as:hasCountry rdf:resource="&ai;#Z_ExampleCountry"/>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Z_ExampleRegion -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_Region">
+		<rdf:type rdf:resource="&as;Region"/>
+		<rdfs:label xml:lang="de">Z_ExampleRegion</rdfs:label>
+		<rdfs:label xml:lang="en">Z_ExampleRegion</rdfs:label>
+		<ps:objectId rdf:datatype="&xsd;string">Z_ExampleRegion</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_ExampleRegion</ps:objectName>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#DC-01 -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_DC-01">
+		<rdf:type rdf:resource="&as;DistributionChannel"/>
+		<ps:objectExternalId rdf:datatype="&xsd;string">01</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">01</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">Exmaple_DC-01</ps:objectName>
+	</owl:NamedIndividual>
+
+
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#SalesOrg-1000 -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_SalesOrg-1000">
+		<rdf:type rdf:resource="&as;SalesOrg"/>
+		<ps:objectId rdf:datatype="&xsd;string">1000</ps:objectId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">1000</ps:objectExternalId>
+		<as:objectERPId rdf:datatype="&xsd;string">1000</as:objectERPId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_SalesOrg-1000</ps:objectName>
+		<as:hasDistributionChannel rdf:resource="&ai;#Z_DC-01"/>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Div-00 -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_Div-00">
+		<rdf:type rdf:resource="&as;Division"/>
+		<ps:objectId rdf:datatype="&xsd;string">00</ps:objectId>
+		<as:objectERPId rdf:datatype="&xsd;string">00</as:objectERPId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">00</ps:objectExternalId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_ExampleDiv-00</ps:objectName>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#EUR -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_EUR">
+		<rdf:type rdf:resource="&as;Currency"/>
+		<rdfs:label xml:lang="de">Z_Example_Euro</rdfs:label>
+		<rdfs:label xml:lang="en">Z_Example_Euro</rdfs:label>
+		<ps:objectId rdf:datatype="&xsd;string">EUR</ps:objectId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">EUR</ps:objectExternalId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Euro</ps:objectName>
+	</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Z_ExampleEnglish -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_English">
+		<rdf:type rdf:resource="&as;Language"/>
+		<rdfs:label xml:lang="de">Z_Example_Englisch</rdfs:label>
+		<rdfs:label xml:lang="en">Z_Example_English</rdfs:label>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_English</ps:objectName>
+		<ps:objectId rdf:datatype="&xsd;string">en</ps:objectId>
+	</owl:NamedIndividual>
+
+
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#FEMALE -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_FEMALE">
+		<rdf:type rdf:resource="&as;Gender"/>
+		<rdfs:label xml:lang="de">Z_Example_Weiblich</rdfs:label>
+		<rdfs:label xml:lang="en">Z_Example_Female</rdfs:label>
+		<ps:objectExternalId rdf:datatype="&xsd;string">FEMALE</ps:objectExternalId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_female</ps:objectName>
+	</owl:NamedIndividual>
+
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#IAeroDefense -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_Industry">
+		<rdf:type rdf:resource="&as;Industry"/>
+		<rdfs:label xml:lang="de">Z_Example_Industry</rdfs:label>
+		<rdfs:label xml:lang="en">Z_Example_Industry</rdfs:label>
+		<ps:objectId rdf:datatype="&xsd;string">3669</ps:objectId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">3669</ps:objectExternalId>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Industry</ps:objectName>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/application-implementation.owl#Important -->
+
+	<owl:NamedIndividual rdf:about="&ai;#Z_Example_Tag">
+		<rdf:type rdf:resource="&as;Tag"/>
+		<rdfs:label xml:lang="de">wichtig</rdfs:label>
+		<rdfs:label xml:lang="en">Important</rdfs:label>
+		<ps:objectName rdf:datatype="&xsd;string">Z_Example_Tag</ps:objectName>
+	</owl:NamedIndividual>
+
+	<!-- http://www.inmindcloud.com/application/schema.owl#SALES_SYSTEM_INSTANCE -->
+
+	<rdf:Description rdf:about="&as;SALES_SYSTEM_INSTANCE">
+		<as:hasDefaultCurrency rdf:resource="&ai;#Z_ExampleEUR"/>
+	</rdf:Description>
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

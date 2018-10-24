@@ -1,0 +1,942 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xml:base="http://www.inmindcomputing.com/application/application-schema-ext.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/application-schema-ext.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/report-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/ssc/submodel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#documentHeaderPriceBeforeDiscount -->
+
+    <owl:DatatypeProperty rdf:about="&ase;documentHeaderPriceBeforeDiscount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Header Price Before Discont</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderPriceBeforeDiscount)
+  WHERE {
+?subject as:documentHeaderPriceAfterItemDiscount ?aid.
+    ?subject ase:documentHeaderTotalDiscountBeforeQuoteDiscount ?qp .
+    BIND (xsd:decimal(?aid - ?qp)  AS ?val)
+  }</ps:sparql>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#documentHeaderTotalDiscountBeforeQuoteDiscount -->
+
+    <owl:DatatypeProperty rdf:about="&ase;documentHeaderTotalDiscountBeforeQuoteDiscount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (SUM(?val) as ?documentHeaderTotalDiscountBeforeQuoteDiscount)
+  WHERE {
+    ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem+ ?si .
+    ?si as:includesItemHeaderPriceItem ?ihpi .
+    {
+      SELECT DISTINCT ?ihpi ?val
+      WHERE
+      {
+             ?ihpi as:itemHeaderTotalDiscount ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+   } GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#documentHeaderTotalDiscountPercentage -->
+
+    <owl:DatatypeProperty rdf:about="&ase;documentHeaderTotalDiscountPercentage">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderTotalDiscountPercentage)
+  WHERE {
+?subject as:documentHeaderTotalDiscount ?td.
+    ?subject ase:documentHeaderPriceBeforeDiscount ?bd .
+    BIND (xsd:decimal( ?td *  xsd:decimal(100) / ?bd )  AS ?val)
+  }</ps:sparql>
+        <rdfs:domain rdf:resource="&as;DocumentHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderAdditionalPriceIncludes -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderAdditionalPriceIncludes">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT DISTINCT ?subject (SUM(?val) as ?itemHeaderAdditionalPriceIncludes)
+  WHERE {
+   ?subject as:includesPriceItem ?priceItem .
+
+    ?priceItem as:hasPriceItemType as:AdditionalPriceItemType .
+      ?priceItem as:priceItemBaseAmount ?val
+
+
+
+  } GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#itemHeaderAdditionalPriceUses -->
+
+    <owl:DatatypeProperty rdf:about="&ase;itemHeaderAdditionalPriceUses">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT DISTINCT ?subject (SUM(?val) as ?itemHeaderAdditionalPriceUses)
+  WHERE {
+
+?subject as:usesPriceItem ?priceItem .
+    ?priceItem as:hasPriceItemType as:AdditionalPriceItemType .
+      ?priceItem as:priceItemBaseAmount ?val
+
+
+
+  } GROUP BY ?subject</ps:sparql>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteIntro -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteIntro">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Einleitung</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Introduction</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="de">${quote.intro.text}</rdfs:comment>
+        <rdfs:comment xml:lang="en">${quote.intro.textAl1}&lt;br&gt;&lt;br&gt;&lt;b&gt;${quote.intro.textAl2}&lt;/b&gt;&lt;br&gt;&lt;br&gt;${quote.intro.textAl3}&lt;br&gt;&lt;br&gt;&lt;b&gt;${quote.intro.textAl4}&lt;/b&gt;&lt;br&gt;&lt;br&gt;</rdfs:comment>
+        <rdfs:comment xml:lang="es">${quote.intro.textAl1}&lt;br&gt;&lt;br&gt;${quote.intro.textAl2}&lt;br&gt;&lt;br&gt;${quote.intro.textAl3}&lt;br&gt;&lt;br&gt;${quote.intro.textAl4}&lt;br&gt;&lt;br&gt;${quote.intro.textAl6}&lt;br&gt;</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotePrint1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotePrint1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Print CPU Utilization</rdfs:label>
+        <ps:sequenceID>10</ps:sequenceID>
+        <ps:group rdf:resource="&ase;GroupDimensionData"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotePrint2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotePrint2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Print Memory Utilization</rdfs:label>
+        <ps:sequenceID>11</ps:sequenceID>
+        <ps:group rdf:resource="&ase;GroupDimensionData"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quotePrint3 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quotePrint3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Volumes with most Disk usage</rdfs:label>
+        <ps:sequenceID>12</ps:sequenceID>
+        <ps:group rdf:resource="&ase;GroupDimensionData"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteReferenceDate -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteReferenceDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Referenz Datum</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Reference Date</rdfs:label>
+        <ps:advancedEditor>true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteTerms -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTerms">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Angebot - Geschäftsbedingungen</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Terms and Conditions</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:comment xml:lang="de">&lt;u&gt;${terms.label.title}&lt;/u&gt;&lt;br&gt;&lt;br&gt;${terms.label.prices}:&lt;br&gt;${terms.text.prices}&lt;br&gt;&lt;br&gt;${terms.label.validity}:&lt;br&gt;${terms.text.validity.first}${terms.text.validity.second}&lt;br&gt;&lt;br&gt;${terms.label.msa}:&lt;br&gt;${terms.text.msa}&lt;br&gt;&lt;br&gt;${terms.label.support}:&lt;br&gt;${terms.text.support}&lt;br&gt;&lt;br&gt;${terms.label.scope}:&lt;br&gt;${terms.text.scope}&lt;br&gt;&lt;br&gt;${terms.text.reference.first}&amp;nbsp;${accountName}&amp;nbsp;${terms.text.reference.second}&lt;br&gt;&lt;br&gt;${terms.text.approval}</rdfs:comment>
+        <rdfs:comment xml:lang="en">&lt;b&gt;${terms.text.1}&lt;/b&gt;&lt;br&gt;${terms.text.11}&lt;br&gt;&lt;br&gt;&lt;b&gt;${terms.text.2}&lt;/b&gt;&lt;br&gt;${terms.text.22}&lt;br&gt;</rdfs:comment>
+        <rdfs:comment xml:lang="es">${terms.text.1}&lt;br&gt;${terms.text.11}&lt;br&gt;&lt;br&gt;${terms.text.2}&lt;br&gt;${terms.text.22}&lt;br&gt;&lt;br&gt;${terms.text.3}&lt;br&gt;${terms.text.33}&lt;br&gt;&lt;br&gt;${terms.text.4}&lt;br&gt;${terms.text.44}&lt;br&gt;&lt;br&gt;${terms.text.5}&lt;br&gt;${terms.text.55}&lt;br&gt;</rdfs:comment>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteTextFinProp1 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTextFinProp1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Finanzielles Angebot 1</rdfs:label>
+        <rdfs:label xml:lang="en">Financial Proposal 1</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteTextFinProp2 -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteTextFinProp2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Finanzielles Angebot 2</rdfs:label>
+        <rdfs:label xml:lang="en">Financial Proposal 2</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zDDDevices -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zDDDevices">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Number of Devices </rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:group rdf:resource="&ase;GroupDimensionData"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zDDTerms -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zDDTerms">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Terms (Contract Duration)</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:group rdf:resource="&ase;GroupDimensionData"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zPaymentTermNoApproval -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zPaymentTermNoApproval">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Keine Genehmigung notwendig</rdfs:label>
+        <rdfs:label xml:lang="en">No Approval Needed</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <rdfs:domain rdf:resource="&as;PaymentTerms"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zProductDescription -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zProductDescription">
+        <ps:hidden rdf:datatype="&xsd;boolean">false</ps:hidden>
+        <rdfs:domain rdf:resource="&as;Product"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zProductLifeSpan -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zProductLifeSpan">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Produktlebenszyklus (Monate)</rdfs:label>
+        <rdfs:label xml:lang="en">Product Life Span (Months)</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:group rdf:resource="&ase;GroupQuoteAdditionalAttributes"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zProjectVolume -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zProjectVolume">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Projekt Volumen</rdfs:label>
+        <rdfs:label xml:lang="en">Project Volume</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?zProjectVolume)
+  WHERE {
+   ?subject as:includesDocumentHeaderPriceItem ?dhp.
+    ?dhp as:documentHeaderPrice ?p.
+    ?subject ase:zProductLifeSpan ?pls .
+?subject ase:zQuantityPerMonth ?qpm .
+BIND (xsd:decimal( ?pls *?p * ?qpm)  AS ?val)
+     }
+  </ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:group rdf:resource="&ase;GroupQuoteAdditionalAttributes"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zProjectVolumeDD -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zProjectVolumeDD">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Project Volume</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?zProjectVolumeDD)
+  WHERE {
+?subject as:includesDocumentHeaderPriceItem ?dhp.
+    ?dhp as:documentHeaderPrice ?p .
+
+BIND (xsd:decimal(?p)  AS ?val)
+  }</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:group rdf:resource="&ase;GroupDimensionData"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#zQuantityPerMonth -->
+
+    <owl:DatatypeProperty rdf:about="&ase;zQuantityPerMonth">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Anzahl pro Monat</rdfs:label>
+        <rdfs:label xml:lang="en">Quantity per Month</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:mandatory rdf:datatype="&xsd;boolean">true</ps:mandatory>
+        <ps:group rdf:resource="&ase;GroupQuoteAdditionalAttributes"/>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#itemHeaderTotalDiscount -->
+
+    <owl:DatatypeProperty rdf:about="&as;itemHeaderTotalDiscount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderTotalDiscount)
+  WHERE {
+    ?subject as:itemHeaderAdditionalPrice ?ap .
+    ?subject as:itemHeaderTotalPrice ?tp .
+    ?subject as:itemHeaderPrice ?hp .
+    ?subject as:itemHeaderQuantity ?cq .
+    ?salesItem as:includesItemHeaderPriceItem ?subject .
+    ?salesItem as:salesItemOptional ?co .
+    BIND ( IF (?co, xsd:decimal(?tp - (?hp + ?ap) * ?cq), xsd:decimal(0))  as ?val )
+  }
+    </ps:sparql>
+        <rdfs:domain rdf:resource="&as;ItemHeaderPriceItem"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema.owl#quoteTextAlrosta -->
+
+    <owl:DatatypeProperty rdf:about="&as;quoteTextAlrosta">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="de">Angebots Text</rdfs:label>
+        <rdfs:label xml:lang="en">Quote Text</rdfs:label>
+        <ps:advancedEditor rdf:datatype="&xsd;boolean">true</ps:advancedEditor>
+        <rdfs:domain rdf:resource="&as;Quote"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#GroupDimensionData -->
+
+    <owl:NamedIndividual rdf:about="&ase;GroupDimensionData">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">General Attributes (DD)</rdfs:label>
+        <ps:groupCode rdf:datatype="&xsd;int">11</ps:groupCode>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+        <ps:objectName rdf:datatype="&xsd;string">General Attributes (DD)</ps:objectName>
+        <ps:groupDescription rdf:datatype="&xsd;string">General Details (DD)</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#GroupQuoteAdditionalAttributes -->
+
+    <owl:NamedIndividual rdf:about="&ase;GroupQuoteAdditionalAttributes">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Additional Data</rdfs:label>
+        <rdfs:label xml:lang="en">Additional Data</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+        <ps:groupCode rdf:datatype="&xsd;string">10</ps:groupCode>
+        <ps:groupDescription rdf:datatype="&xsd;string">Additional Details</ps:groupDescription>
+        <ps:objectName rdf:datatype="&xsd;string">Quote Additional Attributes</ps:objectName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&as;documentHeaderPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderPrice)
+  WHERE {
+    ?subject as:documentHeaderPriceAfterItemDiscount ?qp .
+    ?subject as:documentHeaderDiscount ?qd .
+    BIND (xsd:decimal(xsd:decimal(?qp)*xsd:decimal(100-?qd)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderCurrentPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderCurrentPrice)
+WHERE {
+OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:metalProcessCurrentPrice ?val.
+      ?salesItem as:isProduct ?MetalProcess .
+   }
+OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:metalPartCurrentPrice ?val .
+      ?salesItem as:isProduct ?MetalPart .
+   }
+OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:assemblyCurrentPrice ?val .
+      ?salesItem as:isProduct ?Assembly .
+   }
+OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:othersPrice ?val .
+      ?salesItem as:isProduct ?Item .
+   }
+OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:purchasePartCurrentPrice ?val .
+      ?salesItem as:isProduct ?PurchasePart.
+   }
+   OPTIONAL {
+      ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+      ?salesItem as:includesConfigItem ?config .
+      ?config pcs:automotivePartCurrentPrice ?val .
+      ?salesItem as:isProduct ?AutomotivePart.
+   }
+ }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productSpec">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityWeightedVolume">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?opportunityWeightedVolume)
+  WHERE {
+    ?subject as:opportunityVolume ?vol .
+    ?subject as:opportunityChanceofSuccess ?prop .
+    BIND (xsd:decimal(xsd:decimal(?vol)*xsd:decimal(?prop)*0.01)  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderAfterConfigItemDiscount)
+  WHERE
+  {
+    ?subject as:includesSalesItem+ ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:itemHeaderTotalPrice ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;enterpriseImage">
+        <ps:defaultValue rdf:datatype="&xsd;string">logo.png</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productIsOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;configItemError">
+        <ps:sparql rdf:datatype="&xsd;string">
+		SELECT Distinct ?subject ?configItemError
+WHERE {
+         
+          OPTIONAL{
+         	?subject as:configItemIncludedBy ?salesItem .
+         	?subject rdf:type ?kbType .
+         	?kbType rdfs:subClassOf as:KnowledgeBase .
+         	?pred rdfs:domain ?kbType .
+         	?pred ps:mandatory true .
+         	FILTER NOT EXISTS { ?subject ?pred ?val } .
+         	BIND (if(NOT EXISTS { ?subject ?pred ?val }, true, false) as ?configErrorStatic2) .
+          }
+         OPTIONAL{
+            { 
+               SELECT ?subject (COUNT(?pred) as ?errorCount) WHERE {
+                  {SELECT ?subject ?pred  WHERE {
+                        ?subject as:configItemIncludedBy ?salesItem .
+                        ?subject ps:includesDynamicAttribute ?pred .
+                        ?pred ps:dynamicAttributeMandatory true.
+                        FILTER NOT EXISTS { ?pred ps:dynamicAttributeHidden ?hidden. }
+                        ?pred rdf:type ps:DynamicSymbolicAttribute.
+                        FILTER NOT EXISTS { ?pred ps:usesSymbolicValue ?val. }
+                     }
+                  }
+                    UNION 
+                    {
+                  	 SELECT ?subject ?pred  WHERE {
+                  		?subject as:configItemIncludedBy ?salesItem .
+                  		?subject ps:includesDynamicAttribute ?pred .
+                  		?pred ps:dynamicAttributeMandatory true.
+                  		FILTER NOT EXISTS { ?pred ps:dynamicAttributeHidden ?hidden.}
+                  		FILTER NOT EXISTS { ?pred rdf:type ps:DynamicSymbolicAttribute }
+                  		FILTER NOT EXISTS { ?pred ps:dynamicDataAttributeValue ?val. }
+                  	 }
+                    }
+               } GROUP BY ?subject
+            }
+            BIND (IF(?errorCount&gt;0 , true, false) as ?configErrorDynamic2) .
+            
+         }
+         BIND (if (!bound(?configErrorStatic2),false,?configErrorStatic2) as ?configErrorStatic  )
+         BIND (if (!bound(?configErrorDynamic2),false,?configErrorDynamic2) as ?configErrorDynamic  )
+         BIND   (xsd:boolean(?designElementError || ?configErrorStatic || ?configErrorDynamic)
+            AS ?configItemError)
+      } Group by ?subject ?configItemError
+		</ps:sparql>
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productConfigurable">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesDocumentVersion">
+        <ps:defaultValue rdf:datatype="&xsd;int">1</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderPrice)
+ WHERE {
+    OPTIONAL {
+                      ?subject as:includesPriceItem ?price .
+                      ?price as:hasPriceItemType as:ListPriceItemType.
+                      ?price as:priceItemBaseAmount ?plp .
+                      }
+    OPTIONAL {
+                      ?subject as:itemHeaderCurrentPrice ?ccp .
+                      }
+     BIND ( IF ( EXISTS {
+                     ?subject as:itemHeaderCurrentPrice &quot;-&quot; .
+                      },
+                IF( NOT EXISTS {
+                     ?subject as:includesPriceItem ?price .
+                     ?price as:hasPriceItemType as:ListPriceItemType.
+                     ?price as:priceItemBaseAmount ?plp
+                     }, xsd:decimal(0), ?plp), ?ccp) AS ?val)
+ }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderTotalDiscount">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderTotalDiscount)
+  WHERE {
+     ?subject ase:documentHeaderTotalDiscountBeforeQuoteDiscount ?tdbqd.
+     ?subject as:documentHeaderDiscount ?discount.
+     ?subject as:documentHeaderPriceAfterItemDiscount ?aid.
+BIND (xsd:decimal( xsd:decimal(-1) * ?tdbqd + (?discount  * ?aid /xsd:decimal(100)) ) AS ?val)
+}</ps:sparql>
+        <rdfs:comment rdf:datatype="&xsd;string">SELECT ?subject (?val as ?documentHeaderTotalDiscount)
+  WHERE {
+    ?subject as:documentHeaderListPrice ?priceBeforeDiscount .
+    ?subject as:documentHeaderPrice ?priceAfterDiscount .
+    BIND ( ((xsd:decimal(?priceBeforeDiscount)  - xsd:decimal(?priceAfterDiscount) ) / xsd:decimal(?priceBeforeDiscount)) * 100  AS ?val)
+  }</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderUnitPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderUnitPrice)
+  WHERE {
+    ?subject as:itemHeaderPrice ?cp .
+    ?subject as:itemHeaderPriceItemIncludedBy ?salesItem .
+
+    ?subject as:itemHeaderAdditionalPrice ?ap .
+OPTIONAL{    ?subject as:itemHeaderAdditionalPriceUses ?apu1 .}
+
+    BIND (IF (EXISTS {
+                   ?subject as:itemHeaderAdditionalPriceUses ?apu1 },
+          ?apu1, xsd:decimal (0)) AS ?apu)
+
+
+
+
+
+
+
+
+ OPTIONAL{
+          ?subject as:includesPriceItem ?discount1 .
+          ?discount1 as:hasPriceItemType as:DiscountPriceItemType .
+          ?discount1 as:priceItemBaseAmount ?amount1 .
+    }
+    BIND (IF (EXISTS {
+                  ?subject as:includesPriceItem ?discount1 .
+                  ?discount1 as:hasPriceItemType as:DiscountPriceItemType .
+                  ?discount1 as:priceItemBaseAmount ?amount1 .
+                  },
+          ?amount1, xsd:decimal (0)) AS ?itemDiscount)
+    OPTIONAL{
+          ?subject as:includesPriceItem ?discount2 .
+          ?discount2 as:hasPriceItemType as:ProductDiscountType .
+          ?discount2 as:priceItemBaseAmount ?amount2 .
+    }
+    BIND (IF (EXISTS {
+                  ?subject as:includesPriceItem ?discount2 .
+                  ?discount2 as:hasPriceItemType as:ProductDiscountType .
+                  ?discount2 as:priceItemBaseAmount ?amount2 .
+                  },
+          ?amount2, xsd:decimal (0)) AS ?productDiscount)
+    OPTIONAL{
+          ?subject as:includesPriceItem ?discount3 .
+          ?discount3 as:hasPriceItemType as:CashDiscountType .
+          ?discount3 as:priceItemBaseAmount ?amount3 .
+    }
+    BIND (IF (EXISTS {
+                  ?subject as:includesPriceItem ?discount3 .
+                  ?discount3 as:hasPriceItemType as:CashDiscountType .
+                  ?discount3 as:priceItemBaseAmount ?amount3 .
+                  },
+          ?amount3, xsd:decimal (0)) AS ?cashDiscount)
+
+    OPTIONAL{
+          ?subject as:includesPriceItem ?discount4 .
+          ?discount4 as:hasPriceItemType as:AccountDiscountType .
+          ?discount4 as:priceItemBaseAmount ?amount4 .
+    }
+    BIND (IF (EXISTS {
+                  ?subject as:includesPriceItem ?discount4 .
+                  ?discount4 as:hasPriceItemType as:AccountDiscountType .
+                  ?discount4 as:priceItemBaseAmount ?amount4 .
+                  },
+          ?amount4, xsd:decimal (0)) AS ?accountDiscount)
+    BIND (
+          xsd:decimal((((?cp + ?apu) * (1-(?productDiscount/100)))* (1-(?itemDiscount/100)) * (1-(?accountDiscount/100)))
+                                   - ?cashDiscount + ?ap) AS ?val)
+}
+  </ps:sparql>
+        <rdfs:comment rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderUnitPrice)
+  WHERE {
+    ?subject as:itemHeaderPrice ?cp .
+    BIND (xsd:decimal(?cp)  AS ?val)
+  }
+  </rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productRating">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderTotalPrice">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?itemHeaderTotalPrice
+WHERE {
+   ?subject as:itemHeaderUnitPrice ?cp .
+   ?subject as:itemHeaderQuantity ?cq .
+   ?salesItem as:includesItemHeaderPriceItem ?subject .
+   ?salesItem as:salesItemOptional ?co .
+   OPTIONAL{
+      ?subject as:includesPriceItem ?transport .
+      ?transport as:hasPriceItemType pci:TransportCostType .
+      ?transport as:priceItemBaseAmount ?amount .
+   }
+   BIND (IF (EXISTS {
+            ?subject as:includesPriceItem ?transport .
+            ?transport as:hasPriceItemType pci:TransportCostType .
+            ?transport as:priceItemBaseAmount ?amount .
+         },
+         ?amount, xsd:decimal (0)) AS ?transportCost)
+   BIND ( IF (?co, xsd:decimal((?cp * ?cq) + ?transportCost), xsd:decimal(0))  as ?itemHeaderTotalPrice )
+}</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterItemDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderPriceAfterItemDiscount)
+  WHERE
+  {
+   ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem+ ?si .
+    ?si as:includesItemHeaderPriceItem ?c .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?c as:itemHeaderTotalPrice ?cp .
+             BIND (xsd:decimal(?cp) AS ?val )
+      }
+    }
+  } group by ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderQuantity">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">1.0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemError">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select DISTINCT ?subject ?salesItemError
+  where {
+  ?subject as:includesConfigItem ?config .
+  ?config as:configItemError ?salesItemError .
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productPrice">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscountLimit">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbVersion">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteId">
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 5, &quot;0&quot;) as ?quoteId) where { }</ps:sparql>
+        <rdfs:comment>select ?subject (ps:leftPad(ps:sequence(&quot;QUOTESEQUENCE&quot;), 5, &quot;0&quot;) as ?quoteId) where { }</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;salesItemOptional">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">true</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;groupHidden">
+        <ps:defaultValue rdf:datatype="&xsd;boolean">false</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderMargin">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderMargin)
+  WHERE {
+    ?subject as:itemHeaderUnitPrice ?cp .
+    ?subject as:itemHeaderCost ?cc .
+    BIND ( (xsd:decimal(?cp) - xsd:decimal(?cc)) / xsd:decimal(?cc) * 100  AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDescription">
+        <ps:hidden rdf:datatype="&xsd;string">false</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;kbType">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema.owl#metalProcessToolingCost">
+        <as:costingRelevantSequence rdf:datatype="&xsd;int">5</as:costingRelevantSequence>
+        <as:costingRelevant rdf:datatype="&xsd;boolean">true</as:costingRelevant>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderAdditionalPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject ?itemHeaderAdditionalPrice
+  WHERE {
+   ?subject ase:itemHeaderAdditionalPriceUses ?priceItem1 .
+   ?subject ase:itemHeaderAdditionalPriceIncludes ?priceItem2 .
+BIND (?priceItem2 + ?priceItem1 as ?itemHeaderAdditionalPrice)
+
+  } </ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderDiscount">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <as:costingRelevant rdf:datatype="&xsd;boolean">true</as:costingRelevant>
+        <as:costingRelevantSequence>25</as:costingRelevantSequence>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productOptionsPrice">
+        <ps:hidden rdf:datatype="&xsd;boolean">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderListPrice">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?documentHeaderListPrice)
+  WHERE
+  {
+    ?subject as:documentHeaderPriceItemIncludedBy ?q.
+    ?q as:includesSalesItem+ ?si .
+    ?si as:includesItemHeaderPriceItem ?headerPriceItem .
+    {
+      SELECT DISTINCT ?c ?val
+      WHERE
+      {
+             ?headerPriceItem as:itemHeaderQuantity ?cq .
+             ?headerPriceItem as:itemHeaderPrice ?cp .
+             BIND (xsd:decimal(xsd:decimal(?cp) * xsd:decimal(?cq))  AS ?val)
+      }
+    }
+  }
+  GROUP BY ?subject</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;itemHeaderCost">
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?itemHeaderCost)
+  WHERE {
+    ?subject as:itemHeaderPrice ?cp .
+    BIND (xsd:decimal(?cp * 0.8) AS ?val)
+  }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productATPSchedule">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productDiscontAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;productVolumeAllowed">
+        <ps:hidden rdf:datatype="&xsd;string">true</ps:hidden>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;documentHeaderPriceAfterExchangeRate">
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?documentHeaderPriceAfterExchangeRate)
+            WHERE{
+                    ?subject as:documentHeaderPrice ?price.
+                    ?subject as:documentHeaderPriceItemIncludedBy ?quote.
+                    OPTIONAL{
+                        ?quote as:includeExchangeRateSalesDocument ?rate .
+                        ?quote as:hasBaseCurrency ?baseCurrency .
+                        ?quote as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:exchangeRate ?rateValue .   }
+                        BIND ( IF ( EXISTS {
+                        ?quote as:includeExchangeRateSalesDocument ?rate .
+                        ?quote as:hasBaseCurrency ?baseCurrency .
+                        ?quote as:hasTargetCurrency ?targetCurrency .
+                        ?rate as:hasBaseCurrency ?baseCurrency .
+                        ?rate as:hasTargetCurrency ?targetCurrency .
+                             },
+                        xsd:decimal(?price * ?rateValue), ?price ) AS ?val )
+    }</ps:sparql>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;quoteReportTitle">
+        <ps:defaultValue xml:lang="de">Angebot</ps:defaultValue>
+        <ps:defaultValue xml:lang="en">Quote</ps:defaultValue>
+    </rdf:Description>
+    <rdf:Description rdf:about="&as;opportunityChanceofSuccess">
+        <ps:defaultValue rdf:datatype="&xsd;int">50</ps:defaultValue>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/report-schema.owl#"
+     xml:base="http://www.inmindcomputing.com/application/report-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/report-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#activity -->
+
+    <owl:DatatypeProperty rdf:about="&ase;activity">
+        <rdfs:domain rdf:resource="&ase;OpportunityRelevanceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#calendarYear -->
+
+    <owl:DatatypeProperty rdf:about="&ase;calendarYear">
+        <rdfs:domain rdf:resource="&ase;OpportunityVolumePerCalendarYearData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#docType -->
+
+    <owl:DatatypeProperty rdf:about="&ase;docType">
+        <rdfs:domain rdf:resource="&ase;OpportunitiesVsQuotesPerQuarterData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionNegativeSentiment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionNegativeSentiment">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionPositiveSentiment -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionPositiveSentiment">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionProblem -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionProblem">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#extractionRequests -->
+
+    <owl:DatatypeProperty rdf:about="&ase;extractionRequests">
+        <rdfs:domain rdf:resource="&ase;OpportunitySentimentData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#fiscalYear -->
+
+    <owl:DatatypeProperty rdf:about="&ase;fiscalYear">
+        <rdfs:domain rdf:resource="&ase;OpportunityVolumePerFiscalYearData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#mood -->
+
+    <owl:DatatypeProperty rdf:about="&ase;mood">
+        <rdfs:domain rdf:resource="&ase;OpportunityRelevanceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#opportunity -->
+
+    <owl:DatatypeProperty rdf:about="&ase;opportunity">
+        <rdfs:comment rdf:datatype="&xsd;string">Opportunity name in data point for report.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityRelevanceData"/>
+                    <rdf:Description rdf:about="&ase;OpportunitySentimentData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#opportunityId -->
+
+    <owl:DatatypeProperty rdf:about="&ase;opportunityId">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunityOpportunitiesPerVolumeData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityRelevanceData"/>
+                    <rdf:Description rdf:about="&ase;OpportunitySentimentData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#price -->
+
+    <owl:DatatypeProperty rdf:about="&ase;price">
+        <rdfs:domain rdf:resource="&ase;QuotesPerPriceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;decimal"/>
+                    <rdf:Description rdf:about="&xsd;string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#productName -->
+
+    <owl:DatatypeProperty rdf:about="&ase;productName">
+        <rdfs:domain rdf:resource="&ase;OpportunityVolumeByProductData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quote -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quote">
+        <rdfs:domain rdf:resource="&ase;QuotesPerPriceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#quoteId -->
+
+    <owl:DatatypeProperty rdf:about="&ase;quoteId">
+        <rdfs:domain rdf:resource="&ase;QuotesPerPriceData"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#salesPhase -->
+
+    <owl:DatatypeProperty rdf:about="&ase;salesPhase">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#volume -->
+
+    <owl:DatatypeProperty rdf:about="&ase;volume">
+        <rdfs:comment rdf:datatype="&xsd;string">Volume of opportunity.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+                    <rdf:Description rdf:about="&ase;OpportunitiesVsQuotesPerQuarterData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumeByProductData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerCalendarYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerFiscalYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#weightedVolume -->
+
+    <owl:DatatypeProperty rdf:about="&ase;weightedVolume">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunityRelevanceData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerCalendarYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerFiscalYearData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#yearQuarter -->
+
+    <owl:DatatypeProperty rdf:about="&ase;yearQuarter">
+        <rdfs:subPropertyOf rdf:resource="&ps;assertion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ase;OpportunitiesVsQuotesPerQuarterData"/>
+                    <rdf:Description rdf:about="&ase;OpportunityVolumePerQuarterData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitOpportunitiesPerVolumeData -->
+
+    <owl:Class rdf:about="&ase;CockpitOpportunitiesPerVolumeData">
+        <rdfs:subClassOf rdf:resource="&ps;Transient"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#CockpitReport -->
+
+    <owl:Class rdf:about="&ase;CockpitReport">
+        <rdfs:subClassOf rdf:resource="&ps;Report"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunitiesPerVolumeData -->
+
+    <owl:Class rdf:about="&ase;OpportunitiesPerVolumeData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunitiesVsQuotesPerQuarterData -->
+
+    <owl:Class rdf:about="&ase;OpportunitiesVsQuotesPerQuarterData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityOpportunitiesPerVolumeData -->
+
+    <owl:Class rdf:about="&ase;OpportunityOpportunitiesPerVolumeData">
+        <rdfs:subClassOf rdf:resource="&ps;Transient"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityRelevanceData -->
+
+    <owl:Class rdf:about="&ase;OpportunityRelevanceData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityReport -->
+
+    <owl:Class rdf:about="&ase;OpportunityReport">
+        <rdfs:subClassOf rdf:resource="&ps;Report"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunitySentimentData -->
+
+    <owl:Class rdf:about="&ase;OpportunitySentimentData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumeByProductData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumeByProductData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerCalendarYearData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerCalendarYearData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerFiscalYearData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerFiscalYearData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#OpportunityVolumePerQuarterData -->
+
+    <owl:Class rdf:about="&ase;OpportunityVolumePerQuarterData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuoteReport -->
+
+    <owl:Class rdf:about="&ase;QuoteReport">
+        <rdfs:subClassOf rdf:resource="&ps;Report"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.inmindcomputing.com/application/application-schema-ext.owl#QuotesPerPriceData -->
+
+    <owl:Class rdf:about="&ase;QuotesPerPriceData">
+        <rdfs:subClassOf rdf:resource="&ps;Data"/>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;CockpitOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;QuotesPerPriceData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&ase;CockpitReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;OpportunityOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;QuotesPerPriceData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&ase;QuoteReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;CockpitOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&ase;CockpitReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&ase;OpportunityOpportunitiesPerVolumeData"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ase;OpportunitiesPerVolumeData"/>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&ps;definesData"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&ase;OpportunityReport"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

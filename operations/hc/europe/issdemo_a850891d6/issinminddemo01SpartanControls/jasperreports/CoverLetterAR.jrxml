@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2016-06-23T17:06:36 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.er.platform.model.BusinessObject"/>
+	<import value="com.er.platform.vocabulary.Platform"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.er.platform.vocabulary.Application"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<parameter name="Quote" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<parameter name="additionalItemPrice" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList<Map<String,Object>>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="additionalItems" class="java.util.Set">
+		<defaultValueExpression><![CDATA[new HashSet<String>()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="optionalItems" class="java.util.List">
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter1" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Parameter2" class="java.util.Map">
+		<defaultValueExpression><![CDATA[new HashMap<String,String>();]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.er.platform.datatransferobjects.BusinessObjectDTO"/>
+	<variable name="contactTitle" class="com.er.platform.datatransferobjects.BusinessObjectDTO">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasTitle")]]></variableExpression>
+	</variable>
+	<variable name="contactGender" class="com.er.platform.model.BusinessObject">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "hasGender")]]></variableExpression>
+	</variable>
+	<variable name="genderExternalId" class="java.lang.String">
+		<variableExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></variableExpression>
+		<initialValueExpression><![CDATA[($P{Quote}.getAttributeValue("usesPerson","hasGender","objectExternalId").toString())]]></initialValueExpression>
+	</variable>
+	<variable name="contactFirstName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personFirstName")]]></variableExpression>
+	</variable>
+	<variable name="contactLastName" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("usesPerson", "personLastName")]]></variableExpression>
+	</variable>
+	<variable name="contactTitleKeyword" class="java.lang.String">
+		<variableExpression><![CDATA[$P{REPORT_LOCALE}.toString().startsWith("de") ? (($V{genderExternalId} == "MALE")? "geehrter ": (($V{genderExternalId} == "FEMALE")? "geehrte " : "geehrte/r ")) : ""]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPriceAfterItemDiscount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPriceAfterItemDiscount").toString())]]></variableExpression>
+	</variable>
+	<variable name="documentHeaderPrice" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[new BigDecimal($P{Quote}.getAttributeValue("includesDocumentHeaderPriceItem","documentHeaderPrice").toString())]]></variableExpression>
+	</variable>
+	<variable name="quoteCurrency" class="java.lang.String">
+		<variableExpression><![CDATA[$P{Quote}.getAttributeValue("hasBaseCurrency", "objectId")]]></variableExpression>
+	</variable>
+	<variable name="currencyFormatter" class="java.text.DecimalFormat">
+		<variableExpression><![CDATA[(DecimalFormat) NumberFormat.getCurrencyInstance($P{REPORT_LOCALE});
+DecimalFormatSymbols symbols = ((java.text.DecimalFormat)value).getDecimalFormatSymbols();
+symbols.setCurrencySymbol("");
+((java.text.DecimalFormat)value).setDecimalFormatSymbols(symbols)]]></variableExpression>
+	</variable>
+	<variable name="putOptionalItem" class="java.lang.String">
+		<variableExpression><![CDATA["";if  
+((Boolean)((BusinessObject)$F{SalesItem}.getAttributeValue("isProduct","productContainedBy")).getUriAsString().equals("http://www.inmindcomputing.com/application/products/products-implementation.owl#DDC1"))
+{
+int originalSize = $P{Parameter1}.size();
+
+$P{Parameter1}.put($F{SalesItem}.getAttributeValue("objectName").toString(), "");
+if ($P{Parameter1}.size() != originalSize) {
+
+Map individualMap = new HashMap<String, Object>();
+individualMap.put("btshorttext",$F{SalesItem}.getAttributeValue("objectName").toString());
+individualMap.put("proddesc",$F{SalesItem}.getAttributeValue("isProduct","productDescription").toString());
+individualMap.put("qty",$F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderQuantity"));
+individualMap.put("unitPriceDisc",$V{quoteCurrency} + " " + $V{currencyFormatter}.format(new BigDecimal($F{SalesItem}.getAttributeValue("includesItemHeaderPriceItem","itemHeaderUnitPrice").toString())));
+$P{optionalItems}.add(individualMap);
+}
+}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="600" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="29" y="153" width="480" height="184" uuid="ab014559-8f63-4e4a-963b-f9da913b2167"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<br><br>" + $P{Quote}.getAttributeValue("quoteIntro") + "<br>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement style="baseStyle" stretchType="RelativeToBandHeight" x="30" y="128" width="479" height="18" uuid="9a612702-4a85-4f07-a99d-a74139a62e11"/>
+				<textElement textAlignment="Left" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{quote.intro.salutation} + " " + ($V{contactTitle} != null ?
+										($V{contactTitleKeyword} + $V{contactTitle}.l10nKey + " " + $V{contactLastName})
+										: ($V{contactFirstName} + " " + $V{contactLastName})) +","]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="baseStyle" x="30" y="108" width="320" height="20" uuid="0f988ed9-7815-48d1-909e-a361fd9985d6"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("salesDocumentDescription")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="85" width="259" height="23" uuid="36dc375d-1250-48f1-915c-d7bddaaee8e8"/>
+				<textFieldExpression><![CDATA["Date: " + new SimpleDateFormat("dd. MMMM yyyy", $P{REPORT_LOCALE}).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement x="17" y="-1" width="462" height="50" uuid="06a01974-f471-404c-b562-e0ef1603c213"/>
+				<imageExpression><![CDATA[$P{CMIS} + "/logos/alrostamani.png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement positionType="FixRelativeToBottom" x="29" y="337" width="480" height="251" uuid="1cc3b8e6-db87-4f5e-aaac-1a0d08b0cd3c"/>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="101" width="49" height="12" forecolor="#000000" uuid="1deb1acd-0ed9-4477-9d32-e31927929c38"/>
+					<textElement textAlignment="Left">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.label.email}+":"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="49" y="101" width="137" height="12" forecolor="#000000" uuid="86928854-211d-402e-b034-2bfb95857eb6"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["manager@alrostamani.ae"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="85" width="49" height="12" forecolor="#000000" uuid="61c1aa4c-586e-4cd9-a4c3-398a227403eb"/>
+					<textElement textAlignment="Left">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.label.phone}+":"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="49" y="85" width="137" height="12" forecolor="#000000" uuid="5e966eec-ca01-472b-a4c3-fa099ef1afc4"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["0505555551234"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="67" width="180" height="12" forecolor="#000000" uuid="1f857239-a555-4fc5-b6ba-c439e0bf2ded"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Business Unit Manager"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="txtCreatorName" x="0" y="52" width="180" height="12" forecolor="#000000" uuid="e1af357b-bd4f-41c6-95eb-0bb6563582fb"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Riaz Nazer"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="35" width="100" height="12" uuid="2955249c-4356-4c9c-83a2-04b095d0495a"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Technical Contact]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="50" width="221" height="1" uuid="1d88e403-acb3-4eb0-a97a-d68d6f802bb0">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+				</line>
+				<staticText>
+					<reportElement x="257" y="35" width="100" height="12" uuid="29bdd064-3d1b-4866-96b8-59948a9725ac"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sales Contact]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="257" y="68" width="180" height="12" forecolor="#000000" uuid="f35ffa80-8139-443b-a57b-17d5d9b224fa"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCreator", "includesPerson","personPosition")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="257" y="83" width="34" height="12" forecolor="#000000" uuid="6e0d7624-18ee-4589-89fa-d150a6164bc6"/>
+					<textElement textAlignment="Left">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.label.phone}+":"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="297" y="101" width="180" height="12" forecolor="#000000" uuid="1f906258-f823-4451-87a7-1f12f104cd0d">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personEmail")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="297" y="83" width="180" height="12" forecolor="#000000" uuid="40ef9281-f454-4362-a654-f35127616e83"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCreator", "includesPerson","personPhone")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="257" y="101" width="34" height="12" forecolor="#000000" uuid="68d784be-e11c-4b6c-ba9e-ab175c0d53ad"/>
+					<textElement textAlignment="Left">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{quote.label.email}+":"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="txtCreatorName" x="257" y="53" width="180" height="12" forecolor="#000000" uuid="55cb6252-282d-4394-a8bc-38ceb913051d"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personFirstName") + " " + $P{Quote}.getAttributeValue("containsCreator", "includesPerson", "personLastName")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="196" width="166" height="15" uuid="34cc7b82-d1d5-4aa8-a895-e7ed711fc24f"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Mohammed Zameer]]></text>
+				</staticText>
+				<image>
+					<reportElement x="231" y="170" width="29" height="20" uuid="b2d0d67a-4312-46cb-a128-412ead181026"/>
+					<imageExpression><![CDATA[$P{CMIS} + "/logos/alrostamanismall.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="0" y="214" width="166" height="16" uuid="2f4cb092-e58e-4085-945a-7fc27692e7b5"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[General Manager]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="177" width="231" height="15" uuid="1945da2c-9d17-44e2-a7cc-b1acd435b5d2"/>
+					<text><![CDATA[For AL ROSTAMANI COMMUNICATIONS LLC]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="156" width="173" height="19" uuid="abc4bed2-eaf2-47cc-8bc0-e1847c356b3c"/>
+					<text><![CDATA[Thanks & Regards]]></text>
+				</staticText>
+				<line>
+					<reportElement x="258" y="50" width="221" height="1" uuid="f8089654-07ac-44c6-b760-ede14447012d">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+				</line>
+			</frame>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="29" width="396" height="12" uuid="63759428-b4ec-4ea0-940c-bed69c930089">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tel: +9714 4287557 Fax: +9714 4250507 Email: arc@alrostamanigroup.ae]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="16" width="291" height="12" uuid="0d66119c-a8f7-49a2-bf74-7445894e1bdc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Al Rostamani Communications PO BOX 30420]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="13" width="551" height="1" forecolor="#BEE6FD" uuid="f22fef7f-26b0-4b42-8efa-5c3b56ae9f14">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</line>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textFieldCurrentPage" x="31" y="0" width="150" height="13" isRemoveLineWhenBlank="true" forecolor="#333333" backcolor="#FFFFFF" uuid="f2982c07-1fd7-4b52-83ae-fa71c82b1791"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page.page}+" "+$V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="175" height="13" uuid="57860e41-78e4-4e6c-8e71-813006171bf4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" markup="html"/>
+				<textFieldExpression><![CDATA["ARC Response to RFP " + (($P{Quote}.getAttributeValue("quoteReference") == null) ? "":$P{Quote}.getAttributeValue("quoteReference"))]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

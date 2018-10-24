@@ -1,0 +1,23 @@
+constraintNet FIBER_CONNECTOR_CNET {
+  constraints
+    PRODUCT_IMAGE_CS
+    
+}
+
+
+constraint PRODUCT_IMAGE_CS {
+	objects ?O is_a(300)FIBER_CONNECTOR
+	
+	condition:
+		?O.CONNECTOR_TYPE specified
+	
+	restrictions:
+		?O.PRODUCTIMAGE = 'FC1.jpg'
+			if ?O.CONNECTOR_TYPE = 'Normal'
+		,?O.PRODUCTIMAGE = 'FC2.jpg'
+			if ?O.CONNECTOR_TYPE = 'Duplex'
+		
+		
+	inferences:
+		?O.PRODUCTIMAGE
+}

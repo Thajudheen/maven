@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+<!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+<!ENTITY ps "http://www.inmindcloud.com/application/schema.owl#" >
+<!ENTITY as "http://www.inmindcloud.com/application/schema.owl#" >
+<!ENTITY wi "http://www.inmindcloud.com/application/workItem-implementation.owl#" >
+<!ENTITY ces "http://www.inmindcloud.com/application/configuration-extension-schema.owl" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcloud.com/extension/configuration-extension-schema.owl#"
+ xml:base="http://www.inmindcloud.com/extension/configuration-extension-schema.owl"
+ xmlns:wi="http://www.inmindcloud.com/application/workItem-implementation.owl#"
+ xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+ xmlns:as="http://www.inmindcloud.com/application/schema.owl#"
+ xmlns:ces="http://www.inmindcloud.com/application/configuration-extension-schema.owl"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:ps="http://www.inmindcloud.com/application/schema.owl#">
+	<owl:Ontology rdf:about="http://www.inmindcloud.com/extension/configuration-extension-schema.owl">
+		<owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+		<rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+		<owl:imports rdf:resource="http://www.inmindcloud.com/application/schema.owl"/>
+	</owl:Ontology>
+
+	<owl:NamedIndividual rdf:about="&as;TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC">
+		<rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+		<rdfs:label xml:lang="de">Generische Stueklistenaufloesung</rdfs:label>
+		<rdfs:label xml:lang="en">Generic BOM explosion that triggers once all cahareteristics are set refereing to a product</rdfs:label>
+		<ps:sequenceID rdf:datatype="&xsd;int">10000</ps:sequenceID>
+		<ps:sparqlDefault rdf:datatype="&xsd;string">
+		CONSTRUCT
+		{
+		   ?bom as:usesBOMEntry ?bomEntry .
+		}
+		WHERE
+		{
+		   SELECT DISTINCT ?bomEntry  ?bom
+		   WHERE {
+			  FILTER (!bound(?_activeConfig))
+			  # those are the products from the range definition
+			  {
+				 SELECT ?bomEntry  ?bom
+				 WHERE
+				 {
+					?quote rdf:type ps:ActiveObject .
+					?quote rdf:type as:Quote .
+					?salesItem as:salesItemIncludedBy+ ?quote.
+					?salesItem as:includesConfigItem ?config .
+					?config ps:includesDynamicAttribute ?attribute .         
+					?attribute ps:usesSymbolicValue ?value .
+					?value ps:isSymbolicValue ?valueUri .
+					?value as:usesBOMEntry ?bomEntry .
+					
+				 }
+				 
+				 
+			  }
+			  MINUS
+			  # those are the products from that are selected
+			  { 
+				 { SELECT ?bomEntry  ?bom
+					WHERE
+					{
+					   ?quote rdf:type ps:ActiveObject .
+					   ?quote rdf:type as:Quote .
+					   ?salesItem as:salesItemIncludedBy+ ?quote.
+					   ?salesItem as:includesConfigItem ?config .
+					   ?quote rdf:type ps:ActiveObject .
+					   ?quote rdf:type as:Quote .
+					   ?salesItem as:salesItemIncludedBy+ ?quote.
+					   ?salesItem as:includesConfigItem ?config .
+					   ?config ps:includesDynamicAttribute ?otherAttribute .
+					   ?otherAttribute ps:includesAttributeRange ?range .
+					   ?range ps:includesSymbolicValue ?otherValue .
+					   ?otherValue ps:isSymbolicValue ?valueUri .
+					   ?otherValue  as:usesBOMEntry  ?bomEntry .
+					   ?otherAttribute ps:usesSymbolicValue ?otherValueSelected . 
+					   FILTER NOT EXISTS {
+						  ?otherAttribute ps:usesSymbolicValue ?otherValueSelected . 
+						  ?otherValueSelected    as:usesBOMEntry  ?bomEntry .
+					   }
+					}
+				 }
+				 UNION
+				 #Those are the attributes without a value selected
+				 { SELECT ?bomEntry  ?bom
+					WHERE
+					{
+					   ?quote rdf:type ps:ActiveObject .
+					   ?quote rdf:type as:Quote .
+					   ?salesItem as:salesItemIncludedBy+ ?quote.
+					   ?salesItem as:includesConfigItem ?config .
+					   ?quote rdf:type ps:ActiveObject .
+					   ?quote rdf:type as:Quote .
+					   ?salesItem as:salesItemIncludedBy+ ?quote.
+					   ?salesItem as:includesConfigItem ?config .
+					   ?config ps:includesDynamicAttribute ?otherAttribute .
+					   ?otherAttribute ps:includesAttributeRange ?range .
+					   ?range ps:includesSymbolicValue ?otherValue .
+					   ?otherValue ps:isSymbolicValue ?valueUri .
+					   ?otherValue  as:usesBOMEntry  ?bomEntry .
+					   Filter NOT EXISTS {?otherAttribute ps:usesSymbolicValue ?otherValueSelected       }
+					   
+					}
+				 }
+			  }
+		   }
+		}</ps:sparqlDefault>
+		<ps:triggerSparql>ASK WHERE {FILTER(bound(?bomExplosion))}</ps:triggerSparql>
+		<ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC</ps:objectName>
+		<ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC</ps:objectId>
+		<ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+		<ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+		<ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="&as;TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC_LEGACY">
+		<rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+		<rdfs:label xml:lang="de">Generische Stueklistenaufloesung</rdfs:label>
+		<rdfs:label xml:lang="en">Generic LEGACY BOM explosion that triggers once all cahareteristics are set refereing to a product</rdfs:label>
+		<ps:sequenceID rdf:datatype="&xsd;int">10000</ps:sequenceID>
+		<ps:sparqlDefault rdf:datatype="&xsd;string">
+		CONSTRUCT
+		{
+		   ?bomItem as:hasProduct ?product .
+		} WHERE {
+		   ?salesItem as:includesConfigItem ?config .
+		   ?config ps:includesDynamicAttribute/ps:usesSymbolicValue/as:hasProduct ?product .
+		}
+		</ps:sparqlDefault>
+		<ps:triggerSparql>ASK WHERE {FILTER(bound(?bomExplosion))}</ps:triggerSparql>
+		<ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC_LEGACY</ps:objectName>
+		<ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC_LEGACY</ps:objectExternalId>
+		<ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_BOM_EXPLOSION_GENERIC_LEGACY</ps:objectId>
+		<ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+		<ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+		<ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&as;TRIGGERED_CALCULATION_DOMAIN_RESTRICTION_BOM_GENERIC">
+		<rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+		<rdfs:label xml:lang="de">pci:Infield Domaeneneinschraenkung</rdfs:label>
+		<rdfs:label xml:lang="en">pci:Infield domain restritction</rdfs:label>
+		<ps:sequenceID rdf:datatype="&xsd;int">100</ps:sequenceID>
+		<ps:sparqlDefault rdf:datatype="&xsd;string">
+	CONSTRUCT
+	{
+	?toActivateValues rdf:type ps:ActiveSymbolicValue .
+	?toActivateAttributes ps:dynamicAttributeNeedsActivation &quot;true&quot;^^xsd:boolean .
+	}
+	WHERE {
+	{
+		SELECT DISTINCT ?bomEntries WHERE {
+			{
+				SELECT REDUCED ?bomEntries WHERE {
+				{
+					FILTER EXISTS {
+						?selectedAttribute ps:usesSymbolicValue ?selectedValue.
+					}
+					?salesItem as:includesConfigItem ?config .
+					?config as:includesBOM ?bom .
+					?bom as:includesBOMEntry ?bomEntries .
+				} MINUS {
+					?salesItem as:includesConfigItem ?config .
+					?config ps:includesDynamicAttribute ?selectedAttribute .
+					?selectedAttribute ps:usesSymbolicValue ?selectedValue.
+					?selectedAttribute ps:includesAttributeRange ?selectedRange .
+					?selectedRange ps:includesSymbolicValue ?rangeValues .
+					FILTER(?rangeValues!=?selectedValue)
+					?rangeValues as:usesBOMEntry ?bomEntries .
+				}
+				}
+			} 
+		}
+	}
+	?bomEntries ^as:usesBOMEntry ?toActivateValues .
+	?toActivateValues ^ps:includesSymbolicValue ?toActivateRange .
+	?toActivateRange ^ps:includesAttributeRange ?toActivateAttributes .
+	}</ps:sparqlDefault>
+		<ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DOMAIN_RESTRICTION_BOM_GENERIC</ps:objectName>
+		<ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DOMAIN_RESTRICTION_BOM_GENERIC</ps:objectId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DOMAIN_RESTRICTION_BOM_GENERIC</ps:objectExternalId>
+		<ps:graphSelection rdf:datatype="&xsd;string">USER</ps:graphSelection>
+		<ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+		<ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="&as;TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC">
+		<rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+		<rdfs:label xml:lang="de">Generische CSTIC Auswahl</rdfs:label>
+		<rdfs:label xml:lang="en">Generic CSTIC selection</rdfs:label>
+		<ps:sequenceID rdf:datatype="&xsd;int">1000</ps:sequenceID>
+		<ps:sparqlDefault rdf:datatype="&xsd;string">
+		CONSTRUCT
+		{
+			?aAttribute ps:dynamicAttributeReadOnly ?readonly .
+			?aAttribute ps:usesSymbolicValue ?aValue .
+		}
+		WHERE {
+			{
+				SELECT ?aAttribute ?aValue ?readonly WHERE {
+					?quote rdf:type ps:ActiveObject .
+					?quote rdf:type as:Quote .
+					?salesItem as:salesItemIncludedBy+ ?quote.
+					?salesItem as:includesConfigItem ?config .
+					?config ps:includesDynamicAttribute ?aSelectedAttribute .
+					?aSelectedAttribute ps:usesSymbolicValue ?value .
+					?value ps:isSymbolicValue ?valueUri .
+					?value ps:selectsSymbolicValue ?aValue .
+					?currentRange ps:includesSymbolicValue ?aValue .
+					?aAttribute ps:includesAttributeRange ?currentRange .
+					OPTIONAL {
+						?aAttribute ps:dynamicAttributeReadOnly ?setReadonly .
+					}
+					BIND(IF(BOUND(?setReadonly),?setReadonly, true) as ?readonly)
+				}
+			}
+			UNION
+			{SELECT ?aAttribute ?aValue ?readonly WHERE {
+					# values that could be activated
+					?aAttribute ps:includesAttributeRange ?currentRange .
+					?currentRange ps:includesSymbolicValue ?aValue .
+					?aValue rdf:type ps:ActiveSymbolicValue.
+					{
+						SELECT ?aAttribute (COUNT(?aAttribute) as ?countActiveValues) WHERE {
+						# values that could be activated
+						?quote rdf:type ps:ActiveObject .
+						?quote rdf:type as:Quote .
+						?salesItem as:salesItemIncludedBy+ ?quote.
+						?salesItem as:includesConfigItem ?config .
+						?config ps:includesDynamicAttribute ?aAttribute .
+						?aAttribute ps:includesAttributeRange ?currentRange .
+						?currentRange ps:includesSymbolicValue ?aValue .
+						?aValue rdf:type ps:ActiveSymbolicValue.
+						} GROUP BY ?aAttribute
+					}
+					OPTIONAL {
+						?aAttribute ps:dynamicAttributeReadOnly ?setReadonly .
+					}
+					BIND(IF(BOUND(?setReadonly),?setReadonly, true) as ?readonly)
+					FILTER(?countActiveValues = 1)
+					FILTER NOT EXISTS {
+						?aAttribute ps:usesSymbolicValue ?activeValue .
+						FILTER(?aValue != ?activeValue)
+					}
+				}
+			}
+		}
+		</ps:sparqlDefault>
+		<ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC</ps:objectId>
+		<ps:objectName rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC</ps:objectName>
+		<ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_VALUE_SELECTION_GENERIC</ps:objectExternalId>
+		<ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+		<ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+		<ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="&as;TRIGGERED_CALCULATION_DYNAMIC_HIDE">
+		<rdf:type rdf:resource="&ps;TriggeredCalculation"/>
+		<ps:sequenceID rdf:datatype="&xsd;int">1002</ps:sequenceID>
+		<ps:sparqlDefault rdf:datatype="&xsd;string">
+		CONSTRUCT
+		{
+		?aAttribute ps:dynamicAttributeHidden true .
+		}
+		WHERE {
+			SELECT ?aAttribute WHERE {
+				BIND (?_activeConfig as ?config)
+				?quote rdf:type ps:ActiveObject .
+				?quote rdf:type as:Quote .
+				?salesItem as:salesItemIncludedBy+ ?quote.
+				?salesItem as:includesConfigItem ?config .
+				?config ps:includesDynamicAttribute ?aSelectedAttribute .
+				?aSelectedAttribute ps:usesSymbolicValue ?value .
+				?value ps:hidesDynamicAttribute ?aAttribute.
+				?config ps:includesDynamicAttribute ?aAttribute.
+			}
+		}</ps:sparqlDefault>
+		<ps:objectName rdf:datatype="&xsd;string">TRIGGERED CALCULATION DYNAMIC HIDE</ps:objectName>
+		<ps:objectId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DYNAMIC_HIDE</ps:objectId>
+		<ps:objectExternalId rdf:datatype="&xsd;string">TRIGGERED_CALCULATION_DYNAMIC_HIDE</ps:objectExternalId>
+		<ps:graphSelection rdf:datatype="&xsd;string">USER_AND_CALC</ps:graphSelection>
+		<ps:forType rdf:datatype="&xsd;string">as:Quote</ps:forType>
+		<ps:deleteAllowed rdf:datatype="&xsd;boolean">false</ps:deleteAllowed>
+	</owl:NamedIndividual>
+</rdf:RDF>

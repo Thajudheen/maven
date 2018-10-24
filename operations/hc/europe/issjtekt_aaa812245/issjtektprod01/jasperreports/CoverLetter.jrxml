@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cover" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a9853b6-7376-4c35-8f67-e3227b14d9ea">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="com.imc.model.BusinessObject"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<import value="java.util.GregorianCalendar"/>
+	<import value="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<import value="com.imc.vocabulary.Schema"/>
+	<style name="baseStyle" fontName="Arial Unicode MS"/>
+	<style name="default" isDefault="true" fontName="Arial"/>
+	<parameter name="Quote" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<parameter name="CMIS" class="java.lang.String"/>
+	<field name="SalesItem" class="com.imc.datamodel.transferobjects.BusinessObjectDTO"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="517" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="152" width="522" height="352" uuid="a4fb5ff6-a5ab-4325-a753-321f998ae91e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dear Sir/ Madam,
+
+
+Thanks for providing us an opportunity to quote for the above referred RFP for professional services for IT Infrastructure at your organization.
+
+The components of our proposed solution is inclusive of cutting edge technologies of Cisco for networking & Security, Fortigate for perimeter firewall, F5 Load balancers.
+
+In systems side we are pleased to propose VMware 5.5 Technology for virtual environment on top of state of the art HP Gen8 servers, HP MSL Tape Library along with Netapp unified storage for SAN
+Storage and fujitsu CS for disk based backup which will be integrated with Symantec Backup Exec for your backup environment.
+
+For Environment Management and Monitoring we prefer to propose Manage Engine based on proven track record and ease of End User.
+
+We would also like to express our commitment to deliver this project in Mid of October 2014 as requested in RFP and flexible to commission a temporary setup (with the same hardware) in case if the
+data center is not ready on time, which would be relocated at later stage when Datacenter is ready.
+
+We trust that the enclosed quote is in line with your requirements. However if you require any clarifications, please feel free to contact us.
+
+It would be our pleasure to provide you with the necessary information.
+]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="-19" y="0" width="594" height="120" forecolor="#000000" backcolor="#FFFFFF" uuid="b5314e99-a607-4183-a463-8976027d13bb"/>
+				<textField isBlankWhenNull="true">
+					<reportElement key="txtCompanyName" style="baseStyle" x="25" y="34" width="200" height="15" forecolor="#000000" uuid="63cc0327-43fa-4453-8ea8-5e4225c171bb"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{Quote}.getAttributeValue("containsCompany", "objectName")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="49" width="200" height="15" forecolor="#000000" uuid="051088ac-4928-4cba-862a-72ed328c7f06"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(Boolean)$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressMain") ? $P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressStreet") : null]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="64" width="200" height="15" forecolor="#000000" uuid="8f24d3a8-20f6-4cb6-b41a-4f5e61d97815"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(Boolean)$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressMain") ? $P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressCity") : null]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="baseStyle" x="25" y="79" width="200" height="15" forecolor="#000000" uuid="6e8d055d-de79-4b9a-9eb4-6015bb9538fd"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(Boolean)$P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressMain") ? $P{Quote}.getAttributeValue("containsCompany", "includesAddress", "addressZip") : null]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="420" y="57" width="150" height="37" forecolor="#000000" uuid="575f72a7-f2cf-4648-bd64-373a170569fb"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="true"/>
+						<paragraph rightIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{Quote}.getAttributeValue("hasSalesDocumentStatus").equals(Application.OPEN) || $P{Quote}.getAttributeValue("hasSalesDocumentStatus").equals(Application.COMPLETED)) ? $R{page.title.draft} : $R{page.title.main}]]></textFieldExpression>
+				</textField>
+				<image scaleImage="FillFrame">
+					<reportElement mode="Opaque" x="26" y="2" width="93" height="32" uuid="2ede4cdc-a198-42c4-bc19-a0c7bf47cefa"/>
+					<imageExpression><![CDATA[$P{CMIS} + "/logos/logo.png"]]></imageExpression>
+				</image>
+				<line>
+					<reportElement x="25" y="104" width="545" height="1" uuid="25f52a01-e5c5-47c2-a303-45d85ce93836"/>
+					<graphicElement>
+						<pen lineWidth="1.5"/>
+					</graphicElement>
+				</line>
+			</frame>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textFieldCurrentPage" x="401" y="0" width="150" height="15" isRemoveLineWhenBlank="true" forecolor="#333333" backcolor="#FFFFFF" uuid="c6aa3fdb-f4f0-4965-8229-62c03272d655"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page.page}+" "+$V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

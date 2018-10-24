@@ -1,0 +1,2497 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY pcs "http://www.inmindcomputing.com/application/products/products-schema.owl#" >
+    <!ENTITY pcsmrb "http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#" >
+    <!ENTITY psa "http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#"
+     xml:base="http://www.inmindcomputing.com/application/products/products-schema-mrb.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pcs="http://www.inmindcomputing.com/application/products/products-schema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:psa="http://www.inmindcomputing.com/application/products/products-schema-assembly.owl#"
+     xmlns:pcsmrb="http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/products/products-schema-mrb.owl">
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyGVA -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyGVA">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">GVA inculsive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyGVA)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalE ?st .
+            ?subject psa:assemblyPackaging ?ap .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st - ?ap) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBAssemblyProfitPackagingDelivery"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyL6GVA -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyL6GVA">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inculsive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyL6GVA)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalF ?stf .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?stf) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBL6Assembly"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyPurchaseItemOthersGVA -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyPurchaseItemOthersGVA">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inclusive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyPurchaseItemOthersGVA)
+          WHERE {
+
+            ?subject pcs:assemblyTotalPurchaseItemOthersSellingPrice ?sp .
+            ?subject pcs:assemblyTotalPurchaseItemOthersMaterialCost ?mc .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?sp - ?mc) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>3</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBPurchasedPartOthers"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyPurchaseItemPlasticGVA -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyPurchaseItemPlasticGVA">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inclusive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyPurchaseItemPlasticGVA)
+          WHERE {
+
+            ?subject pcs:assemblyTotalPurchaseItemPlasticSellingPrice ?sp .
+            ?subject pcs:assemblyTotalPurchaseItemPlasticsMaterialCost ?mc .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?sp - ?mc) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>3</ps:sequenceID>
+        <ps:group rdf:resource="&pcsmrb;PlasticsPurchasedPart"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblySubTotalB1 -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblySubTotalB1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL B1 (Secondary Process) + Mark Up</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 B (二次加工工艺) + 加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalB1)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?c .
+   ?c pcsp:processFinalCostPerSet ?cps.
+   ?salesItem as:isProduct pci:Assembly .
+   ?minorSi as:isProduct pci:SecondaryProcess .
+   BIND (xsd:decimal(?cps) AS ?val)
+} GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>3</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblySubTotalB2 -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblySubTotalB2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL B2 (Secondary Finishing Process) + Mark Up</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 B (二次加工工艺) + 加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalB2)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?c .
+   ?c pcsp:processFinalCostPerSet ?cps.
+   ?salesItem as:isProduct pci:Assembly .
+   ?minorSi as:isProduct pci:SecondaryFinishingProcess .
+   BIND (xsd:decimal(?cps) AS ?val)
+} GROUP BY ?subject
+
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>4</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyTotalAssemblyAndPackagingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyTotalAssemblyAndPackagingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Assembly &amp; Packaging Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总装配和包装成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalAssemblyAndPackagingCost)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalE ?st .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st) AS ?val)
+        }
+</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:group rdf:resource="&pcsmrb;MRBAssemblyProfitPackagingDelivery"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyTotalL6AssemblyCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyTotalL6AssemblyCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total L6 Assembly Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总级别6 的组装成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalL6AssemblyCost)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalF ?stf .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?stf) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:group rdf:resource="&pcsmrb;MRBL6Assembly"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyTotalPackagingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyTotalPackagingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Packaging Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">包装成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalPackagingCost)
+          WHERE {
+
+            ?subject psa:assemblyPackaging ?ap .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?ap) AS ?val)
+        }
+</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:group rdf:resource="&pcsmrb;MRBAssemblyProfitPackagingDelivery"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#assemblyTotalRecoverPercentage -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;assemblyTotalRecoverPercentage">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Percentage to Recover</rdfs:label>
+        <rdfs:label xml:lang="zh">百分比恢复</rdfs:label>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>15</ps:sequenceID>
+        <ps:sparql>SELECT ?subject (?val as ?assemblyTotalRecoverPercentage)
+          WHERE {
+
+            ?subject pcs:assemblyTotalRecoverAmount ?val1 .
+            ?subject pcs:assemblyTotalRecoverQuoted ?val2 .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+             BIND (xsd:decimal((?val2 / ?val1) * 100) AS ?val) .
+        }</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#costItemData -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;costItemData">
+        <rdfs:subPropertyOf rdf:resource="&ps;businessData"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#mrbNonMFGSource -->
+
+    <owl:DatatypeProperty rdf:about="&pcsmrb;mrbNonMFGSource">
+        <rdfs:label>Vendor</rdfs:label>
+        <rdfs:label xml:lang="zh">供应商</rdfs:label>
+        <as:costingRelevantSequence>21</as:costingRelevantSequence>
+        <as:costingRelevant>true</as:costingRelevant>
+        <ps:sequenceID>3</ps:sequenceID>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcess"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB"/>
+                    <rdf:Description rdf:about="&pcs;PurchasedPartOther-KB"/>
+                    <rdf:Description rdf:about="&pcs;PurchasedPlasticPart-KB"/>
+                    <rdf:Description rdf:about="&pcs;Subcon-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyAccessoriesToolingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyAccessoriesToolingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Accessories - Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">配件 -  模具成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyAccessoriesToolingCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGToolingCost ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:PurchasedPartOther .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>10</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyAccessoriesToolingRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyAccessoriesToolingRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Accessories - Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">配件 -  恢复数目</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyAccessoriesToolingRecoverAmount)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverAmount ?tc.
+      ?minorSi as:isProduct pci:PurchasedPartOther .
+       ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>11</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyAccessoriesToolingToolRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyAccessoriesToolingToolRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Accessories - Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">配件 -  恢复/报价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyAccessoriesToolingToolRecoverQuoted)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverQuoted ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+       ?minorSi as:isProduct pci:PurchasedPartOther .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>12</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyFinalPackageCostForAssy -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyFinalPackageCostForAssy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>FINAL PACKAGE COST FOR ASSY (Ex-Factory)</rdfs:label>
+        <rdfs:label xml:lang="zh">组装包装成本 （不含模具成本）</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?val as ?assemblyFinalPackageCostForAssy)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?subject pcs:assemblySubTotalA ?sta .
+            ?subject pcs:assemblySubTotalB ?stb .
+      ?subject pcs:assemblySubTotalB1 ?stb1 .
+      ?subject pcs:assemblySubTotalB2 ?stb2 .
+            ?subject pcs:assemblySubTotalC ?stc .
+            ?subject pcs:assemblySubTotalD ?std .
+            ?subject pcs:assemblySubTotalE ?ste .
+            ?subject pcs:assemblySubTotalF ?stf .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?sta + ?stb + ?stb1 + ?stb2 + ?stc + ?std + ?ste + ?stf) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>11</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyFinishingCostFromVendor -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyFinishingCostFromVendor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing Cost from Vendor</rdfs:label>
+        <rdfs:label xml:lang="zh">从供应商的总表面或加工处理成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyFinishingCostFromVendor)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?c .
+   ?c pcs:mrbNonMFGActCostPerSet ?cps.
+   ?salesItem as:isProduct pci:Assembly .
+   ?minorSi as:isProduct pci:Subcon .
+   BIND (xsd:decimal(?cps) AS ?val)
+} GROUP BY ?subject</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyFinishingProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyFinishingProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyFinishingProfitMarkupOverhead)
+WHERE {
+   ?subject pcs:assemblySubTotalB ?b .
+   ?subject pcs:assemblyFinishingCostFromVendor ?cost.
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?b - ?cost) AS ?val)
+}</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>4</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyFinishingToolingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyFinishingToolingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing - Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">表面或加工 - 模具成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyFinishingToolingCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesSalesItem+ ?minorSi .
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGToolingCost ?tc .
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:Subcon .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyFinishingToolingRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyFinishingToolingRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing - Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">表面或加工 - 恢复数目</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyFinishingToolingRecoverAmount)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverAmount ?tc.
+      ?minorSi as:isProduct pci:Subcon .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>5</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyFinishingToolingRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyFinishingToolingRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing - Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">表面或加工 - 恢复/报价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyFinishingToolingRecoverQuoted)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverQuoted ?tc.
+      ?minorSi as:isProduct pci:Subcon .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>6</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyGVAInclusiveOfMarkup -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyGVAInclusiveOfMarkup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inclusive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyGVAInclusiveOfMarkup)
+          WHERE {
+
+            ?subject pcs:assemblyTotalFinishingProcessSellingPrice ?fpsp .
+            ?subject pcs:assemblyFinishingCostFromVendor ?fcfv .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?fpsp - ?fcfv) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyGmm -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyGmm">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GMM</rdfs:label>
+        <rdfs:label xml:lang="zh">GMM </rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyGmm)
+          WHERE {
+
+            ?subject pcs:assemblyTotalPartSellingPartPrice ?pspp .
+            ?subject pcs:assemblyTotalMatlCost ?mc .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?pspp - ?mc) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>5</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SheetMetal"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyIHFinishingCostFromVendor -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyIHFinishingCostFromVendor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing Cost from Vendor</rdfs:label>
+        <rdfs:label xml:lang="zh">从供应商的总表面或加工处理成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyIHFinishingCostFromVendor)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?c .
+   ?c pcs:mrbNonMFGActCostPerSet ?cps.
+   ?salesItem as:isProduct pci:Assembly .
+   ?minorSi as:isProduct pci:InhouseFinishing .
+   BIND (xsd:decimal(?cps) AS ?val)
+} GROUP BY ?subject</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;InhouseFinishingMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyIHFinishingProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyIHFinishingProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql>SELECT ?subject (?val as ?assemblyIHFinishingProfitMarkupOverhead)
+WHERE {
+   ?subject pcs:assemblySubTotalB3 ?b .
+   ?subject pcs:assemblyIHFinishingCostFromVendor ?cost.
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?b - ?cost) AS ?val)
+}</ps:sparql>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;InhouseFinishingMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyIHGVAInclusiveOfMarkup -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyIHGVAInclusiveOfMarkup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inclusive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:sparql>SELECT ?subject (?val as ?assemblyIHGVAInclusiveOfMarkup)
+          WHERE {
+            ?subject pcs:assemblyIHTotalFinishingProcessSellingPrice ?fpsp .
+            ?subject pcs:assemblyIHFinishingCostFromVendor ?fcfv .
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?fpsp - ?fcfv) AS ?val)
+        }</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;InhouseFinishingMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyIHTotalFinishingProcessSellingPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyIHTotalFinishingProcessSellingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Finishing Process Selling Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总表面或加工处理售价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyIHTotalFinishingProcessSellingPrice)
+          WHERE {
+            ?subject pcs:assemblySubTotalB3 ?st .
+           ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;InhouseFinishingMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyL6ProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyL6ProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyL6ProfitMarkupOverhead)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalF ?stf .
+            ?subject psa:assemblyStampingAndAssemblyCostProfit ?sacp.
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?stf - ?sacp) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>3</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBL6Assembly"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyMfgFinishingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyMfgFinishingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">表面或加工处理成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyMfgFinishingCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesSalesItem ?minorSi .
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:metalStampingFinalFinishingCost ?ffc.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:MetalStamping .
+            BIND (xsd:decimal(?ffc) AS ?val)
+          } GROUP BY ?subject</ps:sparql>
+        <ps:sequenceID>3</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SheetMetal"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyMfgProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyMfgProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyMfgProfitMarkupOverhead)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:metalStampingSubTotalLMNSet ?stlmns .
+      ?minorSi as:isProduct pci:MetalStamping .
+       ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?stlmns) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>6</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SheetMetal"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyMfgRawMatlCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyMfgRawMatlCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Raw Mat&apos;l Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">原料成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyMfgRawMatlCost)
+          WHERE {
+            ?subject pcs:assemblyTotalMatlCost ?tmc .
+            ?subject pcs:assemblyMfgFinishingCost ?fc.
+      ?subject as:configItemIncludedBy ?salesItem .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tmc - ?fc) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SheetMetal"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyPlasticMoldToolCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyPlasticMoldToolCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Plastic Mold - Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">塑胶模具 - 模具成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyPlasticMoldToolCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGToolingCost ?tc.
+      ?minorSi as:isProduct pci:PurchasedPlasticPart .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;string">true</ps:readOnly>
+        <ps:sequenceID>7</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyPlasticMoldToolRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyPlasticMoldToolRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Plastic Mold - Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">塑胶模具 - 恢复数目</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyPlasticMoldToolRecoverAmount)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverAmount ?tc.
+      ?minorSi as:isProduct pci:PurchasedPlasticPart .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>8</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyPlasticMoldToolRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyPlasticMoldToolRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Plastic Mold - Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">塑胶模具 - 恢复/报价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyPlasticMoldToolRecoverQuoted)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverQuoted ?tc.
+      ?minorSi as:isProduct pci:PurchasedPlasticPart .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>9</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyProfitMarkupOverhead)
+          WHERE {
+
+            ?subject psa:assemblyPackaging ?p .
+            ?subject pcs:assemblySubTotalE ?st .
+            ?subject psa:assemblyLabourAndStorageCost ?lsc.
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st - ?p - ?lsc) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBAssemblyProfitPackagingDelivery"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyPurchaseItemOthersProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyPurchaseItemOthersProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyPurchaseItemOthersProfitMarkupOverhead)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalD ?sta .
+            ?subject pcs:assemblyTotalPurchaseItemOthersMaterialCost ?mc .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?sta - ?mc) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBPurchasedPartOthers"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyPurchaseItemPlasticProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyPurchaseItemPlasticProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyPurchaseItemPlasticProfitMarkupOverhead)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalC ?sta .
+            ?subject pcs:assemblyTotalPurchaseItemPlasticsActCost ?mc .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?sta - ?mc) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:group rdf:resource="&pcsmrb;PlasticsPurchasedPart"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySFP_FinishingCostFromVendor -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySFP_FinishingCostFromVendor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing Cost from Vendor</rdfs:label>
+        <rdfs:label xml:lang="zh">从供应商的总表面或加工处理成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblySFP_FinishingCostFromVendor)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?c .
+   ?c pcsp:processCostPerSet ?cps.
+   ?salesItem as:isProduct pci:Assembly .
+   ?minorSi as:isProduct pci:SecondaryFinishingProcess .
+   BIND (xsd:decimal(?cps) AS ?val)
+} GROUP BY ?subject</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB2"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySFP_FinishingProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySFP_FinishingProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblySFP_FinishingProfitMarkupOverhead)
+WHERE {
+   ?subject pcsmrb:assemblySubTotalB2 ?b .
+   ?subject pcs:assemblySFP_FinishingCostFromVendor ?cost.
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?b - ?cost) AS ?val)
+}</ps:sparql>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB2"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySFP_GVAInclusiveOfMarkup -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySFP_GVAInclusiveOfMarkup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inclusive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblySFP_GVAInclusiveOfMarkup)
+WHERE {
+   ?subject pcs:assemblySFP_TotalFinishingProcessSellingPrice ?fpsp .
+   ?subject pcs:assemblySFP_FinishingCostFromVendor ?fcfv .
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?fpsp - ?fcfv) AS ?val)
+}</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB2"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySFP_TotalFinishingProcessSellingPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySFP_TotalFinishingProcessSellingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Finishing Process Selling Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总表面或加工处理售价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblySFP_TotalFinishingProcessSellingPrice)
+WHERE {
+   ?subject pcsmrb:assemblySubTotalB2 ?st .
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?st) AS ?val)
+}</ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB2"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySPFinishingCostFromVendor -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySPFinishingCostFromVendor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Finishing Cost from Vendor</rdfs:label>
+        <rdfs:label xml:lang="zh">从供应商的总表面或加工处理成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblySPFinishingCostFromVendor)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:includesSalesItem ?minorSi .
+   ?minorSi as:includesConfigItem ?c .
+   ?c pcsp:processCostPerSet ?cps.
+   ?salesItem as:isProduct pci:Assembly .
+   ?minorSi as:isProduct pci:SecondaryProcess .
+   BIND (xsd:decimal(?cps) AS ?val)
+} GROUP BY ?subject</ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB1"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySPFinishingProfitMarkupOverhead -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySPFinishingProfitMarkupOverhead">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Profit / Markup / Overhead</rdfs:label>
+        <rdfs:label xml:lang="zh">利润 / 加价 / 管理费</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblySPFinishingProfitMarkupOverhead)
+WHERE {
+   ?subject pcsmrb:assemblySubTotalB1 ?b .
+   ?subject pcs:assemblySPFinishingCostFromVendor ?cost.
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?b - ?cost) AS ?val)
+}</ps:sparql>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB1"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySPGVAInclusiveOfMarkup -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySPGVAInclusiveOfMarkup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>GVA inclusive of markup</rdfs:label>
+        <rdfs:label xml:lang="zh">增加值总额包括加价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblySPGVAInclusiveOfMarkup)
+          WHERE {
+
+            ?subject pcs:assemblySPTotalFinishingProcessSellingPrice ?fpsp .
+            ?subject pcs:assemblySPFinishingCostFromVendor ?fcfv .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?fpsp - ?fcfv) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB1"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySPTotalFinishingProcessSellingPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySPTotalFinishingProcessSellingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Finishing Process Selling Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总表面或加工处理售价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblySPTotalFinishingProcessSellingPrice)
+WHERE {
+   ?subject pcsmrb:assemblySubTotalB1 ?st .
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:isProduct pci:Assembly .
+   BIND (xsd:decimal(?st) AS ?val)
+}</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>1</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCostB1"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySecondaryFinishingToolingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySecondaryFinishingToolingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Secondary Process - Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">二次加工工艺 - 模具成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySecondaryFinishingToolingCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem+ ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGToolingCost ?tc .
+       ?minorSi as:isProduct pci:SecondaryFinishingProcess .
+ ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>40</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySecondaryFinishingToolingRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySecondaryFinishingToolingRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Secondary Finishing - Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">二次加工工艺 - 恢复数目</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySecondaryFinishingToolingRecoverAmount)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverAmount ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:SecondaryFinishingProcess .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>41</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySecondaryFinishingToolingRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySecondaryFinishingToolingRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Secondary Finishing - Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">二次加工工艺 - 恢复/报价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySecondaryFinishingToolingRecoverQuoted)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverQuoted ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:SecondaryFinishingProcess.
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>42</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySecondaryProcessToolingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySecondaryProcessToolingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Secondary Process - Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">二次加工工艺 - 模具成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySecondaryProcessToolingCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesSalesItem ?minorSi .
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGToolingCost ?tc .
+       ?minorSi as:isProduct pci:SecondaryProcess .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>44</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySecondaryProcessToolingRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySecondaryProcessToolingRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Secondary Process - Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">二次加工工艺 - 恢复数目</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySecondaryProcessToolingRecoverAmount)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverAmount ?tc.
+      ?minorSi as:isProduct pci:SecondaryProcess .
+       ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>45</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySecondaryProcessToolingRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySecondaryProcessToolingRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Secondary Process - Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">二次加工工艺 - 恢复/报价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySecondaryProcessToolingRecoverQuoted)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem+ ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverQuoted ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:SecondaryProcess .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>46</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyStampingRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyStampingRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Stamping Tool - Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">冲压 - 恢复数目</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyStampingRecoverAmount)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverAmount ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+        ?minorSi as:isProduct pci:MetalStamping .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyStampingRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyStampingRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Stamping Tool - Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">冲压 - 恢复/报价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyStampingRecoverQuoted)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbRecoverQuoted ?tc.
+       ?salesItem as:isProduct pci:Assembly .
+       ?minorSi as:isProduct pci:MetalStamping .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>3</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyStampingToolCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyStampingToolCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Stamping Tool - Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">冲压 - 模具成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblyStampingToolCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:metalStampingToolingCostMRB ?tc.
+      ?salesItem as:isProduct pci:Assembly .
+       ?minorSi as:isProduct pci:MetalStamping .
+            BIND (xsd:decimal(?tc) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalA -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalA">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL A (SHEET METAL)</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 A (铁件)</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalA)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:metalStampingCostPerSetMRB ?qp .
+       ?minorSi as:isProduct pci:MetalStamping .
+      ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?qp) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalB -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL B (Subcon) + Mark Up</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 B (二次加工工艺) + 加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalB)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesSalesItem ?minorSi .
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGCostPerSet ?cps.
+        ?minorSi as:isProduct pci:Subcon .
+         ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?cps) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalB3 -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalB3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL B3 (InhouseFinishing) + Mark Up</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalB3)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesSalesItem ?minorSi .
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGCostPerSet ?cps.
+        ?minorSi as:isProduct pci:InhouseFinishing .
+         ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?cps) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>5</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalC -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalC">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL C (Plastic parts for Assy) + Mark Up</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 C (塑料部件用于组装) + 加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalC)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGCostPerSet ?cps.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:PurchasedPlasticPart .
+            BIND (xsd:decimal(?cps) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>6</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalD -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalD">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL D (Purchase Items for Assy) + Mark Up</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 D (采购部件用于组装) + 加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (sum(?val) as ?assemblySubTotalD)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGCostPerSet ?cps.
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:PurchasedPartOther .
+            BIND (xsd:decimal(?cps) AS ?val)
+          } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>7</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalE -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalE">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL : E (ASSY / PROFIT / PKG+DEL)</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 E (组装/利润/包装+交货)</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?val as ?assemblySubTotalE)
+          WHERE {
+
+            ?subject psa:assemblyLabourAndStorageCost ?lsc .
+            ?subject psa:assemblyGA ?ga .
+            ?subject psa:assemblyPackaging ?pck .
+            ?subject psa:assemblyPackagingMarkupAbsolute ?pma .
+            ?subject psa:assemblyProfit ?p.
+        ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?lsc + ?ga + ?pck + ?pma + ?p) AS ?val)
+          }
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>9</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblySubTotalF -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblySubTotalF">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>SUB-TOTAL : F (ASSY / PROFIT / PKG+DEL)</rdfs:label>
+        <rdfs:label xml:lang="zh">小计 F (组装/利润/包装+交货)</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">select ?subject (?val as ?assemblySubTotalF)
+          WHERE {
+
+            ?subject psa:assemblyStampingAndAssemblyCostProfit ?sacp .
+            ?subject pcs:assemblyStampingAndAssemblyOverhead ?sao.
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?sacp + ?sao) AS ?val)
+          } </ps:sparql>
+        <ps:sequenceID>10</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;MRBSubTotals"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalFinishingProcessSellingPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalFinishingProcessSellingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Finishing Process Selling Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总表面或加工处理售价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalFinishingProcessSellingPrice)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalB ?st .
+        ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>1</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SubconMRBCost"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalMatlCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalMatlCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Material Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总材料成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyTotalMatlCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:metalStampingSubTotalABCSet ?stabcs .
+      ?salesItem as:isProduct pci:Assembly .
+      ?minorSi as:isProduct pci:MetalStamping .
+            BIND (xsd:decimal(?stabcs) AS ?val)
+        } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>4</ps:sequenceID>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SheetMetal"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalPartSellingPartPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalPartSellingPartPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Part Selling Part Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总铁件销售价格</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalPartSellingPartPrice)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            ?subject pcs:assemblySubTotalA ?sa .
+            BIND (xsd:decimal(?sa) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SheetMetal"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalPurchaseItemOthersMaterialCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalPurchaseItemOthersMaterialCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Material Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总材料成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyTotalPurchaseItemOthersMaterialCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGActCostPerSet ?cps.
+       ?salesItem as:isProduct pci:Assembly .
+         ?minorSi as:isProduct pci:PurchasedPartOther .
+            BIND (xsd:decimal(?cps) AS ?val)
+        } GROUP BY ?subject
+        </ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBPurchasedPartOthers"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalPurchaseItemOthersSellingPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalPurchaseItemOthersSellingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Purchase Item Selling Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总采购部件售价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalPurchaseItemOthersSellingPrice)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalD ?st .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st) AS ?val)
+        }
+        </ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;MRBPurchasedPartOthers"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalPurchaseItemPlasticSellingPrice -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalPurchaseItemPlasticSellingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Total Purchase Item Selling Price</rdfs:label>
+        <rdfs:label xml:lang="zh">总采购部件售价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?assemblyTotalPurchaseItemPlasticSellingPrice)
+          WHERE {
+
+            ?subject pcs:assemblySubTotalC ?st .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?st) AS ?val)
+        }
+        </ps:sparql>
+        <ps:sequenceID>1</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcsmrb;PlasticsPurchasedPart"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalPurchaseItemPlasticsActCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalPurchaseItemPlasticsActCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyTotalPurchaseItemPlasticsActCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:mrbNonMFGActCostPerSet ?cps.
+      ?salesItem as:isProduct pci:Assembly .
+       ?minorSi as:isProduct pci:PurchasedPlasticPart .
+            BIND (xsd:decimal(?cps) AS ?val)
+        } GROUP BY ?subject
+        </ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalPurchaseItemPlasticsMaterialCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalPurchaseItemPlasticsMaterialCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Material Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总材料成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (sum(?val) as ?assemblyTotalPurchaseItemPlasticsMaterialCost)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+
+            ?salesItem as:includesSalesItem ?minorSi .
+
+            ?minorSi as:includesConfigItem ?c .
+            ?c pcs:purchasedPlasticPartMatlCostPerSet ?cps.
+       ?salesItem as:isProduct pci:Assembly .
+       ?minorSi as:isProduct pci:PurchasedPlasticPart .
+            BIND (xsd:decimal(?cps) AS ?val)
+        } GROUP BY ?subject
+        </ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:group rdf:resource="&pcsmrb;PlasticsPurchasedPart"/>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Total Recover Amount</rdfs:label>
+        <rdfs:label xml:lang="zh">总恢复数目</rdfs:label>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>13</ps:sequenceID>
+        <ps:sparql>SELECT ?subject (?val as ?assemblyTotalRecoverAmount)
+          WHERE {
+
+            ?subject pcs:assemblyAccessoriesToolingRecoverAmount ?val1 .
+            ?subject pcs:assemblyFinishingToolingRecoverAmount ?val2 .
+            ?subject pcs:assemblyPlasticMoldToolRecoverAmount ?val3 .
+            ?subject pcs:assemblyStampingRecoverAmount ?val4 .
+            ?subject pcs:mrbRecoverAmount ?val5 .
+            ?subject pcs:assemblySecondaryProcessToolingRecoverAmount ?val6 .
+            ?subject pcs:assemblySecondaryFinishingToolingRecoverAmount ?val7 .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+    BIND (xsd:decimal(?val1 + ?val2 + ?val3 + ?val4 + ?val5 + ?val6 + ?val7) AS ?val) .
+        }</ps:sparql>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#assemblyTotalRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;assemblyTotalRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Total Recover / Quoted</rdfs:label>
+        <rdfs:label xml:lang="zh">总恢复/报价</rdfs:label>
+        <ps:sequenceID>14</ps:sequenceID>
+        <ps:sparql>SELECT ?subject (?val as ?assemblyTotalRecoverQuoted)
+          WHERE {
+
+            ?subject pcs:assemblyAccessoriesToolingToolRecoverQuoted ?val1 .
+            ?subject pcs:assemblyFinishingToolingRecoverQuoted ?val2 .
+            ?subject pcs:assemblyPlasticMoldToolRecoverQuoted ?val3 .
+            ?subject pcs:assemblyStampingRecoverQuoted ?val4 .
+            ?subject pcs:mrbRecoverQuoted ?val5 .
+            ?subject pcs:assemblySecondaryProcessToolingRecoverQuoted ?val6 .
+            ?subject pcs:assemblySecondaryFinishingToolingRecoverQuoted ?val7 .
+       ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:Assembly .
+            BIND (xsd:decimal(?val1 + ?val2 + ?val3 + ?val4 + ?val5 + ?val6 + ?val7 ) AS ?val ) .
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <rdfs:domain rdf:resource="&pcs;Assembly-KB"/>
+        <ps:group rdf:resource="&pcs;SummaryTooling"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolAmortizationMRB -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;metalStampingToolAmortizationMRB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Tool Amortization</rdfs:label>
+        <rdfs:label xml:lang="zh">模具摊销</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?metalStampingToolAmortizationMRB)
+          WHERE {
+            ?subject pcs:metalStampingToAmortize ?ta .
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:MetalStamping .
+      BIND (xsd:decimal(?ta) AS ?val)
+        }</ps:sparql>
+        <ps:sequenceID>2</ps:sequenceID>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:domain rdf:resource="&pcs;MetalStamping-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#metalStampingToolingCostMRB -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;metalStampingToolingCostMRB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Tool Cost</rdfs:label>
+        <rdfs:label xml:lang="zh">总成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?metalStampingToolingCostMRB)
+          WHERE {
+            ?subject pcs:metalStampingTtlTool ?tt .
+      ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:isProduct pci:MetalStamping .
+            BIND (xsd:decimal(?tt) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:domain rdf:resource="&pcs;MetalStamping-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGActCostPerSet -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGActCostPerSet">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Act. Cost / Set</rdfs:label>
+        <rdfs:label xml:lang="zh">每套实际成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?mrbNonMFGActCostPerSet)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesItemHeaderPriceItem ?headerPriceItem .
+            ?headerPriceItem as:itemHeaderQuantity ?cq .
+            ?subject pcs:mrbNonMFGactlCostPerPiece ?acpp .
+            BIND (xsd:decimal(?acpp * ?cq) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>6</ps:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcess"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGCostPerPiece -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGCostPerPiece">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Cost/pc</rdfs:label>
+        <rdfs:label xml:lang="zh">每件成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?mrbNonMFGCostPerPiece)
+          WHERE {
+            ?subject pcs:mrbNonMFGactlCostPerPiece ?acp .
+            ?subject pcs:mrbNonMFGMarkUp ?mu .
+            BIND (xsd:decimal(?acp * (1 + (?mu / 100))) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>11</ps:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcess"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGCostPerSet -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGCostPerSet">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Cost/Set</rdfs:label>
+        <rdfs:label xml:lang="zh">每套成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?mrbNonMFGCostPerSet)
+          WHERE {
+            ?subject as:configItemIncludedBy ?salesItem .
+            ?salesItem as:includesItemHeaderPriceItem ?headerPriceItem .
+            ?headerPriceItem as:itemHeaderQuantity ?cq .
+            ?subject pcs:mrbNonMFGCostPerPiece ?cpp .
+            BIND (xsd:decimal(?cpp * ?cq) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;string">true</ps:readOnly>
+        <ps:sequenceID>12</ps:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcesS"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGLeadTime -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGLeadTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Lead Time (weeks)</rdfs:label>
+        <rdfs:label xml:lang="zh">交货时间(周)</rdfs:label>
+        <as:costingRelevant>true</as:costingRelevant>
+        <as:costingRelevantSequence>23</as:costingRelevantSequence>
+        <ps:sequenceID>8</ps:sequenceID>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcess"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#PurchasedPartSubMaterial-KB"/>
+                    <rdf:Description rdf:about="&pcs;PurchasedPartOther-KB"/>
+                    <rdf:Description rdf:about="&pcs;PurchasedPlasticPart-KB"/>
+                    <rdf:Description rdf:about="&pcs;Subcon-KB"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGMOQMRB -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGMOQMRB">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>MOQ</rdfs:label>
+        <rdfs:label xml:lang="zh">最小起订量</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGMarkUp -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGMarkUp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>% Mark Up</rdfs:label>
+        <rdfs:label xml:lang="zh">%加价</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID>7</ps:sequenceID>
+        <ps:mandatory>true</ps:mandatory>
+        <as:costingRelevantSequence>22</as:costingRelevantSequence>
+        <as:costingRelevant>true</as:costingRelevant>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcess"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGToolAmortization -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGToolAmortization">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Tool Amortization (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">模具摊销</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <as:costingRelevant>true</as:costingRelevant>
+        <ps:sequenceID>2</ps:sequenceID>
+        <as:costingRelevantSequence>26</as:costingRelevantSequence>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <rdfs:domain rdf:resource="&pcs;MRBNonMFG-KB"/>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGToolingCost -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGToolingCost">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Tool Cost (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">总成本</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <as:costingRelevant>true</as:costingRelevant>
+        <as:costingRelevantSequence>28</as:costingRelevantSequence>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <rdfs:domain rdf:resource="&pcs;MRBNonMFG-KB"/>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbNonMFGactlCostPerPiece -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbNonMFGactlCostPerPiece">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Act. Cost / Pc</rdfs:label>
+        <rdfs:label xml:lang="zh">每件实际成本</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val AS ?mrbNonMFGactlCostPerPiece)
+WHERE {
+   ?subject as:configItemIncludedBy ?salesItem .
+   ?salesItem as:salesItemIncludedBy+ ?quote .
+   ?quote rdf:type as:Quote .
+   ?quote ase:zQuoteActiveMOQ ?activemoq.
+  OPTIONAL{
+      ?subject pcs:actCostPerPieceMOQ1 ?acppmoq1.
+   } OPTIONAL{
+      ?subject pcs:actCostPerPieceMOQ2 ?acppmoq2.
+   } OPTIONAL{
+      ?subject pcs:actCostPerPieceMOQ3 ?acppmoq3.
+   } OPTIONAL{
+      ?subject pcs:actCostPerPieceMOQ4 ?acppmoq4.
+   } OPTIONAL{
+      ?subject pcs:actCostPerPieceMOQ5 ?acppmoq5.
+   }
+   BIND (IF( str(?activemoq )= &quot;MOQ1&quot;,
+         ?acppmoq1,
+         IF ( str(?activemoq) = &quot;MOQ2&quot;,
+          ?acppmoq2  ,
+            IF (str( ?activemoq) = &quot;MOQ3&quot;,
+               ?acppmoq3  ,
+               IF ( str(?activemoq) = &quot;MOQ4&quot;,
+                  ?acppmoq4  ,
+                  IF ( str(?activemoq) = &quot;MOQ5&quot;,
+                     ?acppmoq5 ,
+                     xsd:decimal(0)))))) AS ?val)
+}
+
+</ps:sparql>
+        <ps:readOnly rdf:datatype="&xsd;boolean">true</ps:readOnly>
+        <ps:sequenceID>5</ps:sequenceID>
+        <rdfs:domain rdf:resource="http://www.inmindcomputing.com/application/products/products-schema-knowledgebase.owl#CostItem-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <ps:group rdf:resource="&pcs;PurchasePart"/>
+        <ps:group rdf:resource="&pcs;Sales"/>
+        <ps:group rdf:resource="&pcs;SecondaryProcess"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;materialization"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbRecoverAmount -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbRecoverAmount">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Recover Amount (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">恢复数目</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?mrbRecoverAmount)
+          WHERE {
+            OPTIONAL{
+                 ?subject pcs:mrbNonMFGToolAmortization ?ta1 .
+                 ?subject pcs:mrbNonMFGToolingCost ?tc1 .
+            }
+            OPTIONAL{
+                 ?subject pcs:metalStampingToolAmortizationMRB ?ta2 .
+                 ?subject pcs:metalStampingToolingCostMRB ?tc2 .
+            }
+            BIND (IF (EXISTS {
+                 ?subject as:configItemIncludedBy ?salesItem .
+                 ?salesItem as:isProduct pci:MetalStamping.
+            }, (xsd:decimal(?tc2 - ?ta2)), (xsd:decimal(?tc1 - ?ta1)))  AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>3</ps:sequenceID>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:domain rdf:resource="&pcs;Tooling-MRB-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbRecoverQuoted -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbRecoverQuoted">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Recover / Quoted (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">恢复/报价</rdfs:label>
+        <ps:sparql rdf:datatype="&xsd;string">SELECT ?subject (?val as ?mrbRecoverQuoted)
+          WHERE {
+            ?subject pcs:mrbRecoverAmount ?ra .
+            ?subject pcs:mrbToolingMarkup ?tm .
+            BIND (xsd:decimal(?ra * (1 + (?tm / 100))) AS ?val)
+        }</ps:sparql>
+        <ps:readOnly>true</ps:readOnly>
+        <ps:sequenceID>5</ps:sequenceID>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:domain rdf:resource="&pcs;Tooling-MRB-KB"/>
+        <rdfs:subPropertyOf rdf:resource="&ps;calculation"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#mrbToolingMarkup -->
+
+    <owl:DatatypeProperty rdf:about="&pcs;mrbToolingMarkup">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Tooling Markup (%) (MRB)</rdfs:label>
+        <rdfs:label xml:lang="zh">模具加价(%)</rdfs:label>
+        <ps:defaultValue rdf:datatype="&xsd;decimal">0</ps:defaultValue>
+        <ps:sequenceID>4</ps:sequenceID>
+        <as:costingRelevant>true</as:costingRelevant>
+        <as:costingRelevantSequence>27</as:costingRelevantSequence>
+        <rdfs:subPropertyOf rdf:resource="&pcsmrb;costItemData"/>
+        <ps:group rdf:resource="&pcs;MRBTooling"/>
+        <rdfs:domain rdf:resource="&pcs;Tooling-MRB-KB"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBAssemblyProfitPackagingDelivery -->
+
+    <owl:NamedIndividual rdf:about="&pcsmrb;MRBAssemblyProfitPackagingDelivery">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupDescription xml:lang="en">MRB - E. L5 ASSEMBLY , PROFIT , PACKAGING + DELIVERY</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - E. 级别5 的组装，利润，包装和送货</ps:groupDescription>
+        <ps:groupCode>_118</ps:groupCode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBL6Assembly -->
+
+    <owl:NamedIndividual rdf:about="&pcsmrb;MRBL6Assembly">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupCode>_119</ps:groupCode>
+        <ps:groupDescription xml:lang="en">MRB - F. L6 ASSEMBLY</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - F. 级别5 的组装</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#MRBPurchasedPartOthers -->
+
+    <owl:NamedIndividual rdf:about="&pcsmrb;MRBPurchasedPartOthers">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupCode>_117</ps:groupCode>
+        <ps:sequenceID>13</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">MRB - D. PURCHASED PART - OTHERS</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - D. 采购件 - 其他</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema-mrb.owl#PlasticsPurchasedPart -->
+
+    <owl:NamedIndividual rdf:about="&pcsmrb;PlasticsPurchasedPart">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupCode>_116</ps:groupCode>
+        <ps:sequenceID>12</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">MRB - C. PLASTICS / PURCHASED PART - USED IN S/M ASSY</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - C. 塑料 / 采购部件在铁件装配使用</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#InhouseFinishingMRBCost -->
+
+    <owl:NamedIndividual rdf:about="&pcs;InhouseFinishingMRBCost">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>14</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">MRB - B3. INHOUSE FINISHING COST</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - B3. 二次加工工艺成本</ps:groupDescription>
+        <ps:groupCode>_114</ps:groupCode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#L5AssemblyToolsFixture -->
+
+    <owl:NamedIndividual rdf:about="&pcs;L5AssemblyToolsFixture">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupDescription>MRB - L5 Assembly Tools/Fixture</ps:groupDescription>
+        <ps:sequenceID>5</ps:sequenceID>
+        <ps:groupCode>_123</ps:groupCode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#L6AssemblyToolsFixture -->
+
+    <owl:NamedIndividual rdf:about="&pcs;L6AssemblyToolsFixture">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupDescription>MRB - L6 Assembly Tools/Fixture</ps:groupDescription>
+        <ps:sequenceID>6</ps:sequenceID>
+        <ps:groupCode>_124</ps:groupCode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#MRB -->
+
+    <owl:NamedIndividual rdf:about="&pcs;MRB">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>11</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">MRB</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB</ps:groupDescription>
+        <ps:groupCode>_1111</ps:groupCode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#MRBTooling -->
+
+    <owl:NamedIndividual rdf:about="&pcs;MRBTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupDescription xml:lang="en">MRB Tooling</ps:groupDescription>
+        <ps:groupCode>_1112</ps:groupCode>
+        <ps:sequenceID>12</ps:sequenceID>
+        <ps:groupDescription xml:lang="zh">MRB模具</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#PurchasedParts -->
+
+    <owl:NamedIndividual rdf:about="&pcs;PurchasedParts">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:groupCode>_104</ps:groupCode>
+        <ps:sequenceID>4</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">Purchased Parts</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">购买配件</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#SheetMetal -->
+
+    <owl:NamedIndividual rdf:about="&pcs;SheetMetal">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>10</ps:sequenceID>
+        <ps:groupCode>_110</ps:groupCode>
+        <ps:groupDescription xml:lang="en">MRB - A. MFG - SHEET METAL (Hard Tool)</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - A. 制造 - 铁件(硬模具)</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#SubconMRBCost -->
+
+    <owl:NamedIndividual rdf:about="&pcs;SubconMRBCost">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>11</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">MRB - B. SUBCON PROCESS COST</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - B. 二次加工工艺成本</ps:groupDescription>
+        <ps:groupCode>_111</ps:groupCode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#SubconMRBCostB1 -->
+
+    <owl:NamedIndividual rdf:about="&pcs;SubconMRBCostB1">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>12</ps:sequenceID>
+        <ps:groupDescription xml:lang="zh">MRB - B1. 二次加工工艺成本</ps:groupDescription>
+        <ps:groupCode>_112</ps:groupCode>
+        <ps:groupDescription xml:lang="en">MRB - B1. SECONDARY PROCESS COST</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#SubconMRBCostB2 -->
+
+    <owl:NamedIndividual rdf:about="&pcs;SubconMRBCostB2">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>13</ps:sequenceID>
+        <ps:groupCode>_113</ps:groupCode>
+        <ps:groupDescription xml:lang="en">MRB - B2. SECONDARY FINISHING PROCESS COST</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB - B2. 二次加工工艺成本</ps:groupDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-schema.owl#SummaryTooling -->
+
+    <owl:NamedIndividual rdf:about="&pcs;SummaryTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <ps:sequenceID>14</ps:sequenceID>
+        <ps:groupDescription xml:lang="en">MRB Tooling Summary</ps:groupDescription>
+        <ps:groupDescription xml:lang="zh">MRB 模具总结</ps:groupDescription>
+        <ps:groupCode>_120</ps:groupCode>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

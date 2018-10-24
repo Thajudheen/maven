@@ -1,0 +1,165 @@
+constraintNet A16_MEILLER_COND_CNET {
+  constraints
+
+	A16_TABLES
+//	PRODUCTLISTPRICE	
+}
+constraint A16_TABLES{
+	objects ?O is_a(300)CRM_AK16
+		
+	restrictions
+		?O.MEILLER_MOD = ?O.A16MOD,
+		table TYP_MODELL (
+			TYP = ?O.domain TYP,
+			MODELL = ?O.domain MODELL,
+			A16MOD = ?O.domain A16MOD,
+			PRODUCTIMAGE = ?O.domain PRODUCTIMAGE
+//			PRODUCTLISTPRICE = ?O.domain PRODUCTLISTPRICE
+		),
+		table A16MSS (
+			A16MSS = ?O.domain A16MSS,
+			A16STE = ?O.domain A16STE
+		),
+		table A16PRE (
+			A16PRE = ?O.domain A16PRE,
+			A16SIC = ?O.domain A16SIC
+		),
+		table A16BOD (
+			A16BOD = ?O.domain A16BOD,
+			A16SIC = ?O.domain A16SIC
+		),
+		table A16VSS (
+			A16BOD = ?O.domain A16BOD,
+			A16VSS = ?O.domain A16VSS
+		),
+		table A16ANL_MOD (
+			A16ANL = ?O.domain A16ANL,
+			A16MOD = ?O.domain A16MOD
+		),
+		table A16ANL (
+			A16ANL = ?O.domain A16ANL,
+			A16STK = ?O.domain A16STK
+		),
+		table A16EIN (
+			A16EIN = ?O.domain A16EIN,
+			A16STE = ?O.domain A16STE
+		),
+		table A16ATT (
+			A16ATT = ?O.domain A16ATT,
+			A16STE = ?O.domain A16STE
+		),
+		table A16BED (
+			A16BED = ?O.domain A16BED,
+			A16STE = ?O.domain A16STE
+		),
+		table A16HAS (
+			A16HAS = ?O.domain A16HAS,
+			A16FZG = ?O.domain A16FZG,
+			A16STE = ?O.domain A16STE
+		),
+		table A16MKO (
+			A16MKO = ?O.domain A16MKO,
+			A16KOT = ?O.domain A16KOT
+		),
+		table A16STK_MOD (
+			A16STK = ?O.domain A16STK,
+			A16MOD = ?O.domain A16MOD
+		),
+		table A16HKI_MOD (
+			A16HKI = ?O.domain A16HKI,
+			A16MOD = ?O.domain A16MOD
+		),
+		table A16ASR_MOD (
+			A16ASR = ?O.domain A16ASR,
+			A16MOD = ?O.domain A16MOD
+		),
+		table A16FSW_MOD (
+			A16FSW = ?O.domain A16FSW,
+			A16MOD = ?O.domain A16MOD
+		),
+		table A16MSV (
+			A16MSV = ?O.domain A16MSV,
+			A16SSV = ?O.domain A16SSV
+		),
+		table A16KON (
+			A16KOS = ?O.domain A16KOS,
+			A16KON = ?O.domain A16KON
+		),
+		table A16KOS (
+			A16KOS = ?O.domain A16KOS,
+			A16KOH = ?O.domain A16KOH
+		),
+		table A16KOH (
+			A16KON = ?O.domain A16KON,
+			A16KOH = ?O.domain A16KOH
+		),
+// Farbtabelle
+		table A16AFA (
+			A16AFA = ?O.domain A16AFA,
+			A16LAQ = ?O.domain A16LAQ,
+			A16FCO = ?O.domain A16FCO,
+			A16FTO = ?O.domain A16FTO
+		),
+		table A16LAQ (
+			A16LAQ = ?O.domain A16LAQ,
+			A16LAA = ?O.domain A16LAA
+		),
+		table A16LLO (
+			A16LLO = ?O.domain A16LLO,
+			A16MON = ?O.domain A16MON,
+			A16LAA = ?O.domain A16LAA
+		),
+		table A16VLO (
+			A16VLO = ?O.domain A16VLO,
+			A16MON = ?O.domain A16MON,
+			A16LAA = ?O.domain A16LAA
+		),
+		table A16TFR (
+			A16TFR = ?O.domain A16TFR,
+			A16MON = ?O.domain A16MON
+		),
+		table A16WER (
+			A16WER = ?O.domain A16WER,
+			A16MON = ?O.domain A16MON
+		)
+	inferences:
+		?O.domain TYP, ?O.domain MODELL, ?O.domain A16MOD,
+		?O.domain PRODUCTIMAGE,
+		?O.MEILLER_MOD,
+//			?O.domain PRODUCTLISTPRICE
+		?O.domain A16PRE,
+		?O.domain A16BOD,
+		?O.domain A16FSW,
+		?O.domain A16VSS,
+		?O.domain A16ANL,
+		?O.domain A16SIC,
+		?O.domain A16STK,
+		?O.domain A16STE,
+		?O.domain A16MSS,
+		?O.domain A16EIN,
+		?O.domain A16ATT,
+		?O.domain A16BED,
+		?O.domain A16HAS,
+		?O.domain A16FZG,
+		?O.domain A16MKO,
+		?O.domain A16KOT,
+		?O.domain A16STK,
+		?O.domain A16HKI,
+		?O.domain A16ASR,
+		?O.domain A16MSV,
+		?O.domain A16SSV,
+		?O.domain A16KOS,
+		?O.domain A16KON,
+		?O.domain A16KOH,
+		?O.domain A16AFA,
+		?O.domain A16LAQ,
+		?O.domain A16FCO,
+		?O.domain A16FTO,
+		?O.domain A16LLO,
+		?O.domain A16VLO,
+		?O.domain A16MON,
+		?O.domain A16LAA,
+		?O.domain A16TFR,
+		?O.domain A16WER
+}
+

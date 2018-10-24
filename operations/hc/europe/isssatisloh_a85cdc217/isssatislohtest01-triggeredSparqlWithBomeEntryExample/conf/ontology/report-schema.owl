@@ -1,0 +1,2004 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY ase "http://www.inmindcomputing.com/application/application-schema-ext.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY pci "http://www.inmindcomputing.com/application/products/products-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/report-schema.owl#"
+     xml:base="http://www.inmindcomputing.com/application/report-schema.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:pci="http://www.inmindcomputing.com/application/products/products-implementation.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ase="http://www.inmindcomputing.com/application/application-schema-ext.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/report-schema.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.4</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-schema.owl"/>
+    </owl:Ontology>
+    
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+	Groups for legacy support 15.08.2016 F.Teucher
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group1200dlxGroupAdditionalConfigurationAndToolingOptions -->
+
+
+    <owl:NamedIndividual rdf:about="&pci;Group1200dlxGroupAdditionalConfigurationAndToolingOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Additional Configuration and Tooling Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group1200dlxGroupConsumableOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group1200dlxGroupConsumableOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumable Options</rdfs:label>
+        <rdfs:label xml:lang="fr">Consumable Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group1200dlxGroupEssilorOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group1200dlxGroupEssilorOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Essilor Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group1200dlxGroupMachineAndPeripherals -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group1200dlxGroupMachineAndPeripherals">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschinen</rdfs:label>
+        <rdfs:label xml:lang="en">Machine and Peripherals</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group1200dlxGroupOptionalPeripherals -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group1200dlxGroupOptionalPeripherals">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Optional Peripherals</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group1200dlxGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group1200dlxGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP  </rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group3bx-blockerGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group3bx-blockerGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group4tx-tracerGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group4tx-tracerGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group7ex-drillGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group7ex-drillGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group7ex-drillGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group7ex-drillGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group7ex-nodrillGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group7ex-nodrillGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#Group7ex-nodrillGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;Group7ex-nodrillGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupCoolantSystems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupCoolantSystems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant Systems</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupService -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupService">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-aGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-aGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupCoolantSystems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupCoolantSystems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant Systems</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupService -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupService">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-blocker-mGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-blocker-mGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-autoGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-autoGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-autoGroupCoolantSystems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-autoGroupCoolantSystems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant Systems</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-autoGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-autoGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-autoGroupService -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-autoGroupService">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-mGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-mGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-mGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-mGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-mGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-mGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupArt-deblocker-mGroupService -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupArt-deblocker-mGroupService">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupBlocker-2000-2GroupAccessories -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupBlocker-2000-2GroupAccessories">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Accessories</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupBlocker-2000-2GroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupBlocker-2000-2GroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupBlocker-2000-2GroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupBlocker-2000-2GroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupBlocker-2000-2GroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupBlocker-2000-2GroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupBlocker-2000-2GroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupBlocker-2000-2GroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupBlocker-2000-2GroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupBlocker-2000-2GroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupAlloyBlocking -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupAlloyBlocking">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Alloy Blocking</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupArtBlocking -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupArtBlocking">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">ART Blocking</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupBasePads -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupBasePads">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Base Pads</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">11</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupCoolantsDefoamers -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupCoolantsDefoamers">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolants &amp; Defoamers</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupDigitalPolishing -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupDigitalPolishing">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Digital Polishing</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">9</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupFilterBags -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupFilterBags">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Filter Bags</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">14</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupFining -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupFining">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Fining</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">10</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupInstrumentsTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupInstrumentsTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Instruments &amp; Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">15</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupJobTrays -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupJobTrays">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Job Trays</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">16</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupLensProtection -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupLensProtection">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Lens Protection</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupPolish -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupPolish">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Polish</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">13</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupPolishing -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupPolishing">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Polishing</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">12</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupToolingOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupToolingOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupTurningTipsAndHolders -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupTurningTipsAndHolders">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Turning Tips and Holders</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupV50V75Tools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupV50V75Tools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">V50/V75 Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupConsumables-rxGroupVproTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupConsumables-rxGroupVproTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Vpro Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDimension-es-tracerGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDimension-es-tracerGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDipcoatersGroupAddOns -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDipcoatersGroupAddOns">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Add ons</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDipcoatersGroupMachinePeripherals -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDipcoatersGroupMachinePeripherals">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine &amp; Peripherals</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDipcoatersGroupSpareParts -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDipcoatersGroupSpareParts">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Spare Parts</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDipcoatersGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDipcoatersGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupChilling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupChilling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Chilling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupService -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupService">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupDuo-flexGroupTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupDuo-flexGroupTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-4EdgerGroupTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-4EdgerGroupTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-5GroupTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-5GroupTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-curve-aGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-curve-aGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-curve-aGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-curve-aGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupEs-curve-aGroupToolsAdditional -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupEs-curve-aGroupToolsAdditional">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools additional</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupFluidmgmtGroupFluidManagement -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupFluidmgmtGroupFluidManagement">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Fluid Management</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupFluidmgmtGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupFluidmgmtGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupFluidmgmtGroupPeriphery -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupFluidmgmtGroupPeriphery">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Periphery</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupInstallTrainGroupInstallation -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupInstallTrainGroupInstallation">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Installation</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupInstallTrainGroupTraining -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupInstallTrainGroupTraining">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Training</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupLensengraver3GroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupLensengraver3GroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupLensengraver3GroupOption -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupLensengraver3GroupOption">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Option</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMagna-spinGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMagna-spinGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMagna-spinGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMagna-spinGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMagna-spinGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMagna-spinGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMagna-spinGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMagna-spinGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMagna-spinGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMagna-spinGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc280GroupConsumableOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc280GroupConsumableOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumable Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc280GroupLabOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc280GroupLabOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Lab Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc280GroupMachineAndPeripherals -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc280GroupMachineAndPeripherals">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine and Peripherals</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc280GroupOptionalOrAddLItems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc280GroupOptionalOrAddLItems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Optional or Add&apos;l Items</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc280GroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc280GroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc380GroupConsumableOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc380GroupConsumableOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumable Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc380GroupLabOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc380GroupLabOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Lab Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc380GroupMachineAndPeripherals -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc380GroupMachineAndPeripherals">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine and Peripherals</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc380GroupOptionalOrAddLItems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc380GroupOptionalOrAddLItems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Optional or Add&apos;l Items</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc380GroupProcessTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc380GroupProcessTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Process &amp; Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMc380GroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMc380GroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-blockerGroupCoolingSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-blockerGroupCoolingSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Cooling System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-blockerGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-blockerGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-blockerGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-blockerGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-blockerGroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-blockerGroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Ohne</rdfs:label>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupChiller -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupChiller">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Chiller</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMicro-flexGroupTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMicro-flexGroupTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupService -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupService">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupMulti-flexGroupTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupMulti-flexGroupTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupPraGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupPraGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupPraGroupCoolant -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupPraGroupCoolant">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupPraGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupPraGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupPraGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupPraGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Ohne</rdfs:label>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupPraGroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupPraGroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-flexGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-flexGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-flexGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-flexGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-flexGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-flexGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-flexGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-flexGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-flexGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-flexGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-flexGroupTooling -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-flexGroupTooling">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-x-2sGroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-x-2sGroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-x-2sGroupCoolant -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-x-2sGroupCoolant">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-x-2sGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-x-2sGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupToro-x-2sGroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupToro-x-2sGroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV50GroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV50GroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV50GroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV50GroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV50GroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV50GroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV50GroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV50GroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV75GroupCalibration -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV75GroupCalibration">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV75GroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV75GroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV75GroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV75GroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV75GroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV75GroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV75GroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV75GroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupV75GroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupV75GroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupCalibrationSetUpTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupCalibrationSetUpTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration &amp; Set Up Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupCoolant -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupCoolant">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-macroGroupTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-macroGroupTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupCalibrationSetUpTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupCalibrationSetUpTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration &amp; Set Up Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-microGroupToolingOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-microGroupToolingOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupCalibrationSetUpTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupCalibrationSetUpTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration &amp; Set Up Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupOptionalItems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupOptionalItems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Optional Items</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-2GroupToolingOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-2GroupToolingOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupCalibrationSetUpTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupCalibrationSetUpTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration &amp; Set Up Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="de">Maschine</rdfs:label>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupOptionalItems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupOptionalItems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Optional Items</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbit-lGroupToolingOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbit-lGroupToolingOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupCalibrationSetUpTools -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupCalibrationSetUpTools">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Calibration &amp; Set Up Tools</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">5</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupConsumables -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupConsumables">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Consumables</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">8</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupCoolantSystem -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupCoolantSystem">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">6</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupMachine -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupMachine">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">1</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupOptionalItems -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupOptionalItems">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Optional Items</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">2</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupSoftware -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupSoftware">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">3</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupStep -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupStep">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">STEP</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">7</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/products/products-implementation.owl#GroupVft-orbitGroupToolingOptions -->
+
+    <owl:NamedIndividual rdf:about="&pci;GroupVft-orbitGroupToolingOptions">
+        <rdf:type rdf:resource="&as;Group"/>
+        <rdfs:label xml:lang="en">Tooling Options</rdfs:label>
+        <ps:sequenceID rdf:datatype="&xsd;int">4</ps:sequenceID>
+    </owl:NamedIndividual>
+    
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
+
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

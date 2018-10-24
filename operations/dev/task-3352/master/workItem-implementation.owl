@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY wi "http://www.inmindcomputing.com/application/workItem-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xml:base="http://www.inmindcomputing.com/application/workItem-implementation.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:wi="http://www.inmindcomputing.com/application/workItem-implementation.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/application/workItem-implementation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2014, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/application/application-rule.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppApprove -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppApprove">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Approve</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">accept</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&wi;StageOppApproved"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppLost -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppLost">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Lost</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">decline</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&wi;StageOppLost"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppQuote -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppQuote">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Quote</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">sales-document</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&wi;StageOppQuoted"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppSubmit -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppSubmit">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Submit</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">arrow-right</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&wi;StageOppCompleted"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppWithdraw -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppWithdraw">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Withdraw</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">undo</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&as;StageOppOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOppWon -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOppWon">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Won</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">accept</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&wi;StageOppWon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ActionOrder -->
+
+    <owl:NamedIndividual rdf:about="&wi;ActionOrder">
+        <rdf:type rdf:resource="&as;SalesDocumentAction"/>
+        <rdfs:label xml:lang="en">Order</rdfs:label>
+        <as:salesDocumentActionIcon rdf:datatype="&xsd;string">inventory</as:salesDocumentActionIcon>
+        <as:hasStage rdf:resource="&wi;StageOrdered"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#ORDERED -->
+
+    <owl:NamedIndividual rdf:about="&wi;ORDERED">
+        <rdf:type rdf:resource="&as;SalesDocumentStatus"/>
+        <rdfs:label xml:lang="en">Ordered</rdfs:label>
+        <ps:businessTypeId rdf:datatype="&xsd;string">103</ps:businessTypeId>
+        <ps:businessTypeExternalId rdf:datatype="&xsd;string">103</ps:businessTypeExternalId>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Ordered</ps:businessTypeShortText>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_A1 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_A1">
+        <rdf:type rdf:resource="&as;SubStageTemplate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_A1</rdfs:label>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_B1 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_B1">
+        <rdf:type rdf:resource="&as;SubStageTemplate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_B1</rdfs:label>
+        <as:hasSubStageTemplate rdf:resource="&wi;QuoteApproval_B2"/>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_MGR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#QuoteApproval_B2 -->
+
+    <owl:NamedIndividual rdf:about="&wi;QuoteApproval_B2">
+        <rdf:type rdf:resource="&as;SubStageTemplate"/>
+        <rdfs:label rdf:datatype="&xsd;string">QuoteApproval_B2</rdfs:label>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_SALES_VP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingEmailEnable -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingEmailEnable">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingEmailEnable</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Whether to send email notification to the approvals/owners during an approval flow.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">approval.email.enabled</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">false</as:settingValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppApproval_Enable -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppApproval_Enable">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppApproval_Enable</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Whether to enable opportunity approval flow.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">approval.opp.enabled</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppApproval_Low -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppApproval_Low">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppApproval_Low</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">1000</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The opportunity volume limit which anything above would require a Sales Manager approval.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">approval.opp.vol.low</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppPriority_High -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppPriority_High">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_High</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">50000</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a very high priority workItem</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">opp.priority.high</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppPriority_Low -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppPriority_Low">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_Low</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">100</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a medium priority workItem</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">opp.priority.low</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingOppPriority_Mid -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingOppPriority_Mid">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingOppPriority_Mid</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">10000</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The opportunity volume limit which anything above marks the opportunity as a high priority workItem</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">opp.priority.mid</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingQuoteApproval_Enable -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingQuoteApproval_Enable">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_Enable</rdfs:label>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">Whether to enable quote approval flow.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.enabled</as:settingKey>
+        <as:settingValue rdf:datatype="&xsd;boolean">true</as:settingValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingQuoteApproval_High -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingQuoteApproval_High">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_High</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">40</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The discount limit which anything above requires a Sales VP approval.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.high</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingQuoteApproval_Low -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingQuoteApproval_Low">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuoteApproval_Low</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">10</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The discount limit which anything above requires a Sales Manager approval.</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">approval.quote.discount.low</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingQuotePriority_High -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingQuotePriority_High">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_High</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">50000</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a very high priority workItem</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">quote.priority.high</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingQuotePriority_Low -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingQuotePriority_Low">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_Low</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">100</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a medium priority workItem</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">quote.priority.low</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#SettingQuotePriority_Mid -->
+
+    <owl:NamedIndividual rdf:about="&wi;SettingQuotePriority_Mid">
+        <rdf:type rdf:resource="&as;Setting"/>
+        <rdfs:label rdf:datatype="&xsd;string">SettingQuotePriority_Mid</rdfs:label>
+        <as:settingValue rdf:datatype="&xsd;int">10000</as:settingValue>
+        <ps:businessTypeShortText rdf:datatype="&xsd;string">The quote price limit which anything above marks the quote as a high priority workItem</ps:businessTypeShortText>
+        <as:settingKey rdf:datatype="&xsd;string">quote.priority.mid</as:settingKey>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOppApproved -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOppApproved">
+        <rdf:type rdf:resource="&as;Stage"/>
+        <rdfs:label xml:lang="en">Approved</rdfs:label>
+        <as:hasSalesDocumentStatus rdf:resource="&as;APPROVED"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppLost"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppQuote"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppWithdraw"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppWon"/>
+        <as:hasStage rdf:resource="&wi;StageOppLost"/>
+        <as:hasStage rdf:resource="&wi;StageOppQuoted"/>
+        <as:hasStage rdf:resource="&wi;StageOppWon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOppCompleted -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOppCompleted">
+        <rdf:type rdf:resource="&as;Stage"/>
+        <rdfs:label xml:lang="en">Completed</rdfs:label>
+        <as:hasSalesDocumentStatus rdf:resource="&as;COMPLETED"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppApprove"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppLost"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppQuote"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppWithdraw"/>
+        <as:hasStage rdf:resource="&wi;StageOppApproved"/>
+        <as:hasStage rdf:resource="&wi;StageOppLost"/>
+        <as:hasStage rdf:resource="&wi;StageOppQuoted"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOppLost -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOppLost">
+        <rdf:type rdf:resource="&as;Stage"/>
+        <rdfs:label xml:lang="en">Lost</rdfs:label>
+        <as:hasSalesDocumentStatus rdf:resource="&as;LOST"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppWithdraw"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOppQuoted -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOppQuoted">
+        <rdf:type rdf:resource="&as;Stage"/>
+        <rdfs:label xml:lang="en">Quoted</rdfs:label>
+        <as:hasSalesDocumentStatus rdf:resource="&as;QUOTED"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppLost"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppWithdraw"/>
+        <as:hasSalesDocumentAction rdf:resource="&wi;ActionOppWon"/>
+        <as:hasStage rdf:resource="&wi;StageOppLost"/>
+        <as:hasStage rdf:resource="&wi;StageOppWon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOppWon -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOppWon">
+        <rdf:type rdf:resource="&as;Stage"/>
+        <rdfs:label xml:lang="en">Won</rdfs:label>
+        <as:hasSalesDocumentStatus rdf:resource="&as;WON"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/application/workItem-implementation.owl#StageOrdered -->
+
+    <owl:NamedIndividual rdf:about="&wi;StageOrdered">
+        <rdf:type rdf:resource="&as;Stage"/>
+        <rdfs:label xml:lang="en">Ordered</rdfs:label>
+        <as:hasSalesDocumentAction rdf:resource="&as;ActionWithdrawToOpen"/>
+        <as:hasSalesDocumentStatus rdf:resource="&wi;ORDERED"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

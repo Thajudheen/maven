@@ -1,0 +1,21 @@
+constraintNet KSW_CNET {
+  constraints
+	CSTR_KSW_PRICE_1
+}
+
+constraint CSTR_KSW_PRICE_1 {
+	objects ?O is_a(300)KSW
+	
+	restrictions:
+		?O.KSW_NAME_PRICE = ?O.KSW_PRICE,
+		?O.PRODUCTPRICE = ?O.KSW_PRICE
+	
+	 inferences
+	 ?O.KSW_NAME_PRICE,
+	 ?O.PRODUCTPRICE 
+}
+
+		
+		
+		
+		

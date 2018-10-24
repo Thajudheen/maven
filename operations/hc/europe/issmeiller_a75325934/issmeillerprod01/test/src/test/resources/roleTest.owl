@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY afn "http://jena.hpl.hp.com/ARQ/function#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xpath-fn "http://www.w3.org/2005/xpath-functions#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ps "http://www.inmindcomputing.com/platform/platform-schema.owl#" >
+    <!ENTITY as "http://www.inmindcomputing.com/application/application-schema.owl#" >
+    <!ENTITY sec "http://www.inmindcomputing.com/security/security-implementation.owl#" >
+    <!ENTITY ai "http://www.inmindcomputing.com/application/application-implementation.owl#" >
+    <!ENTITY usi "http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#" >
+    <!ENTITY upi "http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.inmindcomputing.com/security/roleTest.owl#"
+     xml:base="http://www.inmindcomputing.com/security/roleTest.owl"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:usi="http://www.inmindcomputing.com/application/ui/ui-settings-implementation.owl#"
+     xmlns:as="http://www.inmindcomputing.com/application/application-schema.owl#"
+     xmlns:xpath-fn="http://www.w3.org/2005/xpath-functions#"
+     xmlns:upi="http://www.inmindcomputing.com/application/ui/ui-settings-product-implementation.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:ai="http://www.inmindcomputing.com/application/application-implementation.owl#"
+     xmlns:sec="http://www.inmindcomputing.com/security/security-implementation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ps="http://www.inmindcomputing.com/platform/platform-schema.owl#">
+    <owl:Ontology rdf:about="http://www.inmindcomputing.com/security/roleTest.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">0.3</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">Copyright (c) 2013, In Mind Cloud. All rights reserved.
+IMC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.inmindcomputing.com/security/security-rule.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#TestObject -->
+
+    <owl:Class rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+    
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_ADMIN -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_ADMIN">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_ADMIN</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_ADMIN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_AL -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_AL">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_AL</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_AL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_GB_MITTE-->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_GB_MITTE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_GB_MITTE</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_MITTE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_GB_NORD" -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_GB_NORD">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_GB_NORD"</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_NORD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_GB_SUED -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_GB_SUED">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_GB_SUED</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_GB_WEST -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_GB_WEST">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_GB_WEST</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GB_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_GF -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_GF">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_GF</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GF"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_GK -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_GK">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_GK</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_GK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_KAM -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_KAM">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_KAM</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_KAM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_RL_NORD  -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_RL_NORD">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_RL_NORD</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_NORD"/>
+    </owl:NamedIndividual>
+    
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_RL_MITTE  -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_RL_MITTE">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>U_RL_MITTE</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_MITTE"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_RL_SUED -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_RL_SUED">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_RL_SUED</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_SUED"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_RL_WEST -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_RL_WEST">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_RL_WEST</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_RL_WEST"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.inmindcomputing.com/security/roleTest.owl#U_VL -->
+
+    <owl:NamedIndividual rdf:about="http://www.inmindcomputing.com/security/roleTest.owl#U_VL">
+        <rdf:type rdf:resource="&as;User"/>
+        <rdf:type rdf:resource="http://www.inmindcomputing.com/security/roleTest.owl#TestObject"/>
+        <ps:businessTypeShortText>ROLE_VL</ps:businessTypeShortText>
+        <as:hasRoleDirect rdf:resource="&sec;ROLE_VL"/>
+    </owl:NamedIndividual>
+    
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
